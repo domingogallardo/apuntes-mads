@@ -291,8 +291,8 @@ La práctica tiene una duración de 4 semanas.
             - Informes sobre las reuniones de Scrum (planificación del
               sprint, scrum diario, revisión) y sobre las sesiones de
               pair programming.
-            - Resultado de la retrospectiva: qué ha ido bien y qué se
-              podría mejorar.
+            - Resultado de la retrospectiva: qué ha ido bien en el
+              sprint y qué se podría mejorar en el siguiente sprint.
     - Versión 1.4.0 de la máquina Docker en Docker Hub (es la máquina
       que voy a usar para revisar la ejecución de la práctica).
     - El repositorio GitHub deberá incluir el tablero de issues/PR
