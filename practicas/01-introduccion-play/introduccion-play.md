@@ -649,9 +649,9 @@ usar (ver la imagen) y el _milestone_ 1.0.0.
 
 <img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/labels-issues.png" width="500px"/>
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/4938739c627aa5d81cdb83a5cc55dadcab4a4532/practicas/01-introduccion-play/imagenes/issue-acerca-de-listado.png" width="500px"/>
+<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/issue-acerca-de-listado.png" width="500px"/>
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/4938739c627aa5d81cdb83a5cc55dadcab4a4532/practicas/01-introduccion-play/imagenes/issue-acerca-de-detalle.png" width="500px"/>
+<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/issue-acerca-de-detalle.png" width="500px"/>
 
 Añade el _issue_ al tablero (desde la página del _issue_) y
 automáticamente se añadirá en la columna `To do`.
@@ -666,13 +666,13 @@ request_ en GitHub para realizar la integración con la rama `master`.
 Mueve en el tablero la tarjeta con el _issue_ a la columna `In
 progress`.
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/4938739c627aa5d81cdb83a5cc55dadcab4a4532/practicas/01-introduccion-play/imagenes/in-progress-issue-1.png" width="300px" />
+<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/in-progress-issue-1.png" width="300px" />
 
 Empezamos el desarrollo importando el proyecto en IntelliJ y creando
 dos pestañas en el panel `Terminal`: una para lanzar el proyecto con
 Docker y trabajar con Sbt y la otra para trabajar con Git.
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/4938739c627aa5d81cdb83a5cc55dadcab4a4532/practicas/01-introduccion-play/imagenes/intellij-practica.png" width="700px"/>
+<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/intellij-practica.png" width="700px"/>
 
 Creamos la rama en la que desarrollaremos la _feature_ y la subimos a
 GitHub (en el panel `Git`):
@@ -728,7 +728,7 @@ To https://github.com/mads-ua-18/todolist-2018-domingogallardo2.git
 
 Consulta en GitHub que el _commit_ se ha subido en GitHub:
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/4938739c627aa5d81cdb83a5cc55dadcab4a4532/practicas/01-introduccion-play/imagenes/commit-practica-github.png" width="400px"/>
+<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/commit-practica-github.png" width="400px"/>
    
 De esta forma habrás comprobado que tienes permiso de escritura en
 el repositorio y que ya puedes comenzar a realizar la práctica.
@@ -798,7 +798,7 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 
 Prueba la página accediendo a la url <http://localhost:9000/about>.
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/4938739c627aa5d81cdb83a5cc55dadcab4a4532/practicas/01-introduccion-play/imagenes/pagina-acerca-de.png" width="400px"/>
+<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/pagina-acerca-de.png" width="400px"/>
 
 Por último, confirma el commit en la rama y súbelo a GitHub. En el
 panel `Git`:
@@ -916,7 +916,7 @@ Accede a la rama y comprueba que están todos los cambios pulsando
 `Compare`. Pulsa después el botón `New pull request` para crear el
 _pull request_.
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/4938739c627aa5d81cdb83a5cc55dadcab4a4532/practicas/01-introduccion-play/imagenes/rama-acerca-de.png" width="700px"/>
+<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/rama-acerca-de.png" width="700px"/>
 
 Introduce el nombre del _pull request_, el comentario, el _milestone_
 y la etiqueta. Copia los datos del _issue_, y en el comentario escribe
@@ -930,7 +930,7 @@ automáticamente el _issue_. El número `#1` lo convierte GitHub en un
 enlace al _issue_ correspondiente. De esta forma podemos examinar el
 _issue_ resuelto por el PR.
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/4938739c627aa5d81cdb83a5cc55dadcab4a4532/practicas/01-introduccion-play/imagenes/pull-request-practica.png" width="700px"/>
+<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/pull-request-practica.png" width="700px"/>
 
 Añade también el PR al tablero del proyecto. Se colocará
 automáticamente la columna `In pull request`. Entra en el proyecto y
@@ -946,7 +946,7 @@ GitHub informa de que no hay conflictos con la rama `master` y que es
 posible hacer el merge. Pulsa el botón de `Merge` y confírmalo. Borra
 la rama en GitHub, pulsando el botón correspondiente.
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/4938739c627aa5d81cdb83a5cc55dadcab4a4532/practicas/01-introduccion-play/imagenes/merge-pull-request-1.png" width="500px"/>
+<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/merge-pull-request-1.png" width="500px"/>
 
 Por último, este _merge_ lo has hecho en GitHub, debes integrarlo en tu
 repositorio local. En la pestaña de Git:
@@ -988,7 +988,7 @@ $ git log --oneline --graph --all
 Comprobamos también la historia de _commits_ en GitHub. Aparecerá el
 _commit_ de _merge_ introducido por el _pull request_.
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/4938739c627aa5d81cdb83a5cc55dadcab4a4532/practicas/01-introduccion-play/imagenes/historia-commits-practica1.png" width="800px"/>
+<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/historia-commits-practica1.png" width="800px"/>
 
 De esta forma hemos cerrado el PR e integrado su código en la rama
 principal de desarrollo. En el tablero de proyecto debe haber cambiado
@@ -1045,7 +1045,7 @@ $ git push
 Y, por último, creamos la versión 1.0.0 en GitHub pulsando en el
 enlace `release` en la página principal (pestaña `Code`).
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/4938739c627aa5d81cdb83a5cc55dadcab4a4532/practicas/01-introduccion-play/imagenes/release-practica1.png" width="700px"/>
+<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/release-practica1.png" width="700px"/>
 
 Un _release_ en GitHub se guarda como una una etiqueta Git, junto con
 información asociada. Se suelen indicar las nuevas _features_ añadidas
@@ -1054,11 +1054,11 @@ añadidos. También añadiremos enlaces a la página de la Wiki en la que
 se describe la característica.
 
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/4938739c627aa5d81cdb83a5cc55dadcab4a4532/practicas/01-introduccion-play/imagenes/primer-release-practica1.png" width="700px"/>
+<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/primer-release-practica1.png" width="700px"/>
 
 El resultado será:
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/4938739c627aa5d81cdb83a5cc55dadcab4a4532/practicas/01-introduccion-play/imagenes/release-practica1-terminado.png" width="400px"/>
+<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/release-practica1-terminado.png" width="400px"/>
 
 
 ### 4.2. Versión 1.1.0 ###
