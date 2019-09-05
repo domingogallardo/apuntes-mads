@@ -80,13 +80,6 @@ $ git --version
 $ mvn --version (imprime la versión de Maven y de Java)
 ```
 
-Configurar el nombre de usuario y el correo electrónico en Git:
-
-```
-$ git config --global user.name "John Doe"
-$ git config --global user.email johndoe@example.com
-```
-
 Es también bastante útil configurar el prompt para que aparezca la
 rama del repositorio Git en que nos encontramos. Para ello se debe
 añadir en el fichero `$HOME/.bashrc` (linux y Git Bash Windows) o
@@ -122,7 +115,7 @@ esta práctica debes seguir los siguientes pasos:
    
 3. Una vez logeado en GitHub, copia el enlace con una invitación que
    compartiremos en el foro de Moodle. Con esa invitación se creará
-   automáticamente el repositorio `practica0-<usuario>` en la
+   automáticamente el repositorio `practica-0-<usuario>` en la
    organización [mads-ua](https://github.com/mads-ua). Es un
    repositorio privado al que tienes acceso tú y el
    profesor. Contiene el código inicial del proyecto demostración de
