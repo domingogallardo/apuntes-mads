@@ -12,6 +12,13 @@ múltiples versiones (PDF, eBook, HTML y mobi).
 
 ### Comandos básicos
 
+- Configurar el usuario y dirección de correo en git:
+
+    ```
+    $ git config --global user.name "John Doe"
+    $ git config --global user.email johndoe@example.com
+    ```
+
 - Inicializar git en un directorio:
 
         $ cd /ruta/a/mi/directorio
@@ -316,4 +323,4 @@ Puedes encontrar más información en los siguientes documentos:
 - _Pro Git_ - [Basic Branching and Merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 - _Pro Git_ - [Git Branching - Rebasing](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)
 - Tutorial de Atlassian - [Merging vs. Rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
--  _Pro Git_ - [Reset Demystified](https://git-scm.com/book/en/v2/Git-Tools-Reset-Demystified#_git_rese
+- _Pro Git_ - [Reset Demystified](https://git-scm.com/book/en/v2/Git-Tools-Reset-Demystified)
