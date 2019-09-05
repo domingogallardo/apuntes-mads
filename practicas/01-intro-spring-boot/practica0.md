@@ -142,7 +142,7 @@ Spring de forma _standalone_, sin necesidad de un servidor de
 aplicaciones.
 
 Puedes encontrar la documentación de referencia de estos dos
-frameworks, en las siguientes páginas, en la pestaña _Learn_:
+frameworks en las siguientes páginas, en la pestaña _Learn_:
 
 - [Spring Boot](https://spring.io/projects/spring-boot)
 - [Spring](https://spring.io/projects/spring-framework) 
