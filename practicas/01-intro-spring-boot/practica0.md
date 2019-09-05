@@ -137,16 +137,21 @@ esta práctica debes seguir los siguientes pasos:
 
 ## Documentación a consultar ##
 
-[Spring Boot](https://spring.io/projects/spring-boot) es un
-_framework_ ligero que permite ejecutar aplicaciones [Spring](https://spring.io/projects/spring-framework) de forma
-_standalone_, sin necesidad de un servidor de aplicaciones.
+Spring Boot es un _framework_ ligero que permite ejecutar aplicaciones
+Spring de forma _standalone_, sin necesidad de un servidor de
+aplicaciones.
 
-La documentación de referencia de estos frameworks se encuentra en las
-páginas enlazadas, en la pestaña `Learn`. Podemos encontrar una
-extensa cantidad de tutoriales y guías rápidas en la web de Spring, en
-la url [https://spring.io/guides](https://spring.io/guides).
+Puedes encontrar la documentación de referencia de estos dos
+frameworks, en las siguientes páginas, en la pestaña _Learn_:
 
-Para realizar la práctica leer la [Introducción a Spring Boot para las
+- [Spring Boot](https://spring.io/projects/spring-boot)
+- [Spring](https://spring.io/projects/spring-framework) 
+
+Podemos encontrar también una extensa cantidad de tutoriales y guías
+rápidas en la web de Spring, en la url
+[https://spring.io/guides](https://spring.io/guides).
+
+Para realizar la práctica debes leer la [Introducción a Spring Boot para las
 prácticas de MADS](./intro-spring-boot.md) y las siguientes guías:
 
 - [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/)
