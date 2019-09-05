@@ -98,7 +98,42 @@ páginas en Internet. Por ejemplo
 
 ## Repositorio GitHub ##
 
+Para inicializar el repositorio de GitHub en el que vas a trabajar en
+esta práctica debes seguir los siguientes pasos:
 
+1. Inicializa tu nombre de usuario y tu correo en Git. El nombre de
+   usuario será el nombre que aparecerá en los _commits_. Pon tu nombre
+   y apellido.
+   
+        $ git config --global user.name "Pepe Perez"
+        $ git config --global user.email pepe.perez@example.com<
+
+2. Crea una cuenta en GitHub. Puedes usar el nombre de usuario que
+   quieras (o usar el que ya tienes), pero **escribe correctamente tu
+   nombre y apellidos en el perfil** usando la opción _Settings >
+   Profile_ y actualizando el campo _Name_.
+   
+3. Una vez logeado en GitHub, copia el enlace con una invitación que
+   compartiremos en el foro de Moodle. Con esa invitación se creará
+   automáticamente el repositorio `practica0-<usuario>` en la
+   organización [mads-ua](https://github.com/mads-ua). Es un
+   repositorio privado al que tienes acceso tú y el
+   profesor. Contiene el código inicial del proyecto demostración de
+   Spring Boot (es una copia del repositorio
+   [domingogallardo/spring-boot-demoapp](https://github.com/domingogallardo/spring-boot-demoapp)
+
+    Es importante que tengas en cuenta que el repositorio recién
+    creado no reside en tu cuenta, sino en la organización
+    `mads-ua`. Puedes acceder a él desde el _dashboard_ de GitHub que
+    aparece cuando te logeas:
+   
+    <img src="imagenes/dashboard-github.png" width="600px"/>
+
+    También el profesor te invitará a formar parte de la organización
+    y recibirás un mensaje de correo electrónico en el que deberás
+    aceptar esta invitación. También se puede aceptar la invitación
+    accediendo a <https://github.com/mads-ua>.
+   
 
 ## Documentación a consultar ##
 
@@ -117,7 +152,6 @@ prácticas de MADS](./intro-spring-boot.md) y las siguientes guías:
 - [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/)
 - [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
 - [Validating Form Input](https://spring.io/guides/gs/validating-form-input/)
-
 
 
 ## Enunciado de la práctica ##
