@@ -27,6 +27,13 @@ operativo. Debemos instalar el siguiente software:
 - Maven
 - IntelliJ Ultimate
 
+Recomendamos hacer el desarrollo usando el IDE [IntelliJ
+Ultimate](https://www.jetbrains.com/idea/download/). Aunque es de
+pago, es posible [obtener una licencia de
+estudiante](https://www.jetbrains.com/shop/eform/students) usando la
+dirección de correo de la UA.
+
+
 ### Instalación básica ###
 
 #### Linux ####
