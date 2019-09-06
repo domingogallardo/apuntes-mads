@@ -211,7 +211,10 @@ asignatura.
 
 ## Entrega ##
 
-- Realizar la aplicación en el directorio `practica1` del repositorio
-  GitHub `practicas-mads-ESTUDIANTE`.
+- Realizar la aplicación en el repositorio creado e ir subiendo los
+  commits conforme se van realizando.
+- Entregar en Moodle un ZIP con el directorio del proyecto (incluyendo el
+  directorio .git con el repositorio git), después de haber hecho
+  `mvn clean` para eliminar los binarios compilados.
 - Fecha límite de entrega: 17 de septiembre (1 semana)
 
