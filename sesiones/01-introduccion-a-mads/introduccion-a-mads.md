@@ -10,21 +10,26 @@
 <kbd><img src="diapositivas/introduccion-a-mads.004.png" width="800px"></kbd>
 
 Puedes consultar la ficha UA de la asignatura en
-[este enlace](http://cv1.cpd.ua.es/ConsPlanesEstudio/cvFichaAsiEEES.asp?wcodasi=34037&wLengua=C&scaca=2017-18).
+[este enlace](http://cv1.cpd.ua.es/ConsPlanesEstudio/cvFichaAsiEEES.asp?wcodasi=34037&wLengua=C&scaca=2019-20).
 
 Herramientas docentes:
 
-- [Moodle](https://moodle2017-18.ua.es/moodle/course/view.php?id=784):
+- [Moodle](https://moodle2019-20.ua.es/moodle/course/view.php?id=621):
   Utilizaremos Moodle para publicar semana a semana enlaces a los
   materiales en GitHub. También se realizarán las entregas finales de
   las prácticas (que se deberán ir subiendo también a GitHub). Y
   utilizaremos el foro de Moodle para poner en común dudas que os
   puedan surgir cuando estáis realizando los trabajos.
+
 - [Apuntes y materiales en GitHub](https://github.com/domingogallardo/mads-ua):
   Los apuntes consisten en ficheros Markdown con algunas explicaciones
   sobre las diapositivas. Una ventaja de utilizar GitHub es que se
   podrá consultar los últimos cambios que se hayan introducido en los
   materiales.
+
+  Los apuntes de las prácticas están compilados en un [sitio
+  web](https://domingogallardo.github.io/practicas-mads/) donde es
+  posible realizar búsquedas y navegar por secciones. 
 
 <kbd><img src="diapositivas/introduccion-a-mads.005.png" width="800px"></kbd>
 
@@ -60,10 +65,10 @@ Herramientas docentes:
   siguientes. Las dos primeras son individuales y las dos siguientes
   serán en grupo. Los grupos deberán tener 3 personas.
 
-- El **primer examen parcial de teoría** se realizará el **miércoles 7
-  de noviembre de 2018** en el horario de teoría (de 11 a 13 h.). El segundo
+- El **primer examen parcial de teoría** se realizará el **miércoles 13
+  de noviembre de 2019** en el horario de teoría (de 11 a 13 h.). El segundo
   parcial de teoría y el examen de prácticas coincidirán con la fecha
-  oficial del examen de la asignatura (**23 de enero de 2019**).
+  oficial del examen de la asignatura (**15 de enero de 2020**).
 
 - En cuanto a la evaluación, el **40% por ciento** de la calificación
   será por la nota en los exámenes de teoría, el **40% por el
@@ -71,7 +76,7 @@ Herramientas docentes:
   prácticas**por. No hay examen final. Las preguntas de los parciales
   de teoría de tipo test y de respuestas cortas. El examen de
   prácticas se realizará en el laboratorio y consistirá en el
-  desarrollo de una pequeña aplicación Play Framework utilizando las
+  desarrollo de una pequeña aplicación Spring Boot utilizando las
   tecnologías y metodología vistas en las prácticas.
 
 <kbd><img src="diapositivas/introduccion-a-mads.007.png" width="800px"></kbd>
@@ -90,9 +95,10 @@ Herramientas docentes:
 
 Enlaces:
 
-- [Play Framework](https://www.playframework.com)
+- [Spring Boot](https://spring.io/projects/spring-boot)
 - [GitHub](http://github.com)
 - [Git](https://git-scm.com/book/en/v2)
+- [Travis](https://travis-ci.com)
 - [Docker](https://www.docker.com)
 
 <kbd><img src="diapositivas/introduccion-a-mads.014.png" width="800px"></kbd>
@@ -144,8 +150,4 @@ digital), y alguno de ellos están disponibles on-line.
 - [La charla de TED](https://www.ted.com/talks/tom_wujec_build_a_tower?language=en)
 
 <kbd><img src="diapositivas/introduccion-a-mads.021.png" width="800px"></kbd>
-
-
-
-
 
