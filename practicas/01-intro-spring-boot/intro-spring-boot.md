@@ -284,6 +284,31 @@ Mediante la inyección de dependencias el código es más flexible y es
 más fácil de testear, pudiéndose definir _mocks_ que sustituyen los
 objetos inyectados.
 
+Más información en la documentación de Spring Boot [Spring Beans and Dependency Injection](https://docs.spring.io/spring-boot/docs/2.2.0.BUILD-SNAPSHOT/reference/htmlsingle/#using-boot-spring-beans-and-dependency-injection)
+
+#### Alcance de los objetos inyectados ####
+
+Por defecto el alcance (_scope_) de todas las anotaciones de Spring (`@service`,
+`@controller`, `@component`, etc.) es un _Singleton_. Existe una única
+instancia de ese objeto que es la que se inyecta en las variables.
+
+Al estar funcionando en una aplicación web, el _singleton_ que hace de
+controlador recibirá múltiples peticiones concurrentemente. Cada
+petición irá en su propio hilo de Java, por lo que múltiples hilos
+podrán estar ejecutando el mismo código del controlador. 
+
+Por ello hay que tener cuidado en **no definir variables de instancia
+mutables (con estado)** dentro del controlador, porque podrían
+producirse errores debidos a condiciones de carrera (un hilo modifica
+la misma variable que otro está leyendo). Es conveniente que todos los
+_beans_ (controladores, servicios, etc.) sean objetos sin estado.
+
+También es posible definir otros alcances, como `@RequestScope` o
+`@SessionScope`. En el primer caso se crea una instancia nueva del
+objeto para cada petición HTTP y en el segundo se crea una instancia
+nueva en cada sesión HTTP.
+
+Puedes encontrar más información y ejemplos en [este enlace](https://www.baeldung.com/spring-bean-scopes).
 
 ### Plantillas Thymeleaf ###
 
@@ -545,3 +570,13 @@ public class HttpRequestTest {
     }
 }
 ```
+
+
+## Referencias ##
+
+- Getting Started Guide [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/)
+- Getting Started Guide [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
+- Spring Boot Reference Guide 2.2.0.BUILD-SNAPSHOT
+  ([HTML](https://docs.spring.io/spring-boot/docs/2.2.0.BUILD-SNAPSHOT/reference/htmlsingle/),
+  [PDF](https://docs.spring.io/spring-boot/docs/2.2.0.BUILD-SNAPSHOT/reference/pdf/spring-boot-reference.pdf))
+  
