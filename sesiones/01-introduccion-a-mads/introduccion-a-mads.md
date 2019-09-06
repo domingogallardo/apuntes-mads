@@ -137,20 +137,13 @@ digital), y alguno de ellos están disponibles on-line.
   
 <kbd><img src="diapositivas/introduccion-a-mads.017.png" width="800px"></kbd>
 <kbd><img src="diapositivas/introduccion-a-mads.018.png" width="800px"></kbd>
-
-Enlace:
-
-- [Introducción a Play Framework para las prácticas de MADS](https://github.com/domingogallardo/apuntes-mads/blob/master/practicas/01-introduccion-play/intro-play-teoria.md)
-
 <kbd><img src="diapositivas/introduccion-a-mads.019.png" width="800px"></kbd>
-<kbd><img src="diapositivas/introduccion-a-mads.020.png" width="800px"></kbd>
-<kbd><img src="diapositivas/introduccion-a-mads.021.png" width="800px"></kbd>
 
-<kbd><img src="diapositivas/introduccion-a-mads.022.png" width="800px"></kbd>
+<kbd><img src="diapositivas/introduccion-a-mads.020.png" width="800px"></kbd>
 
 - [La charla de TED](https://www.ted.com/talks/tom_wujec_build_a_tower?language=en)
 
-<kbd><img src="diapositivas/introduccion-a-mads.023.png" width="800px"></kbd>
+<kbd><img src="diapositivas/introduccion-a-mads.021.png" width="800px"></kbd>
 
 
 
