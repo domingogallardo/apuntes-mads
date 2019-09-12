@@ -121,7 +121,6 @@ digital), y alguno de ellos están disponibles on-line.
 - Kent Beck: Extreme Programming Explained (2 Edición) -
   [Biblioteca UA](http://gaudi.ua.es/uhtbin/cgisirsi/0/x/0/05?searchdata1=0321278658)
 - Kent Beck, Test Driven Development By Example [Biblioteca UA](http://gaudi.ua.es/uhtbin/cgisirsi/0/x/0/05?searchdata1=9780321146533)
-- [Biblioteca UA](http://gaudi.ua.es/uhtbin/cgisirsi/0/x/0/05?searchdata1=1932394850)
 - Mike Cohn: User Stories Applied -
   [Biblioteca UA](http://gaudi.ua.es/uhtbin/cgisirsi/0/x/0/05?searchdata1=9780321205681)
 - Jeff Patton: User Story Mapping -
