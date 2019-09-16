@@ -1,7 +1,8 @@
 # Metodologías Ágiles de Desarrollo de Software
 
-Materiales del curso 2018-19 de la asignatura
-[Metodologías Ágiles de Desarrollo de Software](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=es&wcodasi=34037&scaca=2018-19)
+Materiales del curso 2019-20 de la asignatura
+[Metodologías Ágiles de Desarrollo de
+Software](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wcodest=C203&wcodasi=34037&wlengua=es&scaca=2019-20)
 de la Universidad de Alicante.
 
 La asignatura se imparte en 15 semanas de clases. Cada semana tiene
@@ -9,8 +10,15 @@ una clase de teoría y una de prácticas, ambas con una duración de 2
 horas.
 
 La distribución semanal de actividades está disponible en la [página
-de Moodle](https://moodle2018-19.ua.es/moodle/course/view.php?id=1006)
+de Moodle](https://moodle2019-20.ua.es/moodle/course/view.php?id=621)
 de la asignatura.
+
+Los apuntes de las prácticas están también disponibles en una versión
+MkDocs en
+[https://domingogallardo.github.io/practicas-mads/](https://domingogallardo.github.io/practicas-mads/).
+
+<!--
+
 
 ## Prácticas
 
@@ -97,3 +105,4 @@ actividades como se indica:
   - Parcial 1, bloque 1 y 2 (tipo test y preguntas cortas): 20%
   - Parcial 2, bloque 3 y 4 (tipo test y preguntas cortas): 20%
 
+-->
