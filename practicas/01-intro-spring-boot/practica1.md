@@ -210,12 +210,13 @@ usen para implementarla.
     Puede parecer redundante el uso de dos tableros, uno para las
     historias de usuario y otro para los _issues_ y _PR_. La
     justificación es que los objetivos de ambos tableros son distintos
-    (y los contenidos también). El tablero de GitHub será un tablero
-    técnico gestionado por el equipo de desarrollo, mientras que el
-    tablero Trello es un tablero de funcionalidades de usuario, que
+    (y los contenidos también). El tablero de GitHub será un **tablero
+    técnico** gestionado por el equipo de desarrollo. En terminología
+    de Scrum será el _sprint backlog_. Mientras que el
+    tablero Trello es un **tablero de funcionalidades de usuario**, que
     es gestionado por el _product owner_, usado por el equipo de
-    desarrollo y puede ser compartido también con clientes y gerencia.
-
+    desarrollo y puede ser compartido también con clientes y
+    gerencia. En la terminología de Scrum será el _product backlog_.
 
 La documentación en Trello y en GitHub (en los _issues_, en los PRs y
 en el propio `README.md` del proyecto) hay que escribirla en
