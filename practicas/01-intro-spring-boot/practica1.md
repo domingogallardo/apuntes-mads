@@ -17,7 +17,9 @@ Igual que en la práctica 0, debes leer la [introducción a Spring Boot
 para las prácticas de MADS](./intro-spring-boot.md) para entender los
 conceptos fundamentales del framework.
 
-### 1.1. Aplicación inicial
+## 2. Conceptos previos ##
+
+### 2.1. Aplicación inicial
 
 La aplicación inicial es una aplicación para gestionar listas de
 tareas pendientes de los usuarios de la aplicación. Se pueden registrar
@@ -47,7 +49,7 @@ Iremos desarrollando características adicionales de la aplicación a lo
 largo de las prácticas. El nombre de la aplicación es **ToDo List**.
 
 
-### 1.2. Metodología de desarrollo
+### 2.2. Metodología de desarrollo
 
 En cuanto a la metodología de desarrollo, en esta primera práctica
 repasaremos e introduciremos el uso de:
@@ -236,206 +238,977 @@ de GitHub](https://help.github.com/categories/writing-on-github/).
     una misma plataforma.
 
 
-<!--
+## 3. La aplicación ToDoList
 
-## 2. Entorno para realizar la práctica
+La aplicación
+[mads-todolist-inicial](https://github.com/domingogallardo/mads-todolist-inicial)
+es la versión inicial de la aplicación que se va a desarrollar
+durante todo el cuatrimestre en la asignatura.
 
-Software necesario:
+Es una aplicación bastante más compleja que la vista en la
+práctica 0. Entre otros, tiene los siguientes elementos:
 
-- [Git](https://git-scm.com/downloads)
-- [Docker](https://www.docker.com/community-edition), para ejecutar la
-   imagen (similar a una máquina virtual) que contiene Java y Play
-   Framework. En esta primera práctica se utiliza para compilar y
-   ejecutar los proyectos Play y para lanzar el servicio de base de
-   datos MySQL.
-- Como entorno de desarrollo proporcionamos dos opciones:
-   - [Visual Studio Code](https://code.visualstudio.com): IDE para
-     trabajar en el desarrollo del proyecto si no es posible usar
-     IntelliJ. No tiene las funcionalidades de IntelliJ de
-     autocompletar código, depuración, etc.
-   - [IntelliJ IDEA](https://www.jetbrains.com/idea/): IDE recomendado
-     para trabajar en el desarrollo del proyecto. Debes descargar la
-     versión **Ultimate**. Es de pago, pero puedes conseguir una
-     licencia educativa en
-     [https://www.jetbrains.com/student/](https://www.jetbrains.com/student/). Es
-     necesario disponer del **JDK Java 8**.  En la instalación se debe
-     instalar el **plugin de Scala**.
+- Gestiona distintos comandos HTTP: GET, POST, DELETE.
+- Recogida de datos en formularios HTML y validación de los datos.
+- Base de datos gestionada con JPA (_Java Persisence API_), un ORM (_Object Relational
+  Mapping_) implementado por la librería Hibernate. Se utiliza una
+  capa de persistencia basada en clases _repository_.
+- _Capa de servicio_ que proporciona la **lógica de negocio** a los
+  controllers.
+- Las _clases controller_ sólo se encargan de hacer de interfaz de la
+  capa de servicio: 
+    - Recoger datos de la petición HTTP,
+    - tratar y validar estas entradas, 
+    - llamar a la clase de servicio para que se realice la acción
+      requerida, y
+    - convertir la respuesta obtenida de la aplicación en una vista
+      que se devuelve como respuesta de la petición.
+- En las plantillas se incluye _Bootstrap_ y scripts JavaScript.
+- Las clases de servicio y de _repository_ se obtienen por inyección
+  de dependencias.
+- Gran número de tests que prueban la capa de servicios y la de presentación.
+- Distintos ficheros de configuración para poder arrancar la
+  aplicación en distintos entornos: desarrollo y prueba.
 
-### Docker ###
 
-[Docker](https://docs.docker.com) es una tecnología que ha tenido una
-gran expansión en los últimos años. Permite construir máquinas
-virtuales ligeras que utilizan el mismo sistema operativo de la
-máquina host. Estas máquinas virtuales se denominan _contenedores_ y,
-al compartir el propio sistema operativo en el que se están
-ejecutando, su gestión (construcción, arranque, parada, etc.) es
-muchísimo más rápida que las máquinas virtuales tradicionales.
+Vamos a ver con un poco más de detalle dónde puedes encontrar en el
+código todos estos elementos.
 
-Utilizaremos la imagen Docker
-[domingogallardo/playframework](https://hub.docker.com/r/domingogallardo/playframework/),
-que **lanza el comando `sbt` sobre el directorio actual** necesario
-para compilar y ejecutar aplicaciones Play.
+### Configuración de la aplicación ###
 
-Cada máquina docker se define con un fichero `Dockerfile`. Puedes
-mirar el fichero `Dockerfile` de la imagen de la asignatura en [este
-enlace](https://github.com/domingogallardo/playframework/blob/master/Dockerfile). Más
-adelante en la asignatura estudiaremos más sobre Docker.
+Los distintos parámetros de la aplicación Spring Boot se configuran un
+fichero de propiedades. El fichero de propiedades por defecto es
+`application.properties`.
 
-Tal y como hemos explicado en la [introducción a Play Framework para
-las prácticas de MADS](./intro-play-teoria.md) para lanzar esta imagen
-tenemos que ejecutar el siguiente comando, estando en el directorio de
-la aplicación Play:
+**Fichero `/src/main/resources/application.properties`**:
 
-```text
-$ cd /path/to/my/play/project
-$ docker run --rm  -it -v "${PWD}:/code" -p 9000:9000 domingogallardo/playframework
+```java
+spring.application.name = madstodolist
+spring.datasource.url=jdbc:h2:mem:dev
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.H2Dialect
+spring.jpa.hibernate.ddl-auto=update
+logging.level.org.hibernate.SQL=debug
+spring.datasource.data=classpath:datos-dev.sql
+spring.datasource.initialization-mode=always
 ```
 
-El comando `docker run` buscará la imagen
-`domingogallardo/playframework` en local y la descargará si no la
-encuentra. Después la ejecutará montando el directorio actual en el
-directorio `/code` y mapeando el puerto 80 de la máquina host en el
-puerto 9000 del contenedor. La imagen está configurada para lanzar el
-comando `sbt` sobre el directorio `code`.
+Se define las características de la fuente de datos con la que trabaja
+la aplicación (la base de datos en memoria H2) y el fichero que
+contiene los datos iniciales que se van a cargar en la base de datos
+al arrancar la aplicación, el fichero `datos-dev.sql`.
 
-Como en este directorio está montado el directorio de la máquina
-_host_ en donde tienes el proyecto, podrás editar y modificar los
-ficheros en la propia máquina _host_ y compilarlos y ejecutarlos desde
-el comando `sbt` en el contenedor.
+También se define la característica de JPA
+`spring.jpa.hibernate.ddl-auto` que define cómo se debe inicializar
+el esquema de datos de la aplicación cuando haya un cambio en el
+código fuente que define las entidades. En este caso tenemos un valor
+de `update` para indicar que se el esquema de datos debe
+actualizarse. En un entorno de producción el valor de esta propiedad
+deberá ser `validate` para no modificar la base de datos de producción.
 
-En la configuración por defecto (fichero `conf/application.conf`) la
-aplicación trabaja con la base de datos en memoria. Existe otra
-configuración (`conf/develop-mysql.conf`) para que la aplicación
-trabaje con una base de datos MySQL. La utilizaremos también en la práctica.
 
-### Entorno de trabajo  ###
+#### Otras configuraciones ####
 
-Es importante que el entorno de trabajo permita realizar con facilidad
-tanto el desarrollo de la aplicación como las pruebas.
+Es posible definir otras configuraciones e indicar en el comando de
+ejecución de la aplicación Spring Boot qué fichero de configuración
+usar. Lo veremos en la práctica 2.
 
-#### Pruebas manuales y automáticas ####
+En esta práctica se define otra configuración en el directorio de
+test, que es la que se carga cuando se lanzan los tests:
+
+
+**Fichero `src/test/resources/application.properties`**:
+```java
+spring.datasource.url=jdbc:h2:mem:test
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.H2Dialect
+spring.jpa.hibernate.ddl-auto=create
+logging.level.org.hibernate.SQL=debug
+spring.datasource.data=classpath:datos-test.sql
+spring.datasource.initialization-mode=always
+```
+
+La diferencia con el fichero de configuración de desarrollo es el
+nombre de la fuente de datos, el modo del
+`spring.jpa.hibernate.ddl-auto`, que es `create` y el fichero de datos
+iniciales que se carga al ejecutar los tests.
+
+
+### Gestión de persistencia con JPA ###
+
+Para la gestión de la persistencia de los datos en la aplicación
+Spring Boot usaremos [Spring Data
+JPA](https://docs.spring.io/spring-data/jpa/docs/2.1.10.RELEASE/reference/html/). Se
+trata de un API de Spring Boot que se construye sobre JPA (_Java
+Persistence API_), el ORM (_Object Relational Mapping_) estándar de
+Java. La implementación de JPA que utiliza Spring Boot es Hibernate
+5.3.10.
+
+Spring Data JPA usa todos los conceptos de JPA y añade algunos
+adicionales que facilitan aun más su utilización, como es la
+definición de interfaces `Repository` con métodos CRUD estándar para
+las entidades.
+
+#### Definición del modelo de datos ####
+
+El framework JPA permite definir el esquema de la base de datos usando
+anotaciones en las clases denominadas de entidad. Para cada clase de
+entidad se define una tabla en la base de datos, con columnas que se
+mapean con sus atributos.
+
+Por ejemplo, la clase `Usuario` que se lista a continuación define la
+tabla `usuario` en la base de datos. Los distintos atributos (`login`,
+`email`, ...) se corresponden con las columnas de la tabla.
+
+El atributo `id` se corresponde con la clave primaria de la tabla. JPA
+define varias estrategias para obtener esa clave primera, y se ha
+escogido la estrategia `@GeneratedValue(strategy =
+GenerationType.IDENTITY)` que define una columna que se autoincrementa
+en cada operación de inserción de un nuevo registro en la tabla.
+
+Además de los atributos, en la clase se define un constructor con los
+atributos obligatorios para definir un usuario, unos _getters_ y
+_setters_ y los métodos `equals` y `hashCode` para comparar usuarios.
+
+**Fichero `src/main/java/madstodolist/model/Usuario.java`**:
+
+```java
+package madstodolist.model;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Objects;
+
+@Entity
+@Table(name = "usuarios")
+public class Usuario implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @NotNull
+    private String email;
+    private String nombre;
+    private String password;
+    @Column(name = "fecha_nacimiento")
+    @Temporal(TemporalType.DATE)
+    private Date fechaNacimiento;
+
+    // Definimos el tipo de fetch como EAGER para que
+    // cualquier consulta que devuelve un usuario rellene automáticamente
+    // toda su lista de tareas
+    // CUIDADO!! No es recomendable hacerlo en aquellos casos en los
+    // que la relación pueda traer a memoria una gran cantidad de entidades
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
+    List<Tarea> tareas = new ArrayList<Tarea>();
+
+    // Constructor vacío necesario para JPA/Hibernate.
+    // Lo hacemos privado para que no se pueda usar desde el código de la aplicación. Para crear un
+    // usuario en la aplicación habrá que llamar al constructor público. Hibernate sí que lo puede usar, a pesar
+    // de ser privado.
+    private Usuario() {}
+
+    // Constructor público con los atributos obligatorios. En este caso el correo electrónico.
+    public Usuario(String email) {
+        this.email = email;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public List<Tarea> getTareas() {
+        return tareas;
+    }
+
+    public void setTareas(List<Tarea> tareas) {
+        this.tareas = tareas;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Usuario usuario = (Usuario) o;
+        if (id != null && usuario.id != null)
+            // Si tenemos los ID, comparamos por ID
+            return Objects.equals(id, usuario.id);
+        // sino comparamos por campos obligatorios
+        return email.equals(usuario.email);
+    }
+
+    @Override
+    public int hashCode() {
+        // Generamos un hash basado en los campos obligatorios
+        return Objects.hash(email);
+    }
+}
+```
+
+En la definición de la entidad también se incluyen relaciones con
+otras entidades. En este caso un `Usuario` tiene muchas `Tarea`s (una
+relación una-a-muchos).
+
+La relación uno-a-muchos se representa en la base de datos con una
+clave ajena. El atributo `mappedBy` indica que la clave ajena se va a
+guardar en la columna correspondiente con el atributo `usuario` de la
+entidad `Tarea`.
+
+La definición de `Tarea` es la siguiente:
+
+**Fichero `src/main/java/madstodolist/model/Tarea.java`**:
+
+```java
+package madstodolist.model;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import java.util.Objects;
+
+@Entity
+@Table(name = "tareas")
+public class Tarea implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @NotNull
+    private String titulo;
+
+    @NotNull
+    // Relación muchos-a-uno entre tareas y usuario
+    @ManyToOne
+    // Nombre de la columna en la BD que guarda físicamente
+    // el ID del usuario con el que está asociado una tarea
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
+    // Constructor vacío necesario para JPA/Hibernate.
+    // Lo hacemos privado para que no se pueda usar desde el código de la aplicación. Para crear un
+    // usuario en la aplicación habrá que llamar al constructor público. Hibernate sí que lo puede usar, a pesar
+    // de ser privado.
+    private Tarea() {}
+
+    // Al crear una tarea la asociamos automáticamente a un
+    // usuario. Actualizamos por tanto la lista de tareas del
+    // usuario.
+    public Tarea(Usuario usuario, String titulo) {
+        this.usuario = usuario;
+        this.titulo = titulo;
+        usuario.getTareas().add(this);
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tarea tarea = (Tarea) o;
+        return titulo.equals(tarea.titulo) &&
+                usuario.equals(tarea.usuario);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(titulo, usuario);
+    }
+}
+```
+
+#### Recuperación _eager_ y _lazy_ de las colecciones ####
+
+En la aplicación se define la relación _uno-a-muchos_ entre usuarios y
+tareas: un usuario tiene muchas tareas.
+
+```java
+@Entity
+public class Usuario {
+    ...
+    // Definimos el tipo de fetch como EAGER para que
+    // cualquier consulta que devuelve un usuario rellene automáticamente
+    // toda su lista de tareas
+    // CUIDADO!! No es recomendable hacerlo en aquellos casos en los
+    // que la relación pueda traer a memoria una gran cantidad de entidades
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
+    List<Tarea> tareas = new ArrayList<Tarea>();
+    ...
+}
+
+@Entity
+public class Tarea {
+    ...
+    // Relación muchos-a-uno entre tareas y usuario
+    @ManyToOne
+    // Nombre de la columna en la BD que guarda físicamente
+    // el ID del usuario con el que está asociado una tarea
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+    ...
+}
+```
+
+**Relaciones _lazy_**
+
+Por defecto, todas las relaciones _a-muchos_ en JPA se definen de
+tipo `LAZY`. 
+
+La característica de los atributos marcados como _lazy_ en JPA es que
+no se traen a memoria cuando se recupera la entidad, sino cuando se
+consultan. Pero para que se traigan a memoria **la conexión con la base
+de datos debe estar abierta**. Si ya se ha cerrado esa conexión (por
+ejemplo, se ha cerrado la transacción en el método de servicio y se
+quiere acceder a la una lista de tareas de un usuario devuelto por el
+propio método estando en el controller) se producirá un error.
+
+**Relaciones _eager_**
+
+Frente a la recuperación _lazy_ de colecciones, también existe la
+posibilidad de definir una colección como de tipo _EAGER_. En este
+caso JPA se traerá siempre a memoria todos los elementos. Es el caso
+de la relación entre un usuario y sus tareas.
+
+En general, no es conveniente definir una relación como _eager_ porque
+puede provocar problemas de rendimiento en el caso en que haya muchos
+elementos relacionados. 
+
+Pero si no hay muchos datos en la relación y los vamos a usar con
+frecuencia, sí que es aconsejable usar el tipo _EAGER_ para facilitar
+el manejo de la entidad.
+
+
+#### Clases Repository ####
+
+Spring define la clase genérica `CrudRepository` que contienen métodos por
+defecto para actualizar las entidades y realizar _queries_ sobre
+ellas. Para dejar abierta la posibilidad de cambiar la implementación,
+se definen con interfaces.
+
+```java
+public interface CrudRepository<T, ID extends Serializable>  extends Repository<T, ID> {
+  <S extends T> S save(S entity);
+  Optional<T> findById(ID primaryKey); 
+  Iterable<T> findAll();
+  long count();
+  void delete(T entity);
+  boolean existsById(ID primaryKey);
+  // … more functionality omitted.
+}
+```
+
+**TareaRepository**
+
+Para usar estos métodos con nuestras entidades basta con definir
+interfaces que extienden esta clase genérica. Por ejemplo, la interfaz `TareaRepository`:
+
+**Fichero `src/main/java/madstodolist/model/TareaRepository.java`**:
+
+```java
+package madstodolist.model;
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface TareaRepository extends CrudRepository<Tarea, Long> {}
+```
+
+Una vez definida la interfaz, ya podemos inyectar una instancia de
+_repository_ y usarla en las clases de servicio. Por ejemplo,
+mostramos el método de servicio que modifica el título de una tarea:
+
+```java
+@Service
+public class TareaService {
+
+    private UsuarioRepository usuarioRepository;
+    private TareaRepository tareaRepository;
+
+    @Autowired
+    public TareaService(UsuarioRepository usuarioRepository, TareaRepository tareaRepository) {
+        this.usuarioRepository = usuarioRepository;
+        this.tareaRepository = tareaRepository;
+    }
+    
+    ...
+    
+    @Transactional
+    public Tarea modificaTarea(Long idTarea, String nuevoTitulo) {
+        Tarea tarea = tareaRepository.findById(idTarea).orElse(null);
+        if (tarea == null) {
+            throw new TareaServiceException("No existe tarea con id " + idTarea);
+        }
+        tarea.setTitulo(nuevoTitulo);
+        tareaRepository.save(tarea);
+        return tarea;
+    }
+    
+    ...
+}
+```
+
+La anotación `@Transactional` hace que las acciones sobre la base de
+datos se ejecuten de forma transaccional. Se abre la transacción al
+del método y se cierra al final. Si sucede alguna excepción durante su
+ejecución la transacción se deshace.
+
+En el cuerpo del método se llama al método `findById` del repositorio
+que realiza una búsqueda en la base de datos y al método `save` que actualiza el
+valor de la entidad.
+
+**UsuarioRepository**
+
+La interfaz `UsuarioRepository` es similar.
+
+**Fichero `src/main/java/madstodolist/model/UsuarioRepository.java`**:
+
+```java
+package madstodolist.model;
+
+import org.springframework.data.repository.CrudRepository;
+
+import java.util.Optional;
+
+public interface UsuarioRepository extends CrudRepository<Usuario, Long> {
+    Optional<Usuario> findByEmail(String s);
+}
+```
+
+
+La diferencia es que se añade un método `findByEmail` que hace que
+Spring construya automáticamente una consulta sobre  la base de datos. Al
+usar como nombre del método el nombre de la propiedad de la entidad
+(`email`), Spring puede generar automáticamente la consulta.
+
+### Servicios ###
+
+La capa de servicios es la capa intermedia entre la capa de
+_controllers_ y la de _repository_. Es la capa que implementa toda la
+lógica de negocio de la aplicación.
+
+La responsabilidad principal de la capa de servicios es obtener o
+crear los objetos entidad necesarios para cada funcionalidad a partir
+de los datos que manda la capa _controller_, trabajar con ellos en
+memoria y hacer persistentes los cambios utilizando la capa
+_repository_.
+
+La capa de servicios también gestionará errores y lanzará excepciones
+cuando no se pueda realizar alguna funcionalidad.
+
+Los servicios obtienen instancias de _Repository_ usando inyección de
+dependencias.
+
+**Ventajas de utilizar una capa de servicios**
+
+Al utilizar clases de servicios podemos aislar la lógica de negocio de
+la aplicación usando métodos y objetos Java, sin preocuparnos de cómo
+obtener los datos de la interfaz de usuario ni de cómo mostrar los
+resultados. De esto ya se ocuparán las clases _controller_. De esta
+forma, si se necesita modificar la interfaz de usuario de la
+aplicación, o convertirla en un servicio REST que devuelva JSON en
+lugar de HTML sólo tendremos que tocar las clases _controller_, no las
+de servicio.
+
+Además, al no tener ninguna dependencia con la interfaz de usuario,
+estas clases de servicios también podrán ser fácilmente testeadas. La
+mayoría de los tests automáticos los haremos sobre ellas.
+
+**Fichero `src/main/java/madstodolist/service/UsuarioService.java`**:
+
+```java
+npackage madstodolist.service;
+
+import madstodolist.model.Usuario;
+import madstodolist.model.UsuarioRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
+
+@Service
+public class UsuarioService {
+
+    public enum LoginStatus {LOGIN_OK, USER_NOT_FOUND, ERROR_PASSWORD}
+
+    private UsuarioRepository usuarioRepository;
+
+    @Autowired
+    public UsuarioService(UsuarioRepository usuarioRepository) {
+        this.usuarioRepository = usuarioRepository;
+    }
+
+    @Transactional(readOnly = true)
+    public LoginStatus login(String eMail, String password) {
+        Optional<Usuario> usuario = usuarioRepository.findByEmail(eMail);
+        if (!usuario.isPresent()) {
+            return LoginStatus.USER_NOT_FOUND;
+        } else if (!usuario.get().getPassword().equals(password)) {
+            return LoginStatus.ERROR_PASSWORD;
+        } else {
+            return LoginStatus.LOGIN_OK;
+        }
+    }
+
+    // Se añade un usuario en la aplicación.
+    // El email y password del usuario deben ser distinto de null
+    // El email no debe estar registrado en la base de datos
+    @Transactional
+    public Usuario registrar(Usuario usuario) {
+        Optional<Usuario> usuarioBD = usuarioRepository.findByEmail(usuario.getEmail());
+        if (usuarioBD.isPresent())
+            throw new UsuarioServiceException("El usuario " + usuario.getEmail() + " ya está registrado");
+        else if (usuario.getEmail() == null)
+            throw new UsuarioServiceException("El usuario no tiene email");
+        else if (usuario.getPassword() == null)
+            throw new UsuarioServiceException("El usuario no tiene password");
+        else return usuarioRepository.save(usuario);
+    }
+
+    @Transactional(readOnly = true)
+    public Usuario findByEmail(String email) {
+        return usuarioRepository.findByEmail(email).orElse(null);
+    }
+
+    @Transactional(readOnly = true)
+    public Usuario findById(Long usuarioId) {
+        return usuarioRepository.findById(usuarioId).orElse(null);
+    }
+}
+```
+
+
+**Fichero `src/main/java/madstodolist/service/UsuarioServiceException.java`**:
+
+```java
+package madstodolist.service;
+
+public class UsuarioServiceException extends RuntimeException {
+
+    public UsuarioServiceException(String message) {
+        super(message);
+    }
+}
+```
+
+
+### Controllers ###
+
+Las clases _controllers_ son las que gestionan la interfaz de usuario
+de la aplicación. Se encargan de recibir los datos de las peticiones
+HTTP, llamar a la clase de servicio necesaria para procesar la lógica
+de negocio y mostrar la vista con la información resultante
+proporcionada por la clase de servicio.
+
+En la aplicación se definen dos clases controller:
+
+- `LoginController`: con métodos para registrar y logear usuarios.
+- `TareasController`: con métodos para crear, borrar y modificar
+  tareas de un usuario.
+
+Los controllers usan clases auxiliares en las que se guardan los datos
+introducidos en los formularios. Por ejemplo, la clase
+`LoginController` usa las clases `LoginData` y `RegistroData`.
+
+
+**Fichero `src/main/java/madstodolist/controller/LoginController.java`**:
+
+```java
+package madstodolist.controller;
+
+import madstodolist.authentication.ManagerUserSesion;
+import madstodolist.model.Usuario;
+import madstodolist.service.UsuarioService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+
+@Controller
+public class LoginController {
+
+    @Autowired
+    UsuarioService usuarioService;
+
+    @Autowired
+    ManagerUserSesion managerUserSesion;
+
+    @GetMapping("/login")
+    public String loginForm(Model model) {
+        model.addAttribute("loginData", new LoginData());
+        return "formLogin";
+    }
+
+    @PostMapping("/login")
+    public String loginSubmit(@ModelAttribute LoginData loginData, Model model, RedirectAttributes flash, HttpSession session) {
+
+        // Llamada al servicio para comprobar si el login es correcto
+        UsuarioService.LoginStatus loginStatus = usuarioService.login(loginData.geteMail(), loginData.getPassword());
+
+        if (loginStatus == UsuarioService.LoginStatus.LOGIN_OK) {
+            Usuario usuario = usuarioService.findByEmail(loginData.geteMail());
+
+            managerUserSesion.logearUsuario(session, usuario.getId());
+
+            return "redirect:/usuarios/" + usuario.getId() + "/tareas";
+        } else if (loginStatus == UsuarioService.LoginStatus.USER_NOT_FOUND) {
+            model.addAttribute("error", "No existe usuario");
+            return "formLogin";
+        } else if (loginStatus == UsuarioService.LoginStatus.ERROR_PASSWORD) {
+            model.addAttribute("error", "Contraseña incorrecta");
+            return "formLogin";
+        }
+        return "formLogin";
+    }
+
+    @GetMapping("/registro")
+    public String registroForm(Model model) {
+        model.addAttribute("registroData", new RegistroData());
+        return "formRegistro";
+    }
+
+   @PostMapping("/registro")
+   public String registroSubmit(@Valid RegistroData registroData, BindingResult result, Model model) {
+
+        if (result.hasErrors()) {
+            return "registroForm";
+        }
+
+        if (usuarioService.findByEmail(registroData.geteMail()) != null) {
+            model.addAttribute("registroData", registroData);
+            model.addAttribute("error", "El usuario " + registroData.geteMail() + " ya existe");
+            return "formRegistro";
+        }
+
+        Usuario usuario = new Usuario(registroData.geteMail());
+        usuario.setPassword(registroData.getPassword());
+        usuario.setFechaNacimiento(registroData.getFechaNacimiento());
+        usuario.setNombre(registroData.getNombre());
+
+        usuarioService.registrar(usuario);
+        return "redirect:/login";
+   }
+
+   @GetMapping("/logout")
+   public String logout(HttpSession session) {
+        session.setAttribute("idUsuarioLogeado", null);
+        return "redirect:/login";
+   }
+}
+```
+
+
+**Fichero `src/main/java/madstodolist/controller/LoginData.java`**:
+
+```java
+package madstodolist.controller;
+
+public class LoginData {
+    private String eMail;
+    private String password;
+
+    public String geteMail() {
+        return eMail;
+    }
+
+    public void seteMail(String eMail) {
+        this.eMail = eMail;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+}
+```
+
+#### Peticiones y rutas ####
+
+Las rutas que se definen en los controllers para realizar las acciones
+de la aplicación son:
+
+**`LoginController`**
+
+- `GET /login`: devuelve el formulario de login
+- `POST /login`: realiza el login
+- `GET /registro`: devuelve el formulario de registro
+- `POST /registro`: realiza el registro
+- `GET /logout`: realiza la salida del usuario de la aplicación
+
+**`TareaController`**
+
+- `GET /usuarios/{id}/tareas/nueva`: devuelve el formulario para
+añadir una tarea al usuario con identificador `{id}`
+- `POST /usuarios/{id}/tareas/nueva`: añade una tarea nueva a un usuario
+- `GET /usuarios/{id}/tareas`: devuelve el listado de tareas de un usuario
+- `GET /tareas/{id}/editar"`: devuelve el formulario para editar una tarea
+- `POST /tareas/{id}/editar`: añade una tarea modificada 
+- `DELETE /tareas/{id}`: realiza el borrado de una tarea
+
+
+### Vistas ###
+
+Todas las vistas de la aplicación comparten la misma cabecera y pie de
+página. Para centralizar estos elementos se usa la característica de
+fragmentos de Thymeleaf. Los fragmentos comunes se definen en el
+fichero `fragments.html`.
+
+**Fichero `src/main/resources/templates/fragments.html`**:
+
+```html
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head (titulo)">
+    <meta charset="UTF-8"/>
+    <title th:text="${titulo}"></title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+
+<div th:fragment="javascript">
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/popper.min.js.css}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <span th:text="${scripts}"></span>
+</div>
+/html>
+```
+
+Vemos que las vistas usan el framework CSS _Bootstrap_ y varias
+librerías JavaScript. Ambos se encuentran en el directorio
+`src/main/resources/static/`, el directorio por defecto en el que se
+guardan los recursos estáticos de una aplicación Spring Boot.
+
+La vista principal es el listado de tareas.
+
+**Fichero `src/main/resources/templates/listaTareas.html`**:
+
+```html
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments :: head (titulo='Login')"></head>
+
+<body>
+<div class="container-fluid">
+
+    <div class="row mt-3">
+        <div class="col">
+            <h2 th:text="'Listado de tareas de ' + ${usuario.nombre}"></h2>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Tarea</th>
+                    <th>Acción</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="tarea: ${tareas}">
+                    <td th:text="${tarea.id}"></td>
+                    <td th:text="${tarea.titulo}"></td>
+                    <td><a class="btn btn-primary btn-xs" th:href="@{/tareas/{id}/editar(id=${tarea.id})}"/>editar</a>
+                        <a class="btn btn-danger btn-xs" href="#" onmouseover="" style="cursor: pointer;"
+                           th:onclick="'del(\'/tareas/' + ${tarea.id} + '\')'">borrar</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <p><a class="btn btn-primary" th:href="@{/usuarios/{id}/tareas/nueva(id=${usuario.id})}"> Nueva tarea</a>
+            <a class="btn btn-link" href="/logout">Salir</a></p>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col">
+            <div class="alert alert-success alert-dismissible fade show" role="alert" th:if="${!#strings.isEmpty(mensaje)}">
+                <span th:text="${mensaje}"></span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+<div th:replace="fragments::javascript"/>
+
+<!-- Ejemplo de uso de Ajax para lanzar una petición DELETE y borrar una tarea -->
+
+<script type="text/javascript">
+    function del(urlBorrar) {
+        if (confirm('¿Estás seguro/a de que quieres borrar la tarea?')) {
+            $.ajax({
+                url: urlBorrar,
+                type: 'DELETE',
+                success: function (results) {
+                    //refresh the page
+                    location.reload();
+                }
+            });
+        }
+    }
+</script>
+
+</body>
+</html>
+```
+
+- La plantilla recibe una lista de tareas, un usuario y un mensaje
+(consultar en el controller `TareasController` cómo se obtienen esos
+datos). 
+- Define un script JavaScript en el que se realiza una petición
+  `DELETE` a la URL que se le pasa como parámetro (se utilizará para
+  lanzar la acción de borrar una tarea).
+- Utiliza una instrucción de iteración sobre la lista de tares para
+  construir los elementos de la tabla de tareas.
+- En las acciones de añadir y editar tareas se construyen las URLs a
+  las que hacer la petición usando el identificador de la tarea.
+
+
+### Pruebas manuales y automáticas ###
 
 Durante el desarrollo de la práctica será necesario realizar **pruebas
 manuales** de la aplicación, introducir datos en sus pantallas y
 comprobar que los cambios que hemos añadido funcionan correctamente.
 
 Para estas pruebas manuales recomendamos utilizar la configuración de
-ejecución trabajando sobre la **base de datos real MySQL**. De esta forma
-podemos introducir datos y reutilizarlos en posteriores pruebas
-manuales.
+ejecución trabajando sobre una base de datos con valores
+iniciales. Estos valores iniciales se cargan en la aplicación al
+comenzar.
 
-Para poner en marcha la base de datos MySQL recomendamos usar
-Docker. El siguiente comando lanza un contenedor llamado `play-mysql`
-con una base de datos MySQL trabajando en el puerto interno `3306` y en
-el puerto del host `3316` con el usuario `root` con la contraseña `mads`:
+**Fichero `src/main/resources/datos-dev.sql`**:
 
+```sql
+INSERT INTO usuarios (id, email, nombre, password, fecha_nacimiento) VALUES('1', 'domingo@ua', 'Domingo Gallardo', '123', '2001-02-10');
+INSERT INTO tareas (id, titulo, usuario_id) VALUES('1', 'Lavar coche', '1');
+INSERT INTO tareas (id, titulo, usuario_id) VALUES('2', 'Renovar DNI', '1');
 ```
-$ docker run -d -p 3316:3306 --name play-mysql -e MYSQL_ROOT_PASSWORD=mads -e MYSQL_DATABASE=mads mysql:5
+
+
+Para los tests automáticos se cargan los datos definidos en el fichero
+`datos-tests.sql`.
+
+**Fichero `src/test/resources/datos-test.sql`**:
+
+```sql
+INSERT INTO usuarios (id, email, nombre, password, fecha_nacimiento) VALUES('1', 'ana.garcia@gmail.com', 'Ana García', '12345678', '2001-02-10');
+INSERT INTO tareas (id, titulo, usuario_id) VALUES('1', 'Lavar coche', '1');
+INSERT INTO tareas (id, titulo, usuario_id) VALUES('2', 'Renovar DNI',
+'1');
 ```
 
-!!! Warning "Importante"
+Se realizan tests automáticos sobre las entidades y repository:
 
-    En los laboratorios de la EPS está instalada la
-    imagen Docker 5.7.18 de MySQL. Hay que definir explícitamente esa versión
-    en el comando docker, escribiendo `mysql:5.7.18`.
+- `TareaTest.java`
+- `UsuarioTest.java`:
 
-También durante el desarrollo hay que implementar y lanzar **tests
-automáticos**. Recomendamos en este caso usar la **base de datos de
-memoria**, en lugar de la base de datos MySQL, para que la ejecución de
-los tests tenga más velocidad y para que no se borren los datos
-introducidos en las pruebas manuales.
+También sobre la capa de servicio: 
 
-Debemos configurar el entorno de trabajo para que sea posible realizar
-los dos tipos de pruebas, manuales y automáticas,
-simultáneamente. 
+- `TareaServiceTest.java`
+- `UsuarioServiceTest.java`
 
-Dependiendo de si utilizamos o no IntelliJ lo haremos
-de forma distinta.
+Y sobre las vistas:
 
-#### Configuración de trabajo usando Visual Studio Code ####
+- `UsuarioWebTest.java`
+- `TareaWebTest.java`
 
-Si tu ordenador no tiene prestaciones suficientes para trabajar con
-IntelliJ IDEA puedes usar un editor como Visual Studio Code.
+En los tests sobre repository se debe usar la anotación
+`@Transactional` para definir el contexto transaccional en el que se
+realiza la llamada a las acciones sobre la base de datos.
 
-Recomendamos trabajar con tres pestañas de terminal abiertas en el editor:
+En los tests sobre las vistas se _mockean_ los servicios para que
+devuelvan los datos que nos interesan.
 
-- **Terminal 1**: ejecución de la aplicación para hacer **pruebas
-  manuales** sobre base de datos MySQL. Lanzamos en el shell el
-  comando docker para lanzar la aplicación usando la base de datos
-  MySQL.
+Hay que ser cuidadoso al hacer pruebas que afectan a la base de datos,
+porque podemos insertar o modificar datos que se comprueban en otros
+tests. Tenemos que tener cuidado en que cada test sea independiente de
+los demás.
 
-        $ docker run --link db-mysql --rm -it -p 9000:9000 -e \
-        DB_URL="jdbc:mysql://db-mysql:3306/mads" -e DB_USER_NAME="root" -e \
-        DB_USER_PASSWD="mads" -v "${PWD}:/code" domingogallardo/playframework
-
-Y desde la consola sbt modificamos la preferencia `config.file` para
-que la aplicación utilice la configuración definida en el fichero
-`conf/develop-mysql.conf`
-
-        [mads-todolist-dgallardo] $ set javaOptions += "-Dconfig.file=conf/develop-mysql.conf"
-        [mads-todolist-dgallardo] $ run
-  
-- **Terminal 2**: **pruebas automáticas** sobre la base de datos de
-  memoria. Lanzamos en el shell el comando docker para lanzar sbt.
-  No hace falta exportar el puerto 9000 porque sólo se va
-  a usar el contenedor para lanzar los tests:
-
-
-        $ docker run --rm  -it -v "${PWD}:/code" domingogallardo/playframework
-        [mads-todolist-dgallardo] $ test
-
-- **Terminal 3**: shell en el que usaremos git:
-
-        $ git status
-        On branch master
-        Your branch is up to date with 'origin/master'.
-
-        nothing to commit, working tree clean
-
-
-#### Configuración de trabajo usando IntelliJ ####
-
-Si tenemos un ordenador con suficiente capacidad es recomendable usar
-IntelliJ IDEA como entorno de desarrollo.
-
-Recomendamos la siguiente configuración:
-
-- **Pruebas manuales**: para lanzar la aplicación y poder realizar
-  pruebas manuales usando la base de datos MySQL debemos crear una
-  [configuración de run/debug que trabaje sobre
-  MySQL](./intro-play-teoria.md#desde-el-rundebug-de-intellij) y
-  lanzar la ejecución.
-
-- **Pruebas automáticas**: se lanza `sbt` desde la propia pestaña de
-  IntelliJ o desde un terminal con el comando `docker run`. Como hemos
-  comentado anteriormente, no es necesario mapear el puerto 9000
-  porque el contenedor sólo se va a usar para lanzar los tests:
-  
-        $ docker run --rm  -it -v "${PWD}:/code" domingogallardo/playframework
-        [mads-todolist-dgallardo] $ 
-
-    Y se lanza el comando `test`.
-
-- **Shell de git**: es recomendable tener abierta una ventana de
-  terminal adicional para trabajar con git.
-
-!!! Warning "Cuidado en las máquinas de la EPS"
-
-    En las máquinas virtuales Ubuntu de la EPS, la aplicación
-    Docker se ejecuta con el usuario `root`. Si se lanza una ejecución de
-    la máquina de docker con el directorio del proyecto antes de haberlo
-    compilado con IntelliJ, se crearán directorios de trabajo `logs` y
-    `target` con propiedad de `root`. Esto provocará un error de permisos cuando vayamos a compilar desde
-    IntelliJ y hará imposible la compilación desde el IDE. 
-
-    Para que funcione correctamente la compilación desde IntelliJ
-    debemos eliminar esos directorios y hacer que sea IntelliJ quien
-    los cree. Por ejemplo, podemos borrarlos a mano con `$ sudo rm
-    -rf logs` y `$ sudo rm -rf target`.
-
-    O podemos volver a descargar el proyecto de GitHub y compilarlo
-    por primera vez con IntelliJ.
-
+<!--
 
 ## 3. Antes de empezar la práctica
 
