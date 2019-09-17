@@ -1249,7 +1249,7 @@ tests. Tenemos que tener cuidado en que cada test sea independiente de
 los demás.
 
 
-## 3. Antes de empezar la práctica
+## Antes de empezar la práctica
 
 1. Una vez logeado en GitHub, copia el enlace con una invitación que
    compartiremos en el foro de Moodle. Con esa invitación se creará
