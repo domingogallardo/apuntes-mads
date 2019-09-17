@@ -1769,19 +1769,14 @@ El resultado será:
 El resto de la práctica consistirá en desarrollar la versión 1.1.0,
 usando la misma metodología vista anteriormente.
 
-Deberás desarrollar tres características nuevas obligatorias y 2 opcionales:
-
-2. Barra de menú
-3. Página listado de usuarios
-4. Página descripción de usuario
-5. Usuario administrador (opcional)
-6. Gestión de usuarios por el usuario administrador (opcional)
-
+Deberás desarrollar tres características nuevas obligatorias y 3 opcionales:
 
 - (Obligatoria) Barra de menú
 - (Obligatoria) Página de listado de usuarios
 - (Obligatoria) Página de descripción de un usuario
-- (Opcional) Usuario administrador que puede bloquear el acceso a usuarios
+- (Opcional) Usuario administrador 
+- (Opcional) Protección listado y descripción de usuario
+- (Opcional) Administrador puede bloquear el acceso a usuarios
 
 Deberás implementar cada característica siguiendo la metodología que
 hemos usado anteriormente. En la implementación, deberás añadir el
