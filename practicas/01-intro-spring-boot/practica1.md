@@ -1,6 +1,6 @@
 # Enunciado práctica 1
 
-## 1. Objetivos
+## Objetivos
 
 En la primera práctica de la asignatura vamos a tomar contacto con el
 _framework_ de desarrollo de aplicaciones web en Java _Spring Boot_,
@@ -17,9 +17,7 @@ Igual que en la práctica 0, debes leer la [introducción a Spring Boot
 para las prácticas de MADS](./intro-spring-boot.md) para entender los
 conceptos fundamentales del framework.
 
-## 2. Conceptos previos ##
-
-### 2.1. Aplicación inicial
+## Aplicación inicial ##
 
 La aplicación inicial es una aplicación para gestionar listas de
 tareas pendientes de los usuarios de la aplicación. Se pueden registrar
@@ -49,7 +47,7 @@ Iremos desarrollando características adicionales de la aplicación a lo
 largo de las prácticas. El nombre de la aplicación es **ToDo List**.
 
 
-### 2.2. Metodología de desarrollo
+## Metodología de desarrollo ##
 
 En cuanto a la metodología de desarrollo, en esta primera práctica
 repasaremos e introduciremos el uso de:
@@ -91,7 +89,7 @@ que utilizan.
   Boot](https://github.com/spring-projects/spring-boot). Framework web
   en Java.
 
-#### Git
+### Git ###
 
 Git es el sistema de control de versiones más utilizado en la
 actualidad. Es muy flexible, distribuido, adaptable a múltiples flujos
@@ -121,7 +119,7 @@ detalle de implementación, etc.). El post
 explica muy bien esto.
 
 
-#### Flujo de trabajo
+### Flujo de trabajo ###
 
 Desarrollaremos la aplicación de forma iterativa, utilizando
 inicialmente un flujo de trabajo Git denominado _feature branch_
@@ -238,7 +236,7 @@ de GitHub](https://help.github.com/categories/writing-on-github/).
     una misma plataforma.
 
 
-## 3. La aplicación ToDoList
+## La aplicación ToDoList ##
 
 La aplicación
 [mads-todolist-inicial](https://github.com/domingogallardo/mads-todolist-inicial)
@@ -662,8 +660,6 @@ public interface CrudRepository<T, ID extends Serializable>  extends Repository<
 }
 ```
 
-**TareaRepository**
-
 Para usar estos métodos con nuestras entidades basta con definir
 interfaces que extienden esta clase genérica. Por ejemplo, la interfaz `TareaRepository`:
 
@@ -719,8 +715,6 @@ ejecución la transacción se deshace.
 En el cuerpo del método se llama al método `findById` del repositorio
 que realiza una búsqueda en la base de datos y al método `save` que actualiza el
 valor de la entidad.
-
-**UsuarioRepository**
 
 La interfaz `UsuarioRepository` es similar.
 
@@ -1148,6 +1142,52 @@ datos).
 - En las acciones de añadir y editar tareas se construyen las URLs a
   las que hacer la petición usando el identificador de la tarea.
 
+#### Autenticación y control de acceso ####
+
+En la aplicación se realiza una autenticación y un control de acceso
+muy sencillo usando la sesión HTTP. Esta sesión se implementa en
+Spring Boot con una cookie que se pasa desde el navegador hasta el
+servidor en cada petición.
+
+El manejo de la sesión es muy sencillo: es un diccionario en el que
+podemos añadir datos. En el servidor podemos obtener los datos de la
+sesión consultando el diccionario.
+
+La implementación de la autenticación y del control de acceso se
+realiza con en la clase `ManagerUserSesion`:
+
+**Fichero `src/main/java/madstodolist/authentication/ManagerUserSesion.java`**:
+
+```java
+package madstodolist.authentication;
+
+import org.springframework.stereotype.Component;
+
+import javax.servlet.http.HttpSession;
+
+@Component
+public class ManagerUserSesion {
+
+    // Añadimos el id de usuario en la sesión HTTP para hacer
+    // una autorización sencilla. En los métodos de controllers
+    // comprobamos si el id del usuario logeado coincide con el obtenido
+    // desde la URL
+    public void logearUsuario(HttpSession session, Long idUsuario) {
+        session.setAttribute("idUsuarioLogeado", idUsuario);
+    }
+
+    // Si el usuario no está logeado se lanza una excepción
+    public void comprobarUsuarioLogeado(HttpSession session, Long idUsuario) {
+        Long idUsuarioLogeado = (Long) session.getAttribute("idUsuarioLogeado");
+        if (!idUsuario.equals(idUsuarioLogeado))
+            throw new UsuarioNoLogeadoException();
+    }
+}
+```
+
+
+Se implementa como un componente Spring con la anotación `@Component`,
+lo inyectamos en los controllers y lo mockeamos en los tests de los controllers.
 
 ### Pruebas manuales y automáticas ###
 
@@ -1208,228 +1248,130 @@ porque podemos insertar o modificar datos que se comprueban en otros
 tests. Tenemos que tener cuidado en que cada test sea independiente de
 los demás.
 
-<!--
 
 ## 3. Antes de empezar la práctica
 
-1. Descarga e instala el software indicado en el apartado anterior.
-
-2. Inicializa tu nombre de usuario y tu correo en Git. El nombre de
-   usuario será el nombre que aparecerá en los _commits_. Pon tu nombre
-   y apellido.
-   
-        $ git config --global user.name "Pepe Perez"
-        $ git config --global user.email pepe.perez@example.com<
-
-3. Descarga la imagen de Docker para poder compilar y ejecutar los
-   proyectos Play:
-
-        $ docker pull domingogallardo/playframework
-        $ docker image ls
-        REPOSITORY                      TAG                 IMAGE ID            CREATED             SIZE
-        domingogallardo/playframework   latest              95c1eb17ecb4        5 weeks ago         530MB
-
-4. Crea una cuenta en GitHub. Puedes usar el nombre de usuario que
-   quieras (o usar el que ya tienes), pero **escribe correctamente tu
-   nombre y apellidos en el perfil** usando la opción _Settings >
-   Profile_ y actualizando el campo _Name_.
-   
-5. Una vez logeado en GitHub, copia el enlace con una invitación que
+1. Una vez logeado en GitHub, copia el enlace con una invitación que
    compartiremos en el foro de Moodle. Con esa invitación se creará
-   automáticamente el repositorio `todolist-2018-<usuario>` en la
-   organización [mads-ua-18](https://github.com/mads-ua-18). Es un
-   repositorio privado al que tienes acceso tú y el
-   profesor. Contiene el código inicial de un proyecto base Play (es
-   una copia del repositorio
+   automáticamente el repositorio `todolist-2019-<usuario>` en la
+   organización [mads-ua](https://github.com/mads-ua). Al igual que el
+   repositorio de la práctica 0. Es un repositorio privado al que
+   tienes acceso tú y el profesor. Contiene el código inicial de un
+   proyecto base (es una copia del repositorio
    [domingogallardo/mads-todolist-inicial](https://github.com/domingogallardo/mads-todolist-inicial))
    en la que se han comprimido todos los commits en uno.
 
-    Es importante que tengas en cuenta que el repositorio recién
-    creado no reside en tu cuenta, sino en la organización
-    `mads-ua`. Puedes acceder a él desde el _dashboard_ de GitHub que
-    aparece cuando te logeas:
+   Al igual que en la práctica 0 es importante que tengas en cuenta
+  que el repositorio recién creado no reside en tu cuenta, sino en
+  la organización `mads-ua`. Puedes acceder a él desde el
+   _dashboard_ de GitHub que aparece cuando te logeas:
    
-    <img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/dashboard-github.png" width="600px"/>
-
-    También el profesor te invitará a formar parte de la organización
-    y recibirás un mensaje de correo electrónico en el que deberás
-    aceptar esta invitación. También se puede aceptar la invitación
-    accediendo a <https://github.com/mads-ua-18>.
+2. Descarga el proyecto y comprueba que se compila y ejecuta
+   correctamente:
    
-6. Descarga el proyecto y comprueba que se compila y ejecuta
-   correctamente con la imagen de Docker y usando la base de datos de
-   memoria (muy útil para pruebas y lanzar los tests).
-   
-        $ git clone https://github.com/mads-ua/todolist-2018-usuario.git
-        $ cd todolist-2018-usuario
-        $ docker run --rm  -it -v "${PWD}:/code" -p 9000:9000 domingogallardo/playframework
-        [info] Loading project definition from /code/project
-        [info] Updating {file:/code/project/}code-build...
-        [info] Resolving org.fusesource.jansi#jansi;1.4 ...
-        [info] Done updating.
-        [info] Set current project to play-java (in build file:/code/)
-        [mads-todolist-inicial] $ test
-        ...
-        [info] Passed: Total 35, Failed 0, Errors 0, Passed 35
-        [success] Total time: 35 s, completed Sep 4, 2018 9:34:04 AM
-        [mads-todolist-inicial] $ run
+        $ git clone https://github.com/mads-ua/todolist-2019-usuario.git
+        $ cd todolist-2019-usuario
+        $ mvn spring-boot:run
    
     Comprueba que la aplicación está funcionando en
-    <http://localhost:9000> en la máquina host.
+    <http://localhost:8080/login> en la máquina host.
    
-    <img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/login.png" width="600px"/>
+    <img src="./imagenes/login.png" width="600px"/>
+  
+    Para la aplicación haciendo CTR+C en el terminal.
+    
+3. Importa el proyecto en IntelliJ para trabajar, ejecutar los tests y
+   lanzar la aplicación desde este entorno.
  
-    Para salir del comando `run` de `sbt` debemos hacer
-    `CTRL+d`. Podemos lanzar cualquier otro comando de sbt (consultar
-    [Using the SBT console](https://playframework.com/documentation/2.5.x/PlayConsole).  
-   
-    Para salir del contenedor podemos escribir el comando `exit` o hacer `CTRL+c`.
+4. Es posible examinar el esquema de la base de datos y los datos
+   accediendo a la base de datos H2 en memoria añadiendo las
+   siguientes preferencias:
+    
+    ```java
+    spring.h2.console.enabled=true
+    spring.h2.console.path=/h2-console
+    ```
 
-7. Prueba que la aplicación funciona correctamente trabajando con la
-   base de datos MySQL (el funcionamiento real de la aplicación y para
-   hacer pruebas de integración).
-
-    Lanza MySQL con Docker:
-   
-        $ docker run -d -p 3316:3306 --name db-mysql -e MYSQL_ROOT_PASSWORD=mads -e MYSQL_DATABASE=mads mysql:5
-
-    !!! Warning "Importante"
-
-        En los laboratorios de la EPS está instalada la
-        imagen Docker 5.7.18 de MySQL. Hay que definir explícitamente esa versión
-        en el comando docker, escribiendo `mysql:5.7.18`.
-
-    Para parar y volver a poner en marcha el contenedor mysql puedes
-    usar los comandos `docker stop` y `docker start`. Los datos
-    añadidos en la base de datos se mantendrán mientras que el
-    contenedor no se borre. El comando `docker container ls -a` lista
-    todos los contenedores existentes (parados y en marcha):
-   
-        $ docker container ls
-        CONTAINER ID        IMAGE               CREATED             STATUS              PORTS                               NAMES
-        bd057639b6ac        mysql:5             30 minutes ago      Up 22 minutes       33060/tcp, 0.0.0.0:3316->3306/tcp   db-mysql
-        $ docker container stop bd057639b6ac
-        CONTAINER ID        IMAGE               CREATED             STATUS                     PORTS               NAMES
-        bd057639b6ac        mysql:5             31 minutes ago      Exited (0) 7 seconds ago                       db-mysql
-        $ docker container start bd057639b6ac
-        CONTAINER ID        IMAGE               CREATED             STATUS              PORTS                               NAMES
-        bd057639b6ac        mysql:5             32 minutes ago      Up 5 seconds        33060/tcp, 0.0.0.0:3316->3306/tcp   db-mysql
-
-    Ahora ya podemos lanzar la aplicación con docker para que trabaje
-    con la base de datos del contenedor, definiendo ahora en variables
-    de entorno la URL, el usuario y la contraseña con la que debe
-    conectarse la aplicación a la base de datos. Usamos la opción
-    `link` de docker para definir el nombre lógico del contenedor al
-    que debe conectarse la aplicación.
-
-        $ docker run --link db-mysql --rm -it -p 9000:9000 -e \
-        DB_URL="jdbc:mysql://db-mysql:3306/mads" -e DB_USER_NAME="root" -e \
-        DB_USER_PASSWD="mads" -v "${PWD}:/code" domingogallardo/playframework
-
-    Y desde la consola sbt modificamos la preferencia `config.file`
-    para que la aplicación utilice la configuración definida en el
-    fichero `conf/develop-mysql.conf`.
-
-        [mads-todolist-inicial] $ set javaOptions += "-Dconfig.file=conf/develop-mysql.conf"
-        [mads-todolist-inicial] $ run
-
-    Prueba que la aplicación funciona correctamente. Puedes comprobar
-    las tablas y los datos almacenados en la base de datos
-    conectándote a la base de datos en el puerto 3316 desde cualquier
-    cliente MySQL:
-   
-    - En los laboratorios de la EPS, usando _MySQL Workbench_. 
-    - En IntelliJ IDEA puedes usar la consola MySQL:
-   
-    <img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/conexionbd-intellij.png" width="500px"/>
-
-    Es posible examinar el esquema de la base de datos:
-
-    <img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/esquema-bd.png" width="300px"/>
+    Una vez lanzada la aplicación, podemos acceder a
+    <http://localhost:8080/h2-console> introduciendo como `JDBC URL`
+    la dirección de la fuente de datos `jdbc:h2:mem:dev` y como
+    `User name` la cadena `sa`
+    
+    <img src="./imagenes/h2-console-login.png" width="400px"/>
 
     Y examinar tablas en concreto:
 
-    <img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/tablabd-intellij.png" width="300px"/>
+    <img src="./imagenes/h2-console-tablas.png" width="600px"/>
 
-8. Con todo lo hecho hasta ahora ya hemos comprobado que la aplicación
-   se compila correctamente y se ejecuta sin problema en las dos
-   configuraciones más importantes con las que trabajaremos: base de
-   datos en memoria y base de datos MySQL.
 
-Para el desarrollo de la práctica que viene a continuación es
-fundamental que entiendas el funcionamiento de Play Framework. Lo
-explicaremos rápidamente en la clase de teoría usando el documento
-[introducción a Play Framework para las prácticas de
-MADS](./intro-play-teoria.md). Pero es imprescindible que hagas tú un
-esfuerzo descargando, probando y modificando las dos aplicaciones:
-`domingogallardo/play-proyecto-inicial` y
-`domingogallardo/mads-todolist-inicial` (es la aplicación que se ha
-copiado en tu repositorio).
+5. Crea un tablero Trello público llamado `ToDoList MADS`. Va a servir
+   como _backlog_ de las historias de usuario que debes realizar en
+   la práctica.  Añade en él 3 columnas, tal y se explica en el
+   apartado anterior de metodología de desarrollo.
    
-Puedes trabajar en estos proyectos sin miedo de estropearlos. Es más,
-cuanto más los estropees mejor, porque es la forma de aprender. No
-deberás entregar nada de estos proyectos.
+   Añade el enlace en la descripción del repositorio GitHub, para que
+   el profesor pueda acceder a consultar el estado del proyecto.
+   
+   Un ejemplo de tablero es el [Trello del proyecto mads-todolist-inicial](https://trello.com/b/5zWOT6uO/todolist-inicial).
 
-## 4. Desarrollo de la práctica
 
-En esta primera práctica vamos a desarrollar las siguientes dos
-historias de usuario o _features_:
+## Desarrollo de la práctica
+
+En esta primera práctica vamos a desarrollar las siguientes historias de usuario o _features_:
 
 1. Página _Acerca de_
 2. Barra de menú
-3. Página listado de equipos
-4. Página descripción de equipo
+3. Página listado de usuarios
+4. Página descripción de usuario
+5. Usuario administrador (opcional)
+6. Gestión de usuarios por el usuario administrador (opcional)
 
 La práctica va a consistir en la realización en tu proyecto de todos
-los elementos necesarios para implementar estas _features_ : wiki,
+los elementos necesarios para implementar estas _features_ : tablero Trello,
 _issues_, _pull requests_ (con sus _commits_ en los que se desarrolla paso a paso
 cada _issue_) y tablero del proyecto. 
 
-Haremos paso a paso la primera característica, creando la primera
-versión 1.0.0 de la aplicación. Las siguientes características las
+Haremos paso a paso la historia de usuario 1, creando la primera
+versión 1.0.1 de la aplicación. Las siguientes características las
 deberás desarrollar tu mismo y entregar la versión 1.1.0.
 
-### 4.1. Versión 1.0.0 ###
+### Versión 1.0.1 ###
 
-La versión 1.0.0 será la versión inicial de la
+La versión 1.0.1 será la versión inicial de la
 aplicación. Desarrollaremos en esta versión la primera característica:
 **Página _Acerca de_**.
 
-#### 4.1.1. Wiki ####
+#### Tablero Trello ####
 
-Utilizaremos la Wiki del proyecto GitHub para documentar las
-características a desarrollar en la aplicación. Deberá haber una
-página para cada característica. La página principal de la Wiki será
-el _backlog_ del proyecto y deberá tener los enlaces a todas las
-características desarrolladas y pendientes de desarrollar.
+Utilizaremos el tablero Trello para documentar las características a
+desarrollar en la aplicación. Deberá haber una tarjeta para cada
+característica. Cada característica deberá tener un número y un título.
 
-Añade la página principal, en la que organizarás el listado de
-_features_ desarrolladas en proyecto. Un posible ejemplo de
-organización es el siguiente:
+<img src="imagenes/trello-version-1.png" width="600px"/>
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/wiki-practica.png" width="700px"/>
+Añade la descripción de la característica **Página _Acerca de_**:
 
-Añade una página con la descripción de la característica **Página
-_Acerca de_**:
+<img src="imagenes/trello-acerca-de.png" width="700px"/>
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/wiki-practica-acerca-de.png" width="700px"/>
+Cuando empecemos a trabajar en la historia de usuario moveremos la
+tarjeta a _En marcha_ y cuando la hayamos terminado de testear e
+integrar en la rama principal la moveremos a _Terminadas_.
 
+#### Tablero de GitHub ####
 
-#### 4.1.2. Tablero del proyecto ####
-
-Configura el tablero del proyecto, poniendo como nombre `ToDoList` y
+Configura el tablero de GitHub, poniendo como nombre `ToDoList` y
 seleccionando como plantilla `Automated kanban`. Elimina las tarjetas
 en la columna `To do` y añade la columna `In pull request` entre `In
 progress` y `Done`.
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/project-practica.png" width="900px">
+<img src="./imagenes/project-practica.png" width="900px">
 
 En las columnas deberán aparecer los _issues_ y _pull requests_ del
 proyecto. GitHub permite automatizar el movimiento de las tarjetas de
 una columna a otra. A continuación mostramos la configuración que
 usaremos:
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/projecto-practica-automation.png" width="900px"/>
+<img src="./imagenes/projecto-practica-automation.png" width="900px"/>
 
 Deberemos mover manualmente las tarjetas en algún caso, porque GitHub
 no podrá detectar las condiciones. En resumen, las condiciones de las
@@ -1442,27 +1384,29 @@ fichas que habrá en cada columna son las siguientes:
   (se ha creado una rama su desarrollo). Manual.
 - Columna `In pull request`: _Pull request_ creados. Cuando añadimos
   el proyecto al _pull request_ (en la página del _pull request_)
-  GitHub lo coloca automáticamente en esta columna. Archivaremos el
-  _issue_ implementado por el _pull request_ manualmente.
+  GitHub lo coloca automáticamente en esta columna. **Archivaremos el
+  _issue_** implementado por el _pull request_ manualmente.
 - Columna `Done`: _Pull requests_ cerrados. GitHub lo detecta automáticamente.
 
-#### 4.1.3. Issues ####
+#### Issues ####
 
-Añade el primer _issue_, correspondiente a la _feature_ a desarrollar
-**Página _Acerca de_**. Añade las etiquetas que inicialmente vamos a
-usar (ver la imagen) y el _milestone_ 1.0.0.
+Añade las etiquetas que vamos a usar inicialmente.
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/labels-issues.png" width="500px"/>
+<img src="./imagenes/labels-practica.png" width="400px"/>
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/issue-acerca-de-listado.png" width="500px"/>
+Crea el primer _issue_, correspondiente a la _feature_ a desarrollar
+**Página _Acerca de_**. Crea el _milestone_ 1.0.1. y añade el issue a
+él.
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/issue-acerca-de-detalle.png" width="500px"/>
+<img src="./imagenes/issue-acerca-de-listado.png" width="500px"/>
 
-Añade el _issue_ al tablero (desde la página del _issue_) y
+<img src="./imagenes/issue-acerca-de-detalle.png" width="600px"/>
+
+Añade el _issue_ al proyecto (desde la página del _issue_) y
 automáticamente se añadirá en la columna `To do`.
 
 
-#### 4.1.4. Desarrollo ####
+#### Desarrollo ####
 
 Para desarrollar el _issue_ abriremos una rama en Git, realizaremos
 commits sobre ella hasta estar terminado y después crearemos un _pull
@@ -1471,161 +1415,121 @@ request_ en GitHub para realizar la integración con la rama `master`.
 Mueve en el tablero la tarjeta con el _issue_ a la columna `In
 progress`.
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/in-progress-issue-1.png" width="300px" />
+<img src="./imagenes/in-progress-issue-1.png" width="500px" />
 
-Empezamos el desarrollo importando el proyecto en IntelliJ y creando
-dos pestañas en el panel `Terminal`: una para lanzar el proyecto con
-Docker y trabajar con Sbt y la otra para trabajar con Git.
+Empezamos el desarrollo importando el proyecto en IntelliJ y abriendo
+un terminal para trabajar con Git:
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/intellij-practica.png" width="700px"/>
+<img src="./imagenes/intellij-practica.png" width="700px"/>
 
-Creamos la rama en la que desarrollaremos la _feature_ y la subimos a
-GitHub (en el panel `Git`):
+En el terminal escribimos los comandos para crear la rama en la que
+desarrollaremos la _feature_ y subirla:
 
 ```text
-$ git checkout -b acerca-de
-Switched to a new branch 'acerca-de'
-$ git push -u origin acerca-de
-Username for 'https://github.com': domingogallardo2
-Password for 'https://domingogallardo2@github.com': 
-Total 0 (delta 0), reused 0 (delta 0)
-To https://github.com/mads-ua-18/todolist-2018-domingogallardo2.git
- * [new branch]      acerca-de -> acerca-de
-Branch 'acerca-de' set up to track remote branch 'acerca-de' from 'origin'.
+(master) $ git checkout -b acerca-de
+(acerca-de) $ git push -u origin acerca-de
 ```
 
 ##### Primer commit #####
 
 Hacemos un primer commit.
 
-Cambia en `build.sbt` el nombre del proyecto a `mads-todolist-<tu-nombre>` y
-la versión a `1.0.0-SNAPSHOT`. El sufijo `SNAPSHOT` indica _en
-desarrollo_. Cuando hagamos el _release_ de la versión 1.0.0
+Cambia en `pom.xml` el nombre del proyecto a `mads-todolist-<tu-nombre>` y
+la versión a `1.0.1-SNAPSHOT`. El sufijo `SNAPSHOT` indica _en
+desarrollo_. Cuando hagamos el _release_ de la versión 1.0.1
 eliminaremos el sufijo.
 
 Realiza el commit y súbelo a GitHub:
    
 ```text
-$ git add build.sbt
-$ git status
-On branch acerca-de
-Your branch is up to date with 'origin/acerca-de'.
-
-Changes to be committed:
-  (use "git reset HEAD <file>..." to unstage)
-
-        modified:   build.sbt
-
-$ git commit -m "Cambiado el nombre del proyecto y empezamos versión 1.0.0"
-[acerca-de f6180cc] Cambiado el nombre del proyecto y empezamos versión 1.0.0
- 1 file changed, 2 insertions(+), 2 deletions(-)
-$ git push
-Enumerating objects: 5, done.
-Counting objects: 100% (5/5), done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 367 bytes | 367.00 KiB/s, done.
-Total 3 (delta 2), reused 0 (delta 0)
-remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
-To https://github.com/mads-ua-18/todolist-2018-domingogallardo2.git
-   6767016..a332017  acerca-de -> acerca-de
+(acerca-de) $ git status (comprobamos los ficheros que han cambiado)
+(acerca-de) $ git add pom.xml
+(acerca-de) $ git status (comprobamos que está listo para añadirse en el commit)
+(acerca-de) $ git commit -m "Cambiado el nombre del proyecto y empezamos versión 1.0.1"
+(acerca-de) $ git push
 ```
 
 Consulta en GitHub que el _commit_ se ha subido en GitHub:
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/commit-practica-github.png" width="400px"/>
+<img src="./imagenes/commit-practica-github.png" width="500px"/>
    
 De esta forma habrás comprobado que tienes permiso de escritura en
 el repositorio y que ya puedes comenzar a realizar la práctica.
    
-Si ahora vuelves a lanzar la máquina Docker en el proyecto, verás
-que ha cambiado el nombre del proyecto (en el panel `Sbt`):
-   
-```text
-$ docker run --rm  -it -v "${PWD}:/code" -p 9000:9000 domingogallardo/playframework
-[info] Loading project definition from /code/project
-[info] Set current project to mads-todolist-dgallardo (in build file:/code/)
-[mads-todolist-dgallardo] $ 
-```
-
 ##### Segundo commit #####
 
 En el segundo commit incluiremos el desarrollo de los elementos
 necesarios para la página _acerca de_:
 
-- Ruta
 - Acción en controller
 - Vista
 
-Realiza los siguientes cambios.
+Añade los siguientes ficheros:
 
-**Fichero `conf/routes`**:
+**Controller `HomeController.java`:
 
-```diff
-GET     /equipos/addUsuario         controllers.EquipoController.formularioAddUsuarioEquipo()
-POST    /equipos/addUsuario         controllers.EquipoController.addUsuarioEquipo()
+```java
+package madstodolist.controller;
 
-+ GET     /about                      controllers.HomeController.about()
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
-# Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
-```
+@Controller
+public class HomeController {
 
-**Fichero `app/controllers/HomeController.java`**:
-
-
-```diff
-    public Result index() {
-        return ok(index.render("Your new application is ready."));
+    @GetMapping("/")
+    public String home() {
+        return "redirect:/login";
     }
 
-+   public Result about() {
-+       return ok(about.render());
-+   }
+    @GetMapping("/about")
+    public String loginForm(Model model) {
+        return "about";
+    }
+
 }
 ```
 
+**Vista `about.html`**:
 
-**Fichero `app/views/about.scala.html`**:
+```html
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 
-```diff
-+@main("Acerca de") {
-+   <div class="container-fluid">
-+        <h1>ToDo List</h1>
-+        <ul>
-+            <li>Desarrollada por Domingo Gallardo</li>
-+            <li>Versión 1.0.0 (en desarrollo)</li>
-+            <li>Fecha de release: pendiente de release</li>
-+        </ul>
-+    </div>
-+}
+<head th:replace="fragments :: head (titulo='Login')"></head>
+
+<body>
+<div class="container-fluid">
+    <div class="container-fluid">
+        <h1>ToDo List</h1>
+        <ul>
+            <li>Desarrollada por Domingo Gallardo</li>
+            <li>Versión 1.0.0 (en desarrollo)</li>
+            <li>Fecha de release: pendiente de release</li>
+        </ul>
+    </div>
+
+</div>
+
+<div th:replace="fragments::javascript"/>
+
+</body>
+</html>
 ```
 
 Prueba la página accediendo a la url <http://localhost:9000/about>.
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/pagina-acerca-de.png" width="400px"/>
+<img src="./imagenes/pagina-acerca-de.png" width="400px"/>
 
 Por último, confirma el commit en la rama y súbelo a GitHub. En el
 panel `Git`:
 
 ```text
-$ git add .
-$ git status
-
-On branch acerca-de
-Your branch is up to date with 'origin/acerca-de'.
-
-Changes to be committed:
-  (use "git reset HEAD <file>..." to unstage)
-
-        modified:   app/controllers/HomeController.java
-        new file:   app/views/about.scala.html
-        modified:   conf/routes
-$ git commit -m "Añadida ruta, vista y controller 'about'"
-[acerca-de 2831312] Añadida ruta, vista y controller 'about'
- 3 files changed, 14 insertions(+)
- create mode 100644 app/views/about.scala.html
-$ git push
+(acerca-de) $ git add .
+(acerca-de) $ git status (comprueba que se han añadido los ficheros)
+(acerca-de) $ git commit -m "Añadida vista y controller 'about'"
+(acerca-de) $ git push
 ```
 
 
@@ -1636,22 +1540,20 @@ login de la aplicación.
 
 Realiza el siguiente cambio:
 
-**Fichero `app/views/formLogin.scala.html`**:
+**Fichero `formLogin.html`**:
 
 ```diff
-            <a class="btn btn-link" href="@routes.UsuarioController.registroUsuario()">Ir a registro</a>
-        </p>
-+       <p><a class="btn btn-link" href="@routes.HomeController.about()">Acerca de</a></p>
-     }
+                         <a class="btn btn-link" href="/registro">Ir a registro</a>
++                        <a class="btn btn-link" href="/about">Acerca de</a>
++                    </div>
+             </form>
 ```
 
 Prueba que funciona correctamente, haz el commit y súbelo a GitHub:
 
 ```text
-$ git commit -am "Añadido enlace a página 'about' en página 'login'"
-[acerca-de 672c28f] Añadido enlace a página 'about' en página 'login'
-1 file changed, 1 insertion(+)
-$ git push
+(acerca-de) $ git commit -am "Añadido enlace a página 'about' en página 'login'"
+(acerca-de) $ git push
 ```
 
 
@@ -1674,33 +1576,33 @@ hacer el _pull request_ en GitHub, para probar que no se ha roto nada
 añadido también funcionan correctamente (en este caso no hemos añadido
 ninguno).
 
-En el panel `Git`:
+En el terminal:
 
 ```text
-$ git checkout master
-Switched to branch 'master'
-Your branch is up to date with 'origin/master'.
-$ git merge acerca-de 
-Updating 6767016..672c28f
-Fast-forward
- app/controllers/HomeController.java | 4 ++++
- app/views/about.scala.html          | 8 ++++++++
- app/views/formLogin.scala.html      | 1 +
- build.sbt                           | 4 ++--
- conf/routes                         | 2 ++
- 5 files changed, 17 insertions(+), 2 deletions(-)
- create mode 100644 app/views/about.scala.html
+(acerca-de) $ git checkout master
+(master) $ git merge acerca-de 
+    Fast-forward
+      pom.xml                                                   |  4 ++--
+      src/main/java/madstodolist/controller/HomeController.java | 20 ++++++++++++++++++++
+      src/main/resources/templates/about.html                   | 22 ++++++++++++++++++++++
+      src/main/resources/templates/formLogin.html               |  2 ++
+      4 files changed, 46 insertions(+), 2 deletions(-)
 ```
 
-En el panel `Sbt`:
+Lanzamos los tests (lo podemos hacer en el terminal o en IntelliJ):
 
 ```text
-[mads-todolist-dgallardo] $ test
+(master) $ mvn test
 ...
-[info] Passed: Total 35, Failed 0, Errors 0, Passed 35
-[success] Total time: 71 s, completed Sep 6, 2018 10:04:55 AM
-[mads-todolist-dgallardo] $ 
+[INFO] 
+[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  21.879 s
 ```
+
 
 Una vez que hemos comprobado que todo funciona bien, deshacemos el
 merge que acabamos de realizar en la rama `master`, ya que
@@ -1708,39 +1610,46 @@ actualizaremos después la rama con el resultado del _pull request_ en
 GitHub:
 
 ```text
-$ git reset --hard origin/master
-HEAD is now at 6767016 Commit inicial
-$ git checkout acerca-de 
-Switched to branch 'acerca-de'
-Your branch is up to date with 'origin/acerca-de'.
+(master) $ git log --oneline (muestra la historia de commits y las ramas)
+(master) $ git reset --hard origin/master
+    HEAD is now at 51ebf62 Initial commit
+(master) $ git checkout acerca-de 
+    Switched to branch 'acerca-de'
+    Your branch is up to date with 'origin/acerca-de'.
 ```
 
 Ya podemos crear el _pull request_ en GitHub. 
 
 Accede a la rama y comprueba que están todos los cambios pulsando
-`Compare`. Pulsa después el botón `New pull request` para crear el
-_pull request_.
+`Compare`. 
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/rama-acerca-de.png" width="700px"/>
+<img src="./imagenes/rama-acerca-de.png" width="700px"/>
 
-Introduce el nombre del _pull request_, el comentario, el _milestone_
-y la etiqueta. Copia los datos del _issue_, y en el comentario escribe
+Aparecerá la siguiente página, con la información de los cambios que
+introducen todos los commits de la rama:
+
+<img src="./imagenes/compara-cambios-pr.png" width="700px"/>
+
+Pulsa después el botón _Create pull request_ para crear el _pull request_.
+
+Introduce el nombre del _pull request_, el comentario, el _milestone_,
+la etiqueta y el proyecto. En el comentario escribe
 
 ```text
 Closes #1
 ```
+
+<img src="./imagenes/pull-request-practica.png" width="700px"/>
 
 De esta forma, cuando se cierre el _pull request_ se cerrará
 automáticamente el _issue_. El número `#1` lo convierte GitHub en un
 enlace al _issue_ correspondiente. De esta forma podemos examinar el
 _issue_ resuelto por el PR.
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/pull-request-practica.png" width="700px"/>
-
-Añade también el PR al tablero del proyecto. Se colocará
-automáticamente la columna `In pull request`. Entra en el proyecto y
-archiva la tarjeta con el _issue_, ya que la actividad de desarrollar
-la _feature_ queda representada por el _pull request_.
+En el proyecto el _pull request_ se colocará automáticamente la
+columna `In pull request`. Entra en el proyecto y archiva la tarjeta
+con el _issue_, ya que la actividad de desarrollar la _feature_ queda
+representada por el _pull request_.
 
 En este momento se debería hacer una revisión del código del pull
 request y comprobar de forma automática que la integración con
@@ -1748,109 +1657,91 @@ _master_ no introduce errores en los tests. Lo haremos en siguientes
 prácticas.
 
 GitHub informa de que no hay conflictos con la rama `master` y que es
-posible hacer el merge. Pulsa el botón de `Merge` y confírmalo. Borra
-la rama en GitHub, pulsando el botón correspondiente.
+posible hacer el merge. Pulsa el botón de `Merge` y confírmalo. 
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/merge-pull-request-1.png" width="500px"/>
+<img src="./imagenes/merge-pull-request.png" width="600px"/>
 
-Por último, este _merge_ lo has hecho en GitHub, debes integrarlo en tu
-repositorio local. En la pestaña de Git:
+Borra la rama en GitHub, pulsando el botón correspondiente.
+
+<img src="./imagenes/merge-pull-request-1.png" width="600px"/>
+
+Este _merge_ lo has hecho en GitHub. Debes por último integrarlo en tu
+repositorio local. En el terminal:
 
 ```text
-$ git checkout master
-$ git fetch
-remote: Counting objects: 1, done.
-remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
-Unpacking objects: 100% (1/1), done.
-From https://github.com/mads-ua-18/todolist-2018-domingogallardo2
-   6767016..9527ae2  master     -> origin/master
-$ git pull
-Updating 6767016..9527ae2
-Fast-forward
- app/controllers/HomeController.java | 4 ++++
- app/views/about.scala.html          | 8 ++++++++
- app/views/formLogin.scala.html      | 1 +
- build.sbt                           | 4 ++--
- conf/routes                         | 2 ++
- 5 files changed, 17 insertions(+), 2 deletions(-)
- create mode 100644 app/views/about.scala.html
-$ git branch -d acerca-de 
-Deleted branch acerca-de (was 672c28f).
-$ git remote prune origin
-Pruning origin
-URL: https://github.com/mads-ua-18/todolist-2018-domingogallardo2.git
- * [pruned] origin/acerca-de
-$ git log --oneline --graph --all
-*   9527ae2 (HEAD -> master, origin/master, origin/HEAD) Merge pull request #2 from mads-ua-18/acerca-de
-|\  
-| * 672c28f Añadido enlace a página 'about' en página 'login'
-| * 3fdfb83 Añadida ruta, vista y controller 'about'
-| * a332017 Cambiado el nombre del proyecto y empezamos versión 1.0.0
-|/  
-* 6767016 Commit inicial
+(acerca-de) $ git checkout master
+(master) $ git pull (bajamos los cambios)
+(master) $ git branch -d acerca-de (borramos la rama)
+(master) $ git remote prune origin (borramos referencias a rama remota)
+(master) $ git log --oneline --graph --all
+    *   9527ae2 (HEAD -> master, origin/master, origin/HEAD) Merge pull request #2 from mads-ua-18/acerca-de
+    |\  
+    | * 672c28f Añadido enlace a página 'about' en página 'login'
+    | * 3fdfb83 Añadida ruta, vista y controller 'about'
+    | * a332017 Cambiado el nombre del proyecto y empezamos versión 1.0.0
+    |/  
+    * 6767016 Commit inicial
 ```
 
 Comprobamos también la historia de _commits_ en GitHub. Aparecerá el
 _commit_ de _merge_ introducido por el _pull request_.
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/historia-commits-practica1.png" width="800px"/>
+<img src="./imagenes/historia-commits-practica1.png" width="800px"/>
 
 De esta forma hemos cerrado el PR e integrado su código en la rama
 principal de desarrollo. En el tablero de proyecto debe haber cambiado
 la tarjeta con el PR a la columna `Done`.
 
 
-#### 4.1.6. Versión 1.0.0 ####
+#### Versión 1.0.1 ####
 
-Por último creamos el _release_ 1.0.0. Haremos un commit directamente
+Por último creamos el _release_ 1.0.1. Haremos un commit directamente
 sobre la rama `master` (más adelante explicaremos una forma más
 elaborada de hacer un _release_, cuando expliquemos el flujo de
 trabajo de GitFlow).
 
 
 Crea un commit con la confirmación del número de versión y fecha en
-los ficheros `build.sbt` y `about.scala.html`
+los ficheros `pom.xml` y `about.html`
 
-**Fichero `build.sbt`**:
+**Fichero `pom.xml`**:
 
 ```diff
- name := """mads-todolist-dgallardo"""
- 
--version := "1.0.0-SNAPSHOT"
-+version := "1.0.0"
- 
- lazy val root = (project in file(".")).enablePlugins(PlayJava)
+     <groupId>es.ua.mads</groupId>
+     <artifactId>mads-todolist-dgallardo</artifactId>
+-    <version>1.0.1-SNAPSHOT</version>
++    <version>1.0.1</version>
  
 ```
 
-**Fichero `app/views/about.scala.html`**:
+**Fichero `about.html`**:
 
 ```diff
     <h1>ToDo List</h1>
         <ul>
-            <li>Desarrollada por Domingo Gallardo</li>
--           <li>Versión 1.0.0 (en desarrollo)</li>
--           <li>Fecha de release: pendiente de release</li>
-+           <li>Versión 1.0.0</li>
-+           <li>Fecha de release: 6/9/2018</li>
-        </ul>
+         <h1>ToDo List</h1>
+         <ul>
+             <li>Desarrollada por Domingo Gallardo</li>
+-            <li>Versión 1.0.1 (en desarrollo)</li>
+-            <li>Fecha de release: pendiente de release</li>
++            <li>Versión 1.0.1</li>
++            <li>Fecha de release: 17/9/2018</li>
+         </ul>
 }
 ```
 
 Añadimos el commit y lo subimos a GitHub
 
 ```text
-$ git add .
-$ git commit -m "Cambio de versión a 1.0.0"
-[master 61d4ac8] Cambio de versión a 1.0.0
- 2 files changed, 3 insertions(+), 3 deletions(-)
-$ git push
+(master) $ git add .
+(master) $ git commit -m "Cambio de versión a 1.0.1"
+(master) $ git push
 ```
 
-Y, por último, creamos la versión 1.0.0 en GitHub pulsando en el
+Y, por último, creamos la versión 1.0.1 en GitHub pulsando en el
 enlace `release` en la página principal (pestaña `Code`).
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/release-practica1.png" width="700px"/>
+<img src="./imagenes/release-practica1.png" width="700px"/>
 
 Un _release_ en GitHub se guarda como una una etiqueta Git, junto con
 información asociada. Se suelen indicar las nuevas _features_ añadidas
@@ -1859,25 +1750,31 @@ añadidos. También añadiremos enlaces a la página de la Wiki en la que
 se describe la característica.
 
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/primer-release-practica1.png" width="700px"/>
+<img src="./imagenes/primer-release-practica1.png" width="700px"/>
 
 El resultado será:
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/01-introduccion-play/imagenes/release-practica1-terminado.png" width="400px"/>
+<img src="./imagenes/release-practica1-terminado.png" width="400px"/>
 
 
-### 4.2. Versión 1.1.0 ###
+### Versión 1.1.0 ###
 
 El resto de la práctica consistirá en desarrollar la versión 1.1.0,
 usando la misma metodología vista anteriormente.
 
 Deberás desarrollar tres características nuevas obligatorias y 2 opcionales:
 
-- Barra de menú, obligatoria.
-- Página de equipos de un usuario, obligatoria.
-- Página de descripción de un equipo con el listado de usuarios que
-  participan en él, obligatoria.
-- (Opcional) Usuario administrador que gestiona los equipos
+2. Barra de menú
+3. Página listado de usuarios
+4. Página descripción de usuario
+5. Usuario administrador (opcional)
+6. Gestión de usuarios por el usuario administrador (opcional)
+
+
+- (Obligatoria) Barra de menú
+- (Obligatoria) Página de listado de usuarios
+- (Obligatoria) Página de descripción de un usuario
+- (Opcional) Usuario administrador que puede bloquear el acceso a usuarios
 
 Deberás implementar cada característica siguiendo la metodología que
 hemos usado anteriormente. En la implementación, deberás añadir el
@@ -1888,8 +1785,8 @@ código necesario en cada una de las capas de la aplicación:
 - Métodos necesarios en la capa de servicio y de repository
   
 En cada característica deberás también incluir **tests** que prueben los
-nuevos métodos añadidos en la capa de servicio.
-
+nuevos métodos añadidos en la capa de servicio. En alguna de las
+características deberás también realizar algún test de la vista.
 
 #### Barra de menú ####
 
@@ -1904,35 +1801,22 @@ izquierda a derecha):
    - `ToDoList`: enlace a la página _acerca de_.
    - `Tareas`: enlace a la página de tareas, con la lista de tareas
   pendientes del usuario.
-   - `Equipos`: enlace a la página de equipos, con el listado de equipos al
-  que pertenece el usuario.
    - _Nombre usuario_: A la derecha de la página. Desplegable con las opciones:
       - `Cuenta`: Futura página para gestionar la cuenta
       - `Cerrar sesión <nombre usuario>`: cierra la sesión y lleva a la
      página de login.
 
-#### Equipos de un usuario ####
+#### Listado de usuarios ####
 
-Cuando el usuario pinche en la opción `Equipos` del menú irá a una
-página con un listado del equipo a los que pertenece.
+- Si se introduce la URL `/usuarios` aparecerá un listado de los
+  usuarios registrados (identificador y correo electrónico).
 
-- El listado de equipos será una tabla similar al listado de tareas,
-pero sin acciones.
-- La ruta para obtener el listado de los equipos de un usuario será
-`/usuarios/:id/equipos`. Al igual que el listado de tareas, la ruta
-estará protegida para que sólo pueda acceder un usuario logeado y
-siendo el usuario logeado el mismo que el `id`.
+#### Descripción de usuario ####
 
-#### Descripción de equipo ####
-
-En la lista de equipos de un usuario los equipos tendrán un enlace para
-acceder a su descripción.
-
-- En la descripción de un equipo aparecerá: su nombre y el listado de
-  personas del equipo.
-- La ruta para obtener la descripción de un equipo será
-`/equipos/:id`. La ruta estará protegida para que sólo pueda acceder
-un usuario logeado.
+- En la lista de usuarios habrá un enlace para acceder a su descripción.
+- En la descripción de un usuario aparecerán todos sus datos, menos la contraseña.
+- La ruta para obtener la descripción de un usuario será
+`/usuarios/:id`. 
 
 #### Usuario administrador (opcional) ####
 
@@ -1943,39 +1827,32 @@ administrador.
   box_ en la página de registro.
 - Sólo puede haber un administrador. Si ya existe un administrador, no
   debe aparecer el _check box_ en la página de registro.
-- El usuario administrador tendrá una barra de menú en la que se
-  añadirá la opción vacía `Administración` (que iremos cambiando
-  conforme añadamos funcionalidades a realizar por el administrador).
+- El usuario administrador accederá directamente a la lista de usuarios.
 
-#### Gestión equipos por usuario administrador (opcional) ####
+#### Protección de listado de usuario y descripción de usuario (opcional) ####
 
-El usuario administrador podrá gestionar los equipos: añadir y editar
-equipos (la opción de borrar la dejamos para más adelante).
+- Proteger las páginas con el listado de usuarios y la descripción de
+usuario para que sólo las pueda consultar el administrador.
 
-- El administrador tendrá una opción adicional del menú llamada
-  `Administración` de la que se desplegarán la opción `Equipos`.
-- En la administración de equipos se entrará en una página donde se
-  mostrará un listado de todos los equipos existentes (como el listado
-  de tareas) y se dará la opción de añadir y editar.
-- En la página de edición de un equipo se podrá modificar su nombre y
-  aparecerá una tabla con todos los usuarios. Se podrá eliminar
-  usuarios del equipo o añadir nuevos usuarios al mismo. 
-- Los usuarios a añadir se escogerán de un desplegable en el que se
-  mostrarán todos los usuarios no pertenecientes al equipo que se está
-  modificando.
+#### Bloqueo de usuarios por usuario administrador (opcional) ####
 
+- Añadir en el listado de usuarios un botón para que el
+  administrador pueda bloquear o habilitar el acceso a cada uno de los
+  usuarios. 
+- Si el usuario tiene bloqueado el acceso cuando intente logearse
+  aparecerá un mensaje de error indicándoselo.
 
-## 5. Entrega y evaluación ##
+## Entrega y evaluación ##
 
 - La práctica tiene una duración de 4 semanas y debe estar terminada
-  el martes 9 de octubre.
-- La parte obligatoria puntúa sobre 7 y la opcional sobre 3 puntos.
-- La calificación de la práctica tiene un peso de un 12% en la nota
+  el martes 15 de octubre.
+- La parte obligatoria puntúa sobre 6 y la opcional sobre 4 puntos.
+- La calificación de la práctica tiene un peso de un 10% en la nota
   final de la asignatura.
 - Para realizar la entrega se debe subir a Moodle un ZIP que contenga
   todo el proyecto, incluyendo el directorio `.git` que contiene la
   historia Git. Para ello comprime tu directorio local del proyecto
-  **después de haber hecho un `clean` en `sbt`** para eliminar el
+  **después de haber hecho un `mvn clean`** para eliminar el
   directorio `target` que contiene los binarios compilados. Debes
   dejar también en Moodle la URL del repositorio en GitHub.
 
@@ -1987,4 +1864,3 @@ Para la evaluación se tendrá en cuenta:
 - Diseño e implementación del código y de los tests de las
   características desarrolladas.
 
--->
