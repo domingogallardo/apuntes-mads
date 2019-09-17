@@ -1557,7 +1557,7 @@ Prueba que funciona correctamente, haz el commit y súbelo a GitHub:
 ```
 
 
-#### 4.1.5. Pull request ####
+#### Pull request ####
 
 Una vez terminada la implementación de la _feature_ en la rama,
 creamos un _pull request_ en GitHub para indicar que estamos listos
@@ -1692,6 +1692,13 @@ De esta forma hemos cerrado el PR e integrado su código en la rama
 principal de desarrollo. En el tablero de proyecto debe haber cambiado
 la tarjeta con el PR a la columna `Done`.
 
+#### Actualizamos tablero Trello ####
+
+Actualizamos el tablero Trello moviendo la historia de usuario a la
+columna _Terminadas_.
+
+<img src="./imagenes/trello-terminadas.png" width="600px"/>
+
 
 #### Versión 1.0.1 ####
 
@@ -1757,7 +1764,7 @@ El resultado será:
 <img src="./imagenes/release-practica1-terminado.png" width="400px"/>
 
 
-### Versión 1.1.0 ###
+### Resto de la práctica (versión 1.1.0) ###
 
 El resto de la práctica consistirá en desarrollar la versión 1.1.0,
 usando la misma metodología vista anteriormente.
