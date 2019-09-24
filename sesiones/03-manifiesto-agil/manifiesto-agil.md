@@ -475,7 +475,7 @@ definidas por las distintas metodologías (_Lean_, XP y Scrum):
 
 <kbd><img src="diapositivas/manifiesto-agil.016.png" width="800px"></kbd>
 
-<kbd><img src="diapositivas/manifiesto-agil.016b.png" width="800px"></kbd>
+<kbd><img src="diapositivas/manifiesto-agil.017.png" width="800px"></kbd>
 
 En la puesta en común hemos obtenido la tabla anterior.
 
@@ -487,14 +487,14 @@ Resumen de los principios que favorecen cada uno de los valores:
   (1,2,3,4,6)
 - Responder al cambio frente a seguir un plan: 3 principios (2,9,10)
 
+<kbd><img src="diapositivas/manifiesto-agil.018.png" width="800px"></kbd>
+
 - El
 [enlace](https://blog.crisp.se/2018/09/26/henrikkniberg/slides-from-kth-agile-intro)
 a las diapositivas de la charla de Henrik Kniberg de hace un par de
 semanas en el [KTH](https://www.kth.se/en).
 
-<kbd><img src="diapositivas/manifiesto-agil.017.png" width="800px"></kbd>
-
-<kbd><img src="diapositivas/manifiesto-agil.018.png" width="800px"></kbd>
+<kbd><img src="diapositivas/manifiesto-agil.019.png" width="800px"></kbd>
 
 - Enlaces:
     - [Manifesto for Agile Software Development](http://agilemanifesto.org)
