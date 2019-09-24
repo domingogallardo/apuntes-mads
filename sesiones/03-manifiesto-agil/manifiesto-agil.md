@@ -192,6 +192,16 @@
 
 <kbd><img src="diapositivas/manifiesto-agil.010.png" width="800px"></kbd>
 
+- Los objetivos a corto plazo de los individuos a menudo entran en
+  conflicto con los objetivos a largo plazo de las sociedades. Las
+  sociedades han aprendido a tratar con este problema desarrollando un
+  conjunto de de valores compartidos, reforzados por creencias, mitos,
+  rituales, premios y castigos.
+
+- Los valores guían las acciones y permiten elegir entre distintas
+  opciones posibles. Son muy generales y aplicables a situaciones muy
+  diversas.
+
 - En el mundo empresarial, se habla de la **misión** de la empresa, a
   partir de la que se definen una series de **valores**.
 
@@ -230,10 +240,49 @@ Por ejemplo, Starbucks define su
 - Las prácticas pueden usarse bien o mal. Es más importante fijarse en
   los miembros del equipo, sus motivaciones, preferencias e
   interacciones.
-- Si las personas no "compran" el proceso, éste no va a funcionar.
 - Más importante que una buena documentación es una buena interacción
   (comunicación continua para que todo el equipo esté informado de las
   decisiones, temas abiertos, conceptos de negocio, etc.)
+- Cuando no existen problemas de **comunicación** los equipos
+  funcionan mucho mejor (en algunos estudios se habla de hasta 50
+  veces mejor que la media). Para facilitar la comunicación las
+  metodologías ágiles se basan en ciclos frecuentes de
+  **inspeccionar-y-adaptar**. Estos ciclos van desde cada pocos
+  minutos con el _pair programming_, a cada pocas horas con la
+  integración continua, a cada día con las reuniones diarias
+  _standup_, a cada iteración con la revisión y la retrospectiva.
+- Para que funcione bien la comunicación y los ciclos de
+  inspeccionar-y-adaptar es necesario que los miembros del equipo
+  muestren bastantes conductas claves:
+  
+  - respecto por el bienestar de cada persona
+  - verdad en cada comunicación
+  - transparencia en todos los datos, acciones y decisiones
+  - confianza en que cada persona va a apoyar al equipo
+  - compromiso al equipo y a los objetivos del equipo
+
+- Para promover este tipo de conducta, se debe facilitar un entorno
+  que apoye y sea inclusivo. Se debe buscar de forma deliberada este
+  tipo de comportamientos, porque la mayoría de equipos evitan la
+  verdad, la transparencia y la confianza debido a normas culturales o
+  conflictos previos generados por ser honestos en la
+  comunicación. Para combatir estas tendencias, los líderes y los
+  miembros del equipo deben facilitar el conflicto positivo. Cuando
+  los equipos no esconden el conflicto, sino que se enfrentan a él de
+  forma positiva se obtienen muchos beneficios:
+  
+  - La mejora de los procesos depende en que los equipos generen una
+    lista de impedimentos o problemas en la organización, enfrentarse
+    a ellos de forma clara priorizándolos y eliminándolos
+    sistemáticamente.
+  - La innovación sucede únicamente como consecuencia del libre
+    intercambio de ideas enfrentadas.
+  - La resolución de intereses enfrentados es consecuencia de que los
+    equipos se alinean alrededor de objetivos comunes y exponen sus
+    preocupaciones y potenciales conflictos.
+  - El compromiso del trabajo conjunto sucede sólo cuando la gente se
+    pone de acuerdo en objetivos comunes y se esfuerzan en mejorarlos
+    tanto individualmente como en equipo.
 
 **2. Software que funciona** sobre documentación exhaustiva:
 
@@ -250,6 +299,19 @@ Por ejemplo, Starbucks define su
   hacen las pruebas y éstas sirven para validar el sistema y para
   documentar. Los ejemplos de validación hechos por el _product owner_
   y los clientes son otro ejemplo de documentación imprescindible.
+- El equipo debe definir lo que considera "software que funciona",
+  esto es, definir claramente cuando considera que una determinada
+  característica está terminada y lista para salir a producción. En un
+  alto nivel, un trozo de funcionalidad está completo cuando sus
+  características pasan todos los tests y puede ser utilizado por el
+  usuario final. Como mínimo se deben realizar tests unitarios y tests
+  a nivel de sitstema. Los mejores equipos incluirán también en la
+  definición de terminado tests de integración, tests de eficiencia y
+  tests de aceptación por el cliente.
+- Es conveniente definir tests de aceptación cuando se está definiendo
+  una nueva característica, ejecutarlos tan pronto la característica
+  se haya terminado de implementar y corregir _bugs_ identificados
+  como de alta prioridad tan pronto como sea posible.
 
 **3. Colaboración con el cliente** frente a negociación de un contrato:
 
@@ -260,6 +322,10 @@ Por ejemplo, Starbucks define su
 - La flexibilidad y apertura de la colaboración permite cometer fallos
   sin que nadie se sienta señalado. El equipo es el responsable porque hay un
   objetivo final en el todos estamos comprometidos.
+- Muchas veces no es posible trabajar mano a mano con el cliente final, por
+  lo que se crea la figura de un "proxy", llamado en Scrum _Product
+  Owner_. Es el encargado de concretar la lista de características que
+  debe tener el producto y priorizarlas.
 - **La _product owner_** es un miembro más del equipo: participa en las
   reuniones, propone ideas, proporciona ejemplos de prueba y, lo más
   importante, se siente tan autora del producto final como los demás
@@ -275,6 +341,18 @@ Por ejemplo, Starbucks define su
 - La actitud del gestor del proyecto debe ser la de estar
   continuamente comprobando y reaccionando (sobre todo al final de
   cada iteración), no sólo la de planificar una vez al principio.
+- Los planes de los equipos ágiles se centran en entregar primero el
+  mayor valor de negocio. Debido a que el 80% del valor reside en el
+  20% de las características, los equipos ágiles tienden a tener listo
+  pronto un producto mínimo que proporcionará un valor claro al
+  cliente. De esta forma se evita el riesgo de no entregar el producto
+  en plazo o de tener que cancelarlo.
+- Los equipos ágiles se basan el conocimiento de que, para que
+  funcionen correctamente, los planes deben cambiar y adaptarse. Por
+  eso tienen establecido procesos, como revisiones y retrospectivas,
+  que están diseñados específicamente para modificar las prioridades
+  de forma regular basándose en la retroalimentación del cliente y en
+  el valor de negocio.
 
 <kbd><img src="diapositivas/manifiesto-agil.013.png" width="800px"></kbd>
 
