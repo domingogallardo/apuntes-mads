@@ -1845,7 +1845,12 @@ usuario para que sólo las pueda consultar el administrador.
 - Si el usuario tiene bloqueado el acceso cuando intente logearse
   aparecerá un mensaje de error indicándoselo.
 
-## Entrega y evaluación ##
+## Documentación, entrega y evaluación ##
+
+No es necesario, pero si quieres resaltar o documentar alguna cosa que
+hayas hecho en la práctica puedes crear la página `/doc/practica1.md`
+y escribir la documentación en Markdown. Tienes disponible en GitHub
+una breve pero útil [introducción a Markdown](https://guides.github.com/features/mastering-markdown/).
 
 - La práctica tiene una duración de 4 semanas y debe estar terminada
   el martes 15 de octubre.
