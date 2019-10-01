@@ -1325,7 +1325,7 @@ En esta primera práctica vamos a desarrollar las siguientes historias de usuari
 4. Página descripción de usuario
 5. Usuario administrador (opcional)
 6. Protección del listado y descripción de usuarios (opcional)
-7. Gestión de usuarios por el usuario administrador (opcional)
+7. Bloqueo de usuarios por el usuario administrador (opcional)
 
 La práctica va a consistir en la realización en tu proyecto de todos
 los elementos necesarios para implementar estas _features_ : tablero Trello,
