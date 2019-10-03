@@ -1581,6 +1581,9 @@ En el terminal:
 
 ```text
 (acerca-de) $ git checkout master
+(master) $ git pull (bajamos cambios que se hayan subido master. En
+                     este caso no habrá ninguno, pero lo habrán cuando
+                     trabajemos en equipo)
 (master) $ git merge acerca-de 
     Fast-forward
       pom.xml                                                   |  4 ++--
@@ -1611,7 +1614,7 @@ actualizaremos después la rama con el resultado del _pull request_ en
 GitHub:
 
 ```text
-(master) $ git log --oneline (muestra la historia de commits y las ramas)
+(master) $ git log --oneline --graph (muestra la historia de commits y las ramas)
 (master) $ git reset --hard origin/master
     HEAD is now at 51ebf62 Initial commit
 (master) $ git checkout acerca-de 
