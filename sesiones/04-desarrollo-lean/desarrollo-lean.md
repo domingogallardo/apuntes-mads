@@ -383,7 +383,7 @@ el artículo.
 
 - Los diagramas anteriores están sacados de: 
     - José Manuel Beas: [Burn-up chart](http://jmbeas.es/guias/burn-up-chart/)
-    - Pawel Brodzinski: [Cumulative Flow Diagram](http://brodzinski.com/2013/07/cumulative-flow-diagram.light)
+    - Pawel Brodzinski: [Cumulative Flow Diagram](http://brodzinski.com/2013/07/cumulative-flow-diagram.html)
     - Henrik Kniberg: [Lean from the trenches](https://pragprog.com/book/hklean/lean-from-the-trenches)
 
 
