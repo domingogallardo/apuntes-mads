@@ -121,9 +121,9 @@ rama actual.
         M   hola.txt (si hay cambios en el espacio de trabajo se llevan a la nueva rama)
         Switched to a new branch 'nueva-rama'
 
-- Listar las ramas de un repositorio:
+- Listar todas las ramas de un repositorio (incluyendo ramas remotas)
 
-        $ git branch
+        $ git branch -av
         master
         * nueva-rama
         $ git commit -a -m "Confirmamos los cambios en la nueva rama"
