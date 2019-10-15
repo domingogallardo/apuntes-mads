@@ -1141,5 +1141,5 @@ public class TestMonedas {
 ```
 
 Puedes seguir el resto del ejemplo en el libro de Kent Beck _Test-Driven
-Development By Example_ [Biblioteca
-UA](http://gaudi.ua.es/uhtbin/cgisirsi/0/x/0/05?searchdata1=9780321146533). 
+Development By Example_ ([Biblioteca
+UA](http://gaudi.ua.es/uhtbin/cgisirsi/0/x/0/05?searchdata1=9780321146533)). 
