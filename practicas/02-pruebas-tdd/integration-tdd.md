@@ -142,7 +142,7 @@ MySQL.
 - Copia el siguiente fichero en `src/test/resources/application-mysql.properties`:
     
     ```
-    spring.datasource.url=jdbc:mysql://localhost:3306/mads
+    spring.datasource.url=jdbc:mysql://localhost:3306/mads-test
     spring.datasource.username=root
     spring.datasource.password=
     spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDialect
@@ -152,7 +152,9 @@ MySQL.
    La diferencia más importante es el valor de
    `spring.jpa.hibernate.ddl-auto`, que es `create`. De esta forma la
    base de datos se inicializa antes de cargar los datos de los tests
-   y de ejecutarlos.
+   y de ejecutarlos. También usamos una base de datos distinta
+   (`mads-test`) para no sobreescribir la base de datos definida en el
+   perfil de ejecución.
 
 - Añade la siguiente dependencia en el fichero `pom.xml` para que se
   descargue el driver `mysql-connector-java` y poder utilizar una base
@@ -179,12 +181,12 @@ MySQL.
   el terminal:
 
     ```
-    $ docker run -d -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_DATABASE=mads mysql:5
+    $ docker run -d -p 3306:3306 --name mysql-develop -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_DATABASE=mads mysql:5 
     ```
 
    Docker se descarga la imagen `mysql:5` y lanza el contenedor (una
    instancia en marcha de una imagen) conectado al puerto 3306 y sobre
-   la base de datos `mads`. 
+   la base de datos `mads`. Le da como nombre `mysql-develop`.
    
    Puedes ejecutar los siguientes comandos de docker:
 
@@ -207,22 +209,45 @@ MySQL.
    guardando en la base de datos con _MySQL Workbench_ o alguna
    aplicación similar.
 
-
    <img src="imagenes/mysql-workbench.png" width="700px"/>
 
 - Cierra la aplicación y vuelve a abrirla. Comprueba que los datos que
   se han creado en la ejecución anterior siguen estando.
-  
-- Cierra la aplicación y ahora lanza los tests para que trabajen con
-  la base de datos MySQL con el siguiente comando:
+
+- Cierra la aplicación. Paramos el contenedor con la base de datos de
+  desarrollo haciendo `docker container stop`:
+
+    ```
+    $ docker container ls -a 
+    CONTAINER ID        IMAGE          ... NAMES
+    520fee61d51e        mysql:5        ... mysql-develop
+    $ docker container stop mysql-develop
+    ```
+
+- Lanzamos ahora otro contenedor con la base de datos de test:
+
+    ```
+    $ docker run -d -p 3306:3306 --name mysql-test -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_DATABASE=mads-test mysql:5 
+    ```
+
+   Y lanzamos los tests sobre la base de datos MySQL con el siguiente comando:
   
     ```
     $ mvn -DargLine="-Dspring.profiles.active=mysql" test
     ```
 
-    Vuelve a comprobar con _MySQL Workbench_ que los datos que hay en
+    Comprobar con _MySQL Workbench_ que los datos que hay en
     la base de datos corresponden con los introducidos en el fichero
     `datos-test.sql` que se carga antes de ejecutar los tests.
+
+- Podemos parar y arrancar el contenedor MySQL que necesitemos con
+  `docker container stop` y `docker container start`:
+  
+    ```
+    $ docker container ls -a 
+    $ docker container stop mysql-test
+    $ docker container start mysql-develop
+    ```
 
 - Realiza un commit con los cambios, súbelos a la rama y cierra el
   pull request para integrarlo en `master`:
@@ -306,7 +331,7 @@ services:
   - mysql
 
 before_install:
-  - mysql -e 'CREATE DATABASE mads;'
+  - mysql -e 'CREATE DATABASE mads-test;'
 
 script: ./mvnw -DargLine="-Dspring.profiles.active=mysql" test
 ```
@@ -324,7 +349,7 @@ Puntos interesantes a destacar:
 - En el apartado `before_install` se definen los comandos a realizar
   antes de ejecutar el _script_ con los tests. En nuestro caso
   se ejecuta un comando sobre el servicio `mysql` para crear la base
-  de datos `mads` vacía.
+  de datos `mads-test` vacía.
 - En el apartado `script` se definen los comandos a realizar para
   lanzar los tests. En nuestro caso lanzamos el comando `mvnw` que
   lanza el Maven instalado en el repositorio (ver punto siguiente).
