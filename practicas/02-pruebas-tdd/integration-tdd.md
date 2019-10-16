@@ -134,7 +134,7 @@ MySQL.
    En este fichero de configuración se define la URL de conexión a la
    base de datos MySQL, su usuario (`root`) y contraseña (vacía) y el
    dialecto que se va a utilizar para trabajar desde JPA con la base
-   de datos (`org.hibernate.dialect.MySQL5Dialect`). Además se indica
+   de datos (`org.hibernate.dialect.MySQL5InnoDBDialect`). Además se indica
    que no se debe cargar ningún fichero de datos inicial. El esquema
    de la base de datos se actualizará si hay cambios en las entidades
    de la aplicación, y los datos se mantendrán en la base de datos.
@@ -145,7 +145,7 @@ MySQL.
     spring.datasource.url=jdbc:mysql://localhost:3306/mads
     spring.datasource.username=root
     spring.datasource.password=
-    spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
+    spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDialect
     spring.jpa.hibernate.ddl-auto=create
     ```
      
