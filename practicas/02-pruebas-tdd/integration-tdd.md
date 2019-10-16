@@ -126,7 +126,7 @@ MySQL.
     spring.datasource.url=jdbc:mysql://localhost:3306/mads
     spring.datasource.username=root
     spring.datasource.password=
-    spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
+    spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDialect
     spring.jpa.hibernate.ddl-auto=update
     spring.datasource.initialization-mode=never
     ```
