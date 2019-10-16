@@ -15,8 +15,8 @@ En esta práctica 2 de la asignatura realizaremos dos tareas principales:
     apartados con el título `Pasos a seguir en la práctica`. Ahí están
     especificadas las acciones que debes realizar en la práctica.
 
-La duración de la práctica es de 2 semanas y la fecha límita de
-entrega es el día 30 de octubre.
+La duración de la práctica es de 3 semanas y la fecha límita de
+entrega es el día 5 de noviembre.
 
 ## Refactorización de la relación uno-a-muchos ##
 
@@ -84,9 +84,9 @@ se carga cuando se lanzan los tests.
 Spring Boot permite definir ficheros de configuración adicionales que
 pueden sobreescribir las propiedades definidas en el fichero de
 configuración por defecto. El nombre de estos ficheros de
-configuración debe ser `application-xxx.profile` donde `xxx` define el
+configuración debe ser `application-xxx.properties` donde `xxx` define el
 nombre del perfil. En nuestro caso definiremos los ficheros
-`application-mysql.profile` (uno en el directorio `main` y otro en
+`application-mysql.properties` (uno en el directorio `main` y otro en
 `test`) para definir las configuraciones de ejecución y de test con
 MySQL.
 
