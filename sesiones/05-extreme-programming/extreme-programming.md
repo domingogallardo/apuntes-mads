@@ -336,6 +336,33 @@ Explicación de los cinco valores:
 
 <kbd><img src="diapositivas/extreme-programming.025.png" width="800px"></kbd>
 
+- [Test-Driven Development by Example](https://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530)
+- [Growing Object-Oriented Software, Guided by Tests](http://www.growing-object-oriented-software.com)
+
+<kbd><img src="diapositivas/extreme-programming.026.png" width="800px"></kbd>
+
+<kbd><img src="diapositivas/extreme-programming.027.png" width="800px"></kbd>
+
+<kbd><img src="diapositivas/extreme-programming.028.png" width="800px"></kbd>
+
+<kbd><img src="diapositivas/extreme-programming.029.png" width="800px"></kbd>
+
+- [The Three Rules of TDD](http://butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd)
+
+<kbd><img src="diapositivas/extreme-programming.030.png" width="800px"></kbd>
+
+<kbd><img src="diapositivas/extreme-programming.031.png" width="800px"></kbd>
+
+- [Refactoring: Improving the Design of Existing Code](https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672)
+
+<kbd><img src="diapositivas/extreme-programming.032.png" width="800px"></kbd>
+
+<kbd><img src="diapositivas/extreme-programming.033.png" width="800px"></kbd>
+
+<kbd><img src="diapositivas/extreme-programming.034.png" width="800px"></kbd>
+
+<kbd><img src="diapositivas/extreme-programming.035.png" width="800px"></kbd>
+
 - Enlace al libro Kent Beck (acceso digital Biblioteca UA): [Extreme
   Programming Explained, Second Edition](http://proquest.safaribooksonline.com/0321278658?tocview=true)
 - Artículo de Ron Jeffries: [What is Extreme Programming?](http://ronjeffries.com/xprog/what-is-extreme-programming/)
