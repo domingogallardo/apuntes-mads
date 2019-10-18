@@ -408,6 +408,17 @@ ejecuta usando el Maven del propio proyecto.
     $ mvn -N io.takari:maven:wrapper
     ```
 
+    Con este comando se instala Maven en tu propio respositorio (en el
+    directorio `.mvn`) y se instalan los comandos `mvnw` (para Linux)
+    y `mvnw.cmd` (para Windows).
+
+    **Si estás en Windows** deberás actualizar el permiso de ejecución
+    del comando `mvnw` con la siguiente instrucción:
+    
+    ```
+    $ git update-index --chmod=+x mvnw
+    ```
+
     Prueba que funciona correctamente ejecutando los tests con el
     comando `./mvnw`:
     
