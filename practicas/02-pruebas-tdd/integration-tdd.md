@@ -225,8 +225,8 @@ MySQL.
 
     ```
     $ docker container ls -a 
-    CONTAINER ID        IMAGE          ... NAMES
-    520fee61d51e        mysql:5        ... mysql-develop
+    CONTAINER ID        IMAGE     ...    NAME
+    520fee61d51e        mysql:5   ...    mysql-develop
     $ docker container stop mysql-develop
     ```
 
@@ -247,7 +247,9 @@ MySQL.
     `datos-test.sql` que se carga antes de ejecutar los tests.
 
 - Podemos parar y arrancar el contenedor MySQL que necesitemos con
-  `docker container stop` y `docker container start`:
+  `docker container stop` y `docker container start`. Por ejemplo,
+  para parar el contenedor MySQL con la base de datos de test y
+  arrancar el contenedor con la base de datos de desarrollo:
   
     ```
     $ docker container ls -a 
