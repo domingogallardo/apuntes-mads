@@ -237,10 +237,10 @@ MySQL.
 
    Y lanzamos los tests sobre la base de datos MySQL con el siguiente comando:
   
-        ```
-        $ mvn -DargLine="-Dspring.profiles.active=mysql" test
-        ```
-
+      ```
+      $ mvn -DargLine="-Dspring.profiles.active=mysql" test
+      ```
+  
     Comprobamos con _MySQL Workbench_ que los datos que hay en
     la base de datos corresponden con los introducidos en el fichero
     `datos-test.sql` que se carga antes de ejecutar los tests.
@@ -257,16 +257,16 @@ MySQL.
 - Realiza un commit con los cambios, súbelos a la rama y cierra el
   pull request para integrarlo en `master`:
   
-  ```
-  $ (perfiles) git add .
-  $ (perfiles) git commit -m "Añadidos perfiles para trabajar con MySQL"
-  $ (perfiles) git push
-  // Mezclamos el Pull Request en GitHub
-  $ (perfiles) git checkout master
-  $ (master) git pull
-  $ (master) git branch -d perfiles
-  $ (master) git remote prune origin
-  ```
+      ```
+      $ (perfiles) git add .
+      $ (perfiles) git commit -m "Añadidos perfiles para trabajar con MySQL"
+      $ (perfiles) git push
+      // Mezclamos el Pull Request en GitHub
+      $ (perfiles) git checkout master
+      $ (master) git pull
+      $ (master) git branch -d perfiles
+      $ (master) git remote prune origin
+      ```
 
 
 ## Integración continua con Travis ##
