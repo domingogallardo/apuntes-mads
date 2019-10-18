@@ -235,7 +235,7 @@ MySQL.
     $ docker run -d -p 3306:3306 --name mysql-test -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_DATABASE=mads_test mysql:5 
     ```
 
-   Y lanzamos los tests sobre la base de datos MySQL con el siguiente comando:
+    Y lanzamos los tests sobre la base de datos MySQL con el siguiente comando:
   
       ```
       $ mvn -DargLine="-Dspring.profiles.active=mysql" test
