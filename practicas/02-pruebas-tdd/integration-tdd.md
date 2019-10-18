@@ -105,10 +105,15 @@ MySQL.
   Lo vamos a utilizar para **lanzar el servidor MySQL de base de
   datos** y también para la futura práctica 3.
   
-  Si tienes Windows, Docker no es compatible con VirtualBox. Si
+  **Si tienes Windows, Docker no es compatible con VirtualBox**. Si
   quieres usar ambos programas puedes usar una versión limitada de
   Docker llamada [Docker
   Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/)
+
+
+  **Si tienes Ubuntu** debes instalar Docker usando `apt`. Aquí tienes
+  un tutorial para [instalar Docker en Ubuntu
+  18.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04).
 
 - Crea un nuevo _issue_ llamado `Añadir perfiles y permitir trabajar
   con MySQL`. Crea una rama nueva (llámala `perfiles`, por ejemplo) y
@@ -142,7 +147,7 @@ MySQL.
 - Copia el siguiente fichero en `src/test/resources/application-mysql.properties`:
     
     ```
-    spring.datasource.url=jdbc:mysql://localhost:3306/mads-test
+    spring.datasource.url=jdbc:mysql://localhost:3306/mads_test
     spring.datasource.username=root
     spring.datasource.password=
     spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDialect
@@ -153,7 +158,7 @@ MySQL.
    `spring.jpa.hibernate.ddl-auto`, que es `create`. De esta forma la
    base de datos se inicializa antes de cargar los datos de los tests
    y de ejecutarlos. También usamos una base de datos distinta
-   (`mads-test`) para no sobreescribir la base de datos definida en el
+   (`mads_test`) para no sobreescribir la base de datos definida en el
    perfil de ejecución.
 
 - Añade la siguiente dependencia en el fichero `pom.xml` para que se
@@ -227,7 +232,7 @@ MySQL.
 - Lanzamos ahora otro contenedor con la base de datos de test:
 
     ```
-    $ docker run -d -p 3306:3306 --name mysql-test -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_DATABASE=mads-test mysql:5 
+    $ docker run -d -p 3306:3306 --name mysql-test -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_DATABASE=mads_test mysql:5 
     ```
 
    Y lanzamos los tests sobre la base de datos MySQL con el siguiente comando:
@@ -331,7 +336,7 @@ services:
   - mysql
 
 before_install:
-  - mysql -e 'CREATE DATABASE mads-test;'
+  - mysql -e 'CREATE DATABASE mads_test;'
 
 script: ./mvnw -DargLine="-Dspring.profiles.active=mysql" test
 ```
@@ -349,7 +354,7 @@ Puntos interesantes a destacar:
 - En el apartado `before_install` se definen los comandos a realizar
   antes de ejecutar el _script_ con los tests. En nuestro caso
   se ejecuta un comando sobre el servicio `mysql` para crear la base
-  de datos `mads-test` vacía.
+  de datos `mads_test` vacía.
 - En el apartado `script` se definen los comandos a realizar para
   lanzar los tests. En nuestro caso lanzamos el comando `mvnw` que
   lanza el Maven instalado en el repositorio (ver punto siguiente).
