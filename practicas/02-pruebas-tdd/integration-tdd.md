@@ -108,7 +108,7 @@ MySQL.
   **Si tienes Windows, Docker no es compatible con VirtualBox**. Si
   quieres usar ambos programas puedes usar una versión limitada de
   Docker llamada [Docker
-  Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/)
+  Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/).
 
 
   **Si tienes Ubuntu** debes instalar Docker usando `apt`. Aquí tienes
@@ -193,13 +193,13 @@ MySQL.
    instancia en marcha de una imagen) conectado al puerto 3306 y sobre
    la base de datos `mads`. Le da como nombre `mysql-develop`.
    
-   Puedes ejecutar los siguientes comandos de docker:
+   Puedes ejecutar los siguientes comandos de Docker:
 
-    ```
-    $ docker container ls -a (comprueba todos los contenedores en marcha)
-    $ docker container stop <nombre o id de contenedor> (para un contenedor)
-    $ docker container rm <nombre o id de contenedor> (elimina un contenedor)
-    ```
+        ```
+        $ docker container ls -a (comprueba todos los contenedores en marcha)
+        $ docker container stop <nombre o id de contenedor> (para un contenedor)
+        $ docker container rm nombre o id de contenedor> (elimina un contenedor)
+        ```
 
 - Arranca la aplicación con el siguiente comando:
 
@@ -237,11 +237,11 @@ MySQL.
 
    Y lanzamos los tests sobre la base de datos MySQL con el siguiente comando:
   
-    ```
-    $ mvn -DargLine="-Dspring.profiles.active=mysql" test
-    ```
+        ```
+        $ mvn -DargLine="-Dspring.profiles.active=mysql" test
+        ```
 
-    Comprobar con _MySQL Workbench_ que los datos que hay en
+    Comprobamos con _MySQL Workbench_ que los datos que hay en
     la base de datos corresponden con los introducidos en el fichero
     `datos-test.sql` que se carga antes de ejecutar los tests.
 
