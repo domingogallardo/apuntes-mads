@@ -189,11 +189,11 @@ MySQL.
     $ docker run -d -p 3306:3306 --name mysql-develop -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_DATABASE=mads mysql:5 
     ```
 
-   Docker se descarga la imagen `mysql:5` y lanza el contenedor (una
-   instancia en marcha de una imagen) conectado al puerto 3306 y sobre
-   la base de datos `mads`. Le da como nombre `mysql-develop`.
+    Docker se descarga la imagen `mysql:5` y lanza el contenedor (una
+    instancia en marcha de una imagen) conectado al puerto 3306 y
+    sobre la base de datos `mads`. Le da como nombre `mysql-develop`.
    
-   Puedes ejecutar los siguientes comandos de Docker:
+    Puedes ejecutar los siguientes comandos de Docker:
 
         ```
         $ docker container ls -a (comprueba todos los contenedores en marcha)
