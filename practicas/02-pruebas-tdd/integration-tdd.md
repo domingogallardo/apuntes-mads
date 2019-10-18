@@ -194,12 +194,12 @@ MySQL.
     sobre la base de datos `mads`. Le da como nombre `mysql-develop`.
    
     Puedes ejecutar los siguientes comandos de Docker:
-
-        ```
-        $ docker container ls -a (comprueba todos los contenedores en marcha)
-        $ docker container stop <nombre o id de contenedor> (para un contenedor)
-        $ docker container rm nombre o id de contenedor> (elimina un contenedor)
-        ```
+    
+      ```
+      $ docker container ls -a (comprueba todos los contenedores en marcha)
+      $ docker container stop <nombre o id de contenedor> (para un contenedor)
+      $ docker container rm nombre o id de contenedor> (elimina un contenedor)
+      ```
 
 - Arranca la aplicación con el siguiente comando:
 
@@ -207,14 +207,15 @@ MySQL.
     $ mvn spring-boot:run -Dspring-boot.run.profiles=mysql
     ```
 
-   Se cargarán las preferencias de `src/main/resource/application.profile` y
-   `src/main/resource/application-mysql.profile`.
+    Se cargarán las preferencias de
+    `src/main/resource/application.profile` y
+    `src/main/resource/application-mysql.profile`.
 
-   Prueba a introducir datos en la aplicación y comprueba que se están
-   guardando en la base de datos con _MySQL Workbench_ o alguna
-   aplicación similar.
+    Prueba a introducir datos en la aplicación y comprueba que se
+    están guardando en la base de datos con _MySQL Workbench_ o alguna
+    aplicación similar.
 
-   <img src="imagenes/mysql-workbench.png" width="700px"/>
+    <img src="imagenes/mysql-workbench.png" width="700px"/>
 
 - Cierra la aplicación y vuelve a abrirla. Comprueba que los datos que
   se han creado en la ejecución anterior siguen estando.
