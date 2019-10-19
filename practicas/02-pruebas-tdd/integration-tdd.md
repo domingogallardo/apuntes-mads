@@ -426,6 +426,20 @@ ejecuta usando el Maven del propio proyecto.
     $ ./mvnw -DargLine="-Dspring.profiles.active=mysql" test
     ```
  
+    Elimina del fichero `.gitignore` la línea `.mvn` (por un error se
+    ha introducido esa línea desde el comienzo de la práctica) para
+    que los ficheros necesarios de Maven Wrapper (en el directorio
+    `.mvn/wrapper`) se incluyan en el repositorio:
+    
+    **Fichero `.gitignore`**:
+    
+    ```diff
+    target/
+    - .mvn
+    .idea
+    *.iml
+    ```
+    
     Crea un commit y súbelo a GitHub.
 
 - Añade el fichero `.travis.yml` en la raíz del repositorio. Haz otro
