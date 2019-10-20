@@ -12,20 +12,20 @@ En esta práctica 2 de la asignatura realizaremos dos tareas principales:
 
 !!! Important "Importante"
     Lee con cuidado todo el enunciado y dedica especial atención a los
-    apartados con el título `Pasos a seguir en la práctica`. Ahí están
+    apartados con el título `Pasos a seguir`. Ahí están
     especificadas las acciones que debes realizar en la práctica.
 
-La duración de la práctica es de 3 semanas y la fecha límita de
+La duración de la práctica es de 3 semanas y la fecha límite de
 entrega es el día 5 de noviembre.
 
 ## Desarrollo de la _release_ 1.2.0 ##
 
-En esta práctica vamos a desarrollar la versión 1.2.0 de la
-práctica. A todos los _issues_ y _pull requests_ les debes poner este
+En esta práctica vamos a desarrollar la versión 1.2.0 de la aplicación
+`ToDoList`. A todos los _issues_ y _pull requests_ les debes poner este
 _milestone_, indicando que el objetivo es resolverlos y entregarlos en
 esta _release_.
 
-### Pasos a seguir en la práctica ###
+### Pasos a seguir ###
 
 - Cambia el número de versión (en el fichero _Acerca De_ y en el
   `pom.xml`) a `1.2.0-SNAPSHOT` para indicar que lo que hay en master
@@ -41,7 +41,7 @@ de un usuario de `List` a `Set`.
 A diferencias del tipo `List`, el `Set` no permite elementos repetidos
 y es más conveniente definir las relaciones JPA de esta forma.
 
-### Pasos a seguir en la práctica ###
+### Pasos a seguir ###
 
 - Realiza un commit en `master` (no hace falta que hagas un pull
   request) con los cambios que aparecen este [commit](https://github.com/domingogallardo/mads-todolist-inicial/commit/498442afc689e81cc02d5022cfa6a85722a56bc7).
@@ -105,7 +105,7 @@ nombre del perfil. En nuestro caso definiremos los ficheros
 MySQL.
 
 
-### Pasos a seguir en la práctica ###
+### Pasos a seguir ###
 
 - Instala [Docker
   Desktop](https://www.docker.com/products/docker-desktop). 
@@ -411,7 +411,7 @@ ejecuta usando el Maven del propio proyecto.
 ```
 
 
-### Pasos a seguir en la práctica ###
+### Pasos a seguir ###
 
 - Crea un _issue_ llamado `Integración continua con Travis`. Abre una
   rama `travis`, súbela a GitHub y abre un pull request.
@@ -562,7 +562,7 @@ Deberás hacer **un commit por cada fase Test-Code**. Si haces
 refactorización deberás hacerlo en otro commit adicional.
 
 
-### Pasos a seguir en la práctica ###
+### Pasos a seguir ###
 
 - Crea la historia de usuario `008 Listado de equipos` en el tablero Trello.
 
@@ -1004,7 +1004,7 @@ participar y dejar de participar en ellos.
 nombre y eliminar los equipos para adaptarlos a los proyectos y
 estructura de la empresa.
 
-### Pasos a seguir en la práctica ###
+### Pasos a seguir ###
 
 - Implementa cada historia de usuario usando el mismo proceso que
   hemos utilizado para la historia 008. Deberás pensar qué servicios
