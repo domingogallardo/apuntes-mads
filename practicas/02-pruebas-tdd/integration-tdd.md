@@ -777,8 +777,17 @@ especificar cómo se mapea en la base de datos:
 +    }
 ```
 
+Comprueba el test, haz un commit en la rama y súbelo a GitHub.
 
 #### Sexto test - Relación entre usuarios y equipos en base de datos ####
+
+En este test se va a especificar la relación muchos-a-muchos en base
+de datos. Para definir la relación se va a definir la tabla
+`equipo_usuario` en la que cada fila va a representar una relación de
+un usuario con un equipo. Las columnas definen las claves ajenas que
+contienen el identificador de equipo y el del usuario.
+
+Para definir el test, creamos una relación en la base de datos de prueba:
 
 ```diff
 INSERT INTO tareas (id, titulo, usuario_id) VALUES('2', 'Renovar DNI', '1');
@@ -786,6 +795,8 @@ INSERT INTO tareas (id, titulo, usuario_id) VALUES('2', 'Renovar DNI', '1');
 + INSERT INTO equipo_usuario (fk_equipo, fk_usuario) VALUES('1', '1');
 ```
 
+Y comprobamos que se el usuario y equipo devuelto por cada clase
+_repository_ tienen actualizada esa relación:
 
 ```java
     @Autowired
@@ -809,7 +820,8 @@ INSERT INTO tareas (id, titulo, usuario_id) VALUES('2', 'Renovar DNI', '1');
     }
 ```
 
-Solución:
+Para solucionar el test actualizamos la definición de la relación en
+las entidades:
 
 ```diff
     @ManyToMany
@@ -825,8 +837,14 @@ Solución:
     Set<Equipo> equipos = new HashSet<>();
 ```
 
+Comprueba el test, haz un commit en la rama y súbelo a GitHub.
 
 #### Séptimo test - listado de equipos ####
+
+Ya por fin tenemos todo lo necesario para definir un test para obtener
+una lista de equipos en el _repository_:
+
+Actualizamos la base de datos de prueba con otro equipo:
 
 ```diff
 INSERT INTO equipo_usuario (fk_equipo, fk_usuario) VALUES('1', '1');
@@ -834,9 +852,11 @@ INSERT INTO equipo_usuario (fk_equipo, fk_usuario) VALUES('1', '1');
 ```
 
 
+Y añadimos el test. Queremos que el tipo devuelto por el _repository_
+sea _List_.
+
 ```java
     @Test
-    @Transactional
     public void comprobarFindAll() {
         // GIVEN
         // En el application.properties se cargan los datos de prueba del fichero datos-test.sql
@@ -849,7 +869,10 @@ INSERT INTO equipo_usuario (fk_equipo, fk_usuario) VALUES('1', '1');
     }
 ```
 
-Solución:
+La solución consiste en añadir el método `findAll` en la interfaz
+p`EquipoRepository`, definiendo el tipo
+devuelto como _List_. Spring Boot se encarga de construir
+automáticamente la implementación de este método.
 
 
 **Fichero `EquipoRepository.java`**:
@@ -865,6 +888,12 @@ public interface EquipoRepository extends CrudRepository<Equipo, Long> {
 
 #### Octavo test - Método de servicio para el listado de equipos ####
 
+¡Y por fin llegamos a la capa de servicio!
+
+Creamos el test que nos obliga a codificar en esa capa el método que
+lista todos los equipos existentes. Lo llamamos
+`findAllOrderedByName()` para indicar que queremos que el resultado
+sea una lista ordenada por los nombres de los equipos.
 
 **Fichero `src/test/java/madstodolist/EquipoServiceTest.java`**:
 
@@ -906,14 +935,60 @@ package madstodolist;
  }
 ```
 
+Escribe el código estríctamente necesario para que pase. Haz un commit
+en la rama y súbelo a GitHub.
+
 #### Noveno test - Método de servicio para recuperar un equipo ####
 
+Vamos a centrar este test en la forma de traer a memoria los objetos
+que participan en la relación `USUARIO-EQUIPO`. 
 
-En el fichero `src/test/java/madstodolist/EquipoServiceTest.java`
-añadimos el siguiente test.
+En JPA hay dos formas de definir una relación a-muchos:
 
-El test sirve para crear el método de servicio que recupera un equipo
-y para asegurarnos de que la relación entre equipos y usuarios es `LAZY`.
+- `EAGER`: Si una relación a-muchos es `EAGER`, cuando la clase
+  repository devuelve un objeto (ya sea al recuperarlo
+  individualmente, o en una consulta en la que se recupera una
+  colección), se obtienen también de la base de datos todos los
+  objetos con los que está relacionado. Por ejemplo, en la práctica
+  tenemos definida de esta forma la relación entre usuarios y tareas.
+
+- `LAZY`: Si una relación a-muchos es `LAZY`, Cuando la clase
+  repository devuelve un objeto, no recupera los objetos
+  relacionados. Sólo se accede a ellos (de forma _perezosa_) cuando se
+  accede a la colección que contiene la relación. Entonces es cuando
+  se realiza la consulta a la base de datos y se traen estos objetos a
+  memoria. Si estos objetos tienen otras relaciones se traerán a
+  memoria o no dependiendo de si son `EAGER` o `LAZY`.
+  
+  Para que funcione la recuperación perezosa debe estar abierta la
+  conexión con la base de datos en el momento en que se accede a la
+  colección. Para ello es muy importante la etiqueta
+  `@Transactional`. Cuando ponemos esta etiqueta en los métodos de las
+  clases de servicio se garantiza que todo el método se realiza en una
+  única transacción. Por ello, al finalizar el método se cerrará la
+  conexión con la base de datos y el objeto que se devolverá al
+  _controller_ **estará desconectado de la base de datos**, por lo que
+  la recuperación perezosa no funcionará en el _controller_.
+
+
+En el caso de la relación USUARIO-EQUIPO vamos a definir el siguiente
+diseño:
+
+- La relación entre un usuario y sus equipos será `EAGER`. Cuando
+  recuperemos un usuario, recuperaremos también la información de
+  todos los equipos en los que participa.
+  
+- La relación entre un equipo y sus usuarios será `LAZY`. Esto es muy
+  importante. Si no lo hiciéramos así ¡podríamos fácilmente traernos a
+  memoria toda la base de datos!. Un equipo recuperaría todos sus
+  usuarios, que también pueden estar en otros equipos, que a su vez
+  también se traerían a memoria. 
+
+Vamos entonces a definir un test que sirve para crear el método de
+servicio que recupera un equipo y que se asegura de que la relación
+entre equipos y usuarios es `LAZY`.
+
+**Fichero `src/test/java/madstodolist/EquipoServiceTest.java`**:
 
 ```java
     @Test
@@ -935,17 +1010,45 @@ y para asegurarnos de que la relación entre equipos y usuarios es `LAZY`.
     }
 ```
 
+Comprueba si hay que modificar el código, haz un commit y súbelo a
+GitHub.
 
-#### Décimo test - Método de servicio para obtener los usuarios de un equipo ####
+#### Décimo test - comprobación de recuperación _eager_ de equipos ####
 
-Un test algo complejo, que sirve para definir el método de servicio
+Hacemos ahora un test para definir la relación entre usuarios y
+equipos como _eager_.
+
+**Fichero `src/test/java/madstodolist/EquipoServiceTest.java`**:
+
+```java
+    @Test
+    public void comprobarRelacionUsuarioEquipos() {
+        // GIVEN
+        // En el application.properties se cargan los datos de prueba del fichero datos-test.sql
+
+        // WHEN
+        Usuario usuario = usuarioService.findById(1L);
+
+        // THEN
+
+        assertThat(usuario.getEquipos()).hasSize(1);
+    }
+```
+
+Comprueba que el test falla (por un error "failed to lazily initialize
+a collection"), arregla el código para que pase, haz un commit y
+súbelo a GitHub.
+
+#### Onceavo test - Método de servicio para obtener los usuarios de un equipo ####
+
+El último test que sirve para definir el método de servicio
 `usuariosEquipo(Long idEquipo)` que devuelve la lista de usuarios de
 un equipo.
 
-Después de comprobar que la lista que se devuelve es correcta, se
-comprueba que la relación entre usuarios y equipos es `EAGER`, esto
-es, que desde un usuario se puede obtener la lista de equipos a los
-que pertenece.
+Después de comprobar que la lista que se devuelve es correcta,
+volvemos a comprobar que la relación entre usuarios y equipos es
+`EAGER`, esto es, que desde un usuario se puede obtener la lista de
+equipos a los que pertenece.
 
 ```java
 
@@ -969,6 +1072,8 @@ que pertenece.
 }
 ```
 
+Escribe el código necesario para que pase. Haz un commit en la rama y
+súbelo a GitHub.
 
 #### Cierre del _issue_ ####
 
