@@ -18,7 +18,7 @@ En esta práctica 2 de la asignatura realizaremos dos tareas principales:
 La duración de la práctica es de 3 semanas y la fecha límita de
 entrega es el día 5 de noviembre.
 
-## Desarrollo de la _release_ 1.2.0 de la práctica ##
+## Desarrollo de la _release_ 1.2.0 ##
 
 En esta práctica vamos a desarrollar la versión 1.2.0 de la
 práctica. A todos los _issues_ y _pull requests_ les debes poner este
