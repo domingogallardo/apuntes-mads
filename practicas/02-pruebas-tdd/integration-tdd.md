@@ -18,6 +18,20 @@ En esta práctica 2 de la asignatura realizaremos dos tareas principales:
 La duración de la práctica es de 3 semanas y la fecha límita de
 entrega es el día 5 de noviembre.
 
+## Desarrollo de la _release_ 1.2.0 de la práctica ##
+
+En esta práctica vamos a desarrollar la versión 1.2.0 de la
+práctica. A todos los _issues_ y _pull requests_ les debes poner este
+_milestone_, indicando que el objetivo es resolverlos y entregarlos en
+esta _release_.
+
+### Pasos a seguir en la práctica ###
+
+- Cambia el número de versión (en el fichero _Acerca De_ y en el
+  `pom.xml`) a `1.2.0-SNAPSHOT` para indicar que lo que hay en master
+  es la versión 1.2.0 **en progreso**. Esta versión la lanzaremos al
+  final del desarrollo de la práctica, en su entrega.
+
 ## Refactorización de la relación uno-a-muchos ##
 
 Antes de comenzar la práctica hay que hacer una refactorización en la
@@ -108,7 +122,7 @@ MySQL.
   **Si tienes Windows, Docker no es compatible con VirtualBox**. Si
   quieres usar ambos programas puedes usar una versión limitada de
   Docker llamada [Docker
-  Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/)
+  Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/).
 
 
   **Si tienes Ubuntu** debes instalar Docker usando `apt`. Aquí tienes
@@ -189,17 +203,17 @@ MySQL.
     $ docker run -d -p 3306:3306 --name mysql-develop -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_DATABASE=mads mysql:5 
     ```
 
-   Docker se descarga la imagen `mysql:5` y lanza el contenedor (una
-   instancia en marcha de una imagen) conectado al puerto 3306 y sobre
-   la base de datos `mads`. Le da como nombre `mysql-develop`.
+    Docker se descarga la imagen `mysql:5` y lanza el contenedor (una
+    instancia en marcha de una imagen) conectado al puerto 3306 y
+    sobre la base de datos `mads`. Le da como nombre `mysql-develop`.
    
-   Puedes ejecutar los siguientes comandos de docker:
-
-    ```
-    $ docker container ls -a (comprueba todos los contenedores en marcha)
-    $ docker container stop <nombre o id de contenedor> (para un contenedor)
-    $ docker container rm <nombre o id de contenedor> (elimina un contenedor)
-    ```
+    Puedes ejecutar los siguientes comandos de Docker:
+    
+      ```
+      $ docker container ls -a (comprueba todos los contenedores en marcha)
+      $ docker container stop <nombre o id de contenedor> (para un contenedor)
+      $ docker container rm nombre o id de contenedor> (elimina un contenedor)
+      ```
 
 - Arranca la aplicación con el siguiente comando:
 
@@ -207,14 +221,15 @@ MySQL.
     $ mvn spring-boot:run -Dspring-boot.run.profiles=mysql
     ```
 
-   Se cargarán las preferencias de `src/main/resource/application.profile` y
-   `src/main/resource/application-mysql.profile`.
+    Se cargarán las preferencias de
+    `src/main/resource/application.profile` y
+    `src/main/resource/application-mysql.profile`.
 
-   Prueba a introducir datos en la aplicación y comprueba que se están
-   guardando en la base de datos con _MySQL Workbench_ o alguna
-   aplicación similar.
+    Prueba a introducir datos en la aplicación y comprueba que se
+    están guardando en la base de datos con _MySQL Workbench_ o alguna
+    aplicación similar.
 
-   <img src="imagenes/mysql-workbench.png" width="700px"/>
+    <img src="imagenes/mysql-workbench.png" width="700px"/>
 
 - Cierra la aplicación y vuelve a abrirla. Comprueba que los datos que
   se han creado en la ejecución anterior siguen estando.
@@ -224,8 +239,8 @@ MySQL.
 
     ```
     $ docker container ls -a 
-    CONTAINER ID        IMAGE          ... NAMES
-    520fee61d51e        mysql:5        ... mysql-develop
+    CONTAINER ID        IMAGE     ...    NAME
+    520fee61d51e        mysql:5   ...    mysql-develop
     $ docker container stop mysql-develop
     ```
 
@@ -235,18 +250,20 @@ MySQL.
     $ docker run -d -p 3306:3306 --name mysql-test -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_DATABASE=mads_test mysql:5 
     ```
 
-   Y lanzamos los tests sobre la base de datos MySQL con el siguiente comando:
+    Y lanzamos los tests sobre la base de datos MySQL con el siguiente comando:
   
-    ```
-    $ mvn -DargLine="-Dspring.profiles.active=mysql" test
-    ```
-
-    Comprobar con _MySQL Workbench_ que los datos que hay en
+      ```
+      $ mvn -DargLine="-Dspring.profiles.active=mysql" test
+      ```
+  
+    Comprobamos con _MySQL Workbench_ que los datos que hay en
     la base de datos corresponden con los introducidos en el fichero
     `datos-test.sql` que se carga antes de ejecutar los tests.
 
 - Podemos parar y arrancar el contenedor MySQL que necesitemos con
-  `docker container stop` y `docker container start`:
+  `docker container stop` y `docker container start`. Por ejemplo,
+  para parar el contenedor MySQL con la base de datos de test y
+  arrancar el contenedor con la base de datos de desarrollo:
   
     ```
     $ docker container ls -a 
@@ -257,16 +274,16 @@ MySQL.
 - Realiza un commit con los cambios, súbelos a la rama y cierra el
   pull request para integrarlo en `master`:
   
-  ```
-  $ (perfiles) git add .
-  $ (perfiles) git commit -m "Añadidos perfiles para trabajar con MySQL"
-  $ (perfiles) git push
-  // Mezclamos el Pull Request en GitHub
-  $ (perfiles) git checkout master
-  $ (master) git pull
-  $ (master) git branch -d perfiles
-  $ (master) git remote prune origin
-  ```
+      ```
+      $ (perfiles) git add .
+      $ (perfiles) git commit -m "Añadidos perfiles para trabajar con MySQL"
+      $ (perfiles) git push
+      // Mezclamos el Pull Request en GitHub
+      $ (perfiles) git checkout master
+      $ (master) git pull
+      $ (master) git branch -d perfiles
+      $ (master) git remote prune origin
+      ```
 
 
 ## Integración continua con Travis ##
@@ -405,6 +422,17 @@ ejecuta usando el Maven del propio proyecto.
     $ mvn -N io.takari:maven:wrapper
     ```
 
+    Con este comando se instala Maven en tu propio respositorio (en el
+    directorio `.mvn`) y se instalan los comandos `mvnw` (para Linux)
+    y `mvnw.cmd` (para Windows).
+
+    **Si estás en Windows** deberás actualizar el permiso de ejecución
+    del comando `mvnw` con la siguiente instrucción:
+    
+    ```
+    $ git update-index --chmod=+x mvnw
+    ```
+
     Prueba que funciona correctamente ejecutando los tests con el
     comando `./mvnw`:
     
@@ -412,6 +440,20 @@ ejecuta usando el Maven del propio proyecto.
     $ ./mvnw -DargLine="-Dspring.profiles.active=mysql" test
     ```
  
+    Elimina del fichero `.gitignore` la línea `.mvn` (por un error se
+    ha introducido esa línea desde el comienzo de la práctica) para
+    que los ficheros necesarios de Maven Wrapper (en el directorio
+    `.mvn/wrapper`) se incluyan en el repositorio:
+    
+    **Fichero `.gitignore`**:
+    
+    ```diff
+    target/
+    - .mvn
+    .idea
+    *.iml
+    ```
+    
     Crea un commit y súbelo a GitHub.
 
 - Añade el fichero `.travis.yml` en la raíz del repositorio. Haz otro
