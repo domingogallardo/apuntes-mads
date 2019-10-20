@@ -18,6 +18,20 @@ En esta práctica 2 de la asignatura realizaremos dos tareas principales:
 La duración de la práctica es de 3 semanas y la fecha límita de
 entrega es el día 5 de noviembre.
 
+## Desarrollo de la _release_ 1.2.0 de la práctica ##
+
+En esta práctica vamos a desarrollar la versión 1.2.0 de la
+práctica. A todos los _issues_ y _pull requests_ les debes poner este
+_milestone_, indicando que el objetivo es resolverlos y entregarlos en
+esta _release_.
+
+### Pasos a seguir en la práctica ###
+
+- Cambia el número de versión (en el fichero _Acerca De_ y en el
+  `pom.xml`) a `1.2.0-SNAPSHOT` para indicar que lo que hay en master
+  es la versión 1.2.0 **en progreso**. Esta versión la lanzaremos al
+  final del desarrollo de la práctica, en su entrega.
+
 ## Refactorización de la relación uno-a-muchos ##
 
 Antes de comenzar la práctica hay que hacer una refactorización en la
