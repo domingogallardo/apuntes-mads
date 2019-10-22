@@ -803,6 +803,7 @@ _repository_ tienen actualizada esa relación:
     private UsuarioRepository usuarioRepository;
     
     @Test
+    @Transactional
     public void comprobarRelacionBaseDatos() {
         // GIVEN
         // En el application.properties se cargan los datos de prueba del fichero datos-test.sql
