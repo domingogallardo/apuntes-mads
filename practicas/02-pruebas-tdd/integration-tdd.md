@@ -1016,8 +1016,8 @@ GitHub.
 
 #### Décimo test - comprobación de recuperación _eager_ de equipos ####
 
-Hacemos ahora un test para definir la relación entre usuarios y
-equipos como _eager_.
+Hacemos ahora un test para que un usuario recupere de forma _eager_
+sus equipos:
 
 **Fichero `src/test/java/madstodolist/EquipoServiceTest.java`**:
 
