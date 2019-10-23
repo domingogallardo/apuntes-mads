@@ -803,6 +803,7 @@ _repository_ tienen actualizada esa relación:
     private UsuarioRepository usuarioRepository;
     
     @Test
+    @Transactional
     public void comprobarRelacionBaseDatos() {
         // GIVEN
         // En el application.properties se cargan los datos de prueba del fichero datos-test.sql
@@ -952,13 +953,13 @@ En JPA hay dos formas de definir una relación a-muchos:
   objetos con los que está relacionado. Por ejemplo, en la práctica
   tenemos definida de esta forma la relación entre usuarios y tareas.
 
-- `LAZY`: Si una relación a-muchos es `LAZY`, Cuando la clase
-  repository devuelve un objeto, no recupera los objetos
-  relacionados. Sólo se accede a ellos (de forma _perezosa_) cuando se
-  accede a la colección que contiene la relación. Entonces es cuando
-  se realiza la consulta a la base de datos y se traen estos objetos a
-  memoria. Si estos objetos tienen otras relaciones se traerán a
-  memoria o no dependiendo de si son `EAGER` o `LAZY`.
+- `LAZY`: Si una relación a-muchos es `LAZY`, cuando la clase
+  repository devuelve un objeto, no recupera de la base de datos los
+  objetos relacionados. Sólo lo hace cuando se accede a la colección
+  que contiene la relación. Entonces es cuando se realiza la consulta
+  a la base de datos y se traen estos objetos a memoria. Si estos
+  objetos tienen otras relaciones se traerán a memoria o no
+  dependiendo de si son `EAGER` o `LAZY`.
   
   Para que funcione la recuperación perezosa debe estar abierta la
   conexión con la base de datos en el momento en que se accede a la
