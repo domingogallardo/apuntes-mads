@@ -29,27 +29,23 @@
 
 <kbd><img src="diapositivas/git-workflows.013.png" width="800px"></kbd>
 
-<kbd><img src="diapositivas/git-workflows.013b.png" width="800px"></kbd>
-
 <kbd><img src="diapositivas/git-workflows.014.png" width="800px"></kbd>
-
-<kbd><img src="diapositivas/git-workflows.014b.png" width="800px"></kbd>
-
-<kbd><img src="diapositivas/git-workflows.015.png" width="800px"></kbd>
-
-- [Atlassian - Comparing Workflows](https://www.atlassian.com/git/tutorials/comparing-workflows/)
 
 <kbd><img src="diapositivas/git-workflows.016.png" width="800px"></kbd>
 
-- [Atlassian - Feature Branch Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow)
+<kbd><img src="diapositivas/git-workflows.016.png" width="800px"></kbd>
 
 <kbd><img src="diapositivas/git-workflows.017.png" width="800px"></kbd>
 
-- [Vincent Driessen - A sucessful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/)
+- [Atlassian - Comparing Workflows](https://www.atlassian.com/git/tutorials/comparing-workflows/)
 
 <kbd><img src="diapositivas/git-workflows.018.png" width="800px"></kbd>
 
+- [Atlassian - Feature Branch Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow)
+
 <kbd><img src="diapositivas/git-workflows.019.png" width="800px"></kbd>
+
+- [Vincent Driessen - A sucessful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/)
 
 <kbd><img src="diapositivas/git-workflows.020.png" width="800px"></kbd>
 
@@ -59,11 +55,15 @@
 
 <kbd><img src="diapositivas/git-workflows.023.png" width="800px"></kbd>
 
+<kbd><img src="diapositivas/git-workflows.024.png" width="800px"></kbd>
+
+<kbd><img src="diapositivas/git-workflows.025.png" width="800px"></kbd>
+
 - [GitFlow considered harmful](http://endoflineblog.com/gitflow-considered-harmful)
 - [Follow-up to 'GitFlow considered harmful'](http://endoflineblog.com/follow-up-to-gitflow-considered-harmful)
 - [A succesful Git branching model considered harmful](https://barro.github.io/2016/02/a-succesful-git-branching-model-considered-harmful/)
 
-<kbd><img src="diapositivas/git-workflows.024.png" width="800px"></kbd>
+<kbd><img src="diapositivas/git-workflows.026.png" width="800px"></kbd>
 
 - [Atlassian Git tutorials - Syncing](https://www.atlassian.com/git/tutorials/syncing/)
 - [Atlassian - Comparing Workflows](https://www.atlassian.com/git/tutorials/comparing-workflows/)
