@@ -200,7 +200,7 @@ MySQL.
   el terminal:
 
     ```
-    $ docker run -d -p 3306:3306 --name mysql-develop -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_DATABASE=mads mysql:5 
+    docker run -d -p 3306:3306 --name mysql-develop -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_DATABASE=mads mysql:5 
     ```
 
     Docker se descarga la imagen `mysql:5` y lanza el contenedor (una
@@ -218,7 +218,7 @@ MySQL.
 - Arranca la aplicación con el siguiente comando:
 
     ```
-    $ mvn spring-boot:run -Dspring-boot.run.profiles=mysql
+    mvn spring-boot:run -Dspring-boot.run.profiles=mysql
     ```
 
     Se cargarán las preferencias de
@@ -247,13 +247,13 @@ MySQL.
 - Lanzamos ahora otro contenedor con la base de datos de test:
 
     ```
-    $ docker run -d -p 3306:3306 --name mysql-test -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_DATABASE=mads_test mysql:5 
+    docker run -d -p 3306:3306 --name mysql-test -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_DATABASE=mads_test mysql:5 
     ```
 
     Y lanzamos los tests sobre la base de datos MySQL con el siguiente comando:
   
       ```
-      $ mvn -DargLine="-Dspring.profiles.active=mysql" test
+      mvn -DargLine="-Dspring.profiles.active=mysql" test
       ```
   
     Comprobamos con _MySQL Workbench_ que los datos que hay en
@@ -419,7 +419,7 @@ ejecuta usando el Maven del propio proyecto.
 - Instala Maven Wrapper en tu repositorio:
 
     ```
-    $ mvn -N io.takari:maven:wrapper
+    mvn -N io.takari:maven:wrapper
     ```
 
     Con este comando se instala Maven en tu propio respositorio (en el
@@ -430,14 +430,14 @@ ejecuta usando el Maven del propio proyecto.
     del comando `mvnw` con la siguiente instrucción:
     
     ```
-    $ git update-index --chmod=+x mvnw
+    git update-index --chmod=+x mvnw
     ```
 
     Prueba que funciona correctamente ejecutando los tests con el
     comando `./mvnw`:
     
     ```
-    $ ./mvnw -DargLine="-Dspring.profiles.active=mysql" test
+    ./mvnw -DargLine="-Dspring.profiles.active=mysql" test
     ```
  
     Elimina del fichero `.gitignore` la línea `.mvn` (por un error se
