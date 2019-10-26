@@ -651,6 +651,15 @@ de los métodos `equals` y `hashCode` (necesario este último para que
 funcione correctamente la comprobación de igualdades en las
 colecciones).
 
+Hacemos los tests para que el `equals` funcione de la siguiente forma:
+
+> Si alguno de los dos equipos no tiene `id` (es `null`), entonces se
+> deben comparar sus nombres. Ahora bien, si los dos equipos tienen
+> `id`, entonces se deben comparar esos `id`".
+
+Puedes guiarte por la implementación de `equals` y `hashCode` en
+`Usuario`.
+
 ```java
     @Test
     public void comprobarIgualdadEquipos() {
