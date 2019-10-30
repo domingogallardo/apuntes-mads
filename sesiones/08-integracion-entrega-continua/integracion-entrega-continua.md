@@ -76,7 +76,6 @@ Comprobamos la instalación de docker:
 
 ```
 $ docker version
-$ docker ps
 ```
 
 Comprobamos las imágenes que hay descargadas en nuestra máquina:
@@ -95,23 +94,23 @@ Para generar el mensaje se producen los siguientes pasos:
 
 1. El cliente Docker contacta el demonio Docker que se está ejecutando
    en la máquina host.
-2. El demonio comprueba si tenemos la imagen `hello-world` y si no se
-   la descarga del _Docker Hub_.
-3. El demonio crea un nuevo contenedor a partir de la imagen que
-   arranca el ejecutable que produce la salida de texto.
-4. El demonio pasa las salida de texto al cliente Docker, el cual la
-   envía a la terminal.
+2. El demonio comprueba si tenemos la imagen `docker/whalesay` y si no se
+   la descarga del [_Docker Hub_](https://hub.docker.com/r/docker/whalesay/).
+3. El demonio crea un nuevo contenedor a partir de la imagen y ejecuta
+   el comando `cowsay Hello world` en ese contenedor.
+4. La salida del comando aparece en la terminal. El contenedor termina
+   su ejecución, pero sigue estando en el sistema (parado).
 
 Para ver los contenedores en ejecución:
 
 ```
-$ docker ps
+$ docker container ls
 ```
 
 Y todos los contenedores (incluyendo los parados):
 
 ```
-$ docker ps -a
+$ docker container ls -a
 ```
 
 Podemos ejecutar un contenedor basado en una imagen Linux Alpine
@@ -167,13 +166,6 @@ CONTAINER ID  IMAGE         COMMAND               CREATED        STATUS       PO
 ```
 
 
-<kbd><img src="diapositivas/integracion-entrega-continua.027.png" width="800px"></kbd>
-
-<kbd><img src="diapositivas/integracion-entrega-continua.028.png" width="800px"></kbd>
-
-<kbd><img src="diapositivas/integracion-entrega-continua.029.png" width="800px"></kbd>
-
-
 ### Construir una imagen propia ###
 
 Creamos un directorio:
@@ -187,7 +179,7 @@ Editamos el fichero **Dockerfile**
 
 ```
 FROM docker/whalesay:latest
-RUN apt-get -y update && apt-get install -y fortunes
+RUN apt-get install -y fortunes
 CMD /usr/games/fortune -a | cowsay
 ```
 
@@ -212,7 +204,7 @@ docker/whalesay     latest              6b362a9f73eb        17 months ago       
 Y ya podemos ejecutar el contenedor:
 
 ```
-$ docker run docker-whale
+$ docker run --rm docker-whale
  ________________________________________ 
 / The farther you go, the less you know. \
 |                                        |
@@ -269,7 +261,7 @@ RUN apt-get -y install nginx
 
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 RUN mkdir /etc/nginx/ssl
-ADD default /etc/nginx/sites-available/default
+COPY default /etc/nginx/sites-available/default
 
 EXPOSE 80
 
@@ -280,7 +272,7 @@ El fichero anterior usa los siguientes comandos para construir la imagen:
 
 - `FROM` le dice a Docker cuál es la imagen base
 - `RUN` ejecutará el comando a continuación 
-- `ADD` copiará un fichero de la máquina host en la imagen. Es muy útil para ficheros de configuración o scripts que queramos ejecutar.
+- `COPY` copiará un fichero de la máquina host en la imagen. Es muy útil para ficheros de configuración o scripts que queramos ejecutar.
 - `EXPOSE` expondrá un port a la máquina host. Es posible exponer más de un puerto como: `EXPOSE 80 443 8888`
 - `CMD` ejecutará un comando cuando se ponga en marcha el contenedor
 
@@ -304,11 +296,11 @@ $ docker run -p 80:80 -d nginx-example
 
 El parámetro `p 80:80` liga el puerto 80 del contenedor con el puerto 80 del host.
 
-Hacemos `docker ps` para asegurarnos que el contenedor está
+Hacemos `docker container ls` para asegurarnos que el contenedor está
 funcionando:
 
 ```
-$ docker ps
+$ docker container ls
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                NAMES
 a377dd528a85        nginx-example       "nginx"             22 seconds ago      Up 21 seconds       0.0.0.0:80->80/tcp   reverent_franklin
 ```
@@ -332,12 +324,23 @@ HTML):
 
 ```
 $ docker stop reverent_franklin
+$ docker rm reverent_franklin
 $ docker run -v $(PWD):/var/www:rw -p 80:80 -d nginx-example
 ```
 
 Si comprobamos ahora el navegador, veremos que muestra el HTML que
 hemos guardado. Podemos probar a cambiar el HTML y veremos cómo se
 actualiza también en el contenedor.
+
+Podemos parar el contenedor y volverlo a arrancar:
+
+```
+$ docker container ls 
+CONTAINER ID        IMAGE               COMMAND             CREATED              STATUS              PORTS                NAMES
+41435c3d856d        nginx-example       "nginx"             About a minute ago   Up About a minute   0.0.0.0:80->80/tcp   reverent_wu
+$ docker stop reverent_wu
+$ docker start reverent_wu
+```
 
 ### Borrar contenedores e imágenes ###
 
