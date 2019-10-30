@@ -25,6 +25,8 @@
 
 <kbd><img src="diapositivas/integracion-entrega-continua.012.png" width="800px"></kbd>
 
+- [Martin Fowler - Continuous Integration](http://www.martinfowler.com/articles/continuousIntegration.html)
+
 <kbd><img src="diapositivas/integracion-entrega-continua.013.png" width="800px"></kbd>
 
 <kbd><img src="diapositivas/integracion-entrega-continua.014.png" width="800px"></kbd>
@@ -41,29 +43,31 @@
 
 <kbd><img src="diapositivas/integracion-entrega-continua.019.png" width="800px"></kbd>
 
-- [Martin Fowler - Continuous Integration](http://www.martinfowler.com/articles/continuousIntegration.html)
-
 <kbd><img src="diapositivas/integracion-entrega-continua.020.png" width="800px"></kbd>
+
+- [Gradle](https://gradle.org)
+- [Sbt](http://www.scala-sbt.org/release/docs/index.html)
 
 <kbd><img src="diapositivas/integracion-entrega-continua.021.png" width="800px"></kbd>
 
-- [Todd Papaioannou - Slideshare](https://www.slideshare.net/drluckyspin/continuous-integration)
+- [Artifactory](https://www.jfrog.com/open-source/#os-arti)
+- [Nexus](http://www.sonatype.org/nexus/)
 
 <kbd><img src="diapositivas/integracion-entrega-continua.022.png" width="800px"></kbd>
 
 <kbd><img src="diapositivas/integracion-entrega-continua.023.png" width="800px"></kbd>
 
-- [Gradle](https://gradle.org)
-- [Sbt](http://www.scala-sbt.org/release/docs/index.html)
-
 <kbd><img src="diapositivas/integracion-entrega-continua.024.png" width="800px"></kbd>
-
-- [Artifactory](https://www.jfrog.com/open-source/#os-arti)
-- [Nexus](http://www.sonatype.org/nexus/)
 
 <kbd><img src="diapositivas/integracion-entrega-continua.025.png" width="800px"></kbd>
 
 <kbd><img src="diapositivas/integracion-entrega-continua.026.png" width="800px"></kbd>
+
+<kbd><img src="diapositivas/integracion-entrega-continua.027.png" width="800px"></kbd>
+
+
+- Travis: [Using Docker in builds](https://docs.travis-ci.com/user/docker/)
+
 
 ### Demostración de Docker ###
 
@@ -373,24 +377,22 @@ actualiza también en el contenedor.
 - [Get Started with Docker](https://docs.docker.com/engine/getstarted/)
 
 
-<kbd><img src="diapositivas/integracion-entrega-continua.030.png" width="800px"></kbd>
+<kbd><img src="diapositivas/integracion-entrega-continua.028.png" width="800px"></kbd>
 
-En la [práctica
-2](https://domingogallardo.github.io/practicas-mads/02-pruebas-tdd/integration-tdd/)
-hemos construido una imagen docker de nuestra aplicación. Repasa el
-fichero `Dockerfile` definido en esa práctica.
+<kbd><img src="diapositivas/integracion-entrega-continua.029.png" width="800px"></kbd>
+
+- [Charla Jezz Humble - Adopting Continuous Delivery](https://vimeo.com/68320415)
+
+<kbd><img src="diapositivas/integracion-entrega-continua.030.png" width="800px"></kbd>
 
 <kbd><img src="diapositivas/integracion-entrega-continua.031.png" width="800px"></kbd>
 
-- Travis: [Using Docker in builds](https://docs.travis-ci.com/user/docker/)
-
-
 <kbd><img src="diapositivas/integracion-entrega-continua.032.png" width="800px"></kbd>
 
+- [Charla John Allspaw](http://www.slideshare.net/jallspaw/ops-metametrics-the-currency-you-pay-for-change)
+
+
 <kbd><img src="diapositivas/integracion-entrega-continua.033.png" width="800px"></kbd>
-
-
-- [Charla Jezz Humble - Adopting Continuous Delivery](https://vimeo.com/68320415)
 
 
 <kbd><img src="diapositivas/integracion-entrega-continua.034.png" width="800px"></kbd>
@@ -401,7 +403,6 @@ fichero `Dockerfile` definido en esa práctica.
 
 <kbd><img src="diapositivas/integracion-entrega-continua.037.png" width="800px"></kbd>
 
-- [Charla John Allspaw](http://www.slideshare.net/jallspaw/ops-metametrics-the-currency-you-pay-for-change)
 
 <kbd><img src="diapositivas/integracion-entrega-continua.038.png" width="800px"></kbd>
 
@@ -409,23 +410,17 @@ fichero `Dockerfile` definido en esa práctica.
 
 <kbd><img src="diapositivas/integracion-entrega-continua.040.png" width="800px"></kbd>
 
+- [Etsy’s Product Development with Continuous Experimentation](https://www.infoq.com/presentations/Etsy-Deployment/)
+
 <kbd><img src="diapositivas/integracion-entrega-continua.041.png" width="800px"></kbd>
 
 <kbd><img src="diapositivas/integracion-entrega-continua.042.png" width="800px"></kbd>
 
 <kbd><img src="diapositivas/integracion-entrega-continua.043.png" width="800px"></kbd>
 
-<kbd><img src="diapositivas/integracion-entrega-continua.044.png" width="800px"></kbd>
-
-<kbd><img src="diapositivas/integracion-entrega-continua.045.png" width="800px"></kbd>
-
-<kbd><img src="diapositivas/integracion-entrega-continua.046.png" width="800px"></kbd>
-
-<kbd><img src="diapositivas/integracion-entrega-continua.047.png" width="800px"></kbd>
-
 - [Elastic Load Balancing](https://aws.amazon.com/elasticloadbalancing/)
 
-<kbd><img src="diapositivas/integracion-entrega-continua.048.png" width="800px"></kbd>
+<kbd><img src="diapositivas/integracion-entrega-continua.044.png" width="800px"></kbd>
 
 La idea del [_canary
 release_](https://martinfowler.com/bliki/CanaryRelease.html) consiste
@@ -467,10 +462,25 @@ Explicación del libro de Jeff Humble:
 > binario, información de configuración, entorno y datos. Si el
 > candidato a release pasa todos los tests, puede ser lanzado.
 
+<kbd><img src="diapositivas/integracion-entrega-continua.045.png" width="800px"></kbd>
+
+<kbd><img src="diapositivas/integracion-entrega-continua.046.png" width="800px"></kbd>
+
+<kbd><img src="diapositivas/integracion-entrega-continua.047.png" width="800px"></kbd>
+
+<kbd><img src="diapositivas/integracion-entrega-continua.048.png" width="800px"></kbd>
 
 <kbd><img src="diapositivas/integracion-entrega-continua.051.png" width="800px"></kbd>
 
+- [Deploying the Netflix API](http://techblog.netflix.com/2013/08/deploying-netflix-api.html)
+
 <kbd><img src="diapositivas/integracion-entrega-continua.052.png" width="800px"></kbd>
+
+
+- Continuous Integration at CartoDB:
+   - [Slideshare](https://www.slideshare.net/juanignaciosl/continuous-integration-at-cartodb-march-16)
+   - [YouTube](https://www.youtube.com/watch?v=fRB_rlUtxys)
+   - [Repositorio CartDB en GitHub](https://github.com/CartoDB/cartodb)
 
 <kbd><img src="diapositivas/integracion-entrega-continua.053.png" width="800px"></kbd>
 
@@ -478,21 +488,7 @@ Explicación del libro de Jeff Humble:
 
 <kbd><img src="diapositivas/integracion-entrega-continua.055.png" width="800px"></kbd>
 
-- [Deploying the Netflix API](http://techblog.netflix.com/2013/08/deploying-netflix-api.html)
-
 <kbd><img src="diapositivas/integracion-entrega-continua.056.png" width="800px"></kbd>
 
-<kbd><img src="diapositivas/integracion-entrega-continua.057.png" width="800px"></kbd>
-
-<kbd><img src="diapositivas/integracion-entrega-continua.058.png" width="800px"></kbd>
-
-- Continuous Integration at CartoDB:
-   - [Slideshare](https://www.slideshare.net/juanignaciosl/continuous-integration-at-cartodb-march-16)
-   - [YouTube](https://www.youtube.com/watch?list=PLKxa4AIfm4pWYrMY88Obx2JNVIjfXEm4v&time_continue=13&v=fRB_rlUtxys)
-   - [Repositorio CartDB en GitHub](https://github.com/CartoDB/cartodb)
-
-<kbd><img src="diapositivas/integracion-entrega-continua.059.png" width="800px"></kbd>
-
-<kbd><img src="diapositivas/integracion-entrega-continua.060.png" width="800px"></kbd>
-
+- [Martin Fowler - Continuous Integration](https://github.com/domingogallardo/apuntes-mads/raw/master/lecturas/martin-fowler_continuous-integration.pdf)
 - [ThoughtWorks - Continuous Delivery](https://www.thoughtworks.com/continuous-delivery)
