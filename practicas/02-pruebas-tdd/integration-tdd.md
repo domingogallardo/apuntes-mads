@@ -1115,7 +1115,7 @@ implementado la anterior.
 nuevos equipos y añadirme y eliminarme de cualquiera de ellos para poder
 participar y dejar de participar en ellos.
 
-**010 Gestión de equipos (opcional)**: Como administrador cambiar el
+- **010 Gestión de equipos (opcional)**: Como administrador cambiar el
 nombre y eliminar los equipos para adaptarlos a los proyectos y
 estructura de la empresa.
 
