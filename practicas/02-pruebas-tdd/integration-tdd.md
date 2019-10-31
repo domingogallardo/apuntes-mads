@@ -218,12 +218,12 @@ MySQL.
 - Arranca la aplicación con el siguiente comando:
 
     ```
-    mvn spring-boot:run -Dspring-boot.run.profiles=mysql
+    mvn spring-boot:run -Dspring.profiles.active=mysql
     ```
 
-    Se cargarán las preferencias de
-    `src/main/resource/application.profile` y
-    `src/main/resource/application-mysql.profile`.
+    Se activará el perfil `mysql` y se cargarán las preferencias de
+    `src/main/resource/application.properties` y
+    `src/main/resource/application-mysql.properties`.
 
     Prueba a introducir datos en la aplicación y comprueba que se
     están guardando en la base de datos con _MySQL Workbench_ o alguna
@@ -250,10 +250,10 @@ MySQL.
     docker run -d -p 3306:3306 --name mysql-test -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_DATABASE=mads_test mysql:5 
     ```
 
-    Y lanzamos los tests sobre la base de datos MySQL con el siguiente comando:
+    Y lanzamos los tests usando el perfil ` la base de datos MySQL con el siguiente comando:
   
       ```
-      mvn -DargLine="-Dspring.profiles.active=mysql" test
+      mvn test -Dspring.profiles.active=mysql
       ```
   
     Comprobamos con _MySQL Workbench_ que los datos que hay en
@@ -355,7 +355,7 @@ services:
 before_install:
   - mysql -e 'CREATE DATABASE mads_test;'
 
-script: ./mvnw -DargLine="-Dspring.profiles.active=mysql" test
+script: ./mvnw test -Dspring.profiles.active=mysql
 ```
 
 Puntos interesantes a destacar:
@@ -407,7 +407,7 @@ podremos lanzar los tests en Travis con un único comando que se
 ejecuta usando el Maven del propio proyecto.
 
 ```
-./mvnw -DargLine="-Dspring.profiles.active=mysql" test
+./mvnw test -Dspring.profiles.active=mysql
 ```
 
 
@@ -437,7 +437,7 @@ ejecuta usando el Maven del propio proyecto.
     comando `./mvnw`:
     
     ```
-    ./mvnw -DargLine="-Dspring.profiles.active=mysql" test
+    ./mvnw test -Dspring.profiles.active=mysql
     ```
  
     Elimina del fichero `.gitignore` la línea `.mvn` (por un error se
