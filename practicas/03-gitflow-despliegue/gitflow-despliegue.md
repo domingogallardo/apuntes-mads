@@ -354,7 +354,7 @@ rama `develop` (además de en la rama `master`).
   actualizando el número de versión a `1.3.1`.
 
 
-## Despliegue en producción de la aplicación con Docker ##
+## Despliegue en producción con Docker ##
 
 Pendiente de terminar.
 
