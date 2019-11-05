@@ -1152,7 +1152,7 @@ estructura de la empresa.
 - La práctica tiene una duración de 2 semanas y debe estar terminada
   el martes 29 de octubre.
 - La parte obligatoria puntúa sobre 8 y la opcional sobre 2 puntos.
-- La calificación de la práctica tiene un peso de un 5% en la nota
+- La calificación de la práctica tiene un peso de un 7% en la nota
   final de la asignatura. 
 - Para realizar la entrega se debe subir a Moodle un ZIP que contenga
   todo el proyecto, incluyendo el directorio `.git` que contiene la

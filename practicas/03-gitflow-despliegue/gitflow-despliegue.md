@@ -890,19 +890,22 @@ https://github.com/mads-ua-18/todolistgrupo-2018-equipo-12/pull/18/files
 
 ## Entrega y evaluación ##
 
-- La práctica tiene una duración de 3 semanas y debe estar terminada
-  el martes 20 de noviembre.
+- La práctica tiene una duración de 2 semanas y debe estar terminada
+  el martes 19 de noviembre.
 - La calificación de la práctica tiene un peso de un 5% en la nota
   final de la asignatura.
 - Para realizar la entrega uno de los miembros del equipo debe subir a
-  Moodle un ZIP que contenga todo el proyecto y los ficheros
-  `bd-produccion-1.sql` y `bd-produdcción-2.sql`. Debes dejar también
-  en Moodle la URL del repositorio en GitHub.
+  Moodle un ZIP que contenga todo el proyecto, incluyendo el
+  directorio `.git` que contiene la historia Git. Para ello comprime
+  tu directorio local del proyecto **después de haber hecho un `mvn
+  clean`** para eliminar el directorio `target` que contiene los
+  binarios compilados. Debes dejar también en Moodle la URL del
+  repositorio en GitHub.
 
 Para la evaluación se tendrá en cuenta:
 
 - Desarrollo continuo (los _commits_ deben realizarse a lo largo de
-  las 3 semanas y no dejar todo para la última semana).
+  las 2 semanas y no dejar todo para la última semana).
 - Correcto desarrollo de la metodología.
 - Corrección del código.
 
