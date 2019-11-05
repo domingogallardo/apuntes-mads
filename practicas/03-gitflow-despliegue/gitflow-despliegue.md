@@ -356,7 +356,7 @@ rama `develop` (además de en la rama `master`).
 
 ## Despliegue en producción con Docker ##
 
-Pendiente de terminar.
+Pendiente de finalizar.
 
 <!--
 
