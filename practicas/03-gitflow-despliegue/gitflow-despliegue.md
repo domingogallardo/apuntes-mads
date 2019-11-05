@@ -356,6 +356,8 @@ rama `develop` (además de en la rama `master`).
 
 ## Despliegue en producción de la aplicación con Docker ##
 
+Pendiente de terminar.
+
 <!--
 
 
