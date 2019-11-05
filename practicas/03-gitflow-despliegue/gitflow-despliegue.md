@@ -1,16 +1,18 @@
 
-# Práctica 3: Trabajo en equipo GitFlow y despliegue de la aplicación
+# Práctica 3: Trabajo en equipo con GitFlow y despliegue de la aplicación
 
 ## Objetivos y resumen de la práctica ##
 
 En esta práctica se pretende conseguir:
 
-1. Crear los equipos de trabajo en GitHub
+1. Crear los equipos de trabajo en GitHub.
 2. Adaptar el flujo de trabajo en Git y GitHub al trabajo en equipo.
     - Implementar GitFlow.
     - Desarrollar nuevas features con GitFlow.
     - Lanzamiento de una versión nueva usando GitFlow.
-3. Despliegue de la nueva versión en producción.
+3. Despliegue en producción de la aplicación, construyendo una imagen
+   docker y lanzándola junto con la base de datos con `docker
+   compose`.
 
 
 ## Formación de equipos ##
@@ -23,9 +25,25 @@ los miembros del equipo. Se formará también un _team_ en la
 organización `mads-ua-18` en el que participarán todos los miembros
 del equipo.
 
-<img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/03-gitflow-despliegue/imagenes/equipos-mads-ua.png" width="700px"/>
+<img src="imagenes/equipos-mads-ua.png" width="700px"/>
 
 Utilizaremos _GitHub Classroom_ para crear el _team_ y el repositorio.
+
+### Roles en el equipo ###
+
+Cada una de las tres personas del equipo tendrá un papel
+diferente. 
+
+- **Responsable de GitHub**: encargado de gestionar el flujo de Git y
+  de supervisar los pull requests, issues y tablero de GitHub.
+- **Resposable de integración continua (devop)**: encargado
+  de gestionar Travis, Docker y configuraciones del proyecto.
+- **Responsable del producto**: encargado de conocer y gestionar las
+  historias de usuario, el tablero Trello y las pruebas de usuario del
+  producto. 
+
+Debéis elegir quién va a tener cada papel.
+
 
 ### Pasos a seguir ###
 
@@ -33,53 +51,57 @@ Utilizaremos _GitHub Classroom_ para crear el _team_ y el repositorio.
   foro de Moodle y os asignaré un nombre de equipo. Utilizad después
   el enlace de GitHub Classroom que enviaré al foro de Moodle para
   crear el equipo y apuntaros a él.
+  
+    El primero que use el enlace debe crear el repositorio,
+    escribiendo el nombre del equipo, como se muestra en la siguiente
+    imagen.
+
+    <img src="imagenes/nombre-repo-github-classroom.png" width="600px"/>
 
     El equipo trabajará con un repositorio creado por GitHub Classroom
-    con el nombre `todolistgrupo-2018-NOMBRE-EQUIPO`. Al igual que en
+    con el nombre `todolistgrupo-2019-NOMBRE-EQUIPO`. Al igual que en
     la práctica 1, el repositorio se creará en el grupo `mads-ua-18`.
+
+    <img src="imagenes/repo-creado-github-classroom.png" width="700px"/>
+
+    Una vez que la primera persona ha creado el equipo y el
+    repositorio, las siguientes personas que usan el enlace pueden
+    unirse al equipo creado o crear un nuevo equipo:
+    
+    <img src="imagenes/unirse-repo-github-classroom.png" width="700px"/>
 
 - Una vez creado el repositorio debéis crear en él un tablero para
   gestionar las tarjetas con los _issues_ y los pull
   requests. Creadlos con las mismas columnas que en las prácticas 1 y 2.
 
-- Escoged el proyecto que vais a usar en estas dos últimas prácticas
-  de entre los proyectos de los miembros del equipo. Intentad que se
-  un proyecto con código limpio y fácilmente ampliable.
+- Escoged el proyecto que vais a usar como punto de partida de estas
+  dos últimas prácticas de entre los proyectos de los miembros del
+  equipo. Intentad que se un proyecto con código limpio y fácilmente
+  ampliable.
 
     Subidlo al nuevo repositorio, cambiando la URL del `origin` del
     repositorio local y haciendo un push:
 
-        $ git remote set-url origin https://github.com/mads-ua-18/todolistgrupo-2018-NOMBRE-EQUIPO.git
+        $ git remote set-url origin https://github.com/mads-ua-18/todolistgrupo-2019-NOMBRE-EQUIPO.git
         $ git push -u origin master
 
     Por último, los otros miembros del equipo deberán clonar el
     repositorio para que los tres podáis trabajar con él en local.
 
-- Cambiad el nombre del proyecto en el fichero `build.sbt` a
-  `mads-todolist-equipo-XX`. También deberéis cambiar el fichero
-  `Dockerfile` para actualizar el nombre de la aplicación a ejecutar,
-  y el fichero `.travis.yml` para modificar el nombre de la máquina a
-  publicar en Docker Hub (podéis llamarla también
-  `mads-todolist-equipo-XX`). Podéis usar como usuario de Docker Hub
-  el propietario del repositorio escogido.
+- Cambiad el nombre del proyecto (en el fichero `POM.xml` y en el
+  `about.html` a `mads-todolist-equipo-XX`.
 
     Haced un commit directamente en `master` con estos cambios.
   
-    Para conectar el repositorio con Travis hay que acceder a la
-    cuenta personal en Travis.com y sincronizar el nuevo repositorio
-    `todolistgrupo` en la organización `mads-ua-18`. Puedes acceder a
-    la página para sincronizar este nuevo repositorio desde la página
-    principal de Travis, pulsando el botón `+`:
+    Para conectar el repositorio con Travis el responsable de
+    integración continua debe acceder a su cuenta personal en
+    Travis.com y sincronizar el nuevo repositorio `todolistgrupo` en
+    la organización `mads-ua`. Puedes acceder a la página para
+    sincronizar este nuevo repositorio desde la página principal de
+    Travis, pulsando el botón `+`:
     
-    <img src="https://raw.githubusercontent.com/domingogallardo/apuntes-mads/master/practicas/03-gitflow-despliegue/imagenes/builds-travis-add.png" width="600px"/>
+    <img src="imagenes/builds-travis-add.png" width="600px"/>
 
-    Aseguraos que funciona correctamente la nueva imagen subida
-    probando a ejecutar la aplicación:
-  
-        $ docker run -it --rm -p 9000:9000 <usuario>/mads-todolist-equipo-XX
-
-    El flag `-it` permite visualizar en el terminal de forma interactiva
-    la salida estándar de la aplicación Play y terminarla haciendo un `CTRL-C`.
 
 ## Nuevo flujo de trabajo para los _issues_ ##
 
@@ -88,12 +110,13 @@ cuanto a la gestión de los _issues_ y tablero del proyecto cambiaremos
 lo siguiente:
 
 - **Selección del _issue_**: Al pasar un _issue_ de `To do`a `In
-  progress` se debe asignar un responsable.
-- **Nueva rama con el _issue_**: El responsable será el que abra una
+  progress` se debe asignar un responsable del desarrollo del _issue_.
+- **Nueva rama con el _issue_**: El responsable seleccionado será el que abra una
   rama nueva para el desarrollo del ticket y la subirá a
   GitHub.
 - **Desarrollo**: Se trabaja en la rama. Cualquier compañero puede
-  unirse al ticket y trabajar junto con el responsable.
+  unirse al ticket y trabajar junto con el responsable, trabajando
+  sobre la rama.
 - **Pull request**: Cuando el ticket se ha terminado, el responsable
   abre un pull request en GitHub y pone la tarjeta en la columna
   `In pull request`.
@@ -101,9 +124,9 @@ lo siguiente:
   el pull request (consultar documentación en GitHub: [Reviewing
   proposed changes in a pull
   request](https://help.github.com/articles/reviewing-proposed-changes-in-a-pull-request/)). Al
-  final, todos los miembros del equipo deben dar el OK, añadiendo una
+  menos uno de los miembros del equipo deben dar el OK, añadiendo una
   reacción.
-- **Integración del pull request**: Cuando todos dan el OK, el
+- **Integración del pull request**: Cuando un miembro da el OK, el
   responsable de la tarea integra el pull request.
 
 Para implementar el trabajo en equipo será necesario trabajar sobre
@@ -126,7 +149,7 @@ en repositorios y ramas remotas.
         $ git checkout nueva-rama 
 
     El comando `git fetch` se descarga todos los cambios pero no los
-    mezcla con las ramas locales. Los deja en ramas cacheadas a las
+    mezcla con las ramas locales. Los deja en ramas _remote tracking_ a las
     que les da el nombre del servidor y la rama
     (`origin/nueva-rama`). 
 
@@ -232,7 +255,8 @@ en repositorios y ramas remotas.
 
 - Probad los comandos Git anteriores en una rama en la que se resuelva
   el _issue_. Cada miembro del equipo deberá realizar un commit en el
-  que se añada su nombre a la lista de autores de la aplicación.
+  que se añada su nombre a la lista de autores de la aplicación,
+  indicando también su papel en el equipo.
 
 - Cread el pull request en GitHub, poniendo como responsable del PR al
   mismo responsable del _issue_.
@@ -249,8 +273,7 @@ en repositorios y ramas remotas.
 
 El flujo de trabajo Git que vamos a seguir es muy similar al flujo de
 trabajo GitFlow (recordad la [clase de
-teoría](https://github.com/domingogallardo/apuntes-mads/blob/master/sesiones/07-git-workflows/git-workflows.md)). Pero
-vamos a introducir alguna variante en la nomenclatura de las ramas.
+teoría](https://github.com/domingogallardo/apuntes-mads/blob/master/sesiones/07-git-workflows/git-workflows.md)). 
 
 ### Ramas de largo recorrido ###
 
@@ -286,51 +309,181 @@ Haremos también la integración haciendo pull request.
 
 ### Pasos a seguir ###
 
-- El equipo elegirá un **responsable de integración** que se encargue de
+- El **responsable de GitHub** se debe encargar de
 crear la rama **`develop`** y configurarla como rama principal del
 proyecto en GitHub. Todos los otros miembros deberán descargarla y
 moverse a ella en sus repositorios locales. Esta rama pasará a ser la
 de desarrollo principal. 
 
-- Habrá que modificar el fichero de configuración de Travis, para que
-también se lancen los builds en esta rama.
+- El **responsable de integración continua** modificará el fichero de
+configuración de Travis, para que también se lancen los builds en la
+rama `develop` (además de en la rama `master`).
 
 - Haced un PR de prueba en la rama `develop` para comprobar que todo
   funciona bien.
 
-- Cread un _issue_ con la tarea _Lanzar release 1.3.0_ que tendrá como
-responsable también al responsable de integración.
+- Vamos a probar el lanzamiento de una release usando el flujo de
+  trabajo. Cread un _issue_ con la tarea _Lanzar release 1.3.0_ que
+  tendrá como responsable al responsable de GitHub.
 
-- El responsable de integración deberá publicar la nueva versión
-siguiendo los pasos de GitFlow:
+- El responsable de GitHub deberá publicar la nueva versión siguiendo
+  los pasos de GitFlow:
     - Crear la rama local **`release-1.3.0`** a partir de `develop`.
     - Realizar en esta rama los cambios específicos de la versión. En
       nuestro caso:
         - Cambiar en la página "Acerca de" "Versión 1.3.0-SNAPSHOT" a
           "Versión 1.3.0" y añadir la fecha de publicación.
-        - Cambiar el fichero `build.sbt`.
+        - Cambiar el fichero `pom.xml`.
     - Publicar la rama `release-1.3.0` en GitHub y hacer un pull
       request sobre `master`. Una vez mezclado el PR añadir la
       etiqueta con la nueva versión `1.3.0` en `master` creando la
-      página de release en GitHub. 
+      página de release en GitHub.
     - Mezclar también la rama de release con `develop` (se puede hacer
       también con un PR).
-    - Por último, subir a Docker Hub la nueva versión 1.3.0. Docker
-      Hub hace el papel de "repositorio de artefactos" de nuestra
-      cadena de integración continua. Publicaremos allí todas las
-      releases compiladas en forma de imágenes docker que vayamos
-      generando.
 
 - Una vez hecho esto ya se puede borrar la rama `release-1.3.0` y las
-  ramas `master` y `develop` estarán actualizadas a las nuevas
-  versiones.
+  ramas `master` y `develop` estarán actualizadas a la nueva
+  versión.
 
 - La rama `develop` también será integrada por Travis. Debemos
-comprobar que pasan todos los tests y que sube a Docker Hub la imagen
-con la etiqueta `latest`.
+  comprobar que pasan todos los tests de las nuevas características
+  que se añaden.
 
-- Por último, deberéis realizar un _hot fix_, siguiendo el flujo de
-  trabajo de GitFlow, y actualizando el número de versión a `1.3.1`.
+- Por último, deberéis realizar un _hot fix_, simulando la resolución
+  de un error, siguiendo el flujo de trabajo de GitFlow, y
+  actualizando el número de versión a `1.3.1`.
+
+
+## Despliegue en producción de la aplicación con Docker ##
+
+<!--
+
+
+### Sobreescribir propiedades desde la línea de comando ###
+
+Hay distintas formas de seleccionar los perfiles cuando lanzamos la
+aplicación y los tests. La forma más sencilla es la siguiente:
+
+Para lanzar la aplicación usando como perfil activo el fichero
+`application-mysql.properties`:
+
+```
+mvn spring-boot:run -Dspring.profiles.active=mysql
+```
+
+Para lanzar los tests usando como perfil `mysql`:
+
+```
+mvn test -Dspring.profiles.active=mysql
+```
+
+La opción `-D` permite sobreescribir una propiedad del fichero de
+propiedades. Por ejemplo, podemos lanzar la aplicación modificando el
+usuario y la contraseña de una conexión a una base de datos con el
+siguiente comando:
+
+```
+mvn spring-boot:run -Dspring.datasource.username=root -Dspring.datasource.password=12345678
+```
+
+También es posible definir variables en el propio fichero de
+propiedades para proporcionar nombres más cortos o reutilizar un mismo
+valor en varias propiedades.
+
+Ejemplo de fichero `application.properties`:
+
+```
+logging=info
+logging.level.org.springframework=${logging}
+logging.level.root=${logging}
+logging.level.org.hibernate=${logging}
+logging.level.sql=${logging}
+```
+
+Podríamos entonces modificar el nivel de logs modificando la variable
+`logging` al lanzar los tests de la aplicación, para que sólo muestre
+los mensajes de error:
+
+```
+mvn test -Dloggin=error
+```
+
+
+### Docker ###
+
+`Dockerfile`:
+
+```
+```
+
+Para construir la máquina docker:
+
+```
+docker build --build-arg JAR_FILE=target/mads-todolist-inicial-1.0.0.jar -t domingogallardo/todolist .
+```
+
+Para ejecutar la aplicación:
+
+```
+```
+
+
+
+### Pasos a seguir ###
+
+- Modifica los ficheros de propiedades de ejecución para que queden de la siguiente:
+
+    **Fichero `src/main/resources/application.properties`**
+
+        spring.application.name = madstodolist
+        spring.datasource.url=jdbc:h2:mem:dev
+        spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.H2Dialect
+        spring.jpa.hibernate.ddl-auto=update
+        spring.datasource.data=classpath:datos-dev.sql
+        spring.datasource.initialization-mode=always
+        spring.h2.console.enabled=true
+        spring.h2.console.path=/h2-console
+
+
+        logging=info
+        logging.level.org.springframework=${logging}
+        logging.level.root=${logging}
+        logging.level.org.hibernate=${logging}
+        logging.level.sql=${logging}
+
+    **Fichero `src/main/resources/application-mysql.properties`**
+
+        db_ip=localhost:3306
+        db_user=root
+        db_passwd=
+        spring.datasource.url=jdbc:mysql://${db_ip}/mads
+        spring.datasource.username=${db_user}
+        spring.datasource.password=${db_passwd}
+        spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+        spring.jpa.hibernate.ddl-auto=update
+        spring.datasource.initialization-mode=never
+
+- Vamos a probar que funcionan bien las variables de
+  configuración. Para ello, lanzamos mysql en un puerto distinto, el 3316:
+  
+        docker run -d -p 3316:3306 --name mysql-otro-puerto -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_DATABASE=mads mysql:5 
+  
+    y probamos a lanzar la aplicación modificando la variable `db_ip`
+    para que se conecte a ese nuevo puerto:
+  
+        mvn spring-boot:run -Dspring.profiles.active=mysql -Ddb_ip=localhost:3316
+
+    Por último, borramos el contenendor de prueba creado:
+    
+         docker container stop mysql-otro-puerto
+         docker container rm mysql-otro-puerto
+
+!!! Note "Nota"
+    Es posible utilizar la variable `db_ip` para facilitar la conexión
+    de la aplicación a un contenedor Docker de MySQL lanzado con _Docker
+    Toolbox_. En este caso hay que especificar la dirección IP en la
+    que se está ejecutando el contenedor Docker.
+
 
 ## Despliegue ##
 
@@ -658,8 +811,6 @@ de JPA `conf/META-INF/persistence.xml`:
 
 ```text
 
-<!-- MySQL Persistence Unit - Production: hbm2ddl.auto = VALIDATE -->
-
 <persistence-unit name="production" transaction-type="RESOURCE_LOCAL">
    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
    <non-jta-data-source>DBTodoList</non-jta-data-source>
@@ -694,13 +845,12 @@ $ docker run --link db-mysql --rm -it -p 9000:9000 \
 El flag `-it` permite visualizar en el terminal de forma interactiva
 la salida estándar de la aplicación Play y terminarla haciendo un `CTRL-C`.
 
-<!-- 
+
 Añadir fichero 'schema-latest.sql' en el directorio sql con la
 última versión del esquema de datos, tal y como expliqué en clase. 
 Por ejemplo, el equipo 12 lo ha hecho así.
 
 https://github.com/mads-ua-18/todolistgrupo-2018-equipo-12/pull/18/files
--->
 
 ### Pasos a seguir ###
 
@@ -735,6 +885,8 @@ https://github.com/mads-ua-18/todolistgrupo-2018-equipo-12/pull/18/files
   la base de datos de producción con los nuevos cambios. Se deberá
   por último añadir algún dato más y volcar la base de datos
   resultante con el nombre de `bd-produccion-2.sql`.
+
+-->
 
 ## Entrega y evaluación ##
 
