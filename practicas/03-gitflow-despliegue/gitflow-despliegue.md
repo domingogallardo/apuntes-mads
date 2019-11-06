@@ -22,7 +22,7 @@ forma excepcional podrían ser 2 o 4 personas).
 
 Cada equipo trabajará con un repositorio común seleccionado de uno de
 los miembros del equipo. Se formará también un _team_ en la
-organización `mads-ua-18` en el que participarán todos los miembros
+organización `mads-ua` en el que participarán todos los miembros
 del equipo.
 
 <img src="imagenes/equipos-mads-ua.png" width="700px"/>
@@ -60,7 +60,7 @@ Debéis elegir quién va a tener cada papel.
 
     El equipo trabajará con un repositorio creado por GitHub Classroom
     con el nombre `todolistgrupo-2019-NOMBRE-EQUIPO`. Al igual que en
-    la práctica 1, el repositorio se creará en el grupo `mads-ua-18`.
+    la práctica 1, el repositorio se creará en el grupo `mads-ua`.
 
     <img src="imagenes/repo-creado-github-classroom.png" width="700px"/>
 
@@ -82,7 +82,7 @@ Debéis elegir quién va a tener cada papel.
     Subidlo al nuevo repositorio, cambiando la URL del `origin` del
     repositorio local y haciendo un push:
 
-        $ git remote set-url origin https://github.com/mads-ua-18/todolistgrupo-2019-NOMBRE-EQUIPO.git
+        $ git remote set-url origin https://github.com/mads-ua/todolistgrupo-2019-NOMBRE-EQUIPO.git
         $ git push -u origin master
 
     Por último, los otros miembros del equipo deberán clonar el
@@ -119,7 +119,7 @@ lo siguiente:
   sobre la rama.
 - **Pull request**: Cuando el ticket se ha terminado, el responsable
   abre un pull request en GitHub y pone la tarjeta en la columna
-  `In pull request`.
+  `In pull request`. Se archiva la tarjeta del _issue_.
 - **Revisión de código**: Los miembros del equipo revisan el código en
   el pull request (consultar documentación en GitHub: [Reviewing
   proposed changes in a pull
@@ -322,16 +322,31 @@ rama `develop` (además de en la rama `master`).
 - Haced un PR de prueba en la rama `develop` para comprobar que todo
   funciona bien.
 
-- Vamos a probar el lanzamiento de una release usando el flujo de
+- Cread tres _issues_ distintos, simulando tres nuevas
+  funcionalidades. Deben ser issues muy sencillos (cambiar el color de
+  algún elemento de la aplicación, cambiar un texto, o algo
+  similar). Cada uno de los miembros del equipo será el responsable de
+  uno de los issues. 
+  
+  El **responsable de GitHub** configurará el repositorio para obligar
+  a que cualquier _pull request_ tenga que tener la revisión de una
+  persona distinta del responsable del PR.
+  
+  Desarrollar e integrar los issues en `develop` siguiendo el flujo de
+  trabajo planteado anteriormente. El **responsable de GitHub** se
+  asegurará de que el tablero de GitHub se actualiza correctamente.
+
+- Por último, vamos a probar el lanzamiento de una release usando el flujo de
   trabajo. Cread un _issue_ con la tarea _Lanzar release 1.3.0_ que
   tendrá como responsable al responsable de GitHub.
 
-- El responsable de GitHub deberá publicar la nueva versión siguiendo
+- El **responsable de GitHub** deberá publicar la nueva versión siguiendo
   los pasos de GitFlow:
-    - Crear la rama local **`release-1.3.0`** a partir de `develop`.
+  
+    - Crear la rama local `release-1.3.0` a partir de `develop`.
     - Realizar en esta rama los cambios específicos de la versión. En
       nuestro caso:
-        - Cambiar en la página "Acerca de" "Versión 1.3.0-SNAPSHOT" a
+        - Cambiar en la página `Acerca de` "Versión 1.3.0-SNAPSHOT" a
           "Versión 1.3.0" y añadir la fecha de publicación.
         - Cambiar el fichero `pom.xml`.
     - Publicar la rama `release-1.3.0` en GitHub y hacer un pull
@@ -343,7 +358,8 @@ rama `develop` (además de en la rama `master`).
 
 - Una vez hecho esto ya se puede borrar la rama `release-1.3.0` y las
   ramas `master` y `develop` estarán actualizadas a la nueva
-  versión.
+  versión. Hacer por último un commit en `develop` (no hace falta PR)
+  cambiando la versión a `1.4.0-SNAPSHOT`.
 
 - La rama `develop` también será integrada por Travis. Debemos
   comprobar que pasan todos los tests de las nuevas características
@@ -357,6 +373,8 @@ rama `develop` (además de en la rama `master`).
 ## Despliegue en producción con Docker ##
 
 Pendiente de finalizar.
+
+
 
 <!--
 
@@ -852,7 +870,7 @@ Añadir fichero 'schema-latest.sql' en el directorio sql con la
 última versión del esquema de datos, tal y como expliqué en clase. 
 Por ejemplo, el equipo 12 lo ha hecho así.
 
-https://github.com/mads-ua-18/todolistgrupo-2018-equipo-12/pull/18/files
+https://github.com/mads-ua/todolistgrupo-2018-equipo-12/pull/18/files
 
 ### Pasos a seguir ###
 
