@@ -328,7 +328,7 @@ rama `develop` (además de en la rama `master`).
   similar). Cada uno de los miembros del equipo será el responsable de
   uno de los issues. 
   
-  El **responsable de GitHub** configurará el repositorio para obligar
+-  El **responsable de GitHub** configurará el repositorio para obligar
   a que cualquier _pull request_ tenga que tener la revisión de una
   persona distinta del responsable del PR.
   
@@ -340,7 +340,7 @@ rama `develop` (además de en la rama `master`).
   trabajo. Cread un _issue_ con la tarea _Lanzar release 1.3.0_ que
   tendrá como responsable al responsable de GitHub.
 
-- El **responsable de GitHub** deberá publicar la nueva versión siguiendo
+- El **responsable de GitHub** deberá **publicar la nueva versión** siguiendo
   los pasos de GitFlow:
   
     - Crear la rama local `release-1.3.0` a partir de `develop`.
@@ -365,7 +365,7 @@ rama `develop` (además de en la rama `master`).
   comprobar que pasan todos los tests de las nuevas características
   que se añaden.
 
-- Por último, deberéis realizar un _hot fix_, simulando la resolución
+- Por último, deberéis **realizar un _hot fix_**, simulando la resolución
   de un error, siguiendo el flujo de trabajo de GitFlow, y
   actualizando el número de versión a `1.3.1`.
 
