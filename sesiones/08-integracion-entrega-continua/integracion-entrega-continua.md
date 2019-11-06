@@ -368,12 +368,33 @@ $ docker start reverent_wu
     $ docker image prune
     ```
 
-- Para borrar todo lo no usado (contenedores e imágenes):
+- Para borrar todo lo no usado (contenedores e imágenes) y todos los
+  volúmenes locales creados:
 
     ```
     $ docker system prune -a
     ```
-    
+
+### Volúmenes ###
+
+Docker permite persistir datos fuera del contenedor, en ficheros del
+host. Estos ficheros se denominan _volúmenes_ y sirven para
+intercambiar datos entre el contenedor y el host o entre varios
+contenedores.
+
+- Para listar todos los volúmenes
+
+    ```
+    $ docker volume ls
+    ```
+
+- Para borrar todos los volúmenes no usados y liberar espacio:
+
+    ```
+    $ docker volume prune
+    ```
+
+
 ### Más información sobre Docker ###
 
 - [Docker Overview](https://docs.docker.com/engine/understanding-docker/)
