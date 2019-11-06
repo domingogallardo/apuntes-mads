@@ -328,7 +328,7 @@ rama `develop` (además de en la rama `master`).
   similar). Cada uno de los miembros del equipo será el responsable de
   uno de los issues. 
   
-  El **responsable de GitHub** configurará el repositorio para obligar
+-  El **responsable de GitHub** configurará el repositorio para obligar
   a que cualquier _pull request_ tenga que tener la revisión de una
   persona distinta del responsable del PR.
   
@@ -340,7 +340,7 @@ rama `develop` (además de en la rama `master`).
   trabajo. Cread un _issue_ con la tarea _Lanzar release 1.3.0_ que
   tendrá como responsable al responsable de GitHub.
 
-- El **responsable de GitHub** deberá publicar la nueva versión siguiendo
+- El **responsable de GitHub** deberá **publicar la nueva versión** siguiendo
   los pasos de GitFlow:
   
     - Crear la rama local `release-1.3.0` a partir de `develop`.
@@ -365,7 +365,7 @@ rama `develop` (además de en la rama `master`).
   comprobar que pasan todos los tests de las nuevas características
   que se añaden.
 
-- Por último, deberéis realizar un _hot fix_, simulando la resolución
+- Por último, deberéis **realizar un _hot fix_**, simulando la resolución
   de un error, siguiendo el flujo de trabajo de GitFlow, y
   actualizando el número de versión a `1.3.1`.
 
@@ -910,8 +910,8 @@ https://github.com/mads-ua/todolistgrupo-2018-equipo-12/pull/18/files
 
 ## Entrega y evaluación ##
 
-- La práctica tiene una duración de 2 semanas y debe estar terminada
-  el martes 19 de noviembre.
+- La práctica tiene una duración de 3 semanas y debe estar terminada
+  el martes 26 de noviembre.
 - La calificación de la práctica tiene un peso de un 5% en la nota
   final de la asignatura.
 - Para realizar la entrega uno de los miembros del equipo debe subir a
@@ -925,7 +925,7 @@ https://github.com/mads-ua/todolistgrupo-2018-equipo-12/pull/18/files
 Para la evaluación se tendrá en cuenta:
 
 - Desarrollo continuo (los _commits_ deben realizarse a lo largo de
-  las 2 semanas y no dejar todo para la última semana).
+  las semanas y no dejar todo para la última).
 - Correcto desarrollo de la metodología.
 - Corrección del código.
 
