@@ -910,8 +910,8 @@ https://github.com/mads-ua/todolistgrupo-2018-equipo-12/pull/18/files
 
 ## Entrega y evaluación ##
 
-- La práctica tiene una duración de 2 semanas y debe estar terminada
-  el martes 19 de noviembre.
+- La práctica tiene una duración de 3 semanas y debe estar terminada
+  el martes 26 de noviembre.
 - La calificación de la práctica tiene un peso de un 5% en la nota
   final de la asignatura.
 - Para realizar la entrega uno de los miembros del equipo debe subir a
@@ -925,7 +925,7 @@ https://github.com/mads-ua/todolistgrupo-2018-equipo-12/pull/18/files
 Para la evaluación se tendrá en cuenta:
 
 - Desarrollo continuo (los _commits_ deben realizarse a lo largo de
-  las 2 semanas y no dejar todo para la última semana).
+  las semanas y no dejar todo para la última).
 - Correcto desarrollo de la metodología.
 - Corrección del código.
 
