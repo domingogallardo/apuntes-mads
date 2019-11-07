@@ -218,7 +218,7 @@ MySQL.
 - Arranca la aplicación con el siguiente comando:
 
     ```
-    mvn spring-boot:run -Dspring-boot.run.profiles=mysql
+    mvn spring-boot:run -Dspring.profiles.active=mysql
     ```
 
     Se activará el perfil `mysql` y se cargarán las preferencias de
