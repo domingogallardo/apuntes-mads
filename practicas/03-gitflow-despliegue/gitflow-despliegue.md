@@ -632,47 +632,49 @@ entorno hay que utilizar el flag `-e VARIABLE=valor`.
   `DOCKER_PASSWORD`, para que Travis pueda publicar en tu cuenta de
   DockerHub.
   
-  <img src="imagenes/variables-entorno-travis.png" width="700px"/>
+    <img src="imagenes/variables-entorno-travis.png" width="700px"/>
   
     Fichero `.travis.yml`:
     
-      ```
-      language: java
+        language: java
+        branches:
+          only:
+            - master
 
-      branches:
-        only:
-          - master
+        services:
+          - mysql
 
-      services:
-        - mysql
+        before_install:
+          - mysql -e 'CREATE DATABASE mads_test;'
 
-      before_install:
-        - mysql -e 'CREATE DATABASE mads_test;'
+        script: ./mvnw test -Dspring.profiles.active=mysql
 
-      script: ./mvnw test -Dspring.profiles.active=mysql
+        after_success:
+          - docker build -t USUARIO/mads-todolist-equipo-XX:$TRAVIS_BUILD_NUMBER .
+          - if [ "$TRAVIS_EVENT_TYPE" != "pull_request" ]; then
+            docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+            docker push USUARIO/mads-todolist-equipo-XX:$TRAVIS_BUILD_NUMBER;
+            docker tag USUARIO/mads-todolist-equipo-XX:$TRAVIS_BUILD_NUMBER USUARIO/mads-todolist-equipo-XX:latest;
+            docker push USUARIO/mads-todolist-equipo-XX:latest;
+            fi
 
-      after_success:
-        - docker build -t USUARIO/mads-todolist-equipo-XX:$TRAVIS_BUILD_NUMBER .
-        - if [ "$TRAVIS_EVENT_TYPE" != "pull_request" ]; then
-          docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-          docker push USUARIO/mads-todolist-equipo-XX:$TRAVIS_BUILD_NUMBER;
-          docker tag USUARIO/mads-todolist-equipo-XX:$TRAVIS_BUILD_NUMBER USUARIO/mads-todolist-equipo-XX:latest;
-          docker push USUARIO/mads-todolist-equipo-XX:latest;
-          fi
-      ```
-
-   El script que publica la imagen en DockerHub se realizará cuando
-   Travis haga un build que no sea del tipo _pull request_ (o sea,
-   cuando sea un build disparado por el commit de merge con la rama en
-   la que se integra el PR). Y publica la imagen usando como número de
-   _tag_ un número que se va incrementando y que se obtiene del número
-   de build. Y esta última imagen también se utilizará como última,
-   duplicándola y asignándole la etiqueta `latest`.
+    Fíjate en el scritp `after_success`. Es lo que Travis hará después
+    de ejecutar con éxito los tests:
+    
+    - Construir la máquina docker de nuestra aplicación, asignándole
+    como etiqueta el número de build actuar.
+    - Si la ejecución de Travis es debida a un evento que no es un
+    _pull request_ (o sea, cuando sea un build disparado por el commit
+    de merge con la rama en la que se integra el PR) se logea en
+    docker hub con el usuario y la contraseña definidas en las
+    variables. Una vez logeado, publica la imagen usando como número
+    de _tag_ el número de build. Y esta última imagen también se
+    vuelve a etiquetar como `latest` y se vuelve a subir.
   
-   Por ejemplo, cuando se realice el build `#28` se publicará la
-   imagen resultante de este build con las etiquetas `28` y `latest`:
-   `USUARIO/mads-todolist-equipo-XX:28` y
-   `USUARIO/mads-todolist-equipo-XX:latest`.
+    Por ejemplo, cuando se realice el build `#28` se publicará la
+    imagen resultante de este build con las etiquetas `28` y `latest`:
+    `USUARIO/mads-todolist-equipo-XX:28` y
+    `USUARIO/mads-todolist-equipo-XX:latest`.
 
 
 - Por último, añade el siguiente fichero `docker-compose.yml` en el
