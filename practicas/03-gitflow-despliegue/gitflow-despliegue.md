@@ -658,7 +658,7 @@ entorno hay que utilizar el flag `-e VARIABLE=valor`.
             docker push USUARIO/mads-todolist-equipo-XX:latest;
             fi
 
-    Fíjate en el scritp `after_success`. Es lo que Travis hará después
+    Fíjate en el script `after_success`. Es lo que Travis hará después
     de ejecutar con éxito los tests:
     
     - Construir la máquina docker de nuestra aplicación, asignándole
