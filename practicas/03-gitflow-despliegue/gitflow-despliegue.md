@@ -431,7 +431,7 @@ En la aplicación vamos a usar esta variable y también otras que nos
 van a permitir configurar las propiedades relacionadas con la conexión
 con la base de datos.
 
-#### Pasos a seguir ####
+### Pasos a seguir ###
 
 - Abre un _issue_ denominado `Dockerización de la aplicación` en el
   que vas a configurar la aplicación para lanzarla con
@@ -500,7 +500,7 @@ con la base de datos.
 ### Imagen Docker de la aplicación ###
 
 Hemos visto [en teoría](https://github.com/domingogallardo/apuntes-mads/blob/master/sesiones/08-integracion-entrega-continua/integracion-entrega-continua.md#demostración-de-docker) cómo crear imágenes Docker. Vamos a crear una
-imagen con nuestra aplicación `todolist`.
+imagen con nuestra aplicación `mads-todolist`.
 
 El fichero `Dockerfile` es el responsable de construir la máquina
 Docker. Usaremos el siguiente `Dockerfile`:
@@ -551,7 +551,7 @@ CMD java -Dspring.profiles.active=$PROFILE -Ddb_ip=$DB_IP -Ddb_user=$DB_USER \
 ```
 
 
-Se trata de un fichero que construye la aplicación en dos fases. En
+Se trata de un fichero que construye la imagen docker en dos fases. En
 una primera fase compila la aplicación y guarda todos los `jars` en el
 directorio `target`. En la segunda fase crea la máquina resultante, basada en
 `openjdk:8-jre-alpine`, con las librerías compiladas previamente.
@@ -568,8 +568,11 @@ definido en el fichero de propiedades de spring boot:
 - `DB_PASSWD`: contraseña del usuario de la base de datos.
 - `LOGGING`: nivel de logging que va a realizar la aplicación.
 
+Para lanzar una imagen docker definiendo un valor de una variable de
+entorno hay que utilizar el flag `-e VARIABLE=valor`. 
 
-#### Pasos a seguir ####
+
+### Pasos a seguir ###
 
 - Crea una cuenta en [DockerHub](https://hub.docker.com). En esta
   cuenta se publicará la imagen docker de la aplicación.
@@ -582,7 +585,16 @@ definido en el fichero de propiedades de spring boot:
 
         docker build -t USUARIO/mads-todolist-equipo-XX .
 
-    Y prueba a ejecutar la aplicación funcionando con la imagen docker
+    Prueba a ejecutar la aplicación trabajando con la base de datos en
+    memoria y con logs de nivel `INFO`:
+    
+        docker run --rm -it -p 8080:8080 -e LOGGING=error USUARIO/mads-todolist-equipo-XX
+
+    El flag `-it` permite visualizar en el terminal de forma
+    interactiva la salida estándar de la aplicación Play y terminarla
+    haciendo un `CTRL-C`.
+
+    Y prueba por último a ejecutar la aplicación funcionando con la imagen docker
     con la base de datos MySQL:
 
         $ docker run -d -p 3306:3306 --name mysql-develop -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_DATABASE=mads mysql:5 
@@ -590,9 +602,6 @@ definido en el fichero de propiedades de spring boot:
           -e PROFILE=mysql -e DB_IP=mysql-develop:3306 -e DB_USER=root -e LOGGING=info \
           USUARIO/mads-todolist-equipo-XX
 
-    El flag `-it` permite visualizar en el terminal de forma
-    interactiva la salida estándar de la aplicación Play y terminarla
-    haciendo un `CTRL-C`.
 
 - Cuando compruebes que todo funciona correctamente, sube a _docker hub_
   la imagen compilada:
@@ -604,9 +613,16 @@ definido en el fichero de propiedades de spring boot:
 - Comprueba en _docker hub_ que la imagen se ha subido
   correctamente. Uno de los compañeros debe probar que la imagen
   funciona correctamente, ejecutando las dos instrucciones
-  anteriores en su máquina. Comprobad que se descarga correctamente
-  la máquina `USUARIO/mads-todolist-equipo-XX` y que la aplicación se
-  lanza sin errores.
+  anteriores en su máquina:
+
+        $ docker run -d -p 3306:3306 --name mysql-develop -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -e MYSQL_DATABASE=mads mysql:5 
+        $ docker run --rm -it --link mysql-develop -p 8080:8080 \
+          -e PROFILE=mysql -e DB_IP=mysql-develop:3306 -e DB_USER=root -e LOGGING=info \
+          USUARIO/mads-todolist-equipo-XX
+  
+    Comprobad que se descarga correctamente la máquina
+    `USUARIO/mads-todolist-equipo-XX` y que la aplicación se lanza sin
+    errores.
 
 - Por último, modifica el script de Travis para que sea Travis quien
   construya y publique la máquina docker. Antes de que se ejecute el
@@ -645,18 +661,18 @@ definido en el fichero de propiedades de spring boot:
           fi
       ```
 
-    El script que publica la imagen en DockerHub se realizará cuando
-    Travis haga un build que no sea del tipo _pull request_ (o sea,
-    cuando sea un build disparado por el commit de merge con la rama
-    en la que se integra el PR). Y publica la imagen usando como
-    número de _tag_ un número que se va incrementando y que se obtiene
-    del número de build. Y esta última imagen también se utilizará
-    como última, duplicándola y asignándole la etiqueta `latest`.
+   El script que publica la imagen en DockerHub se realizará cuando
+   Travis haga un build que no sea del tipo _pull request_ (o sea,
+   cuando sea un build disparado por el commit de merge con la rama en
+   la que se integra el PR). Y publica la imagen usando como número de
+   _tag_ un número que se va incrementando y que se obtiene del número
+   de build. Y esta última imagen también se utilizará como última,
+   duplicándola y asignándole la etiqueta `latest`.
   
-    Por ejemplo, cuando se realice el build `#28` se publicará la
-    imagen resultante de este build con las etiquetas `28` y `latest`:
-    `USUARIO/mads-todolist-equipo-XX:28` y
-    `USUARIO/mads-todolist-equipo-XX:latest`.
+   Por ejemplo, cuando se realice el build `#28` se publicará la
+   imagen resultante de este build con las etiquetas `28` y `latest`:
+   `USUARIO/mads-todolist-equipo-XX:28` y
+   `USUARIO/mads-todolist-equipo-XX:latest`.
 
 
 - Por último, añade el siguiente fichero `docker-compose.yml` en el
@@ -724,8 +740,10 @@ definido en el fichero de propiedades de spring boot:
     $ docker-compose up
     ```
     
-    Verás cómo se ponen en marcha los dos contenedores y nuestra
-    aplicación funciona correctamente. Puedes terminar la ejecución
+    Verás cómo se ponen en marcha el contenedor `mysql` y el
+    contenedor con nuestra aplicación. Prueba a conectarte a la
+    aplicación y comprobar que todo funciona correctamente.
+    Puedes terminar la ejecución
     haciendo `CTRL-C` o lanzando desde otra terminal el comando
     
     ```
