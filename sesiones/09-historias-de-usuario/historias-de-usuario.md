@@ -1,4 +1,5 @@
 
+
 ## Historias de usuario
 
 
@@ -212,5 +213,6 @@ tamaño de las historias, sin embargo, permanece constante.
 
 <img src="diapositivas/historias-usuario.025.png" width="800px">
 
-- Jeff Patton - [The New User Story Backlog is a Map](http://jpattonassociates.com/the-new-backlog/)
 - Jeff Patton - [It's all in how you slice it](http://jpattonassociates.com/wp-content/uploads/2015/01/how_you_slice_it.pdf)
+
+<img src="diapositivas/historias-usuario.026.png" width="800px">
