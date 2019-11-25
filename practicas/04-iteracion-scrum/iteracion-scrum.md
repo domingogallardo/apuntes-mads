@@ -167,13 +167,12 @@ especificarla con más detalle.
 ### Responsables de historia de usuario ###
 
 Una vez seleccionadas todas las historias los miembros del equipo
-elegirán responsables para cada historia, se creará el issue (o
-issues) correspondiente a la historia de usuario y se añadirá el
-responsable al issue.
+elegirán responsables para cada historia, se creará su página Google
+Docs, y se detallará allí las condiciones de satisfacción y el
+borrador de la interfaz de usuario.
 
-El responsable de la historia creará su página Google Docs, detallará
-allí las condiciones de satisfacción y añadirá el borrador de la
-interfaz de usuario.
+Se creará el issue (o issues) correspondiente a la historia de usuario
+y se añadirá el responsable al issue.
 
 Todos los miembros del equipo deberán realizar un trabajo equitativo,
 y se repartirán las historias de forma que queden también equilibrados
@@ -188,7 +187,7 @@ duración y su desarrollo:
 1. Scrum diario (al menos simular 2 reuniones: la segunda y tercera
    semana). En nuestro "tiempo simulado" en las prácticas, una semana
    es como un día de trabajo completo en una empresa.
-2. 2 sesiones de pair programming con turnos de 20 minutos (en cada
+2. 2 sesiones de _pair programming_ con turnos de 20 minutos (en cada
    sesión se deben hacer 4 turnos). Se podrán hacer estas sesiones en
    clase de prácticas.
 3. Retrospectiva del sprint (en la semana final)
@@ -212,11 +211,11 @@ duración y su desarrollo:
 - Una vez terminados todos los issues de una historia de usuario, el
   responsable de la historia moverá su tarjeta en el tablero Trello a
   `En prueba` y el miembro del equipo responsable del producto
-  realizará las pruebas manuales especificadas en sus COS sobre la
-  última imagen subida a Docker. Cuando se hayan pasado las pruebas se
-  pasará la historia a `Terminada`. Si se detectara algún fallo, se
-  volverá la historia a `En marcha` y se abrirá un issue de tipo `bug`
-  para resolver el problema.
+  realizará las **pruebas manuales** especificadas en sus COS sobre la
+  última imagen subida a Docker. Cuando se hayan superado todas las
+  pruebas se pasará la historia a `Terminada`. Si se detectara algún
+  fallo, se volverá la historia a `En marcha` y se abrirá un issue de
+  tipo `bug` para resolver el problema.
 
 ### Publicación de nueva versión  ###
 
@@ -226,11 +225,11 @@ etiqueta `1.4.0`.
 
 ### Documentación del desarrollo ###
 
-- Documentar los dailys, para incluir un informe en el documento.
-- Documentar las sesiones de pair programming.
-- Documentar la evolución del tablero GitHub y alguna métrica del
-  desarrollo (pull requests por semana, velocidad de la semana,
-  gráfica de burndown, etc.).
+- Documentar los _dailys_, para incluir un informe en el documento.
+- Documentar las sesiones de _pair programming_.
+- Documentar la evolución semanal de los tableros Trello y GitHub y
+  calcular alguna métrica del desarrollo (pull requests por semana,
+  velocidad de la semana, gráfica de burndown, etc.).
 
 ## Entrega y evaluación
 
@@ -263,7 +262,7 @@ La práctica tiene una duración de 4 semanas.
               realizado en el sprint, etc.
             - **Informes sobre las reuniones de Scrum**: planificación del
               sprint, scrum diario, revisión y sobre las sesiones de
-              pair programming.
+              _pair programming_.
             - Resultado de la retrospectiva: qué ha ido bien en el
               sprint y qué se podría mejorar en el siguiente sprint.
     - Versión 1.4.0 de la máquina Docker en Docker Hub (es la máquina
