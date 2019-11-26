@@ -634,21 +634,8 @@ entorno hay que utilizar el flag `-e VARIABLE=valor`.
   
     <img src="imagenes/variables-entorno-travis.png" width="700px"/>
   
-    Fichero `.travis.yml`:
+    Líneas a añadir al final del fichero `.travis.yml`:
     
-        language: java
-        branches:
-          only:
-            - master
-
-        services:
-          - mysql
-
-        before_install:
-          - mysql -e 'CREATE DATABASE mads_test;'
-
-        script: ./mvnw test -Dspring.profiles.active=mysql
-
         after_success:
           - docker build -t USUARIO/mads-todolist-equipo-XX:$TRAVIS_BUILD_NUMBER .
           - if [ "$TRAVIS_EVENT_TYPE" != "pull_request" ]; then
