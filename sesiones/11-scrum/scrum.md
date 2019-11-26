@@ -33,11 +33,11 @@
 
 <kbd><img src="diapositivas/scrum.015.png" width="800px"></kbd>
 
-- [Henrik Kniberg](https://www.crisp.se/konsulter/henrik-kniberg)
-
 <kbd><img src="diapositivas/scrum.016.png" width="800px"></kbd>
 
 <kbd><img src="diapositivas/scrum.017.png" width="800px"></kbd>
+
+- [Henrik Kniberg](https://www.crisp.se/konsulter/henrik-kniberg)
 
 <kbd><img src="diapositivas/scrum.018.png" width="800px"></kbd>
 
@@ -55,11 +55,15 @@
 
 <kbd><img src="diapositivas/scrum.025.png" width="800px"></kbd>
 
+- [Kenneth S. Rubin - Essential Scrum](https://innolution.com/essential-scrum)
+
+<kbd><img src="diapositivas/scrum.026.png" width="800px"></kbd>
 
 - [Blog: Agile Product Ownership in a nutshell](http://blog.crisp.se/2012/10/25/henrikkniberg/agile-product-ownership-in-a-nutshell)
 - [YouTube con subtítulos en castellano](https://www.youtube.com/watch?v=5pm0lpa1VVw)
 
-<kbd><img src="diapositivas/scrum.026.png" width="800px"></kbd>
+
+<kbd><img src="diapositivas/scrum.027.png" width="800px"></kbd>
 
 Libro:
 
