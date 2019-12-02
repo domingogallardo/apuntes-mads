@@ -52,7 +52,8 @@ producto y el tablero de GitHub para el backlog del sprint.
 
 Cada equipo creará un tablero Trello compartido en el que se anotarán
 en forma de tarjeta las historias de usuario candidatas para realizar en el
-sprint.
+sprint. El tablero debe ser público y su enlace se incluirá en el
+título del proyecto en GitHub, para que el profesor pueda consultarlo.
 
 El tablero Trello contendrá el **backlog del producto** y servirá para
 trabajar con estas historias de usuario en formato de tarjeta,
