@@ -204,25 +204,21 @@ comprometerse a demasiado trabajo a la vez.
 
 <kbd><img src="diapositivas/kanban.038.png" width="800px"></kbd>
 
-<kbd><img src="diapositivas/kanban.039.png" width="800px"></kbd>
-
 - Es posible trabajar con varios tableros orientados a distintas
   audiencias: un tablero para el desarrollo y otro para el Product
   Owner y la empresa. El primero podría tendría como ítems de trabajo las
   tareas en desarrollo del equipo. El segundo funcionalidades o
   historias de usuario.
 
-<kbd><img src="diapositivas/kanban.039a.png" width="800px"></kbd>
-
-<kbd><img src="diapositivas/kanban.039b.png" width="800px"></kbd>
+<kbd><img src="diapositivas/kanban.039.png" width="800px"></kbd>
 
 <kbd><img src="diapositivas/kanban.040.png" width="800px"></kbd>
 
 <kbd><img src="diapositivas/kanban.041.png" width="800px"></kbd>
 
-- [Lean from the trenches](https://www.crisp.se/file-uploads/Lean-from-the-trenches.pdf)
-
 <kbd><img src="diapositivas/kanban.042.png" width="800px"></kbd>
+
+- [Lean from the trenches](https://www.crisp.se/file-uploads/Lean-from-the-trenches.pdf)
 
 <kbd><img src="diapositivas/kanban.043.png" width="800px"></kbd>
 
@@ -263,6 +259,8 @@ comprometerse a demasiado trabajo a la vez.
 <kbd><img src="diapositivas/kanban.061.png" width="800px"></kbd>
 
 <kbd><img src="diapositivas/kanban.062.png" width="800px"></kbd>
+
+<kbd><img src="diapositivas/kanban.063.png" width="800px"></kbd>
 
 - Marcus Hammarberg, Joakim Sunden - Kanban in Action ([eBook Biblioteca UA](http://proquest.safaribooksonline.com/9781617291050?tocview=true))
 - Henrik Kniberg - [Kanban and Scrum](https://www.infoq.com/minibooks/kanban-scrum-minibook)
