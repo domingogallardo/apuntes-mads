@@ -37,7 +37,7 @@ Scrum. LeSS es la propuesta de _Scrum Alliance_.
       para cada equipo. Una **revisión del sprint** común y una
       **retrospectiva** común y otra para cada equipo.
 
-<kbd><img src="diapositivas/escalando-agil.005b.png" width="800px"></kbd>
+<kbd><img src="diapositivas/escalando-agil.006.png" width="800px"></kbd>
 
 - **Principios**: En el centro, un conjunto de principios extraídos de
   la experiencia con la adopción de LeSS. Los principios soportan las
@@ -57,7 +57,7 @@ Scrum. LeSS es la propuesta de _Scrum Alliance_.
 
 - **Experimentos**: Son opcionales y dependen de la situación.
 
-<kbd><img src="diapositivas/escalando-agil.006.png" width="800px"></kbd>
+<kbd><img src="diapositivas/escalando-agil.007.png" width="800px"></kbd>
 
 - [The Scrum Primer](http://scrumprimer.org/scrumprimer20.pdf)
 
@@ -69,8 +69,6 @@ Ken Schwaber, pero que abandonó en 2009 para fundar _Scrum.org_.
 Tiene algunas diferencias con la guía de Scrum.org, pero comparte
 muchos de sus elementos. Los autores de LeSS son también autores de
 esta guía.
-
-<kbd><img src="diapositivas/escalando-agil.007.png" width="800px"></kbd>
 
 <kbd><img src="diapositivas/escalando-agil.008.png" width="800px"></kbd>
 
@@ -112,9 +110,11 @@ esta guía.
 
 <kbd><img src="diapositivas/escalando-agil.027.png" width="800px"></kbd>
 
+<kbd><img src="diapositivas/escalando-agil.028.png" width="800px"></kbd>
+
 - [Henrik Kniberg - Spotify Engineering Culture](https://labs.spotify.com/2014/03/27/spotify-engineering-culture-part-1/)
 - [Vídeo con subtítulos en castellano e imagen](lecturas/spotify-engineering-culture-part1.zip)
 
-<kbd><img src="diapositivas/escalando-agil.028.png" width="800px"></kbd>
+<kbd><img src="diapositivas/escalando-agil.029.png" width="800px"></kbd>
 
 - [https://less.works](https://less.works)
