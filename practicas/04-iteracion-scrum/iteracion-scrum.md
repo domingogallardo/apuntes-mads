@@ -249,7 +249,7 @@ La práctica tiene una duración de 4 semanas.
     - Entrega en Moodle la última versión del proyecto subida a
       GitHub. Deberá contener:
         - Directorio `doc` en el repositorio del proyecto en el que se
-          incluirá un documento PDF o Markdown con la memoria de la
+          incluirá un documento PDF con la memoria de la
           práctica y un PDF con las diapositivas presentadas en la
           demo. En la memoria de la práctica se incluirá:
             - **Sprint Backlog**: historias de usuario escogidas para el
