@@ -737,6 +737,30 @@ entorno hay que utilizar el flag `-e VARIABLE=valor`.
     docker-compose down
     ```
 
+  - En el script de `docker compose` el contenedor `mysql` utiliza un
+    [volumen](https://docs.docker.com/storage/volumes/). Esto permite
+    conservar los datos que se introduzcan en la ejecución del
+    programa, aunque el contenedor se borre. También sería posible
+    hacer un backup de estos datos a partir del volumen.
+    
+    Para listar los volúmenes mantenidos por docker:
+    
+    ```
+    docker volume ls
+    ```
+    
+    Para eliminar un volumen:
+    
+    ```
+    docker volume rm nombre-volumen
+    ```
+    
+    Y para elminiar todos los volúmenes:
+    
+    ```
+    docker volume prune
+    ```
+
 - Haz un commit y sube los cambios a GitHub. 
 - Crea el pull request que cierra el _issue_ y ciérralo, comprobando
   que Travis construye la máquina docker y la publica en docker hub.
