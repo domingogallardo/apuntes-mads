@@ -673,7 +673,6 @@ entorno hay que utilizar el flag `-e VARIABLE=valor`.
 
     Fichero `docker-compose.yml`:
         
-        ```
         version: '3.7'
 
         # Define services
@@ -716,7 +715,6 @@ entorno hay que utilizar el flag `-e VARIABLE=valor`.
         # Networks to be created to facilitate communication between containers
         networks:
           backend:
-        ```  
   
   - Prueba que funciona correctamente `docker-compose` ejecutando el
     comando `docker-compose up`. Para asegurarte de que la imagen que
