@@ -737,7 +737,7 @@ entorno hay que utilizar el flag `-e VARIABLE=valor`.
     docker-compose down
     ```
 
-  - En el script de `docker compose` el contenedor `mysql` utiliza un
+  - En el script de `docker-compose` el contenedor `mysql` utiliza un
     [volumen](https://docs.docker.com/storage/volumes/). Esto permite
     conservar los datos que se introduzcan en la ejecución del
     programa, aunque el contenedor se borre. También sería posible
@@ -755,7 +755,7 @@ entorno hay que utilizar el flag `-e VARIABLE=valor`.
     docker volume rm nombre-volumen
     ```
     
-    Y para elminiar todos los volúmenes:
+    Y para elminar todos los volúmenes:
     
     ```
     docker volume prune
