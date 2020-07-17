@@ -48,13 +48,21 @@ vuestras opiniones y experiencias: 
 
 
 <table><tr><td>
-<pre>
-**Hello**,
-_world_.
-</pre>
+
+¡Parece que la única forma de definir bloques es usando una tabla!
+
+Podemos incluir imágenes y código.
+
+<img src="./dilbert1.png" width="400px"/>
+
+```swift
+var x = 0
+let y = x+1
+x = x+y
+```
+
 </td></tr></table>
 
 
-<span style="display:block" class="note">It **works!**</span>
 
 
