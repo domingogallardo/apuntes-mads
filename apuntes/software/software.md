@@ -48,8 +48,9 @@ vuestras opiniones y experiencias: 
 
 
 <table>
-<tr><td>Título de la tabla</td></tr>
 <tr><td>
+**Título del texto**
+
 
 ¡Parece que la única forma de definir bloques es usando una tabla!
 
