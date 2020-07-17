@@ -44,6 +44,15 @@ vuestras opiniones y experiencias: 
 
 "Be water, my friend"
 
-<img src="./dilbert1.png" width="800px"/>
+<img src="./dilbert1.png" width="400px"/>
+
+
+<table><tr><td>
+<pre>
+**Hello**,
+
+_world_.
+</pre>
+</td></tr></table>
 
 
