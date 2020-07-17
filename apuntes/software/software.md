@@ -47,7 +47,9 @@ vuestras opiniones y experiencias: 
 <img src="./dilbert1.png" width="400px"/>
 
 
-<table><tr><td>
+<table>
+<tr><td>Título de la tabla</td></tr>
+<tr><td>
 
 ¡Parece que la única forma de definir bloques es usando una tabla!
 
