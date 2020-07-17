@@ -54,6 +54,9 @@ vuestras opiniones y experiencias: 
 
 
 ¡Parece que la única forma de definir bloques es usando una tabla!
+asfjñlkj ñkj ñlkj ñlkj ñlkj ñlkj ñlkj ñlkaj ñlkjasdfñlkjasdfñkljas
+dfñkljas dfñlkja sdfñlkjas dfñlkjasdfñlkj asdñlfkja sdñlfkj añsldkfja
+ñsdfj.
 
 Podemos incluir imágenes y código.
 
