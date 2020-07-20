@@ -1,16 +1,23 @@
 
 
-# Software #
+# Ejemplo de texto en Markdown #
+
+Vamos a comprobar los distintos elementos de Markdown y ver hasta qué
+punto es posible combinar HTML nativo y Markdown. La idea es hacer un
+documento compatible con GitHub y con el [comando de
+Python](https://gist.github.com/domingogallardo/db9278988113d1b6dff060a16d2db333)
+basado en [Python-Markdown](https://python-markdown.github.io) que
+convierte Markdown a HTML. 
 
 ¿Qué es el software? A estas alturas de la carrera seguro que tienes
 una idea más que clara de las características del software. Es el
 material principal de tu trabajo como futura ingeniera de software.
 
 ¿Serías capaz de listar algunas de estas características? ¿Cuál te
-parece más importante? ¿El 
+parece más importante? 
 
 
-# Metodologías Ágiles de Desarrollo de Software #
+## Metodologías Ágiles de Desarrollo de Software ##
 
 1. Software
 2. Metodologías de desarrollo
@@ -30,37 +37,45 @@ vuestras opiniones y experiencias: 
     
 ## Metáforas ##
 
+<img src="./imagenes/dilbert1.png" width="400px" align="right"/>
+
 - Las metáforas son muy útiles para comunicar y establecer ideas
   complejas y actitudes en una comunidad/organización/empresa: dichos,
   expresiones, giros del lenguaje
   
 - Ejemplos:
+    - "El tiempo es oro"
+    - "Somos un equipo"
+    - "La campaña de navidad"
 
-"El tiempo es oro"
-
-"Somos un equipo"
-
-"La campaña de navidad"
-
-"Be water, my friend"
-
-<img src="./dilbert1.png" width="400px"/>
+<img src="./imagenes/dilbert1.png" width="300px"/> <img src="./imagenes/dilbert1.png" width="300px"/>
 
 
-<table>
-<tr><td>
 
-**Título del texto**
+<!-- 
+Es necesario el atributo markdown="1"
+para que python procese el markdown contenido
+en la tabla
+-->
+
+<table markdown="1">
+<tr><td style="background-color: #e0e0e0">
+
+**Bloques de texto**
 
 
 ¡Parece que la única forma de definir bloques es usando una tabla!
-asfjñlkj ñkj ñlkj ñlkj ñlkj ñlkj ñlkj ñlkaj ñlkjasdfñlkjasdfñkljas
-dfñkljas dfñlkja sdfñlkjas dfñlkjasdfñlkj asdñlfkja sdñlfkj añsldkfja
-ñsdfj.
+Dentro de la tabla sí que es posible utilizar _markdown_ e incluir
+imágenes y código. 
 
-Podemos incluir imágenes y código.
+También podemos incluir ítems:
 
-<img src="./dilbert1.png" width="400px"/>
+- Ítem 1
+- Ítem 2
+    - abañkabka
+    - afasfasf
+- Ítem 3
+
 
 ```swift
 var x = 0
@@ -68,8 +83,13 @@ let y = x+1
 x = x+y
 ```
 
+<img src="./imagenes/dilbert1.png" width="400px"></img>
+
+- Ítem 1
+- Ítem 2
+    - abañkabka
+    - afasfasf
+- Ítem 3
+
 </td></tr></table>
-
-
-
 
