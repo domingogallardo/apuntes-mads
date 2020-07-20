@@ -83,6 +83,14 @@ let y = x+1
 x = x+y
 ```
 
+<img src="./imagenes/dilbert1.png" width="400px" align="right"></img>
+
+- Ítem 1
+- Ítem 2
+    - abañkabka
+    - afasfasf
+- Ítem 3
+
 <img src="./imagenes/dilbert1.png" width="400px"></img>
 
 - Ítem 1
@@ -93,3 +101,13 @@ x = x+y
 
 </td></tr></table>
 
+## Nueva sección ##
+
+Aquí hemos terminado el **bloque de texto** y seguimos escribiendo
+Markdown.
+
+- Ítem 1
+- Ítem 2
+    - abañkabka
+    - afasfasf
+- Ítem 3
