@@ -91,6 +91,11 @@ pre {
   border-radius: 3px;
 }
 
+img {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
 table {
   padding: 0;border-collapse: collapse; }
   table tr {

@@ -125,7 +125,7 @@ nuevo que estamos desarrollando.
 
 **Henrik Kniberg**
 
-[Henrik Kniberg]((https://www.crisp.se/konsulter/henrik-kniberg) es un
+[Henrik Kniberg](https://www.crisp.se/konsulter/henrik-kniberg) es un
 divulgador muy importante de las metodologías ágiles. Ha trabajado con
 grandes empresas como Spotify y Lego para implantar en ellas estas
 metodologías. Le gusta compartir todo lo que hace y muchos de los
