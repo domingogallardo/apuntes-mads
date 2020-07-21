@@ -81,6 +81,10 @@ body {
   padding: 60px;
 }
 
+blockquote {
+    background-color: #e0e0e0;
+}
+
 pre {
   background-color: #f8f8f8;
   border: 1px solid #cccccc;
