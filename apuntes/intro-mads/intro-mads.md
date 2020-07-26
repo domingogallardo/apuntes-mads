@@ -229,7 +229,7 @@ y _managers_ intermedios de grandes empresas hablan de "transformación
 digital" y de "agile". Abundan los congresos, conferencias y cursos
 sobre estos temas.
 
-<img src="imagenes/scrum-zombie.png" width="200px" align="right"/>
+<img src="imagenes/scrum-zombie.png" width="250px" align="right"/>
 
 Sin embargo, cada vez hay más descontento precisamente entre los que
 comenzaron esta "revolución agile", entre los equipos de
