@@ -222,6 +222,42 @@ metodologías utilizadas en las prácticas. Tendrá una ponderación de un
 
 ## Bloque 1: Valores y principios ágiles ##
 
+En la actualidad la palabra "Agile" está muy extendida en el mundo de
+los negocios, de las _startups_ y de las empresas de software que
+quieren dar apariencia de que hacen las cosas bien. Muchos directivos
+y _managers_ intermedios de grandes empresas hablan de "transformación
+digital" y de "agile". Abundan los congresos, conferencias y cursos
+sobre estos temas.
+
+Sin embargo, cada vez hay más descontento precisamente entre los que
+comenzaron esta "revolución agile", entre los equipos de
+desarrollo. ¿Tras el interés actual por "agile" hay realmente un
+interés en hacer mejor las cosas?  ¿Hay interés en no agotar a los
+equipos con jornadas interminables de trabajo? ¿En transferir parte
+del poder de decisión a los desarrolladores? ¿En realmente
+incorporar a los clientes en el ciclo de desarrollo? ¿En que el
+software desarrollado sea probado continuamente y que se entregue en
+incrementos pequeños que añaden nuevo valor? ¿En corregir y reordenar
+las prioridades conforme se aprende más del dominio?
+
+Para apreciar realmente el significado de las metodologías ágiles hay
+que volver al principio, conocer los fundamentos y valores de estas
+metodologías. Si nos limitamos a seguir ciegamente unos procedimientos
+estándar (el _daily scrum_, el _sprint planning_, etc.) sin entender
+los valores y principios subyacentes nos convertiremos en _scrum
+zombies_.
+
+Por otro lado, un elemento fundamental para la agilidad en el
+desarrollo de software es tener una excelencia técnica. La excelencia
+técnica nos permite desarrollar código que sea fácilmente modificable
+y en el que no se acumulen _parches_ y soluciones parciales que van
+haciendo cada vez más incompresible el código (la denominada _deuda
+técnica_).
+
+El bloque tendrá una duración de 4 semanas y veremos en él temas
+relacionados con los valores y principios ágiles y con la excelencia
+técnica.
+
 - Desarrollo del software, características y modelos, aceptación del cambio.
 - Manifiesto ágil, repercusión del manifiesto en las metodologías
   de desarrollo, orígenes y fundamentos de las metodologías
@@ -232,11 +268,15 @@ metodologías utilizadas en las prácticas. Tendrá una ponderación de un
 
 ## Bloque 2: XP (eXtreme Programming) ##
 
+3 semanas.
+
 - Valores y prácticas XP.
 - TDD, Desarrollo Dirigido por los Tests.
 
 
 ## Bloque 3: Integración y entrega continua ##
+
+4 semanas.
 
 - Git como sistema de control de versiones, flujos de trabajo con
   Git.
@@ -247,6 +287,8 @@ metodologías utilizadas en las prácticas. Tendrá una ponderación de un
 
 
 ## Bloque 4: Metodologías lean y Kanban ##
+
+4 semanas.
 
 - Fabricación lean, empresa lean, desarrollo de software lean.
 - Fundamentos de Kanban: visualización, ítems de trabajo, trabajo
