@@ -415,6 +415,7 @@ UA](http://gaudi.ua.es/uhtbin/cgisirsi/x/0/x/38/1/X/BLASTOFF).
   mastery, 20th Anniversary Edition, 2nd Edition_](https://learning.oreilly.com/library/view/the-pragmatic-programmer/9780135956977/)
 - Scott Millett: [_Patterns, principles, and practices of domain-driven
 design_](https://learning.oreilly.com/library/view/patterns-principles-and/9781118714706/?ar)
+- Michael Feathers: [_Working Effectively with Legacy Code_](https://learning.oreilly.com/library/view/working-effectively-with/0131177052/)
 - Martin Fowler: [_Refactoring_](https://learning.oreilly.com/library/view/refactoring-improving-the/9780134757681/)
 - Robert C. Martin: [_Clean Code_](https://learning.oreilly.com/library/view/clean-code/9780136083238/)
 - Robert C. Martin: [_Clean Architecture: A Craftsman's Guide to
