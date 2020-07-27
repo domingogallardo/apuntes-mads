@@ -252,7 +252,7 @@ desarrollo de software es tener una excelencia técnica. La excelencia
 técnica nos permite desarrollar código que sea fácilmente modificable
 y en el que no se acumulen _parches_ y soluciones parciales que van
 haciendo cada vez más incompresible el código (la denominada _deuda
-técnica_). 
+técnica_).
 
 <table markdown="1" align="right">
 <tr><td>
