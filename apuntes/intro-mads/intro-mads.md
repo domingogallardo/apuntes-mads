@@ -1,7 +1,9 @@
 # Introducción a MADS #
 
 En este apartado veremos una introducción a los contenidos de la
-asignatura y explicaremos su planificación.
+asignatura y explicaremos su planificación. Tras leerlo tendrás una
+visión general de los temas de teoría y prácticas que vamos a abordar
+durante el cuatrimestre y conocerás el sistema de evaluación.
 
 ## Datos de la asignatura ##
 
@@ -45,30 +47,29 @@ trabajos.
 
 ## Evolución de los contenidos de la asignatura ##
 
-La asignatura es una asignatura en constante evolución. Todos los años
-se revisan los contenidos, atendiendo al _feedback_ suministrado por
-los estudiantes y a los cambios en las tecnologías y en los conceptos
-impartidos.
+La asignatura está en constante evolución. Todos los años se revisan
+los contenidos, atendiendo a vuestro _feedback_ y a los cambios en las
+tecnologías y en los conceptos impartidos.
 
 Por ejemplo, podemos destacar los siguientes cambios que hemos
 introducido en los últimos años:
 
 - Uso del _framework_ Java Spring Boot, mucho más usado en la industria que
   el que utilizábamos anteriormente (_Play Framework_).
-- Profundizamos en las funcionalidades de GitHub y de Git.
-- Dar mayor importancia a la metodología XP y rebajar el tiempo dedicado a
+- Mayor énfasis en las funcionalidades de GitHub y de Git.
+- Mayor importancia a las metodología XP y Kanban y menos tiempo dedicado a
   Scrum, debido a que ya lo habéis visto en otras asignaturas de la
   titulación.
 
-Al final del curso se pasa una encuesta y Las observaciones de los
-estudiantes sirven para mejorar la asignatura.
+Al final del curso se pasa una encuesta y vuestras observaciones
+sirven para mejorar la asignatura.
 
 Por ejemplo:
 
 > "Es confuso usar 3 tableros distintos (GitHub, Trello, Wiki)"
 
-Como respuesta hemos pasado a usar dos únicos tableros, uno el de
-GitHub y otro el de Trello, y a diferenciar claramente su uso.
+Como respuesta hemos pasado a usar dos únicos tableros, el de
+GitHub y el de Trello, y a diferenciar claramente su uso.
 
 > "Algunos temas de teoría se han hecho algo pesados"
 
@@ -92,7 +93,7 @@ continua** o **Kaizen**.
 
 > "Perfection is a direction, not a place"
 
-Esta frase de Henry Kniberg refleja muy bien la filosofía Kaizen de
+Esta frase de Henrik Kniberg refleja muy bien la filosofía Kaizen de
 mejora continua que se aplica en las técnicas _lean_ de gestión de
 empresas o en el desarrollo de software basado en entrega
 continua. 
@@ -145,7 +146,6 @@ de Dani Sánchez-Crespo [@DaniNovarama](https://twitter.com/DaniNovarama).
 
 </td></tr></table>
 
-
 <table markdown="1">
 <tr><td style="background-color: #e0e0e0">
 
@@ -166,7 +166,6 @@ Muy recomendable su
 
 </td></tr></table>
 
-
 ## Planificación y evaluación ##
 
 La evaluación de la asignatura se divide en un 40% correspondiente a
@@ -186,16 +185,21 @@ mediante **3 exámenes de tipo test** que ponderarán un 10% cada uno y un
 **trabajo individual** de redacción sobre alguno de los temas de la
 asignatura que ponderará otro 10%.
 
-Deberás proponer un título sobre en tema relacionado con la asignatura
-y el profesor dará el visto bueno. En el trabajo deberás realizar una
-pequeña investigación bibliográfica en artículos, blogs, libros,
-etc. sobre el tema propuesto y escribir un ensayo con una extensión de
-alrededor de 4.000 palabras. En el trabajo deberás incluir la
-bibliografía utilizada y deberás haber usado al menos 4 fuentes
-bibliográficas distintas.
+Para el trabajo individual deberás proponer un título sobre en tema
+relacionado con la asignatura y el profesor dará el visto bueno. En el
+trabajo deberás realizar una pequeña investigación bibliográfica en
+artículos, blogs, libros, etc. sobre el tema propuesto y escribir un
+ensayo con una extensión de alrededor de 3.500 palabras. En el trabajo
+deberás incluir:
 
-El trabajo deberá ser original. Se utilizará una herramienta de detección de
-plagio para detectar la copia de párrafos sin atribuir la cita.
+- Introducción
+- Desarrollo
+- Conclusiones
+- Bibliografía (al menos 4 fuentes bibliográficas)
+
+El trabajo deberá ser original. Se utilizará una herramienta de
+detección de plagio para detectar la copia de párrafos sin atribuir la
+cita.
 
 ### Prácticas (60%) ###
 
@@ -203,18 +207,12 @@ Se realizarán cuatro prácticas a lo largo de la asignatura. Las dos
 primeras serán **individuales** y ponderarán un 20% y las otras dos serán en
 **equipo de 3 personas** y ponderarán otro 20%.
 
-1. (13%) (Individual) Frameworks web open source para el desarrollo ágil. Empaquetado con Docker 
-    - Introducción a SpringBoot, creación de una aplicación ejemplo.
-    - Empaquetado de la aplicación en un contenedor Docker
-2. (7%) (Individual) Prácticas de Desarrollo Dirigido por los Tests y gestión de configuraciones
-    - Pruebas y TDD en Spring Boot.
-3. (7%) (Equipo) Prácticas de Integración y entrega continua
-    - Herramientas de integración continua, scripts de construcción y despliegue, infraestructura y entornos de integración, cloud
-4. (13%) (Equipo) Caso práctico de desarrollo de un proyecto usando integración continua, Kanban y prácticas ágiles 
-    - Fase de inception, visión del proyecto
-    - Formación del equipo, roles y responsabilides
-    - Construcción y despliegue de un par de iteraciones
-
+1. (13%) (Individual) Introducción a Spring Boot desarrollando la
+   versión inicial de la aplicación ToDoList.
+2. (7%) (Individual) Integración continua y TDD en Spring Boot.
+3. (7%) (Equipo) Integración continua con GitFlow y despliegue. 
+4. (13%) (Equipo) Desarrollo de una iteración usando integración
+   continua, Kanban y prácticas ágiles. 
 
 También se hará un examen práctico individual sobre las tecnologías y
 metodologías utilizadas en las prácticas. Tendrá una ponderación de un
@@ -254,9 +252,23 @@ desarrollo de software es tener una excelencia técnica. La excelencia
 técnica nos permite desarrollar código que sea fácilmente modificable
 y en el que no se acumulen _parches_ y soluciones parciales que van
 haciendo cada vez más incompresible el código (la denominada _deuda
-técnica_).
+técnica_). 
 
-El bloque tendrá una duración de 4 semanas y veremos en él temas
+<table markdown="1" align="right">
+<tr><td>
+
+<img src="imagenes/add-feature-kent-beck.jpg" width="200px"></img>
+
+[Imagen de Kent Beck](https://twitter.com/KentBeck/status/1218307926818869248?s=20)
+
+</td></tr></table>
+
+Los tests y la refactorización son ideas fundamentales para tratar con
+el cambio sin ahogarse en la deuda técnica. Veremos técnicas para
+aislar las funcionalidades existentes de forma que las nuevas
+funcionalidades no entren en conflicto con las ya existentes.
+
+El bloque tendrá una **duración de 4 semanas** y veremos en él temas
 relacionados con los valores y principios ágiles y con la excelencia
 técnica.
 
@@ -267,14 +279,51 @@ técnica.
 - Cambio, código y comunicación: Clean Code, Domain Driven Design,
   Refactorización.
 
-
 ## Bloque 2: XP (eXtreme Programming) ##
 
-3 semanas.
+EXtreme Programming (XP) fue una de las primeras metodologías
+ágiles. Kent Beck formula el conjunto de valores, principios y
+prácticas que constituyen esta metodología a finales de los 90 y
+principios del 2000.
+
+A diferencia de otras metodologías, como Scrum o Kanban, la
+metodología está muy centrada en el desarrollo de software y muchas
+de sus prácticas, como _pair programming_ o _TDD (Test Driven
+Design)_, son específicas para desarrolladores.
+
+El bloque tendrá una **duración de 3 semanas** y veremos en él los
+aspectos fundamentales de XP. Veremos en profundidad TDD, haciendo
+una demostración de este tipo de metodología de desarrollo.
 
 - Valores y prácticas XP.
 - TDD, Desarrollo Dirigido por los Tests.
 
+<table markdown="1">
+<tr><td style="background-color: #e0e0e0">
+
+**Kent Beck**
+
+<img src="imagenes/kent-beck.jpg" width="100px" align="right"></img>
+
+[Kent Beck](https://twitter.com/KentBeck) es un ingeniero de software,
+escritor, creador y divulgador de metodologías de diseño y desarrollo
+de software. Ha sido uno de los principales responsables del auge de
+las metodologías ágiles con el desarrollo y la divulgación de XP
+(EXtreme Programming).
+
+Además ha escrito sobre patrones de diseño de software, sobre testing,
+ha creado prácticas como TDD (_Test Driven Design_) o la más reciente
+TCR ([_Test && Commint ||
+Revert_](https://medium.com/@kentbeck_7670/test-commit-revert-870bbd756864))
+y ha desarrollado la librería de testing en Java jUnit.
+
+Muchas ideas que veremos en la asignatura han sido propuestas o
+popularizadas por él.
+
+- [Bibliografía de Kent Beck](https://en.wikipedia.org/wiki/Kent_Beck#Publications)
+- [Charlas en YouTube](https://www.youtube.com/results?search_query=kent+beck)
+
+</td></tr></table>
 
 ## Bloque 3: Integración y entrega continua ##
 
@@ -286,7 +335,6 @@ técnica.
 - Herramientas y tecnologías para la integración continua, scripts
   de construcción y despliegue, infraestructura y entornos de
   integración, cloud.
-
 
 ## Bloque 4: Metodologías lean y Kanban ##
 
@@ -330,17 +378,18 @@ técnica.
   también el tablero de GitHub para acercarlo más a un tablero de
   Kanban.
 
-
 ## Bibliografía ##
 
-A continuación puedes ver un listado de libros en los que ampliar
-los contenidos de la asignatura. Se incluye un enlace a O'Reilly
-para poder consultarlos con tu ordenador o dispositivo móvil. La
-mayoría también está disponible en formato físico en la biblioteca de
-la UA. Puedes consultar su ubicación y disponibilidad en el [catálogo](http://gaudi.ua.es/uhtbin/cgisirsi/x/0/x/38/1/X/BLASTOFF).
+A continuación puedes ver un listado de libros en los que ampliar los
+contenidos de la asignatura. Se incluye un enlace a O'Reilly para
+poder consultarlos con tu ordenador o tablet. Puedes encontrar todos
+los libros en la Playlist de O'Reilly [Metodologías
+Ágiles](https://learning.oreilly.com/playlists/df91e777-07f6-47ac-a9d0-3f02724af1a2).
 
-Puedes encontrar todos los libros en la Playlist de O'Reilly
-[Metodologías Ágiles](https://learning.oreilly.com/playlists/df91e777-07f6-47ac-a9d0-3f02724af1a2).
+La mayoría también está disponible en formato físico en la biblioteca
+de la UA. Puedes consultar su ubicación y disponibilidad en el
+[catálogo de la
+UA](http://gaudi.ua.es/uhtbin/cgisirsi/x/0/x/38/1/X/BLASTOFF).
 
 ### Agile en general y Scrum ###
 
