@@ -248,11 +248,11 @@ los valores y principios subyacentes nos convertiremos en _scrum
 zombies_.
 
 Por otro lado, un elemento fundamental para la agilidad en el
-desarrollo de software es tener una excelencia técnica. La excelencia
-técnica nos permite desarrollar código que sea fácilmente modificable
-y en el que no se acumulen _parches_ y soluciones parciales que van
-haciendo cada vez más incompresible el código (la denominada _deuda
-técnica_).
+desarrollo de software es tener unas buenas prácticas de
+desarrollo. Un software bien diseñado y desarrollado es fácilmente
+modificable y no acumula _parches_ y soluciones
+parciales que lo van haciendo cada vez más incomprensible (la
+denominada _deuda técnica_).
 
 <table markdown="1" align="right">
 <tr><td>
@@ -269,8 +269,8 @@ aislar las funcionalidades existentes de forma que las nuevas
 funcionalidades no entren en conflicto con las ya existentes.
 
 El bloque tendrá una **duración de 4 semanas** y veremos en él temas
-relacionados con los valores y principios ágiles y con la excelencia
-técnica.
+relacionados con los valores y principios ágiles y con las buenas
+prácticas para gestionar el cambio en el desarrollo de software.
 
 - Desarrollo del software, características y modelos, aceptación del cambio.
 - Manifiesto ágil, repercusión del manifiesto en las metodologías
@@ -409,7 +409,7 @@ UA](http://gaudi.ua.es/uhtbin/cgisirsi/x/0/x/38/1/X/BLASTOFF).
 - Kent Beck, [_Test Driven Development By Example_](https://learning.oreilly.com/library/view/test-driven-development/0321146530/)
 - Henrik Kniberg: [_Scrum and XP from the Trenches (2nd edition)_](https://www.infoq.com/minibooks/scrum-xp-from-the-trenches-2)
 
-### Excelencia técnica ###
+### Buenas prácticas de desarrollo ###
 
 - David Thomas; Andrew Hunt: [_The Pragmatic Programmer: your journey to
   mastery, 20th Anniversary Edition, 2nd Edition_](https://learning.oreilly.com/library/view/the-pragmatic-programmer/9780135956977/)
