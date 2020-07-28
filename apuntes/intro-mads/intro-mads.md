@@ -266,6 +266,8 @@ relacionados con los valores y principios ágiles
 
 ## Bloque 2: XP (eXtreme Programming) ##
 
+<img src="imagenes/xp.png" width="100px" align="right"/>
+
 EXtreme Programming (XP) fue una de las primeras metodologías
 ágiles. Kent Beck formula el conjunto de valores, principios y
 prácticas que constituyen esta metodología a finales de los 90 y
@@ -337,6 +339,8 @@ popularizadas por él.
 
 ## Bloque 3: Integración y entrega continua ##
 
+<img src="imagenes/gitflow.png" width="200px" align="right"/>
+
 Uno de los elementos importantes de las metodologías ágiles es la
 entrega continua al cliente de software que funciona. Para poder
 realizar esta entrega es fundamental poder añadir funcionalidades
@@ -365,7 +369,20 @@ podrá ser desplegado y ejecutado en cualquier lugar.
 
 ## Bloque 4: Metodologías lean y Kanban ##
 
-4 semanas.
+<img src="imagenes/kanban.png" width="200px" align="right"/>
+
+Después de ver en el bloque 1 una introducción a las metodologías
+lean, en este último bloque las estudiaremos en profundidad. Veremos
+cómo aplicarlas al desarrollo de software y nos centraremos en la
+metodología Kanban, centrada en la visualización y optimización del
+flujo de trabajo y en la detección de cuellos de botella en el las
+distintas fases del desarrollo.
+
+Un elemento fundamental en la metodología Kanban es el uso de
+tableros en los que visualizar el estado de todas las tareas que está
+realizando el equipo.
+
+Veremos los siguientes apartados:
 
 - Fabricación lean, empresa lean, desarrollo de software lean.
 - Fundamentos de Kanban: visualización, ítems de trabajo, trabajo
