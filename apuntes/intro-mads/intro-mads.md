@@ -415,9 +415,8 @@ Veremos los siguientes apartados:
   TDD. Integración continua con GitHub y Docker. 
 - Práctica 3 (3 semanas): **Configuración del trabajo en equipo**. Flujo de trabajo Git y
   GitHub modificado para el trabajo en equipo. Uso de pull requests. 
-- Práctica 4 (4 semanas): **Iteración de desarrollo**. Seleccionamos
-  las historias de usuario de un ejercicio de mapping de historias de
-  usuario y las desarrollamos durante una iteración de desarrollo,
+- Práctica 4 (4 semanas): **Iteración de desarrollo**. Seleccionaremos
+  las historias de usuario y las desarrollaremos durante una iteración de desarrollo,
   practicando las metodologías vistas en la asignatura. Mejoraremos
   también el tablero de GitHub para acercarlo más a un tablero de
   Kanban.
