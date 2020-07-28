@@ -231,7 +231,7 @@ sobre estos temas.
 
 Sin embargo, cada vez hay más descontento precisamente entre los que
 comenzaron esta "revolución agile", entre los equipos de
-desarrollo. ¿Tras el interés actual por "agile" hay realmente un
+desarrollo. Tras el interés actual por "agile", ¿hay realmente un
 interés en hacer mejor las cosas?  ¿Hay interés en no agotar a los
 equipos con jornadas interminables de trabajo? ¿En transferir parte
 del poder de decisión a los desarrolladores? ¿En realmente
@@ -303,7 +303,7 @@ una demostración de este tipo de metodología de desarrollo.
 
 **Kent Beck**
 
-<img src="imagenes/kent-beck.jpg" width="100px" align="right"></img>
+<img src="imagenes/kent-beck.jpeg" width="100px" align="right"></img>
 
 [Kent Beck](https://twitter.com/KentBeck) es un ingeniero de software,
 escritor, creador y divulgador de metodologías de diseño y desarrollo
