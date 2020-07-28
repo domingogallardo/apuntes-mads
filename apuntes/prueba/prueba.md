@@ -120,3 +120,12 @@ Vamos a ver si podemos poner una tabla a la derecha:
 Esto es una prueba
 </td></tr>
 </table>
+
+Y aquí vamos a escribir para ver si la tabla realmente está a la
+derecha. Y aquí vamos a escribir para ver si la tabla realmente está a la
+derecha. Y aquí vamos a escribir para ver si la tabla realmente está a la
+derecha. Y aquí vamos a escribir para ver si la tabla realmente está a la
+derecha. Y aquí vamos a escribir para ver si la tabla realmente está a la
+derecha. Y aquí vamos a escribir para ver si la tabla realmente está a la
+derecha. Y aquí vamos a escribir para ver si la tabla realmente está a la
+derecha. 
