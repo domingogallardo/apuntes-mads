@@ -352,7 +352,7 @@ permiten trabajar con múltiples versiones del producto de forma segura
 y automatizar la ejecución de los tests y la construcción y despliegue
 de los ejecutables.
 
-Este bloque tendrá una duración de 4 semanas y en él estudiaremos en
+Este bloque tendrá una **duración de 4 semanas** y en él estudiaremos en
 profundidad Git y la plataforma GitHub con todas las funcionalidades
 que proporciona para realizar una integración continua de nuestro
 proyecto software: pull requests, revisión de código, scripts de
@@ -382,7 +382,7 @@ Un elemento fundamental en la metodología Kanban es el uso de
 tableros en los que visualizar el estado de todas las tareas que está
 realizando el equipo.
 
-Veremos los siguientes apartados:
+El bloque tendrá una **duración de 3 semanas** y veremos los siguientes apartados:
 
 - Fabricación lean, empresa lean, desarrollo de software lean.
 - Fundamentos de Kanban: visualización, ítems de trabajo, trabajo
