@@ -115,11 +115,12 @@ Markdown.
 
 Vamos a ver si podemos poner una tabla a la derecha:
 
-<table width="30%" align="right">
-<tr><td>
-Esto es una prueba
-</td></tr>
-</table>
+<figure>
+<img src="./imagenes/dilbert1.png" width="400px" align="right"/>
+<figcaption>
+Broma sobre las metáforas.
+</figcaption>
+</figure>
 
 Y aquí vamos a escribir para ver si la tabla realmente está a la
 derecha. Y aquí vamos a escribir para ver si la tabla realmente está a la
