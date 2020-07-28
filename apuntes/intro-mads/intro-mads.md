@@ -276,6 +276,13 @@ metodología está muy centrada en el desarrollo de software y muchas
 de sus prácticas, como _pair programming_ o _TDD (Test Driven
 Design)_, son específicas para desarrolladores.
 
+En este bloque incluiremos también otras técnicas y prácticas de
+desarrollo que, no siendo estrictamente parte de XP, son
+imprescindibles para poder gestionar el cambio. Un software bien
+diseñado y desarrollado debe ser fácilmente modificable y no debe
+acumular _parches_ y soluciones parciales que lo van haciendo cada vez
+más incomprensible (la denominada _deuda técnica_).
+
 <table markdown="1" align="right">
 <tr><td>
 
@@ -284,13 +291,6 @@ Design)_, son específicas para desarrolladores.
 [© Kent Beck](https://twitter.com/KentBeck/status/1218307926818869248?s=20)
 
 </td></tr></table>
-
-En este bloque incluiremos también otras técnicas y prácticas de
-desarrollo que, no siendo estrictamente parte de XP, son
-imprescindibles para poder gestionar el cambio. Un software bien
-diseñado y desarrollado debe ser fácilmente modificable y no debe
-acumular _parches_ y soluciones parciales que lo van haciendo cada vez
-más incomprensible (la denominada _deuda técnica_).
 
 Los tests y la refactorización son ideas fundamentales para tratar con
 el cambio sin ahogarse en la deuda técnica. Veremos técnicas para
