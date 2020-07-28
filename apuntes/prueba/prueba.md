@@ -116,7 +116,7 @@ Markdown.
 Vamos a ver si podemos poner una tabla a la derecha:
 
 <figure>
-<img src="./imagenes/dilbert1.png" width="400px" align="right"/>
+<img src="./imagenes/dilbert1.png" width="400px"/>
 <figcaption>
 Broma sobre las metáforas.
 </figcaption>
