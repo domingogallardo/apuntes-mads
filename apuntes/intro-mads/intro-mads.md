@@ -247,37 +247,22 @@ estándar (el _daily scrum_, el _sprint planning_, etc.) sin entender
 los valores y principios subyacentes nos convertiremos en _scrum
 zombies_.
 
-Por otro lado, un elemento fundamental para la agilidad en el
-desarrollo de software es tener unas buenas prácticas de
-desarrollo. Un software bien diseñado y desarrollado es fácilmente
-modificable y no acumula _parches_ y soluciones
-parciales que lo van haciendo cada vez más incomprensible (la
-denominada _deuda técnica_).
+Las metodologías _lean_ son también una de las bases más importantes
+del cambio hacia una nueva filosofía y forma de trabajar. Son también
+una oportunidad de implicar a _managers_ y directivos en la
+transformación ágil. Muchas empresas están aplicando con éxito estas
+técnicas para conseguir iteraciones rápidas y productos más útiles
+para sus clientes.
 
-<table markdown="1" align="right">
-<tr><td>
-
-<img src="imagenes/add-feature-kent-beck.jpg" width="200px"></img>
-
-[Imagen de Kent Beck](https://twitter.com/KentBeck/status/1218307926818869248?s=20)
-
-</td></tr></table>
-
-Los tests y la refactorización son ideas fundamentales para tratar con
-el cambio sin ahogarse en la deuda técnica. Veremos técnicas para
-aislar las funcionalidades existentes de forma que las nuevas
-funcionalidades no entren en conflicto con las ya existentes.
-
-El bloque tendrá una **duración de 4 semanas** y veremos en él temas
-relacionados con los valores y principios ágiles y con las buenas
-prácticas para gestionar el cambio en el desarrollo de software.
+El bloque tendrá una **duración de 3 semanas** y veremos en él temas
+relacionados con los valores y principios ágiles 
 
 - Desarrollo del software, características y modelos, aceptación del cambio.
 - Manifiesto ágil, repercusión del manifiesto en las metodologías
   de desarrollo, orígenes y fundamentos de las metodologías
   ágiles.
-- Cambio, código y comunicación: Clean Code, Domain Driven Design,
-  Refactorización.
+- Introducción a las metodologías lean.
+
 
 ## Bloque 2: XP (eXtreme Programming) ##
 
@@ -291,12 +276,37 @@ metodología está muy centrada en el desarrollo de software y muchas
 de sus prácticas, como _pair programming_ o _TDD (Test Driven
 Design)_, son específicas para desarrolladores.
 
-El bloque tendrá una **duración de 3 semanas** y veremos en él los
+<table markdown="1" align="right">
+<tr><td>
+
+<img src="imagenes/add-feature-kent-beck.jpg" width="200px"></img>
+
+[© Kent Beck](https://twitter.com/KentBeck/status/1218307926818869248?s=20)
+
+</td></tr></table>
+
+En este bloque incluiremos también otras técnicas y prácticas de
+desarrollo que, no siendo estrictamente parte de XP, son
+imprescindibles para poder gestionar el cambio. Un software bien
+diseñado y desarrollado debe ser fácilmente modificable y no debe
+acumular _parches_ y soluciones parciales que lo van haciendo cada vez
+más incomprensible (la denominada _deuda técnica_).
+
+Los tests y la refactorización son ideas fundamentales para tratar con
+el cambio sin ahogarse en la deuda técnica. Veremos técnicas para
+diseñar el software de forma que se facilite el cambio y para aislar
+las funcionalidades existentes de forma que las nuevas funcionalidades
+no entren en conflicto con las ya existentes.
+
+El bloque tendrá una **duración de 4 semanas** y veremos en él los
 aspectos fundamentales de XP. Veremos en profundidad TDD, haciendo
-una demostración de este tipo de metodología de desarrollo.
+una demostración de este tipo de metodología de desarrollo. Hablaremos
+también de _Clean Code_, _Domain Driven Design_ y refactorización.
 
 - Valores y prácticas XP.
 - TDD, Desarrollo Dirigido por los Tests.
+- Cambio, código y comunicación: Clean Code, Domain Driven Design,
+  Refactorización.
 
 <table markdown="1">
 <tr><td style="background-color: #e0e0e0">
@@ -327,7 +337,24 @@ popularizadas por él.
 
 ## Bloque 3: Integración y entrega continua ##
 
-4 semanas.
+Uno de los elementos importantes de las metodologías ágiles es la
+entrega continua al cliente de software que funciona. Para poder
+realizar esta entrega es fundamental poder añadir funcionalidades
+continuamente al software que estamos desarrollando y poder
+desplegarlo y ponerlo en manos del cliente en cuestión de minutos.
+
+Los sistemas como Git y las herramientas de integración continua
+permiten trabajar con múltiples versiones del producto de forma segura
+y automatizar la ejecución de los tests y la construcción y despliegue
+de los ejecutables.
+
+Este bloque tendrá una duración de 4 semanas y en él estudiaremos en
+profundidad Git y la plataforma GitHub con todas las funcionalidades
+que proporciona para realizar una integración continua de nuestro
+proyecto software: pull requests, revisión de código, scripts de
+compilación y despliegue. También estudiaremos la herramienta Docker
+que nos permitirá empaquetar nuestra aplicación en un contenedor que
+podrá ser desplegado y ejecutado en cualquier lugar.
 
 - Git como sistema de control de versiones, flujos de trabajo con
   Git.
