@@ -412,7 +412,7 @@ Veremos los siguientes apartados:
   Spring Boot. Spring Boot, Git, GitHub. Metodología de trabajo Git y
   GitHub. 
 - Práctica 2 (3 semanas): **Integración continua**. Tests en Spring Boot y
-  TDD. Integración continua con Travis y Docker. 
+  TDD. Integración continua con GitHub y Docker. 
 - Práctica 3 (3 semanas): **Configuración del trabajo en equipo**. Flujo de trabajo Git y
   GitHub modificado para el trabajo en equipo. Uso de pull requests. 
 - Práctica 4 (4 semanas): **Iteración de desarrollo**. Seleccionamos
