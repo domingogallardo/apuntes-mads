@@ -111,3 +111,12 @@ Markdown.
     - abañkabka
     - afasfasf
 - Ítem 3
+
+
+Vamos a ver si podemos poner una tabla a la derecha:
+
+<table align="right">
+<tr><td>
+Esto es una prueba
+</td></tr>
+</table>
