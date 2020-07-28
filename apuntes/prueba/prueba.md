@@ -115,7 +115,7 @@ Markdown.
 
 Vamos a ver si podemos poner una tabla a la derecha:
 
-<table align="right">
+<table width="30%" align="right">
 <tr><td>
 Esto es una prueba
 </td></tr>
