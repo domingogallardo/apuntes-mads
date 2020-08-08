@@ -141,15 +141,15 @@ adecuados se convierte entonces en un problema a investigar.
 
 En el mundo de los negocios está muy generalizado el uso de
 indicadores o métricas que permiten decidir si se está realizando un
-buen desempeño o no. Un ejemplo son los denominados [KPIs](https://en.wikipedia.org/wiki/Performance_indicator) (Key
-Performance Indicator), indicadores relacionados con las distintas
+buen desempeño o no. Un ejemplo son los denominados [KPIs](https://en.wikipedia.org/wiki/Performance_indicator) (_Key
+Performance Indicator_), indicadores relacionados con las distintas
 áreas de desempeño de una empresa (fabricación, marketing y ventas,
 servicios, etc.).
 
 Las empresas de tecnología han desarrollado versiones propias de esta
 idea. Por ejemplo, empresas como Google, Intel o Twitter utilzan los
-populares [OKRs](https://en.wikipedia.org/wiki/OKR) (Objectives and
-Key Results). Un OKR contiene un objetivo claramente definido y un
+populares [OKRs](https://en.wikipedia.org/wiki/OKR) (_Objectives and
+Key Results_). Un OKR contiene un objetivo claramente definido y un
 conjunto de 3-5 resultados clave medibles que nos permiten hacer un
 seguimiento del alcance de ese objetivo.
 
@@ -165,16 +165,23 @@ entregando valor al cliente, no son los indicadores más
 apropiados. Podemos estar construyendo correctamente un producto
 incorrecto y no darnos cuenta.
 
-Por último, siempre que midamos la evolución del rendimiento usando
-indicadores hay que tener cuidado con lo que en _Machine Learning_ se
-denomina el problema del _overfitting_ o sobreajuste. En el caso de
-las redes neuronales aparece este problema cuando las redes aprenden
-optimizan demasiado el aprendizaje del conjunto inicial de muestras y
-no son capaces de generalizar y clasificar correctamente nuevas
-muestras. En la medición del rendimiento del equipo podría darse el
-caso de que los indicadores que el equipo maximiza funcionaran de
-incentivos que estuvieran erosionando algún otro aspecto del equipo
-que terminara haciendo que el equipo dejara de funcionar bien. 
+Siempre que midamos la evolución del rendimiento usando indicadores
+hay que tener cuidado con lo que en _Machine Learning_ se denomina el
+problema del _overfitting_ o sobreajuste. En el caso de las redes
+neuronales aparece este problema cuando las redes optimizan demasiado
+el aprendizaje del conjunto inicial de muestras y no son capaces de
+generalizar y clasificar correctamente nuevas muestras no vistas
+previamente. 
+
+En la medición del rendimiento del equipo podría darse el caso de que
+los indicadores que el equipo maximiza funcionaran como incentivos que
+estuvieran erosionando algún otro aspecto del equipo que terminara
+haciendo que el equipo dejara de funcionar bien. Por ejemplo, si se
+valorara el número de líneas escritas por el equipo, podría darse el
+caso de que alguna persona que está haciendo un papel muy bueno
+analizando la utilidad de nuevas funcionalidades y aportando ideas
+valiosas al producto dejara de hacerlo para producir más código (que
+podría aportar menos valor).
 
 Hay que pensar que el equipo está formado por personas y que, como
 dice el manifiesto ágil, las personas y la comunicación están por
