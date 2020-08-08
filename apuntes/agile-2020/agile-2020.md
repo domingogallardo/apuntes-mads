@@ -7,7 +7,7 @@ algunos problemas en la puesta en práctica de metodologías ágiles y
 terminaremos con una crítica a la visión reduccionista de que Agile es
 igual a Scrum.
 
-## State of Agile ##
+## State of Agile Report ##
 
 <img src="imagenes/state-of-agile-report.png" width="150" align="right"></img>
 
@@ -116,14 +116,70 @@ ese caso.
 
 **La importancia de medir**
 
+Hay una frase popular que se atribuye al científico Lord Kelvin y dice
+que:
+
 > "Lo que no se puede medir no se puede mejorar."
 
-La idea de tener indicadores para medir el éxito de una iniciativa es
-muy importante. Por otro lado, cualquier indicador va a introducir un
-sesgo y vamos a intentar optimizar localmente ese indicador, quizás a
-costa producir un peor resultado global.
+Esta claro que es importante poder medir algo para poder observar cómo
+evoluciona. Si queremos evaluar la consecución de unos objetivos
+deberemos cuantificarlos, por lo que lo primero que deberemos definir
+es un conjunto de indicadores medibles (métricas) relacionados con
+esos objetivos. El problema aparece cuando lo que se quiere medir es
+algo difuso, poco definido, que está relacionado con múltiples
+variables fuertemente interrelacionadas. La búsqueda de indicadores
+adecuados se convierte entonces en un problema a investigar.
+
+En el mundo de los negocios está muy generalizado el uso de
+indicadores o métricas que permiten decidir si se está realizando un
+buen desempeño o no. Un ejemplo son los denominados [KPIs](https://en.wikipedia.org/wiki/Performance_indicator) (Key
+Performance Indicator), indicadores relacionados con las distintas
+áreas de desempeño de una empresa (fabricación, marketing y ventas,
+servicios, etc.).
+
+Las empresas de tecnología han desarrollado versiones propias de esta
+idea. Por ejemplo, empresas como Google, Intel o Twitter utilzan los
+populares [OKRs](https://en.wikipedia.org/wiki/OKR) (Objectives and
+Key Results). Un OKR contiene un objetivo claramente definido y un
+conjunto de 3-5 resultados clave medibles que nos permiten hacer un
+seguimiento del alcance de ese objetivo.
+
+Como hemos comentado anteriormente es fundamental definir los
+indicadores adecuados a lo que queremos medir. Por ejemplo, seguro que
+conoces métricas usadas habitualmente para medir la calidad del
+código. Por ejemplo el número de tests, el cubrimiento del código, el
+número de _code smells_ o los bugs/duplicaciones/vulnerabilidades en
+el tiempo. Si quisiéramos medir cómo evoluciona la deuda técnica en el
+software que estamos desarrollando podrían ser buenos
+indicadores. Pero si lo que quisiéramos es comprobar si estamos
+entregando valor al cliente, no son los indicadores más
+apropiados. Podemos estar construyendo correctamente un producto
+incorrecto y no darnos cuenta.
+
+Por último, siempre que midamos la evolución del rendimiento usando
+indicadores hay que tener cuidado con lo que en _Machine Learning_ se
+denomina el problema del _overfitting_ o sobreajuste. En el caso de
+las redes neuronales aparece este problema cuando las redes aprenden
+optimizan demasiado el aprendizaje del conjunto inicial de muestras y
+no son capaces de generalizar y clasificar correctamente nuevas
+muestras. En la medición del rendimiento del equipo podría darse el
+caso de que los indicadores que el equipo maximiza funcionaran de
+incentivos que estuvieran erosionando algún otro aspecto del equipo
+que terminara haciendo que el equipo dejara de funcionar bien. 
+
+Hay que pensar que el equipo está formado por personas y que, como
+dice el manifiesto ágil, las personas y la comunicación están por
+encima de los procesos.
 
 </td></tr></table>
+
+
+### Agile es más que Scrum  ###
+
+- Sacar alguna idea de la charla sobre la palabra "Agile" de Kevlin
+  Henney Agile not = Speed (https://youtu.be/kmFcNyZrUNM)
+- Revisar el artículo de Martín Pérez sobre equipos de alto
+  rendimiento: https://dev.to/mpermar/measuring-high-performance-engineering-teams-from-a-value-perspective-46mo
 
 
 ## Referencias ##
