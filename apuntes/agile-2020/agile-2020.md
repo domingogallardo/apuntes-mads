@@ -29,9 +29,12 @@ se ponen en práctica estas metodologías en las empresas.
 
 El último informe, el número 14 correspondiente a 2020, recoge la
 información de una encuesta realizada a más de 40.000 personas de
-empresas de todo el mundo y de todos los tamaños. Empresas con equipos
-de software que van desde menos de 100 personas (un 33%) hasta más de
-5.000 personas (un 15%).
+empresas de todo el mundo y de todos los tamaños. 
+
+#### Tamaño de las empresas ####
+
+Empresas con equipos de software que van desde menos de 100 personas
+(un 33%) hasta más de 5.000 personas (un 15%).
 
 <img src="imagenes/demografia-state-of-agile.png" width="500px"></img>
 
@@ -46,6 +49,8 @@ desarrollo de entre 100 y 1.000 personas estamos hablando de equipos
 del tamaño del de la UA, o 10 veces mayores. La UA estaría en el
 primer rango del 33%.
 
+#### Puesto de trabajo ####
+
 <img src="imagenes/state-agile-role.png" width="400px"></img>
 
 En cuanto al puesto de los que han respondido la encuesta, la gran
@@ -54,6 +59,8 @@ de los que han respondido la encuesta son miembros de los equipos de
 desarrollo. Esto también puede representar un sesgo importante, que
 también puede explicar la gran relevancia de Scrum en gráficos
 posteriores.
+
+#### Objetivos por los que se adoptan las metodologías ágiles ####
 
 A los encuestados se les preguntaba por los objetivos que se pretenden
 al adoptar metodologías ágiles. Podían responder más de una opción. 
@@ -81,6 +88,8 @@ Parece claro que el objetivo de los encuestados es conseguir que se
 desarrolle software de calidad, que se entregue rápido y que sea fácil
 de modificar y transformarse según las necesidades del negocio. Es un
 objetivo bastante cercano a lo que pretenden las metodologías ágiles.
+
+#### Indicadores para medir el grado de éxito  ####
 
 <img src="imagenes/medicion-exito-state-of-agile.png" width="500px"></img>
 
