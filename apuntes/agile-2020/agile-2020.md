@@ -223,6 +223,13 @@ posibles:
 - Se ha creado un gran negocio alrededor de las certificaciones y los
   cursos Scrum.
   
+
+<table markdown="1">
+<tr><td style="background-color: #e0e0e0">
+
+**Certificaciones de Scrum**
+
+
 Se podría hablar bastante sobre el negocio de las
 certificaciones. Organizaciones como
 [Scrum.org](https://www.scrum.org) y
@@ -252,6 +259,7 @@ Scrum. Por citar algunos:
   Torre](https://www.linkedin.com/in/antoniodelatorre/).
 - [Agilar](https://agilar.com/es/es#home)
 
+</td></tr></table>
 
 ### Agile es más que Scrum  ###
 
