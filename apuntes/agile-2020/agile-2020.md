@@ -250,14 +250,58 @@ Cohn](https://www.mountaingoatsoftware.com/company/about-mike-cohn),
 un profesional ampliamente reconocido, autor de libros fundamentales
 como _Agile Estimating and Planning_ o _User Stories Applied_.
 
-En España hay muy buenos profesionales haciendo formación y
-preparación sobre metodologías ágiles y para la certificación de
-Scrum. Por citar algunos:
+Estas certificaciones han sido muy criticadas por numerosos
+profesionales. Por ejemplo, en palabras de Jerónimo Palacios, en su
+artículo [Argumentos en contra de Scrum](https://ckarchive.com/b/75u7h8h3wz8l):
+
+> "Las compañías, sobre todo en el último lustro, han demandado más
+> profesionales con conocimientos de Agile. Y Agile se ha asociado
+> tradicionalmente a Scrum. Es por ello que han surgido cientos o
+> miles de compañías dedicadas a la fabricación en masa de
+> certificaciones ágiles cuyo marketing es cuestionable o puede llevar
+> a engaño."
+
+La crítica a las certificaciones es extensible, en general, a todos
+los demás títulos y acreditaciones. También en el mismo artículo de
+Jerónimo Palacios:
+
+> la certificación certifica -¡Sorpresa!- que en un momento dado has
+> pasado un examen de conocimiento básico sobre Scrum. Lo que vale es
+> el conocimiento, ideas, habilidades y capacidades de la persona que
+> ostenta esa certificación de ejercer ese rol en una organización. 
+
+El propio Kent Beck, creador de XP, siempre ha defendido la filosofía
+abierta de XP y ha manifestado que no consideraba moral _monetizar_ la
+metodología. En la entrevista [_Leaving
+Facebook_](https://youtu.be/fH4gqsIYzyE) hace la siguiente crítica a
+las certificaciones:
+
+> "You attend a 2 day training, and you get this title, and you can
+> put CSM: Certified Scrum Master after your name, and it didn’t
+> actually mean anything. It should have been AST: Attended Scrum
+> Training….but certified, whoa, who doesn’t want to be
+> certified…Scrum, okay, already with the branding. Master! Who
+> doesn’t want to be a Master? It’s a lie though. After two days,
+> you’re not a master, anyone who certifies you is lying, and to me
+> that whole edifice, certified scrum trainers, certified scrum
+> trainer trainers, and then blah blah blah, it’s starting to look
+> like a Pyramid Scheme to me. 
+
+En cualquier caso, si te interesa conocer las posibles formas de
+certificarte aquí en España, hay muy buenos profesionales haciendo
+formación y preparación sobre metodologías ágiles y para la
+certificación de Scrum. Por citar algunos:
 
 - [Jerónimo Palacios](https://twitter.com/giropa832)
 - [Codesai](https://codesai.com), con personas como [Alfredo Casado](https://www.linkedin.com/in/alfredo-casado/?originalSubdomain=es) o [Toño de la
   Torre](https://www.linkedin.com/in/antoniodelatorre/).
 - [Agilar](https://agilar.com/es/es#home)
+
+Si compruebas los contenidos de estos cursos podrás ver que muchos de
+ellos ya los conoces por haberlos visto en las asignaturas de la
+carrera en las que hablamos de estas metodologías. Sin embargo, en
+estas formaciones podrás estudiarlos en mucha más profundidad, conocer
+otros enfoques y conocer experiencias de compañeros en la profesión.
 
 </td></tr></table>
 
