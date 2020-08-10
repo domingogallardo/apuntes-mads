@@ -60,10 +60,10 @@ desarrollo. Esto también puede representar un sesgo importante, que
 también puede explicar la gran relevancia de Scrum en gráficos
 posteriores.
 
-#### Objetivos por los que se adoptan las metodologías ágiles ####
+#### Objetivos que se pretenden conseguir ####
 
 A los encuestados se les preguntaba por los objetivos que se pretenden
-al adoptar metodologías ágiles. Podían responder más de una opción. 
+conseguir adoptando metodologías ágiles. Podían responder más de una opción. 
 
 <img src="imagenes/reasons-state-of-agile.png" width="400px"></img>
 
@@ -130,8 +130,8 @@ que:
 
 > "Lo que no se puede medir no se puede mejorar."
 
-Esta claro que es importante poder medir algo para poder observar cómo
-evoluciona. Si queremos evaluar la consecución de unos objetivos
+Si queremos comprobar la evolución de algo es importante poder
+medirlo. Si queremos evaluar la consecución de unos objetivos
 deberemos cuantificarlos, por lo que lo primero que deberemos definir
 es un conjunto de indicadores medibles (métricas) relacionados con
 esos objetivos. El problema aparece cuando lo que se quiere medir es
@@ -189,14 +189,77 @@ encima de los procesos.
 
 </td></tr></table>
 
+#### Metodologías ####
+
+En el informe se pregunta por la metodología ágil concreta que se
+utiliza en la empresa.
+
+<img src="imagenes/state-of-agile-metodologias.png" width="400px"></img>
+
+Scrum gana por goleada. Es la única metodología usada en el 58% de
+las empresas. Y es la metodología usada en combinación con otras en un
+18% adicional, haciendo un total de 76%. 
+
+Kanban/Lean se utiliza (sólo o en combinación con Scrum) en un 18% de las
+empresas. Y Extreme Programming (XP) en un 9%.
+
+Parece evidente que Scrum es la metodología que ha terminado
+imponiéndose en el mundo ágil. Pero no siempre ha sido así. En el
+momento de publicación del manifiesto ágil, el año 2001, la
+metodología predominante era XP. Cinco años después, en el primer
+informe _State of Agile_ Scrum ya era la metodología más adoptada con
+un 40%, frente al 23% de XP. Y hoy la diferencia es abrumadora: un 75%
+frente a un 9%.
+
+¿Cuáles son las claves del éxito de Scrum? Podemos enumerar algunas
+posibles:
+
+- Metodología con roles, ceremonias y artefactos muy claramente
+  definidos.
+- Marco abierto en el que se pueden incorporar otras prácticas y
+  metodologías.
+- Aplicable a distintas áreas de la empresa, no sólo al desarrollo de
+  software.
+- Se ha creado un gran negocio alrededor de las certificaciones y los
+  cursos Scrum.
+  
+Se podría hablar bastante sobre el negocio de las
+certificaciones. Organizaciones como
+[Scrum.org](https://www.scrum.org) y
+[ScrumAlliance](https://www.scrumalliance.org) han creado una serie de
+cursos y certificaciones que se han hecho muy populares. Puede
+gustarnos o no, pero es evidente que han desempeñado un papel
+fundamental en la expansión de Scrum. Las personas que obtienen una
+certificación consiguen un reconocimiento generalmente aceptado por
+las empresas y difunden la metodología haciendo de _Scrum Masters_ o
+_Agile Coaches_.
+
+Es difícil elegir entre certificaciones de Scrum.org y de
+ScrumAlliance. Hay gente muy válida detrás de ambas
+organizaciones. Scrum.org fue fundada por [Ken
+Schwaber](https://www.scrum.org/team/ken-schwaber), uno de los
+creadores de Scrum. ScrumAlliance es apoyada, por ejemplo, por [Mike
+Cohn](https://www.mountaingoatsoftware.com/company/about-mike-cohn),
+un profesional ampliamente reconocido, autor de libros fundamentales
+como _Agile Estimating and Planning_ o _User Stories Applied_.
+
+En España hay muy buenos profesionales haciendo formación y
+preparación sobre metodologías ágiles y para la certificación de
+Scrum. Por citar algunos:
+
+- [Jerónimo Palacios](https://twitter.com/giropa832)
+- [Codesai](https://codesai.com), con personas como [Alfredo Casado](https://www.linkedin.com/in/alfredo-casado/?originalSubdomain=es) o [Toño de la
+  Torre](https://www.linkedin.com/in/antoniodelatorre/).
+- [Agilar](https://agilar.com/es/es#home)
+
 
 ### Agile es más que Scrum  ###
 
+- Artículo de Jerónimo Palacios [Argumentos en contra de Scrum](https://ckarchive.com/b/75u7h8h3wz8l)
 - Sacar alguna idea de la charla sobre la palabra "Agile" de Kevlin
   Henney Agile not = Speed (https://youtu.be/kmFcNyZrUNM)
 - Revisar el artículo de Martín Pérez sobre equipos de alto
   rendimiento: https://dev.to/mpermar/measuring-high-performance-engineering-teams-from-a-value-perspective-46mo
-
 
 ## Referencias ##
 
