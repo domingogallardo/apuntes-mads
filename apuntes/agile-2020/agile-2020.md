@@ -261,11 +261,11 @@ artículo [Argumentos en contra de Scrum](https://ckarchive.com/b/75u7h8h3wz8l):
 > certificaciones ágiles cuyo marketing es cuestionable o puede llevar
 > a engaño."
 
-La crítica a las certificaciones es extensible, en general, a todos
-los demás títulos y acreditaciones. También en el mismo artículo de
-Jerónimo Palacios:
+También en el mismo artículo, Jerónimo Palacios hace la siguiente
+crítica extensible, en general, a otros títulos y títulos y
+acreditaciones:
 
-> la certificación certifica -¡Sorpresa!- que en un momento dado has
+> La certificación certifica -¡sorpresa!- que en un momento dado has
 > pasado un examen de conocimiento básico sobre Scrum. Lo que vale es
 > el conocimiento, ideas, habilidades y capacidades de la persona que
 > ostenta esa certificación de ejercer ese rol en una organización. 
