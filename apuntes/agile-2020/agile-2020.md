@@ -307,10 +307,11 @@ otros enfoques y conocer experiencias de compañeros en la profesión.
 
 #### Prácticas ágiles ####
 
+También se pregunta sobre qué prácticas o técnicas ágiles se utilizan.
+
 <img src="imagenes/state-of-agile-tecnicas.png" width="600px"></img>
 
-En el aspecto de prácticas ágiles el informe muestra que las técnicas
-más populares son:
+Las prácticas más populares son:
 
 - Daily standup (85%)
 - Retrospectivas (81%)
