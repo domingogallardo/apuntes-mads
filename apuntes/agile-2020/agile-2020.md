@@ -394,4 +394,3 @@ el siguiente apartado.
 - Charla de Martin Fowler: _The State of Agile Software in 2018_
   [transcripción](https://martinfowler.com/articles/agile-aus-2018.html)
       y [vídeo](https://www.infoq.com/presentations/agile-2018).
-- Andrea Janes, Giancarlo Succi: [_The dark side of agile software development_](https://www.researchgate.net/publication/266652972_The_dark_side_of_agile_software_development)
