@@ -51,7 +51,7 @@ primer rango del 33%.
 
 #### Puesto de trabajo ####
 
-<img src="imagenes/state-agile-role.png" width="400px"></img>
+<img src="imagenes/state-agile-role.png" width="500px"></img>
 
 En cuanto al puesto de los que han respondido la encuesta, la gran
 mayoría (casi el 40%) son _Scrum Masters_ o _Agile Coach_. Sólo un 7%
@@ -65,7 +65,7 @@ posteriores.
 A los encuestados se les preguntaba por los objetivos que se pretenden
 conseguir adoptando metodologías ágiles. Podían responder más de una opción. 
 
-<img src="imagenes/reasons-state-of-agile.png" width="400px"></img>
+<img src="imagenes/reasons-state-of-agile.png" width="500px"></img>
 
 El objetivo principal de más del 70% de los que respondieron es
 "Acelerar la entrega de software". Le sigue "Mejorar la posibilidad de
@@ -194,7 +194,7 @@ encima de los procesos.
 En el informe se pregunta por la metodología ágil concreta que se
 utiliza en la empresa.
 
-<img src="imagenes/state-of-agile-metodologias.png" width="400px"></img>
+<img src="imagenes/state-of-agile-metodologias.png" width="500px"></img>
 
 Scrum gana por goleada. Es la única metodología usada en el 58% de
 las empresas. Y es la metodología usada en combinación con otras en un
@@ -305,7 +305,45 @@ otros enfoques y conocer experiencias de compañeros en la profesión.
 
 </td></tr></table>
 
-### Agile es más que Scrum  ###
+#### Prácticas ágiles ####
+
+<img src="imagenes/state-of-agile-tecnicas.png" width="500px"></img>
+
+En el aspecto de prácticas ágiles el informe muestra que las técnicas
+más populares son:
+
+- Daily standup (85%)
+- Retrospectivas (81%)
+- Reunión de planificación del sprint / iteración (79%)
+- Revisión del sprint / iteración (77%)
+- Iteraciones cortas (64%)
+
+Al ser Scrum la metodología más empleada es normal que sus prácticas
+sean las más populares. Es curioso que una práctica como el _daily
+standup_ sea la más popular de todas. Quizás es debido a que es de las
+más sencillas de poner en práctica. Aunque hay que tener cuidado
+porque es una práctica que es muy fácil que degenere y se convierta en
+un ritual que no aporta mucho al equipo.
+
+En segundo lugar se encuentra la realización de retrospectivas en las
+que se analiza cómo ha ido el sprint. ¿Qué ha funcionado bien y qué ha
+funcionado mal durante la iteración? Es una práctica muy importante
+que lleva al equipo a reflexionar sobre su desempeño y a mejorar. Es
+una buena noticia que sea una de las prácticas más populares.
+
+La planificación y revisión del sprint son también prácticas
+fundamentales de Scrum y es normal que estén entre las más adoptadas.
+
+Es llamativo que no se usen más las iteraciones cortas. Un porcentaje
+del 64% significa que una de cada tres empresas que dicen estar
+aplicando metodologías ágiles no hacen iteraciones cortas. Si además
+comprobamos que sólo el 48% de los encuestados dicen hacer entregas
+frecuentes podemos deducir que la entrega continua de software es una
+práctica complicada en la que las empresas deben mejorar.
+
+
+
+## Agile es más que Scrum ##
 
 - Artículo de Jerónimo Palacios [Argumentos en contra de Scrum](https://ckarchive.com/b/75u7h8h3wz8l)
 - Sacar alguna idea de la charla sobre la palabra "Agile" de Kevlin
