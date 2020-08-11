@@ -36,7 +36,7 @@ empresas de todo el mundo y de todos los tamaños.
 Empresas con equipos de software que van desde menos de 100 personas
 (un 33%) hasta más de 5.000 personas (un 15%).
 
-<img src="imagenes/demografia-state-of-agile.png" width="500px"></img>
+<img src="imagenes/demografia-state-of-agile.png" width="600px"></img>
 
 Para que os hagáis una idea de lo que representan estas cifras del
 tamaño de los departamentos de software, podríamos compararlas con la
@@ -51,7 +51,7 @@ primer rango del 33%.
 
 #### Puesto de trabajo ####
 
-<img src="imagenes/state-agile-role.png" width="500px"></img>
+<img src="imagenes/state-agile-role.png" width="600px"></img>
 
 En cuanto al puesto de los que han respondido la encuesta, la gran
 mayoría (casi el 40%) son _Scrum Masters_ o _Agile Coach_. Sólo un 7%
@@ -65,7 +65,7 @@ posteriores.
 A los encuestados se les preguntaba por los objetivos que se pretenden
 conseguir adoptando metodologías ágiles. Podían responder más de una opción. 
 
-<img src="imagenes/reasons-state-of-agile.png" width="500px"></img>
+<img src="imagenes/reasons-state-of-agile.png" width="600px"></img>
 
 El objetivo principal de más del 70% de los que respondieron es
 "Acelerar la entrega de software". Le sigue "Mejorar la posibilidad de
@@ -91,7 +91,7 @@ objetivo bastante cercano a lo que pretenden las metodologías ágiles.
 
 #### Indicadores para medir el grado de éxito  ####
 
-<img src="imagenes/medicion-exito-state-of-agile.png" width="500px"></img>
+<img src="imagenes/medicion-exito-state-of-agile.png" width="600px"></img>
 
 En cuanto a la forma de medir el éxito en la aplicación de las
 metodologías ágiles en proyectos, la encuesta muestra que se definen
@@ -194,7 +194,7 @@ encima de los procesos.
 En el informe se pregunta por la metodología ágil concreta que se
 utiliza en la empresa.
 
-<img src="imagenes/state-of-agile-metodologias.png" width="500px"></img>
+<img src="imagenes/state-of-agile-metodologias.png" width="600px"></img>
 
 Scrum gana por goleada. Es la única metodología usada en el 58% de
 las empresas. Y es la metodología usada en combinación con otras en un
@@ -307,7 +307,7 @@ otros enfoques y conocer experiencias de compañeros en la profesión.
 
 #### Prácticas ágiles ####
 
-<img src="imagenes/state-of-agile-tecnicas.png" width="500px"></img>
+<img src="imagenes/state-of-agile-tecnicas.png" width="600px"></img>
 
 En el aspecto de prácticas ágiles el informe muestra que las técnicas
 más populares son:
@@ -340,8 +340,6 @@ aplicando metodologías ágiles no hacen iteraciones cortas. Si además
 comprobamos que sólo el 48% de los encuestados dicen hacer entregas
 frecuentes podemos deducir que la entrega continua de software es una
 práctica complicada en la que las empresas deben mejorar.
-
-
 
 ## Agile es más que Scrum ##
 
