@@ -342,6 +342,39 @@ comprobamos que sólo el 48% de los encuestados dicen hacer entregas
 frecuentes podemos deducir que la entrega continua de software es una
 práctica complicada en la que las empresas deben mejorar.
 
+#### Prácticas de ingeniería ####
+
+También se ha preguntado por lo que denominan "prácticas de
+ingeniería" (nosotros las llamaríamos mejor prácticas de desarrollo).
+
+<img src="imagenes/state-of-agile-practicas-desarrollo.png" width="600px"></img>
+
+Podemos comprobar que los porcentajes son claramente mejorables. La
+práctica más extendida es el _unit testing_ (67%) junto con
+los estándares de código (58%) y la integración continua
+(55%). No está mal que 2 de cada 3 empresas hagan tests, pero
+podríamos también preguntarnos qué tipo de pruebas están
+haciendo. Para considerarlos parte de un enfoque ágil los tests
+deberían ser realizados por los desarrolladores al tiempo que diseñan,
+codifican y refactorizan. Sin embargo, técnicas como la
+refactorización (43%) o el _test-driven development_ (30%) se utilizan
+poco, lo que nos lleva a sospechar que una cantidad importante de los
+que declaran hacer unit testing lo hacen de una forma tradicional, con
+equipos de testing separados del desarrollo.
+
+Hay que hacer notar que técnicas avanzadas utilizadas por equipos de
+alto rendimiento, como el _continuous delivery_ (41%) o el _continuous
+deployment_ (36%) son relativamente poco usadas. Y son menos usadas
+aún algunas técnicas muy interesantes propias de XP como el _pair
+programming_ (31%), el _test driven devolpment_ (TDD) (30%) o la
+propiedad colectiva del código (29%).
+
+En la asignatura vamos a ver muchas de estas técnicas de
+desarrollo. Consideramos que son fundamentales para que un equipo esté
+realizando correctamente un desarrollo ágil. Hablaremos más de ello en
+el siguiente apartado.
+
+
 ## Agile es más que Scrum ##
 
 - Artículo de Jerónimo Palacios [Argumentos en contra de Scrum](https://ckarchive.com/b/75u7h8h3wz8l)
@@ -352,6 +385,11 @@ práctica complicada en la que las empresas deben mejorar.
 
 ## Referencias ##
 
+- [Agile en 2020 (I): Los
+  Retos](https://anchor.fm/neuromancer/episodes/Agile-en-2020-I-Los-Retos-eg3oue)
+  y [Agile en 2020 (II): Las
+  soluciones](https://anchor.fm/neuromancer/episodes/Agile-en-2020-II-Las-Soluciones-eg8kvf) -
+  Podcasts de Rafael Casuso [@Rafael_Casuso](https://twitter.com/Rafael_Casuso)
 - [“The State of Agile 2020”](https://explore.digital.ai/state-of-agile/14th-annual-state-of-agile-report) 
 - Charla de Martin Fowler: _The State of Agile Software in 2018_
   [transcripción](https://martinfowler.com/articles/agile-aus-2018.html)
