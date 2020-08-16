@@ -431,6 +431,8 @@ Uno de los elementos más importantes que aglutinaba a los 17 firmantes
 del Manifiesto Ágil era el rechazo a los procesos rígidos de
 desarrollo de software impuestos desde arriba.
 
+<img src="imagenes/tiempos-modernos.png" width="300px" align="right"></img>
+
 Estos procesos tienen su origen en los comienzos del siglo 20, con el
 trabajo de Frederick Taylor y el denominado _Taylorismo_. Su idea era
 que había que reorganizar los lugares de trabajo (fábricas) de forma
@@ -515,6 +517,8 @@ urgente. Como muestra, una frase que se hizo popular en Facebook:
 Está bien si queremos hacer experimentos, y probar alternativas. Pero
 no en todos sitios se pueden romper cosas. Sobre todo si hay personas
 por en medio.
+
+<img src="imagenes/velocidad-vs-agilidad.png" width="300px" align="left"></img>
 
 Como dice la definición, ágil es algo más que velocidad. Si pensamos
 en deportes, alguien como Usain Bolt sería un representante claro de
