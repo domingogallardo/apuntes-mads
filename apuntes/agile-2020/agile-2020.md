@@ -377,20 +377,279 @@ el siguiente apartado.
 
 ## Agile es más que Scrum ##
 
-- Artículo de Jerónimo Palacios [Argumentos en contra de Scrum](https://ckarchive.com/b/75u7h8h3wz8l)
-- Sacar alguna idea de la charla sobre la palabra "Agile" de Kevlin
-  Henney Agile not = Speed (https://youtu.be/kmFcNyZrUNM)
-- Revisar el artículo de Martín Pérez sobre equipos de alto
-  rendimiento: https://dev.to/mpermar/measuring-high-performance-engineering-teams-from-a-value-perspective-46mo
+A pesar de ser Scrum la metodología más extendida, defendemos que
+Agile es algo más que Scrum. Scrum es sólo uno de los posibles marcos
+(_frameworks_) de trabajo que podemos usar para ser ágiles. Pero no es
+el único y, por si mismo, no garantiza la agilidad del equipo.
+
+Por ejemplo, podemos tener un equipo que siga al pie de la letra las
+prácticas de Scrum pero que carezca de la capacidad técnica suficiente
+para hacer entregas continuas o para permitir modificar el código
+fácilmente sin caer en una deuda técnica que paralice cualquier
+posible evolución del producto. Como indica Jerónimo Palacios en su
+artículo [_Argumentos en contra de
+Scrum_](https://ckarchive.com/b/75u7h8h3wz8l), uno de los problemas de
+Scrum es que no promueve la excelencia técnica.
+
+¿Ayuda Scrum a ser más ágil?  Está claro que sí. Prácticas como las
+iteraciones cortas, las retrospectivas o roles como el product owner
+ayudan (y mucho) a ser más ágiles. Pero hay que tener mucho cuidado
+con dos cosas: el Falso Scrum (_Fake Scrum_) y la obsesión por los
+procesos. 
+
+### Fake Scrum ###
+
+Decir que se usa Scrum no garantiza la agilidad. Muchos equipos que
+dicen usar Scrum, realmente están encajando prácticas tradicionales
+dentro de un pretendido Scrum. Convierten las iteraciones frecuentes
+en releases de 1 o 2 meses. No hay feedback del cliente. El backlog es
+inmutable. Las dailys son rituales vacíos. Han adoptado unos nombres,
+pero no abrazan los objetivos ni la filosofía ágil. Es lo que se
+denomina _Fake Scrum_ o [_Dark
+Scrum_](https://ronjeffries.com/articles/016-09ff/defense/) en
+palabras de Ron Jeffries.
+
+Muchas de las empresas que hacen falso Scrum suelen haber oído hablar
+de _transformación digital_ o de _metodologías ágiles_ e intentan
+estar a la última diciendo que ellos también se suben a este
+carro. Incluso puede ser que lo hagan con buena intención, que
+realmente quieran cambiar la forma de desarrollar software porque se
+dan cuenta de que la forma actual es mejorable. Pero todo se queda
+ahí, en la intención. La inercia y la resistencia al cambio de la
+institución hace que fracasen los distintos intentos de poner en
+práctica estas nuevas metodologías. Y todo se queda en una adaptación
+cosmética de algunos roles y prácticas pero sin realmente llegar a
+abrazar los valores y objetivos de Agile.
+
+### Obsesión por los procesos ###
+
+Otra indicación de que no estamos aplicando correctamente Agile es que
+desde gerencia se impongan procesos que deben ser seguidos a
+rajatabla. Incluso si esos procesos son pretendidamente ágiles. 
+
+Uno de los elementos más importantes que aglutinaba a los 17 firmantes
+del Manifiesto Ágil era el rechazo a los procesos rígidos de
+desarrollo de software impuestos desde arriba.
+
+Estos procesos tienen su origen en los comienzos del siglo 20, con el
+trabajo de Frederick Taylor y el denominado _Taylorismo_. Su idea era
+que había que reorganizar los lugares de trabajo (fábricas) de forma
+que se optimizara el trabajo hecho por los trabajadores. En su visión,
+los trabajadores eran vagos, estúpidos y debían de ser meros
+engranajes del proceso de fabricación. Otras personas más educadas e
+inteligentes eran las que debían de pensar en cómo mejorar ese
+proceso y establecer con todo detalle todos sus pasos.
+
+Estas ideas se instalaron en gran parte de las industrias durante
+buena parte del siglo 20. Por ejemplo, Henry Ford creó toda la
+industria del automóvil americana basándose en estos principios (más
+adelante veremos que los sistemas de fabricación _lean_ surgen como
+respuesta a estas ideas).
+
+La industria del software también se vio afectada por estas ideas. Se
+pensó que los programadores eran meros instrumentos que sólo tenían
+que "picar" el código diseñado por otras personas más inteligentes,
+que eran las que definían el proceso y el sistema.
+
+El movimiento ágil redefinió estas ideas y puso en el centro del
+cuadro al desarrollador y al equipo. En la visión Agil los
+desarrolladores son personas inteligentes, bien pagadas y bien
+motivadas que son capaces de decidir cómo trabajar de forma
+auto-organizada. De hecho, el primer valor definido por el Manifiesto
+Ágil, es:
+
+> "Individuos e Interacciones sobre Procesos y Herramientas"
+
+Por encima de los procesos están los individuos y las interacciones
+entre ellos. Es el equipo el que debe decidir cómo funcionar. Debe
+poder hacer experimentos y modificar sus procesos internos dependiendo
+de cómo vayan saliendo los resultados de esos experimentos. Hasta el
+extremo de poder modificar la estructura del propio framework ágil que
+estén usando. Por ejemplo, hay equipos ágiles que piensan que es
+contraproducente tener un Product Owner continuamente en la misma
+oficina que ellos (ver, por ejemplo, la charla de Maaret Pyhajarvi
+[Agile as If You Meant It](https://youtu.be/YibNG8xx15c)). O que no es
+conveniente hacer una reunión diaria, porque ya existe suficiente
+comunicación en el equipo.
+
+### Agile es un viaje ###
+
+Como decíamos en la introducción de la asignatura, es importante tener
+como objetivo la mejora continua o Kaizen. Hacer bien agile no es
+seguir al pie de la letra unas prácticas, sin saber por qué se
+hacen. Es tener claro cuáles son los objetivos que queremos alcanzar y
+buscar formas de mejorar día a día en la consecución de los mismos.
+
+Como dice Allen Holub [@allenholub](https://twitter.com/allenholub),
+desarrollador y divulgador de las metodologías ágiles:
+
+> "Si no cambias, no estás aprendiendo"
+
+<img src="imagenes/agile-learning.png" width="400px"></img>
+
+¿Cuáles son los objetivos de Agile, los valores hacia los que debemos
+movernos? Hablaremos más adelante del Manifiesto Ágil, en el que se
+establecen claramente. Pero podemos anticipar algunas ideas.
+
+En la charla de Kevlin Henney [Agile ≠
+Speed](https://www.youtube.com/watch?v=kmFcNyZrUNM) se analiza el 
+significado de la palabra ágil. 
+
+Según la RAE:
+
+> **Ágil**.  
+> Adjetivo. Que se mueve con soltura y rapidez.  
+> Ejemplo: "Estuvo muy ágil y esquivó el golpe"
+
+Como dice Henney, mucha gente identifica de forma errónea ágil con
+rápido. El objetivo entonces sería desarrollar software rápido, cuanto
+más rápido mejor, sin importar qué ni cómo. Si el objetivo es este,
+los gestores se centrarán únicamente en métricas como número de líneas
+de código o número de características desarrolladas.
+
+En el mundo actual la rapidez es algo muy apreciado. Todo es
+urgente. Como muestra, una frase que se hizo popular en Facebook:
+
+> "Move fast and break things"
+
+Está bien si queremos hacer experimentos, y probar alternativas. Pero
+no en todos sitios se pueden romper cosas. Sobre todo si hay personas
+por en medio.
+
+Como dice la definición, ágil es algo más que velocidad. Si pensamos
+en deportes, alguien como Usain Bolt sería un representante claro de
+la velocidad. Pero si pensamos en agilidad no pensaríamos en él, sino
+en gimnastas como Simone Biles. Ambos tiene diferentes
+cualidades. Usain Bolt es muy rápido en línea recta, pero Simone Biles
+puede girar, saltar, esquivar o cambiar de dirección mucho más
+rápido. Tiene mucha más soltura, volviendo a la definición de la RAE.
+
+Más importante que ir rápido es ir la dirección correcta, entregar el
+producto que va a satisfacer al cliente, que le va a ayudar y dar
+valor. ¿Cómo sabemos si vamos en la dirección correcta? Ya hablaremos
+más adelante de eso en más profundidad. La respuesta rápida es "no lo
+sabemos". Es el cliente el que debe decírnoslo cuando pruebe nuestro
+producto. Y el cliente va a querer cambiar características en cuanto
+empiece a probar. De ahí que más importante que ser rápido es ser
+ágil: debemos aprender a cambiar de dirección fácilmente, con
+soltura. Debemos aprender a cambiar las prioridades en las
+funcionalidades que el cliente nos pide. Incluso a características ya
+entregadas que el cliente está comprobando que no funcionan como
+esperaba. Uno de los eslóganes de XP es "abraza el cambio". Lo veremos
+más adelante.
+
+A la hora de evaluar cómo estamos aplicando las metodologías ágiles
+hay que hacer una medición compleja, multi-objetivo. No debemos
+reducir algo complejo a una única dimensión (por ejemplo el número
+de características entregadas, como se hace en los diagramas de
+burn-down). Y algo, además, que no tiene en cuenta el _impacto_ en el
+cliente del software entregado. 
+
+### ¿Cómo saber si viajamos en la dirección correcta? ###
+
+Entonces, si hemos dicho que Agile es un viaje, un proceso de mejora
+de alguna forma deberemos poder comprobar si estamos moviéndonos en la
+dirección correcta. ¿Qué indicadores podemos usar para comprobar si
+estamos mejorando o empeorando?
+
+Debemos fijarnos en los objetivos básicos, fundacionales, de Agile, y
+no en un framework concreto. En concreto, debemos fijarnos en los
+valores definidos por el Manifiesto Ágil y por Lean, los dos elementos
+fundamentales de la teoría de Agile. Los veremos más adelante en detalle.
+
+Por ahora conformémonos con una definición muy sencilla de Agile:
+
+> "Agile = entregar valor de forma continua al cliente"
+
+Podemos obtener dos elementos en esta definición: entrega de valor y
+entrega continua. Empecemos por lo último, 
+
+#### ¿Cómo medir la continuidad en la entrega? ####
+
+La entrega de software de forma continua es un elemento
+fundamental. Si el software sólo se entrega de golpe, al final de un
+largo desarrollo, su valor será mucho menor que si hemos dejado al
+cliente ir probándolo y moldeándolo.
+
+Para medir la capacidad de nuestro equipo de entregar software de
+forma continua podemos usar indicadores que midan tanto la velocidad
+como la capacidad de reaccionar y modificar el producto entregado.
+
+Podemos utilizar los siguientes tipos de métricas:
+
+- **Métricas de código**: ya hemos hablado antes de ellas. Por
+  ejemplo, número de tests, porcentaje de cubrimiento del código con
+  los tests, cantidad de bugs/defectos.
+- **Métricas de integración continua**: se pueden obtener a partir del
+  servidor de integración continua. Número de _pull requests_
+  exitosos/fallidos, número de compilaciones exitosas/fallidas, tiempo
+  de compilación del _build_, tiempo de _commit_ a despliegue,
+  despliegues a producción por día, etc.
+- **Métricas de servicio**: número de errores del servidor, tiempo
+  medio de respuesta, tiempo medio de latencia en consultas a base de
+  datos, etc.
+- **Métricas de soporte**: número de incidentes en producción, tiempo
+  medio entre fallos (MTBF), tiempo medio en reparación, recuperación
+  y resolución (MTTR) y otras [medidas relacionadas con los
+  incidentes](https://www.atlassian.com/incident-management/kpis/common-metrics). 
+
+Todas estas métricas nos pueden dar una idea de la calidad del
+software que estamos desarrollando y de si lo estamos construyendo
+correctamente. Tal y como hemos comentado, la excelencia técnica es
+fundamental para Agile, porque nos permite crear un software que
+podemos cambiar fácilmente para adecuarlo a las necesidades del cliente.
+
+#### ¿Cómo podemos medir el valor entregado? ####
+
+Pero no sólo es necesario poder entregar software
+continuamente. Debemos de conseguir que ese software aporte valor al
+cliente. ¿Es posible medir este valor?
+
+En general, el valor entregado se puede medir por la satisfacción del
+cliente. Y esta satisfacción será proporcional a los beneficios
+producidos por la entrega.
+
+Si estamos hablando de negocios, estos beneficios serán
+fundamentalmente económicos. Para calcular los beneficios generados
+por el funcionamiento del software puesto en producción podríamos usar
+indicadores como:
+
+- **Tiempo de trabajo ahorrado**, ¿cuántos meses-persona de trabajo se
+  ahorran con esta característica?
+- Costes ahorrados, ¿se evita el uso de algún servicio externo que
+  costaba una cantidad de dinero?
+- **Ingresos directos**, ¿cuántos clientes van a comprar el producto
+  debido a esta nueva característica introducida?
+- **Ingresos indirectos**, ¿cuántos clientes van a seguir usando el
+  producto y no se van a ir a la competencia gracias a esta nueva
+  característica? 
+- **Reducción de errores**. Los errores tienen un coste asociado.
+
+Para obtener información sobre estos indicadores es fundamental tener
+un feedback del cliente. Es posible obtener este feedback de forma
+continua usando herramientas automáticas que miden el uso de las
+características que introducimos en nuestro producto (Google
+Analytics, etc.)
+
+Como dice Martín Pérez en su artículo [Measuring high-performance engineering teams from a
+value perspective](https://dev.to/mpermar/measuring-high-performance-engineering-teams-from-a-value-perspective-46mo):
+
+> " A high-performing team is great. It makes us, engineers, proud. I
+> love sound engineering practices. But it is important to make sure
+> that everything we do in our team is sustainable from a business
+> perspective. It does not matter how exciting is the new thing we
+> might be doing if it is not going to provide any value."
 
 ## Referencias ##
 
-- [Agile en 2020 (I): Los
+- Podcasts de Rafael Casuso
+  [@Rafael_Casuso](https://twitter.com/Rafael_Casuso): [Agile en 2020 (I): Los
   Retos](https://anchor.fm/neuromancer/episodes/Agile-en-2020-I-Los-Retos-eg3oue)
   y [Agile en 2020 (II): Las
   soluciones](https://anchor.fm/neuromancer/episodes/Agile-en-2020-II-Las-Soluciones-eg8kvf) -
-  Podcasts de Rafael Casuso [@Rafael_Casuso](https://twitter.com/Rafael_Casuso)
 - [“The State of Agile 2020”](https://explore.digital.ai/state-of-agile/14th-annual-state-of-agile-report) 
 - Charla de Martin Fowler: _The State of Agile Software in 2018_
   [transcripción](https://martinfowler.com/articles/agile-aus-2018.html)
-      y [vídeo](https://www.infoq.com/presentations/agile-2018).
+      y [vídeo](https://www.youtube.com/watch?v=G_y2pNj0zZg).
+- Charla de Kevlin Henney: [_Agile ≠ Speed_](https://youtu.be/kmFcNyZrUNM)
+- Martín Pérez, [_Measuring high-performance engineering teams from a value perspective_](https://dev.to/mpermar/measuring-high-performance-engineering-teams-from-a-value-perspective-46mo)
