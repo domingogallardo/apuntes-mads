@@ -19,8 +19,8 @@ detalles en
 [https://github.com/domingogallardo/historia-computadores](https://github.com/domingogallardo/historia-computadores)). 
 
 La programación, por tanto, es una profesión relativamente joven con
-poco más de 60 años. Todavía están vivos (y algunos siguen activos)
-los programadores que trabajaron con los primeros computadores como
+poco más de 60 años. Todavía están vivos (¡y activos!)
+algunos programadores que trabajaron con los primeros computadores como
 [Donald Knuth con el IBM
 650](https://catonmat.net/donald-knuths-first-computer). Comparémoslo
 con profesiones o disciplinas como medicina, física, derecho o
@@ -136,16 +136,107 @@ se dedica un capítulo completo a hablar de ellas.
 > that it's like farming, hunting werewolves, or drowning with
 > dinosaurs in a tar pit (1995). Which are the best metaphors?" 
 
+Entre las metáforas más usadas se encuentran las siguientes.
 
-- Escritura: código escrito y leído
-- Cultivo: crecimiento orgánico
+#### Escritura ####
+
+<img src="imagenes/literate-programming.jpg" width="150px" align="right"></img>
+
+El software es algo que debe ser escrito y leído, de forma similar a
+como escribimos una carta, un libro o un manual de instrucciones. 
+
+Esta metáfora se lleva al extremo por los practicantes de [_literate
+programming_](https://en.wikipedia.org/wiki/Literate_programming), un
+paradigma de programación en el que el código queda embebido en una
+explicación en lenguaje natural del problema que se está
+resolviendo. Donald Knuth fue el fundador de este paradigma con su
+libro _Literate programming_.
+
+Elementos positivos de esta metáfora es que resalta el que el código
+debe ser legible y entendible por los compañeros. El código se escribe
+para las personas y no sólo para los computadores. Tan importante como
+escribir el código es leerlo después. De hecho, para poder modificar
+código debemos entenderlo, y para entenderlo debemos leerlo, hablar
+sobre él, etc.
+
+La metáfora no representa bien el carácter colectivo del desarrollo de
+software. Habitualmente la escritura es un hecho individual, mientras
+que el desarrollo es una labor de equipo. Tampoco comunica
+correctamente el carácter evolutivo y cambiante del software. Cuando
+un libro se termina de escribir muy raramente se modifica. Quizás sí
+se hace en una siguiente edición de un manual de usuario o un libro
+técnico, pero eso conlleva otra vez meses de esfuerzo. En el caso del
+software es cambio es continuo y de un día para otro. Además el software se
+escribe apoyándose en otro software que previamente se ha
+desarrollado y depende de él. Estas dependencias tampoco se recogen en
+la metáfora.
+  
+#### Jardinería ####
+
+<img src="imagenes/jardineria.png" width="150px" align="right"></img>
+
+En su libro [The Pragmatic
+Programmer](https://learning.oreilly.com/library/view/the-pragmatic-programmer/9780135956977)
+David Thomas y Andrew Hunt repasan la metáfora de la jardinería.
+
+> "Software is more like gardening—it is more organic than concrete."
+
+El crecimiento y cuidado de un jardín es algo orgánico. Se plantan
+inicialmente todas las cosas de acuerdo a un plan. Algunas de las
+plantas crecen bien pero otras no, y las destinamos a compost. Podemos
+mover las plantas y recolocarlas, para aprovecharnos de las relaciones
+entre ellas, de las luces y las sombras, del viento y la
+lluvia. Tenemos que podar o separar las plantas que crecen
+demasiado. Y podemos recolocarlas también por motivos estéticos, para
+combinar mejor los colores. Recogemos las semillas y fertilizamos las
+zonas que necesitan ayuda extra. Continuamente monitorizamos la salud
+del jardín, y hacemos ajustes (a la tierra, las plantas, la
+disposición) conforme se necesita.
+
+La metáfora recoge bien los aspectos evolutivos del software, pero no
+la escala temporal. El desarrollo de software es mucho más dinámico y
+rápido que el crecimiento del jardín. 
+
+A priori podría ser difícil encontrar una correspondencia entre la
+parte parte del crecimiento orgánico del jardín (semillas y plantas
+que crecen por si mismas, en configuraciones poco predecibles) y el
+desarrollo de software. El software no crece si se deja solo. ¿Y qué
+es el viento, la lluvia o las problemas de la naturaleza? En el
+desarrollo de software tenemos todo controlado (hacemos tests) y no
+dependemos elementos externos. 
+
+¿De verdad es así? ¿Está todo controlado? Si pensamos de esta forma
+nos estamos olvidando del elemento fundamental del desarrollo de
+software: los usuarios finales. Cuando dejamos el software
+desarrollado en sus manos lo van a utilizar como ellos mejor sepan. Lo
+van a intentar introducir en sus procesos de trabajo ya
+consolidados. Y el software les va a proporcionar valor o no
+dependiendo de lo bien que se adapte a esos procesos.
+
+Los usuarios finales son el viento, la lluvia, las fuerzas de la
+naturaleza del jardín. La única forma de saber si el software va a
+proporcionarles valor es dejarlo crecer entre ellos.
+
+La metáfora del jardín no es tan descabellada como parecía al
+principio. 
+
+#### Crecimiento por acreción ####
+
+
+#### Construcción ####
+
 - Cultivo por acreción (ostra): niveles que esconden detalles
 - Construcción: planificación y objetivos
 
 Otras metáforas:
 
-- Sistema legal: relación entre componentes
 - Película: proceso creativo de múltiples profesionales
+
+Cada metáfora resalta unas características del desarrollo de software
+y ninguna recoge completamente todas ellas. Por eso, dependiendo de
+qué metáfora se use en nuestra empresa o equipo de desarrollo, se
+estará enfatizando un aspecto y disminuyendo otros.
+
 
 
 ## Movimiento open-source ##
