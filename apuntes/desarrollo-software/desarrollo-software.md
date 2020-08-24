@@ -173,7 +173,7 @@ la metáfora.
   
 #### Jardinería ####
 
-<img src="imagenes/jardineria.png" width="150px" align="right"></img>
+<img src="imagenes/jardineria.png" width="200px" align="right"></img>
 
 En su libro [The Pragmatic
 Programmer](https://learning.oreilly.com/library/view/the-pragmatic-programmer/9780135956977)
@@ -215,20 +215,131 @@ dependiendo de lo bien que se adapte a esos procesos.
 
 Los usuarios finales son el viento, la lluvia, las fuerzas de la
 naturaleza del jardín. La única forma de saber si el software va a
-proporcionarles valor es dejarlo crecer entre ellos.
+proporcionarles valor es dejarlo crecer entre ellos. La metáfora del
+jardín no es tan descabellada como parecía al principio.
 
-La metáfora del jardín no es tan descabellada como parecía al
-principio. 
 
 #### Crecimiento por acreción ####
+
+<img src="imagenes/perla.jpg" width="200px" align="right"></img>
+
+Una metáfora poco conocida, pero que da bastante juego, es representar
+el desarrollo de software como la formación de una perla dentro de una
+ostra. La perla se forma dentro de una ostra por acreción. Va
+creciendo a base de añadir material a un grano de arena que se
+introduce en la ostra. Al final se forman un conjunto de capas que van
+rodeando el núcleo inicial.
+
+De forma similar, podemos ver el desarrollo de software como una tarea
+incremental en la que se van añadiendo funcionalidades a un núcleo
+central inicial. Es lo que se denomina desarrollo evolutivo o
+incremental. Primero se desarrolla un esqueleto que trabaja con datos
+de prueba y después se van añadiendo los músculos y la piel, los
+detalles exteriores con los que el usuario interactúa. Los datos
+de prueba se convierten en datos reales y ya tenemos un sistema real que
+puede ponerse en producción.
+
+Un elemento que no recoge bien esta metáfora es que en un sistema
+software real tenemos que construir muchas "perlas". Conforme
+extendemos el sistema debemos ir ampliando también las funcionalidades
+proporcionadas por el esqueleto, añadiendo nuevos elementos centrales
+que deben interactuar con los ya existentes.
 
 
 #### Construcción ####
 
-- Cultivo por acreción (ostra): niveles que esconden detalles
-- Construcción: planificación y objetivos
+<img src="imagenes/construccion.png" width="200px" align="right"></img>
 
-Otras metáforas:
+Una de las metáforas más usadas es la construcción. Desarrollar
+software es como construir una casa. Hablamos de "construir software",
+de "hacer una estructura resistente", de "planos con el diseño de las
+características" o de "arquitectos de software".
+
+El proceso de construcción de una casa se puede simplificar en los
+siguientes pasos: 
+
+1. El arquitecto diseña los planos con todo detalle.
+2. Los albañiles, fontaneros, electricistas, etc., dirigidos por el
+   arquitecto técnico, construyen todos los elementos del edificio de
+   acuerdo con los planos proporcionados.
+3. Los propietarios se mudan al edificio, viven felices y, si detectan
+   algún problema, llaman a mantenimiento para arreglarlo.
+
+Esta es una metáfora que ha causado mucho daño al desarrollo de
+software. El modelo de cascada (_waterfall_) parte de esta
+metáfora. Según este enfoque, el desarrollo de software es como
+cualquier otra ingeniería tradicional en la que el esfuerzo más grande
+hay que hacerlo en la fase inicial de diseño. La fase de construcción
+del producto (implementación) se hace una vez que se ha concluido todo
+el diseño y consiste en seguir al pié de la letra los diagramas UML
+que detallan todo el diseño. El trabajo de los desarrolladores es
+un trabajo nada creativo porque todo el diseño ya se ha hecho de
+antemano. Solo tienen que pasar a código los diagramas y diseños que
+han realizado los "arquitectos de software". Y al final hay una fase
+de mantenimiento en la que se arreglan los problemas que detectan los
+usuarios cuando empiezan a usar el software.
+
+El problema de este enfoque es que la mayoría del software que se
+desarrolla no es así. Veremos más adelante una argumentación de Martin
+Fowler que critica este enfoque.
+
+<img src="imagenes/evolucion-edificios.jpg" width="300px" align="right"></img>
+
+A pesar de esto, la metáfora tiene cosas buenas. Construir software
+conlleva realizar una planificación, una preparación y una
+ejecución. Similar a construir algo. También, igual que hay distintos
+tamaños y alcances en los sistemas de software hay distintos tamaños y
+alcances en las construcciones. No es lo mismo construir un edificio
+de 10 plantas, que una casa de campo en una parcela, que una caseta
+para el perro. Si nos equivocamos al construir una caseta para el
+perro y se nos olvida hacer la puerta, podemos rehacerlo todo sin
+problemas. Sólo habremos gastado una tarde. En el caso de un proyecto
+más grande hay que tener mucho más cuidado en que los fundamentos y
+estructuras sean sólidas y extensibles.
+
+Otras cosas interesantes de la metáfora es la distinción entre
+estructura y forma. Un edificio tiene elementos estructurales como
+cimientos, vigas, pilares, muros, etc. sobre los que se construyen los
+aspectos más visibles como azulejos, pintura, ventanas, etc. En el
+caso del software, tenemos también elementos estructurales, código que
+no es visible para los usuarios, y elementos visibles como la interfaz
+de usuario o el comportamiento de las funcionalidades.
+
+La diferencia entre construcción y software es que podemos modificar
+ambos tipos de elementos al mismo tiempo. En construcción una vez
+realizada la estructura es difícil que sea modificable. En el
+desarrollo de software, sin embargo, no solo podemos, sino que debemos
+realizar cambios en la estructura para hacerla más flexible y para que
+podamos introducir más fácilmente nuevos cambios en el futuro. Es lo
+que denominamos refactorizar.
+
+Una cosa poco reconocida en la arquitectura son las modificaciones
+continuas que se producen en los edificios. Un hilo muy interesante de
+Geoffrey Litt reseña el famoso libro ["How buildings
+learn"](https://twitter.com/geoffreylitt/status/1272542423001022467)
+de Stewart Brand. Los paralelismos entre el software y la evolución de
+los edificios son notables. La diferencia está en la escala
+temporal. Vemos a la derecha la evolución de una mansión construida en
+1765 y su evolución durante 50 años. Y lo ideal es que estos cambios
+sean determinados por el uso de los propios habitantes del
+edificio. Como dice Brand:
+
+> ""Age plus adaptivity is what makes a building come to be loved. The
+> building learns from its occupants, and they learn from it."
+
+¿Os suena a algo?
+
+A pesar de ser una metáfora que tiene elementos interesantes, la
+metáfora de la construcción falla en el aspecto de no recoger el
+carácter único del software como algo fácilmente modificable. El
+software es mucho más moldeable que cualquier otro material. Cambiar
+software es mucho más fácil que cambiar un tablón, o unos ladrillos, o
+unas tuberías. Esta flexibilidad del software es la que permite
+enfoques de construcción alternativos que no pueden ser usados en la
+construcción ni en otras ingenierías tradicionales.
+
+
+#### Otras metáforas  ####
 
 - Película: proceso creativo de múltiples profesionales
 
