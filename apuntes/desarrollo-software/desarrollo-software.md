@@ -341,13 +341,85 @@ construcción ni en otras ingenierías tradicionales.
 
 #### Otras metáforas  ####
 
-- Película: proceso creativo de múltiples profesionales
+Otras metáforas se corresponden con otros aspectos del desarrollo de
+software no contemplados en las anteriores. 
+
+Por ejemplo la metáfora de que hacer software es como **hacer una
+película de cine**. Con esta metáfora se enfatiza el aspecto creativo
+y multidisciplinar del desarrollo de software. Igual que para hacer
+una película es necesario coordinar el trabajo de múltiples
+profesionales técnicos y creativos (guionistas, actores, cámaras,
+vestuario, sonido, etc.), para hacer un buen producto software es
+necesario combinar también el trabajo de especialistas y
+diseñadores. Un problema de esta metáfora es que tiene un desarrollo
+similar al modelo de cascada y que cuando una película se termina no
+se vuelve a modificar. Sin embargo, la forma ágil de desarrollar
+software es entregando continuos incrementos y evolucionando el producto.
+
+Otra metáfora es la **realización de una publicación periódica** como
+una revista. Cada semana o cada mes se entrega un nuevo ejemplar de la
+publicación, con nuevo contenido que es consumido por el
+lector. Podemos encontrar un parecido con las entregas que se realizan
+al cliente al final de cada iteración. En estas entregas se incorporan
+al producto nuevas funcionalidades que deben ser probadas por los
+usuarios, de forma similar al nuevo contenido de la revista.
+
+Una última metáfora muy interesante es la de Alaistair Cockburn que en
+su libro [_Agile Software Development: The Cooperative
+Game_](https://learning.oreilly.com/library/view/agile-software-development/0321482751/)
+define el desarrollo de software como un **juego cooperativo** dirigido a
+conseguir un objetivo y realizado en grupo. El juego consiste en
+resolver un problema de invención y comunicación. Los desarrolladores
+trabajan en un problema que no entienden completamente, en el que
+están incluidos emociones, deseos y opiniones y que cambian conforme
+el juego avanza. Los jugadores deben:
+
+- Entender el espacio del problema
+- Imaginar un mecanismo que soluciona el problema en un espacio de
+  tecnología viable
+- Expresar la construcción mental de la solución en un lenguaje
+  ejecutable y construirla en equipo
+
+El elemento principal de este juego son las ideas de la gente y la
+comunicación de estas ideas entre los participantes y al computador.
+
+Se trata de una metáfora muy interesante centrada en el proceso de
+entender el dominio del problema a resolver y de crear la solución
+poco a poco. Quizás es una metáfora algo abstracta y no tiene en
+cuenta muchos elementos concretos relacionados con el cómo se pone en
+práctica ese modelo y cómo se realizan las correcciones,
+modificaciones y adaptaciones. Tampoco se distingue en el juego las
+diferencias entre las partes estructurales de la solución y las partes
+más orientadas a obtener una conducta específica en esa solución.
+
+#### Ninguna metáfora es completa ####
 
 Cada metáfora resalta unas características del desarrollo de software
-y ninguna recoge completamente todas ellas. Por eso, dependiendo de
-qué metáfora se use en nuestra empresa o equipo de desarrollo, se
-estará enfatizando un aspecto y disminuyendo otros.
+y ninguna recoge completamente todas ellas. Por eso es importante
+conocerlas todas y conocer sus ventajas e inconvenientes. 
 
+También podremos conocer en qué tipo de empresa o equipo de desarrollo
+estamos dependiendo de las metáforas que utilizan. Y podremos ser
+críticos si nos damos cuenta de que se utilizan de más las metáforas
+incorrectas en nuestro entorno. En ese caso podremos hacerlo notar y
+ofrecer metáforas alternativas que sirvan para corregir posibles
+sesgos en la percepción del cómo debería ser nuestro trabajo como
+desarrolladores. 
+
+El problema en encontrar la metáfora perfecta se debe a que el
+software es algo único y tiene características que no son comparables
+a ninguna otro producto previamente inventado por la humanidad. El
+software es fácilmente maleable, modificable. Se construye de forma
+colectiva, incremental. Para su construcción se combinan elementos
+externos (librerías de terceras personas) con elementos estructurales
+creados por nosotros y elementos de conducta que definen la
+interacción del mismo con los usuarios.
+
+La facilidad de cambio y la construcción incremental nos permite una 
+
+Podríamos decir que el desarrollo de software es la actividad humana más
+compleja existente. Más que pilotar un avión, hacer un diagnóstico
+médico o diseñar un edificio.
 
 
 ## Movimiento open-source ##
