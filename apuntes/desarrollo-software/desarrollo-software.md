@@ -35,6 +35,22 @@ ingenieros/as como vosotros/as. Detrás de cualquier sistema de
 software está un conjunto de personas que ha tenido que interactuar,
 decidir, entender y modificar decenas de miles de líneas de código.
 
+Conoces innumerables sistemas software de todo tipo: Instagram,
+Android, iOS, Netflix, Chrome, Gmail, Meet, Excel, Word, Radar COVID y
+un largo etcétera. 
+
+Algunos ejemplos de sistemas software que vamos a usar en algún
+momento en la asignatura:
+
+- Sistema de **gestión académica** de un centro educativo: sistema con el
+  que los estudiantes pueden matricularse, consultar horarios,
+  consultar expediente, etc.
+- **Quiosco de consulta** para una tienda estilo Fnac: sistemas con el que
+  los clientes pueden consultar productos y buscar su ubicación.
+- Sistema de gestión de **flotas de ambulancias**: sistema con el que se
+  puede controlar la ubicación de las ambulancias y gestionar
+  trayectos de las mismas.
+
 Hoy en día, gracias a servicios como GitHub, podemos echar un vistazo
 al código de muchos de estos sistemas software y a su
 evolución. Algunos ejemplos:
@@ -74,7 +90,7 @@ podrían haber sido distintas si hubiéramos usado otra metáfora
 (explorar distintos aspectos del problema a resolver, en lugar de
 centrarnos en un aspecto concreto y profundizar en él).
 
-### Cultura de las organizaciones ###
+### Metáforas en la cultura de las organizaciones ###
 
 Las metáforas son una parte importante de la cultura de una
 organización. Una cultura proporciona un conjunto de reglas invisibles
@@ -105,7 +121,7 @@ Escoger las metáforas correctas es, por tanto, fundamental para
 establecer una cultura, un estilo común de trabajo en el equipo o en
 la empresa.
 
-### Desarrollo de software ###
+### Metáforas de desarrollo de software ###
 
 ¿Por qué es interesante hablar de metáforas para referirnos al
 software? Porque podemos utilizarlas para crear una cultura, una
@@ -413,14 +429,35 @@ software es fácilmente maleable, modificable. Se construye de forma
 colectiva, incremental. Para su construcción se combinan elementos
 externos (librerías de terceras personas) con elementos estructurales
 creados por nosotros y elementos de conducta que definen la
-interacción del mismo con los usuarios.
+interacción del mismo con los usuarios. Es ejecutable y usado por
+personas, creando sistemas complejos de interacción entre máquinas y
+humanos. Y, por último, también es publicable en sistemas como GitHub,
+en donde podemos leer y estudiar la organización y las líneas de
+código del sistema.
 
-La facilidad de cambio y la construcción incremental nos permite una 
+La característica de que el software es fácil de cambiar es positiva
+porque permite un modelo de desarrollo único basado en iteraciones
+cortas, evoluciones y adaptación de cambios cuando se reciben _feedback_
+de usuarios. Pero la facilidad de modificación también tiene elementos
+negativos: _bugs_ introducidos a posteriori, confusiones debidas a
+problemas de comunicación, etc.
 
-Podríamos decir que el desarrollo de software es la actividad humana más
-compleja existente. Más que pilotar un avión, hacer un diagnóstico
-médico o diseñar un edificio.
+La posibilidad de cambio fue abrazada desde el principio por
+metodologías como XP y hoy en día cada vez más herramientas asumen
+característica y proporcionan funcionalidades orientadas a gestionar
+correctamente la evolución del software. Por ejemplo, los sistemas de
+controlo de versiones como Git permiten desarrollar software en
+equipo usando _commits_, ramas, versiones, solicitud de incorporación
+de cambios (_pull requests_), etc. O los IDEs tienen herramientas que
+permiten analizar qué sucede si cambiamos una declaración de una
+variable o una definición de una función: podemos consultar todos los
+sitios donde se usa esa función y sus conexiones con otros módulos.
 
+En resumen, podríamos decir que el desarrollo de software es la
+actividad humana más compleja existente. Más que pilotar un avión,
+hacer un diagnóstico médico o diseñar un edificio. Por eso tiene esa
+gran cantidad de metáforas asociadas. Y seguro que seguirán
+planteándose nuevas.
 
 ## Movimiento open-source ##
 
