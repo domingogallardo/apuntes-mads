@@ -1,12 +1,9 @@
 
 # Desarrollo de software #
 
-Puntos a tratar:
-
-- Metáforas del desarrollo de software
-- Capacidad de cambio del software
-- Artículo de Fowler sobre el desarrollo como proceso no predecible
-- Artículo No Silver Bullet
+Veremos en este apartado las características propias del software y de
+la forma de desarrollarlo que lo hacen un elemento único, difícil de
+comparar con ingenierías tradicionales como la construcción.
 
 ## Software ##
 
@@ -458,6 +455,68 @@ actividad humana más compleja existente. Más que pilotar un avión,
 hacer un diagnóstico médico o diseñar un edificio. Por eso tiene esa
 gran cantidad de metáforas asociadas. Y seguro que seguirán
 planteándose nuevas.
+
+## El desarrollo de software no es una ingeniería tradicional ##
+
+Hemos visto los problemas para capturar las características especiales
+del software y su desarrollo. ¿Qué es lo que hace al desarrollo de
+software especial? ¿Por qué es tan difícil construir el producto
+correcto y desarrollarlo? ¿Por qué no podemos aplicar las técnicas
+aprendidas en ingenierías tradicionales, como la construcción? Ya
+hemos visto algunas ideas en los apartados anteriores. Vamos a
+intentar responder a continuación estas preguntas con más detalle.
+
+### El desarrollo de software es una actividad creativa ###
+
+En 1986, hace más de 30 años, Fred Brooks escribió un artículo que se
+convertiría en clásico: "No Silver Bullet"
+
+Brooks considera que el diseño de software es una actividad creativa
+que se puede dividir en dos partes: lo esencial y lo accidental. Lo
+esencial es la formulación mental de las construcciones conceptuales
+necesarias para el sistema. Lo accidental, en el sentido de
+secundario, es la implementación de estas construcciones conceptuales
+en un lenguaje de programación y hardware concreto.
+
+Por ejemplo, en el caso de un sistema software de gestión de
+ambulancias un elemento central van a ser los sensores de posición que
+tengamos en las ambulancias. ¿Cómo van a transmitir esos sensores de
+posición su posición al sistema? Tenemos aquí un problema en el que
+queremos que múltiples sensores, quizás decenas, envíen peticiones
+periódicas a un servidor para actualizar un dato. ¿Las peticiones van
+a ser procesadas usando un sistema de eventos? ¿O serán simples
+peticiones a un endpoint REST? ¿Qué pasa si una petición falla?
+¿Guardamos en el sensor un histórico de las últimas n posiciones y las
+comunicamos de golpe o las comunicamos una a una?
+
+Todas estas son decisiones que tenemos que tomar que están
+relacionadas con la esencia del problema que queremos solucionar. En
+otro caso serán decisiones relacionadas con datos. ¿Qué datos
+debemos guardar para poder gestionar correctamente la información? O
+con lógica de negocio. Por ejemplo, en un sistema de gestión
+académica, cuando un estudiante se matricula ¿cómo decidir si asignar
+un estudiante a un grupo a otro?. 
+
+Lo accidental es la implementación de estas decisiones en un sistema
+software concreto. Dependiendo de si estamos usando Spring Boot con
+Java o .NET deberemos codificar estas decisiones en una plataforma u
+otra.
+
+Brooks argumenta que el cuello de botella que nunca se podrá reducir
+en el desarrollo de software es el relacionado con la parte
+esencial. La parte accidental sí que podrá mejorar con mejores IDEs,
+más capacidades de hardware o mejores lenguajes de programación. Pero
+estas mejoras no van a aumentar en un orden de magnitud el desarrollo
+de software. No vamos a poder hacer 10 veces más software que antes
+porque usemos mejores IDEs o mejores lenguajes de
+programación. Sencillamente porque tenemos que dedicar una parte
+importante del tiempo a resolver problemas esenciales y no este tiempo
+no se puede reducir con las mejoras en los elementos accidentales.
+
+
+### El desarrollo de software no es predecible ###
+
+
 
 ## Movimiento open-source ##
 
