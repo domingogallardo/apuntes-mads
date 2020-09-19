@@ -42,11 +42,11 @@ momento en la asignatura:
 - Sistema de **gestión académica** de un centro educativo: sistema con el
   que los estudiantes pueden matricularse, consultar horarios,
   consultar expediente, etc.
-- **Quiosco de consulta** para una tienda estilo Fnac: sistemas con el que
-  los clientes pueden consultar productos y buscar su ubicación.
 - Sistema de gestión de **flotas de ambulancias**: sistema con el que se
   puede controlar la ubicación de las ambulancias y gestionar
   trayectos de las mismas.
+- **Quiosco de consulta** para una tienda estilo Fnac: sistemas con el que
+  los clientes pueden consultar productos y buscar su ubicación.
 
 Hoy en día, gracias a servicios como GitHub, podemos echar un vistazo
 al código de muchos de estos sistemas software y a su
@@ -469,7 +469,21 @@ intentar responder a continuación estas preguntas con más detalle.
 ### El desarrollo de software es una actividad creativa ###
 
 En 1986, hace más de 30 años, Fred Brooks escribió un artículo que se
-convertiría en clásico: "No Silver Bullet"
+convertiría en clásico: "No Silver Bullet". 
+
+En el artículo se distinguen dos tipos de tareas en el desarrollo de
+software: las tareas que denomina **esenciales**, que están
+relacionadas con las estructuras conceptuales que están detrás del
+desarrollo, y otras tareas que son **accidentales** y están
+relacionadas con la representación de esas estructuras conceptuales en
+un lenguaje de programación concreto. 
+
+Muchos de los adelantos y mejoras en el desarrollo de software tienen
+que ver con las tareas accidentales: mejor hardware, mejores
+compiladores, mejores IDEs, etc. Sin embargo, el verdadero cuello de
+botella del desarrollo son las tareas esenciales.
+
+#### Tareas esenciales y accidentales del desarrollo de software ####
 
 Brooks considera que el diseño de software es una actividad creativa
 que se puede dividir en dos partes: lo esencial y lo accidental. Lo
@@ -502,9 +516,7 @@ software concreto. Dependiendo de si estamos usando Spring Boot con
 Java o .NET deberemos codificar estas decisiones en una plataforma u
 otra.
 
-Brooks argumenta que el cuello de botella que nunca se podrá reducir
-en el desarrollo de software es el relacionado con la parte
-esencial. La parte accidental sí que podrá mejorar con mejores IDEs,
+La parte accidental del desarrollo se puede mejorar con mejores IDEs,
 más capacidades de hardware o mejores lenguajes de programación. Pero
 estas mejoras no van a aumentar en un orden de magnitud el desarrollo
 de software. No vamos a poder hacer 10 veces más software que antes
@@ -513,12 +525,126 @@ programación. Sencillamente porque tenemos que dedicar una parte
 importante del tiempo a resolver problemas esenciales y no este tiempo
 no se puede reducir con las mejoras en los elementos accidentales.
 
+#### El cuello de botella del desarrollo de software ####
+
+Brooks argumenta que el cuello de botella del desarrollo de software
+es el relacionado con la parte esencial, con la especificación, diseño
+y prueba de las construcciones esenciales del desarrollo.
+
+Esta parte es fundamentalmente creativa y su solución correcta depende
+de muchos factores difícilmente optimizables como la experiencia del
+equipo en desarrollos anteriores, la facilidad o dificultad intrínseca
+del dominio, la facilidad de los clientes a la hora de definir las
+necesidades, etc.
+
+Brooks enumera cuatro propiedades de los elementos esenciales de un
+proyecto software, que no existen en otras industrias como la
+arquitectura o los automóviles.
+
+- **Complejidad**: Las entidades constitutivas de un producto software
+no se repiten como sucede en un coche o en un edificio. Hay mucha más
+cantidad de de entidades distintas que además van creciendo conforme
+el proyecto aumenta. Además, el número de posibles estados en los que
+puede encontrarse un sistema software crece de forma exponencial con
+el número de estados de sus elementos, por lo que es cada vez más
+difícil enumerarlos y, más aun, entenderlos. De esta complejidad
+inherente en el producto software viene la dificultad de la
+comunicación entre los miembros del equipo, los fallos del producto y
+la dificultad de extenderlo a nuevas funcionalidades sin crear efectos
+laterales.
+
+- **Conformidad**: Muchas veces no es posible eliminar la complejidad
+  anterior debido a que el software debe conectarse y estar conforme
+  con las interfaces de otros sistemas humanos como instituciones o
+  legislación que son complicados ya de por si. El software debe
+  adaptarse a estas interfaces ya existentes y no podemos
+  simplificarlo ni rediseñarlo por si solo.
+
+- **Cambiabilidad**: Las entidades principales del software están
+  sometidas constantemente a la presión del cambio. También sucede lo
+  mismo con los coches o los edificios, pero en esos casos los cambios
+  son mucho más lentos. En el caso del software, debido a su facilidad
+  de modificación, el cambio es una constante con la que tiene que
+  coexistir su desarrollo. El software se ejecuta en computadores,
+  dispositivos y sistemas operativos que también están cambiando
+  constantemente. Además, está embebido en una matriz cultural de
+  aplicaciones, usuarios y leyes que también están en continuo
+  cambio. Todos estos cambios fuerzan el cambio del propio software.
+
+- **Invisibilidad**: El software es invisible e invisualizable. En el
+  caso de otras industrias esto no es así. Los planos detallados de un
+  edificio permiten representar todos los elementos necesarios para su
+  construcción. Sucede igual con los diagramas y planos de diseño de
+  un automóvil. Sin embargo, el software no está embebido en un
+  espacio. En cuanto intentamos representar con diagramas la
+  estructura del software nos damos cuenta de que está constituido no
+  por uno, sino por bastantes grafos dirigidos superpuestos unos sobre
+  otros. Estos grafos pueden representar el control del flujo, el
+  control de los datos, patrones de dependencias, secuencias
+  temporales o relaciones en el espacio de nombres. Al no poder
+  visualizarlo, es muy difícil razonar sobre su estructura o
+  comunicarnos y analizarlo entre varias personas.
+
+Brooks argumenta que no es posible aplicar a estas propiedades las
+mismas optimizaciones que se han aplicado a los elementos accidentales
+del desarrollo. El hecho de tener lenguajes de programación de más
+alto nivel o mejores IDEs no mejora las características anteriores.
+
+Por último, Brooks termina el artículo dando algunas ideas de cómo
+sería posible optimizar el desarrollo de los elementos esenciales del
+software y combatir las características anteriores:
+
+- **Comprar frente a construir**. Utilizar software ya existente. En
+  la época en la que Brooks escribió el artículo no existía la Web ni
+  el Open Software. Por eso hablaba de "comprar" software. Hoy en día
+  tenemos múltiples de bibliotecas pre-existentes que podemos utilizar
+  con solo declararlas en el fichero `Pom.xml`. Sin embargo, estas
+  librerías son todavía de bajo nivel y la mayoría de las veces sirven
+  sólo para resolver los elementos accidentales. Existen muy pocas
+  librerías de alto nivel que podamos usar para resolver problemas
+  esenciales. Aunque cada vez están apareciendo más SaS (_Software as
+  a Service_) que proporcionan APIs REST para gestionar áreas
+  específicas de negocio. Un ejemplo podría ser los pagos con tarjeta
+  de crédito, en el que existen soluciones cada vez más flexibles como
+  [Stripe](https://stripe.com/es). 
+
+- **Prototipado rápido y refinamiento de los requisitos**. De esto
+  hablaremos más en el siguiente apartado. Pero Brooks se adelantó a
+  todo el movimiento ágil proponiendo la entrega rápida de versiones
+  iniciales del producto a los clientes para que éstos puedan
+  utilizarlo y entender mejor qué es lo que necesitan. Según Brooks,
+  la parte más complicada de la construcción de un sistema software es
+  precisamente decidir qué construir. Los clientes no saben lo que
+  quieren y es difícil predecir y planificar de antemano cómo va a ser
+  la interacción entre los usuarios y el propio software y cómo esta
+  interacción va a afectar su trabajo. Es imposible para los clientes
+  especificar completamente todos los requisitos del software que
+  necesitan sin haber probado alguna versión inicial del producto que
+  están especificando. Por tanto, es necesario poder desarrollar
+  versiones rápidas del software con las que se pueda realizar una
+  **especificación iterativa** de sus requisitos.
+
+- **Desarrollo incremental - crecer, no construir el software**. Con
+  esto también se adelantó Brooks al desarrollo ágil. El enfoque para
+  el desarrollo de software debe ser conseguir que éste crezca de
+  forma orgánica, siguiendo las necesidades de los usuarios. La
+  metáfora de la construcción no es correcta, hay que usar otras
+  metáforas nuevas en las que el desarrollo de software sea más
+  similar al empleado por la naturaleza, en la que podemos observar
+  cómo se han creado con éxito múltiples elementos de enorme
+  complejidad coexistiendo y colaborando en múltiples niveles. Para
+  ello es necesario realizar un desarrollo incremental, en el que se
+  parta de un software inicial al que se van añadiendo nuevas
+  funcionalidades y nuevas estructuras para trabajar con nuevos datos
+  y situaciones. De esta forma el software va creciendo de forma
+  orgánica.
 
 ### El desarrollo de software no es predecible ###
 
 
+## La solución: metodologías no tradicionales ##
 
-## Movimiento open-source ##
+### Movimiento open-source ###
 
 La aparición del movimiento de código abierto [a mediado de los años
 90](https://en.wikipedia.org/wiki/History_of_free_and_open-source_software)
@@ -537,3 +663,5 @@ editores de texto extensibles con un lenguaje de programación incluido
 
 ## Referencias ##
 
+- No silver bullet
+- 
