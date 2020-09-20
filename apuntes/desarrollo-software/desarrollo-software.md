@@ -466,7 +466,215 @@ aprendidas en ingenierías tradicionales, como la construcción? Ya
 hemos visto algunas ideas en los apartados anteriores. Vamos a
 intentar responder a continuación estas preguntas con más detalle.
 
-### El desarrollo de software es una actividad creativa ###
+En su artículo de 2005 titulado _The New Methodology_ Martin Fowler
+analiza las características del desarrollo de software, comparándolas
+con otras ingenierías más tradicionales e introduce un elemento de
+enorme importancia: la incertidumbre del desarrollo de software hace
+imposible aplicar métodos predictivos basados en planes.
+
+### Planificación en ingenierías tradicionales ###
+
+Las metodologías de desarrollo de ingenierías tradicionales, como la
+ingeniería civil, la construcción o la ingeniería mecánica, se basan
+en una planificación exhaustiva de todo el desarrollo del proyecto. En
+esta planificación se realiza en una primera fase un diseño completo
+del proyecto y posteriormente, una vez validado el diseño, se pasa a
+su realización.
+
+Los ingenieros responsables de estos proyectos trabajan con diagramas
+con los que representan las decisiones de diseño alcanzadas. El tipo
+de materiales a utilizar en el puente, el tipo de estructura, los
+pesos que va a soportar, etc. Todas esas son decisiones creativas de
+diseño que quedan plasmadas en los planos y diagramas. 
+
+Estos planos contienen la totalidad de detalles del proyecto y,
+teóricamente, es posible planificar el tiempo y el presupuesto del
+proyecto a partir de ellos.
+
+En una segunda fase, los planos se pasan a otro grupo de personas que
+son los encargados de realizar físicamente la construcción del
+proyecto. Estas personas se enfrentarán a nuevos problemas y tendrán
+que resolverlos, pero siempre dentro de las restricciones definidas
+por los planos originales. Estos problemas no deberían hacer necesario
+un rediseño grande de esas restricciones, como mucho algún pequeño
+ajuste. 
+
+La segunda fase de construcción suele ser mucho más costosa y larga
+que la primera fase de diseño. También es realizada por un tipo de
+profesionales de distinto tipo que la primera. Los responsables de la
+fase de diseño tienen habilidades creativas e intelectuales mientras
+que los responsables de la segunda tienen habilidades manuales y más
+prácticas. La primera fase es más creativa y poco predecible. La
+segunda fase es más mecánica y predecible.
+
+Este enfoque se ha intentado aplicar al desarrollo de software sin
+mucho éxito en la mayoría de los casos, utilizando el modelo
+denominado _waterfall_ (de cascada). En un siguiente apartado
+explicamos que el desarrollo de software es una actividad creativa y
+por qué el enfoque waterfall no es posible. Algunas ideas por ahora
+que diferencian el software de la construcción:
+
+- En el software la parte de construcción es muy barata.
+- En el software todo el esfuerzo es diseño y requiere, por tanto, de
+  personas creativas y con talento.
+- Los procesos creativos no se pueden planificar fácilmente, por lo
+  que la predictividad es un objetivo imposible.
+
+### La no predictividad de los requisitos ###
+
+Muchas veces los equipos de desarrollo se quejan de que "el problema es que
+los requisitos del proyecto siempre están cambiando". Sin embargo,
+esto es lo normal de los proyectos software. Lo que hay que hacer es
+aprender a gestionar estos cambios.
+
+Debido a la intangibilidad del software los clientes sólo pueden
+comprender su funcionamiento cuando lo ponen en ejecución. Por eso el
+valor de una característica nueva sólo se puede conocer cuando se usa
+de verdad. Sólo en ese momento se puede saber qué características
+proporcionan valor y cuáles no. 
+
+Por ello los clientes esperan poder cambiar ideas que resulta que no
+funcionan y poder cambiarlas por otras que se les ocurren y que pueden
+ser más valiosas. Los clientes saben que el software se puede
+modificar fácilmente.
+
+Incluso si las funcionalidades se conocieran de antemano
+perfectamente, el software se ejecutará en un entorno formado por
+personas, restricciones, legislación, etc. que están cambiando
+continuamente. 
+
+Por resumir, en el desarrollo de software tenemos distintos tipos de
+incertidumbres y riesgos que hacen que el proceso no sea totalmente
+predecible ni planificable.
+
+- **Valor del producto**: ¿estamos construyendo el producto adecuado? ¿las
+  funcionalidades que se introducen son las que realmente necesitan
+  los usuarios? ¿van a poder resolver sus problemas con el producto
+  que estamos construyendo?
+- **Tecnología empleada**: ¿el equipo conoce suficientemente la tecnología
+  para construir correctamente el producto? ¿va a poder escalar
+  suficientemente cuando se necesiten nuevos usuarios? ¿va a estar
+  libre de bugs? ¿tiene una buena documentación?
+- **Incertidumbres sociales**: los problemas que el software tratan de
+  resolver la mayoría de las veces tienen una componente humana y
+  social que puede afectar su desarrollo. Por ejemplo, pueden aparecer
+  nuevas legislaciones que regulen de forma distinta el negocio, o una
+  empresa competidora puede desarrollar un método alternativo de dar
+  un servicio, o puede surgir una pandemia que obligue a modificar las
+  formas de interactuar del negocio con los clientes.
+
+Por ello, debemos asumir que no podremos predecir fielmente todo el
+desarrollo, que el cambio es una característica fundamental del
+desarrollo y que debemos aprender a vivir con esta
+característica. Debemos aprender a hacer desarrollos que sean
+fácilmente modificables y robustos, que no se rompan cuando se cambien
+los requisitos.
+
+
+### Cómo controlar un proceso impredecible: iteraciones ###
+
+En el artículo _The New Methodology_ Martin Fowler se pregunta ¿cómo
+es posible enfrentarse y controlar un mundo incierto y poco
+predecible? Es un problema equivalente al de encontrar un camino en un
+entorno del que sólo conocemos mapas parciales y en el que no sabemos
+dónde estamos. La respuesta es que necesitamos tener un mecanismo de
+retroalimentación (_feedback_) con el que podamos continuamente
+obtener información y debemos reflexionar continuamente sobre la
+misma.
+
+
+El mecanismo que propone Fowler para conseguir feedback en el
+desarrollo de un producto software es el desarrollo iterativo. La
+clave es producir frecuentemente versiones funcionales (_working
+versions_) del sistema final que tengan un subconjunto de las
+características requeridas. Las características ofrecidas por estos
+sistemas serán limitadas en cuanto a número, pero en todo lo demás
+estarán totalmente operativas, testeadas e integradas, de forma que
+funcionarán tal y como el cliente las necesita.
+
+El objetivo de esto es proporcionar la oportunidad de que el usuario
+final interactúe con el sistema real. No con una documentación o con
+un prototipo. Es cuando la gente se pone a trabajar realmente frente
+al sistema cuando aparecen todos los errores, tanto en forma de _bugs_
+de programación como en forma de malas interpretaciones en las
+funcionalidades y problemas de uso.
+
+El resultado del desarrollo mediante iteraciones es un proceso
+adaptativo que es capaz de gestionar tanto las incertidumbres como los
+cambios. En este tipo de desarrollo los planes a largo plazo son
+muy flexibles y los únicos planes estables son los que se realizan a
+corto plazo en la próxima iteración. Los planes futuros se reajustan
+continuamente y se basan en el resultado de las iteraciones anteriores.
+
+### El cliente adaptativo ###
+
+Otro de los puntos que trata Martin Fowler en su artículo es el cambio
+de relación con el cliente al que obliga este nuevo enfoque
+iterativo. Lo habitual cuando se contrata un desarrollo de software es
+acordar un coste fijo y una fecha fija. Si el proyecto no se entrega
+en el plazo indicado, el cliente puede no pagar el precio
+acordado. Este tipo de contratos requiere unos requisitos estables y
+por ello un proceso de desarrollo predictivo.
+
+Un fracaso en este tipo de contratos afecta tanto al cliente como a la
+empresa de desarrollo. La empresa de desarrollo no cobra y pierde el
+dinero. Pero el cliente también resulta penalizado porque después de
+trabajar con la empresa de desarrollo durante un periodo de tiempo al
+final no obtiene nada. Además del trabajo perdido, también se esfuman
+todos los posibles beneficios que se hubieran obtenido si el software
+que se estaba desarrollando hubiera entrado en funcionamiento.
+
+En un proceso adaptativo no se puede trabajar con esta noción
+tradicional de precio fijo. Esto no significa que no se pueda definir
+un presupuesto y un tiempo de desarrollo para el proyecto. Lo que pasa
+es que no puedes fijar además el alcance del proyecto. El enfoque ágil
+es fijar el coste y el tiempo y permitir que el alcance varíe de una
+forma controlada.
+
+El cliente tiene entonces un grado de control mucho más fino en el
+proceso de desarrollo. En cada iteración obtiene el producto
+desarrollado hasta el momento y puede modificar la dirección del
+desarrollo. Esto lleva a una relación más cercana con los
+desarrolladores de software, a una relación de negocio basada en la
+colaboración. Este nivel de implicación no es asumible por muchas
+organizaciones, pero es esencial para que el proceso adaptativo
+funcione.
+
+El cliente puede pagar por iteraciones entregadas. Y si en algún
+momento no está satisfecho con el desarrollo del proyecto suspender el
+contrato. 
+
+Este tipo de colaboración tiene muchas ventajas para el cliente. Desde
+el principio obtiene una versión usable, aunque mínima, del
+sistema. El proceso es mucho más transparente y visible que en un
+modelo de precio fijo. Los posibles retrasos y problemas se pueden
+visualizar mucho más pronto y es posible reaccionar y tomar decisiones
+cuando todavía hay tiempo de hacerlo.
+
+Además el cliente puede también en cualquier momento cambiar las
+capacidades del sistema para adaptarse a cambios en el negocio. 
+
+Durante el desarrollo el cliente y los desarrolladores van aprendiendo
+qué elementos son valiosos y cuáles no. Muy a menudo las
+características más valiosas del software no se hacen obvias hasta que
+los clientes han tenido oportunidad de jugar con él.
+
+Los métodos adaptativos permiten aprovecharse de esto, animando a los
+clientes a que aprendan sus necesidades al tiempo que el sistema se va
+construyendo. Y construyendo el sistema de forma que los cambios
+puedan incorporarse fácilmente.
+
+Así se consigue lo que Mary Poppendieck indica con su frase:
+
+> Un cambio de última hora en los requerimientos es una ventaja
+> competitiva. 
+
+Esto es, el cliente puede reaccionar hasta el último momento frente
+cambios del entorno y ganar así a la competencia, que normalmente
+tendrá una capacidad de reacción mucho más lenta.
+
+
+## El desarrollo de software es una actividad creativa ##
 
 En 1986, hace más de 30 años, Fred Brooks escribió un artículo que se
 convertiría en clásico: "No Silver Bullet". 
@@ -483,7 +691,7 @@ que ver con las tareas accidentales: mejor hardware, mejores
 compiladores, mejores IDEs, etc. Sin embargo, el verdadero cuello de
 botella del desarrollo son las tareas esenciales.
 
-#### Tareas esenciales y accidentales del desarrollo de software ####
+### Tareas esenciales y accidentales del desarrollo de software ###
 
 Brooks considera que el diseño de software es una actividad creativa
 que se puede dividir en dos partes: lo esencial y lo accidental. Lo
@@ -525,7 +733,7 @@ programación. Sencillamente porque tenemos que dedicar una parte
 importante del tiempo a resolver problemas esenciales y no este tiempo
 no se puede reducir con las mejoras en los elementos accidentales.
 
-#### El cuello de botella del desarrollo de software ####
+### El cuello de botella del desarrollo de software ###
 
 Brooks argumenta que el cuello de botella del desarrollo de software
 es el relacionado con la parte esencial, con la especificación, diseño
@@ -590,6 +798,8 @@ mismas optimizaciones que se han aplicado a los elementos accidentales
 del desarrollo. El hecho de tener lenguajes de programación de más
 alto nivel o mejores IDEs no mejora las características anteriores.
 
+### Mejorar el desarrollo de los elementos esenciales ###
+
 Por último, Brooks termina el artículo dando algunas ideas de cómo
 sería posible optimizar el desarrollo de los elementos esenciales del
 software y combatir las características anteriores:
@@ -639,29 +849,10 @@ software y combatir las características anteriores:
   y situaciones. De esta forma el software va creciendo de forma
   orgánica.
 
-### El desarrollo de software no es predecible ###
-
-
-## La solución: metodologías no tradicionales ##
-
-### Movimiento open-source ###
-
-La aparición del movimiento de código abierto [a mediado de los años
-90](https://en.wikipedia.org/wiki/History_of_free_and_open-source_software)
-supuso un punto de inflexión en el desarrollo de los sistemas
-software. Hasta entonces los sistemas de software eran sistemas
-cerrados, gestionados por equipos de desarrollo altamente
-jerarquizados, con procesos rígidos y un alto porcentaje de fallos. 
-
-El movimiento de código abierto demostró que era posible crear de
-forma distribuida y auto-organizada complejos sistemas de software con
-decenas de miles de líneas de código como sistemas operativos ([Linux](https://en.wikipedia.org/wiki/Linux)),
-editores de texto extensibles con un lenguaje de programación incluido
-([Emacs](https://en.wikipedia.org/wiki/Emacs)) o bases de datos ([MySQL](https://en.wikipedia.org/wiki/MySQL)).
-
 
 
 ## Referencias ##
 
-- No silver bullet
-- 
+- Frederick Brooks (1987) [_No Silver Bullet_](http://worrydream.com/refs/Brooks-NoSilverBullet.pdf)
+- Martin Fowler (2005) [_The New Methodology](https://www.martinfowler.com/articles/newMethodology.html)
+- Steve McConnell (2004) [_Code Complete, Capítulo 2_](https://learning.oreilly.com/library/view/code-complete-second/0735619670/),
