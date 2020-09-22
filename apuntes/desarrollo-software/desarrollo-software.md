@@ -854,5 +854,5 @@ software y combatir las características anteriores:
 ## Referencias ##
 
 - Frederick Brooks (1987) [_No Silver Bullet_](http://worrydream.com/refs/Brooks-NoSilverBullet.pdf)
-- Martin Fowler (2005) [_The New Methodology](https://www.martinfowler.com/articles/newMethodology.html)
-- Steve McConnell (2004) [_Code Complete, Capítulo 2_](https://learning.oreilly.com/library/view/code-complete-second/0735619670/),
+- Martin Fowler (2005) [_The New Methodology_](https://www.martinfowler.com/articles/newMethodology.html)
+- Steve McConnell (2004) [_Code Complete, Capítulo 2_](https://learning.oreilly.com/library/view/code-complete-second/0735619670/)
