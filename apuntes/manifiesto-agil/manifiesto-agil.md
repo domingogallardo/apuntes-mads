@@ -80,9 +80,9 @@ abstracción muy alto, con lo que puede ser entendido mucho mejor:
 > By applying object-oriented design, we create software that is
 > reslient to change and written with economy of expression. 
 
-Y en cuanto a proceso de desarrollo el diseño orientado a objetos
-también rompe con el modelo tradicional de cascada y va de la mano de
-procesos iterativos:
+Y el diseño orientado a objetos también rompe con el modelo
+tradicional de desarrollo en cascada y va de la mano de procesos
+iterativos:
 
 > With object-oriented design we never encounter a "big-bang" event of
 > system integration. Instead, the development process results in the
