@@ -41,9 +41,10 @@ también en el argot).
 <table markdown="1">
 <tr><td>
 
-En ciertos ámbitos (grandes empresas, administraciones públicas, etc.)
-el modelo tradicional de cascada y su terminología sigue estando
-vigente en la actualidad.
+En España en la actualidad, dentro de ciertos ámbitos (grandes
+empresas con mucho software heredado como bancos, administraciones
+públicas, etc.), el modelo tradicional de cascada y su terminología
+sigue estando vigente en la actualidad.
 
 Como ejemplo, la siguiente imagen de una nota informativa del
 ministerio de trabajo sobre unos cambios en aplicaciones internas, en
@@ -93,7 +94,7 @@ cristalizar un conjunto de metodologías iterativas ya existentes y
 puso en cuestión el modelo de cascada tradicional. Además, el
 nacimiento de la [Web](https://en.wikipedia.org/wiki/World_Wide_Web)
 en 1993 y las fuertes inversiones y especulaciones alrededor de las
-[empresas punto com](https://en.wikipedia.org/wiki/Dot-com_bubble) a
+[empresas-punto com](https://en.wikipedia.org/wiki/Dot-com_bubble) a
 finales de los 90 produjo una necesidad añadida de buscar nuevas
 formas de desarrollar software, más cercanas a un mundo cada vez más
 cambiante y rápido.
