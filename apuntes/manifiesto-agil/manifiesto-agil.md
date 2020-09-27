@@ -584,9 +584,10 @@ desarrolladores.
 
 ### Principios ágiles ###
 
+<img src="imagenes/principios.png" width="600px"/>
 
-**1. Our highest priority is to satisfy the customer through early and
-  continuous delivery of valuable software.**
+**1. Nuestra mayor prioridad es satisfacer al cliente a través de la
+  entrega temprana y continua de software de valor.**
 
 - Tres ideas juntas: lanzar pronto el software, entregar valor
   continuamente y satisfacer al cliente.
@@ -597,8 +598,9 @@ desarrolladores.
   colaboración sobre los contratos. Esto es lo que significa
   **continuous delivery**.
 
-**2. Welcome changing requirements, even late in development. Agile
-  processes harness change for the customer's competitive advantage.**
+**2. Damos la bienvenida a requisitos cambiantes, incluso al final del
+  desarrollo. Los procesos ágiles aprovechan el cambio para la mejora
+  competitiva del cliente.**
 
 - La mayoría de desarrolladores tienen problemas con este principio:
   **no es fácil** tener que modificar código que ya está hecho. Y menos si
@@ -616,8 +618,8 @@ desarrolladores.
 - Debemos dejar de pensar en que los cambios son equivocaciones. Son
   **una forma de aprender**.
 
-**3. Deliver working software frequently, from a couple of weeks to a
-couple of months, with a preference to the shorter timescale.**
+**3. Entregar software que funciona frecuentemente, desde un par de
+semanas a un par de meses, siendo preferible la escala de tiempo más corta.**
 
 - Ya hemos hablado de las ventajas de las iteraciones pequeñas: hay un
   producto usable al final, todos en el equipo tienen objetivos claros
@@ -626,8 +628,8 @@ couple of months, with a preference to the shorter timescale.**
 - Cuidado, posible problema: perder de vista objetivos a largo plazo y
   características complejas que necesitan más de una iteración.
 
-**4. Business people and developers must work together daily
-throughout the project.**
+**4. La gente del negocio y los desarrolladores deben trabajar juntos
+diariamente y a lo largo de todo el proyecto.**
 
 - El problema es que la gente de negocio (los clientes) tienen un
   trabajo que hacer, distinto de ayudar a los desarrolladores. Pero el
@@ -645,9 +647,8 @@ throughout the project.**
   preparadas** y servir principalmente para validar información
   preparada por el _product owner_.
 
-**5. Build projects around motivated individuals. Give them the
-environment and support they need, and trust them to get the job
-done.**
+**5. Construir los proyectos alrededor de individuos motivados. Darles
+el entorno y el apoyo que necesitan y confiar en que van a hacer su trabajo.**
 
 - Cuidado con "incentivos" que funcionan en contra del equipo como
   premios por el número de bugs encontrados o el número de líneas
@@ -660,8 +661,8 @@ done.**
 - El líder del equipo debe aplicar técnicas de trabajo en grupo para
   conseguir más confianza y sinceridad.
 
-**6. The most efficient and effective method of conveying information
-  to and within a development team is face-to-face conversation.**
+**6. La forma más eficiente y efectiva de compartir información con y
+  dentro de un equipo de desarrollo son las conversaciones cara-a-cara.**
 
 - Las conversaciones son más valiosas que la documentación.
 - **Respeta el tiempo** de los demás y prepara bien la conversación, para
@@ -670,7 +671,7 @@ done.**
   comunidad** de forma que haya un montón de conocimiento implícito que
   no sea necesario comunicar una y otra vez.
 
-**7. Working software is the primary measure of progress.**
+**7. El software en funcionamiento es la primera medida de progreso.**
 
 - La mejor forma de medir el progreso del proyecto es comprobando la
   cantidad de funcionalidades implementadas y probadas.
@@ -681,9 +682,9 @@ done.**
   hace una idea mucho mejor del progreso que al leer informes y
   diagramas.
 
-**8. Agile processes promote sustainable development. The sponsors,
-developers, and users should be able to maintain a constant pace
-indefinitely.**
+**8. Los procesos ágiles promueven un desarrollo sostenible. Los
+patrocinadores, desarrolladores y usuarios deberían poder mantener un
+ritmo constante de forma indefinida.**
 
 - No caer en la práctica habitual de las horas extras y los fines de
   semana cuando se acerca la fecha de entrega. A largo plazo esto no
@@ -693,16 +694,16 @@ indefinitely.**
   más fielmente lo que se va a entregar al final de las dos, cuatro o
   seis semanas que dure la iteración.
 
-**9. Continuous attention to technical excellence and good design
- enhances agility.**
+**9. La atención continua a la excelencia técnica y al buen diseño
+ mejor la agilidad.**
 
 - Es importante resolver los bugs **tan pronto como aparecen**. Cuanto
   más se tarde en eliminar un bug más difícil es hacerlo.
 - Hay que utilizar buenas prácticas de diseño, buenas
   herramientas. Pero no sobre-diseñar.
 
-**10. Simplicity--the art of maximizing the amount of work not
- done--is essential.**
+**10. Simplicidad --el arte de maximizar la cantidad de trabajo no
+ hecho-- es esencial.**
 
 - Borrar código no es una operación demasiado destructiva, porque
   siempre lo puedes recuperar del sistema de control de versiones. Es
@@ -711,8 +712,8 @@ indefinitely.**
   solucionar los errores, ampliar las funcionalidades y realizar
   cambios.
 
-**11. The best architectures, requirements, and designs emerge from
- self-organizing teams.** 
+**11. Las mejores arquitecturas, requisitos, y diseños emergen de
+ equipos auto-organizados.** 
 
 - Lo contrario de un equipo auto-organizado es un equipo que obedece
   ciegamente los diseños propuestos en un proceso rígido como el de
@@ -726,8 +727,8 @@ indefinitely.**
   sistema poco a poco, ampliando los módulos, esquemas de la base de
   datos, etc.
 
-**12. At regular intervals, the team reflects on how to become more
- effective, then tunes and adjusts its behavior accordingly.**
+**12. A intervalos regulares, el equipo reflexiona sobre cómo ser más
+ efectivo, y ajusta su conducta de forma acorde.**
 
 - El equipo ágil no sólo debe mejora el software de forma continua,
   sino que también debe mejorar la propia **forma de construir el
