@@ -156,8 +156,8 @@ History_](https://www.craiglarman.com/wiki/downloads/misc/history-of-iterative-l
     <img src="imagenes/spiral.png" width="400px"/>
 
 -  <img src="imagenes/pragmatic-programmer.png" width="200px" align="right"/> 
-    (1995) El [movimiento de código
-    abierto](https://en.wikipedia.org/wiki/History_of_free_and_open-source_software)
+
+    (1995) El [movimiento de código abierto](https://en.wikipedia.org/wiki/History_of_free_and_open-source_software)
     demostró que era posible crear de forma distribuida y
     auto-organizada complejos sistemas de software con decenas de
     miles de líneas de código como sistemas operativos
