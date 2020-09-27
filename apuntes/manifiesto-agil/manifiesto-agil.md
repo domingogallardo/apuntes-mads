@@ -253,26 +253,33 @@ background en la web en la que está publicada el manifiesto:
 
 La palabra "Agile" se escogió después de descartar algunas otras como
 "Light Weight" o "Adaptive". A casi nadie le gustaba el nombre de
-"ligeros". Comenta Fowler en su artículo mencionado anteriormente que
+"ligeros". Comenta Fowler en el artículo mencionado anteriormente que
 el ser ligero no era el objetivo de los métodos, era sólo un
 síntoma. Al final se consideró que la palabra "ágil" capturaba bien la
 adaptatividad y la respuesta al cambio que se consideraba importante
 para todos los enfoques.
+
 
 ### Firmantes del manifiesto ###
 
 Los firmantes del manifiesto eran representantes de las principales
 metodologías _ligeras_ existentes en la época.
 
-- XP: Kent Beck, Bob Martin, Ron Jeffries, Word Cunningham, Martin
+- **XP**: Kent Beck, Bob Martin, Ron Jeffries, Word Cunningham, Martin
   Fowler, James Grenning
-- Scrum: Ken Schwaber, Mike Beedle, Jeff Sutherland
-- Feature Driven Development: Jon Kern
-- Dynamic System Development Method: Arie van Bennekum
-- Crystal Processes: Alistair Cockburn
-- Pragmatic Programmers: Andy Hunt, Dave Thomas
-- Model Driven: Steve Mellor
-- Consultores: Brian Marie y Jim Highsmith
+- **Scrum**: Ken Schwaber, Mike Beedle, Jeff Sutherland
+- **Feature Driven Development**: Jon Kern
+- **Dynamic System Development Method**: Arie van Bennekum
+- **Crystal Processes**: Alistair Cockburn
+- **Pragmatic Programmers**: Andy Hunt, Dave Thomas
+- **Model Driven**: Steve Mellor
+- **Consultores**: Brian Marie y Jim Highsmith
+
+En el artículo _"Back to the future: origins and directions
+of the Agile Manifesto – views of the originators"_ se presenta esta
+interesante figura con las influencias que dieron lugar al manifiesto.
+
+<img src="imagenes/influencias.png" width="600px"/>
 
 
 <table markdown="1">
@@ -297,6 +304,27 @@ cuenta de Twitter y la organización en la que participan.
 </td></tr></table>
 
 
+### Valores ###
+
+<img src="imagenes/manifiesto.png" width="300" align="right"/>
+
+El texto principal del manifiesto lista las cuatro creencias
+fundamentales en forma de **valores**, contraponiéndolas a elementos
+de las metodologías tradicionales. El manifiesto establece claramente
+que se prefiere los primeros, pero que éstos no reemplazan, sino que
+complementan, los segundos.
+
+> We are uncovering better ways of developing software by doing it and
+> helping others do it. Through this work we have come to value: 
+>
+> **Individuals and interactions** over processes and tools  
+> **Working software** over comprehensive documentation  
+> **Customer collaboration** over contract negotiation  
+> **Responding to change** over following a plan  
+>
+> That is, while there is value in the items on the right, we value
+> the items on the left more. 
+
 
 
 ## Impacto del Manifiesto Ágil ##
@@ -305,3 +333,6 @@ cuenta de Twitter y la organización en la que participan.
 
 ## Referencias ##
 
+- Philipp Hohl, Jil Klünder, Arie van Bennekum, Ryan Lockard, James Gifford, Jürgen Münch,
+Michael Stupperich and Kurt Schneider (2018) _Back to the future: origins and directions of the “Agile Manifesto” –
+views of the originators_
