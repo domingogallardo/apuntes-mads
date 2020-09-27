@@ -155,20 +155,24 @@ History_](https://www.craiglarman.com/wiki/downloads/misc/history-of-iterative-l
 
     <img src="imagenes/spiral.png" width="400px"/>
 
-    <img src="imagenes/pragmatic-programmer.png" width="200px" align="right"/>
-
-- (1995) El [movimiento de código abierto](https://en.wikipedia.org/wiki/History_of_free_and_open-source_software)
-demostró que era posible crear de forma distribuida y auto-organizada complejos sistemas de software con
-decenas de miles de líneas de código como sistemas operativos ([Linux](https://en.wikipedia.org/wiki/Linux)),
-editores de texto extensibles con un lenguaje de programación incluido
-([Emacs](https://en.wikipedia.org/wiki/Emacs)) o bases de datos
-([MySQL](https://en.wikipedia.org/wiki/MySQL)). En 1999 Eric Raymond
-publica su el libro [_The Cathedral and the Bazaar_](https://en.wikipedia.org/wiki/The_Cathedral_and_the_Bazaar) en donde analiza el
-modelo de desarrollo del movimiento open source. Y en el mismo año
-Andrew Hunt y David Thomas publican su influyente libro [The Pragmatic
-Programmer](https://en.wikipedia.org/wiki/The_Pragmatic_Programmer) en
-el que recogen buenas prácticas de programación relacionadas también
-con el open source, Linux/UNIX y el desarrollo iterativo.
+-  <img src="imagenes/pragmatic-programmer.png" width="200px" align="right"/> 
+    (1995) El [movimiento de código
+    abierto](https://en.wikipedia.org/wiki/History_of_free_and_open-source_software)
+    demostró que era posible crear de forma distribuida y
+    auto-organizada complejos sistemas de software con decenas de
+    miles de líneas de código como sistemas operativos
+    ([Linux](https://en.wikipedia.org/wiki/Linux)), editores de texto
+    extensibles con un lenguaje de programación incluido
+    ([Emacs](https://en.wikipedia.org/wiki/Emacs)) o bases de datos
+    ([MySQL](https://en.wikipedia.org/wiki/MySQL)). En 1999 Eric
+    Raymond publica su el libro [_The Cathedral and the
+    Bazaar_](https://en.wikipedia.org/wiki/The_Cathedral_and_the_Bazaar)
+    en donde analiza el modelo de desarrollo del movimiento open
+    source. Y en el mismo año Andrew Hunt y David Thomas publican su
+    influyente libro [The Pragmatic
+    Programmer](https://en.wikipedia.org/wiki/The_Pragmatic_Programmer)
+    en el que recogen buenas prácticas de programación relacionadas
+    también con el open source, Linux/UNIX y el desarrollo iterativo.
 
 
 ### Metodologías ligeras ###
