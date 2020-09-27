@@ -1,6 +1,6 @@
 
 
-# Manifiesto Ágil #
+# El Manifiesto Ágil #
 
 El Manifiesto Ágil, publicado en febrero de 2001, se considera el
 documento fundacional de todo el conjunto de metodologías del mismo
@@ -14,7 +14,6 @@ la época.
 En esta sesión vamos a poner en contexto el manifiesto, explicando
 esas ideas previas, para pasar después a estudiar en detalle el
 contenido del mismo.
-
 
 ## Tendencias previas al manifiesto ágil ##
 
@@ -203,7 +202,13 @@ diferencia XP. Kent Beck la había hecho popular en conferencias, con
 su libro de 1999 _Extreme Programming Explained_ y en cursos
 organizados junto con Bob Martin.
 
-### Los orígenes del manifiesto ###
+En el artículo _"Back to the future: origins and directions
+of the Agile Manifesto – views of the originators"_ se presenta esta
+interesante figura con las influencias que dieron lugar al manifiesto.
+
+<img src="imagenes/influencias.png" width="600px"/>
+
+### Reunión en Snowbird ###
 
 Martín Fowler, en su artículo [_Writing The Agile
 Manifesto_](https://www.martinfowler.com/articles/agileStory.html)
@@ -279,12 +284,6 @@ metodologías _ligeras_ existentes en la época.
 - **Pragmatic Programmers**: Andy Hunt, Dave Thomas
 - **Model Driven**: Steve Mellor
 - **Consultores**: Brian Marie y Jim Highsmith
-
-En el artículo _"Back to the future: origins and directions
-of the Agile Manifesto – views of the originators"_ se presenta esta
-interesante figura con las influencias que dieron lugar al manifiesto.
-
-<img src="imagenes/influencias.png" width="600px"/>
 
 
 <table markdown="1">
