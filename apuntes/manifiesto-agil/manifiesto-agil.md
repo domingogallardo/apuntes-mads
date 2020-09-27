@@ -308,7 +308,7 @@ cuenta de Twitter y la organización en la que participan.
 </td></tr></table>
 
 
-### Valores ###
+### Valores del Manifiesto Ágil ###
 
 <img src="imagenes/manifiesto.png" width="300" align="right"/>
 
@@ -329,14 +329,426 @@ complementan, los segundos.
 > That is, while there is value in the items on the right, we value
 > the items on the left more. 
 
+El primer gran acierto del manifiesto fue estructurarlo alrededor de
+valores. Los valores son elementos básicos de una cultura, creencia o
+metodología, que impregnan todo el resto de componentes.
 
+Antes de estudiar en detalle los valores concretos del Manifiesto Ágil
+vamos a reflexionar brevemente sobre la distinción entre valores,
+principios y prácticas.
+
+### Valores, principios y prácticas ###
+
+<img src="imagenes/valores-principios-practicas.png" width="300px" align="right"/>
+
+Muchas de las recetas e ideas que se proponen en conferencias, libros
+o metodologías no son generalmente aplicables a cualquier situación,
+sino que son dependientes del contexto. Por ejemplo, no es la misma
+situación la de una pequeña empresa familiar con sólo dos
+programadores que se encargan de la instalación y mantenimiento de
+software adquirido que el de una gran empresa con un departamento de
+informática formado por una veintena de personas.
+
+Por eso es muy importante siempre contemplar las prácticas como ideas
+o inspiraciones concretas y buscar el conocimiento más abstracto y
+general que las soportan. Estas ideas más generales son más
+abstractas, pero también son más generales y aplicables a muchos más
+contextos. 
+
+Por ejemplo, la idea de "colaboración con el cliente" es una idea
+general que será llevada a cabo de forma distinta en la empresa
+familiar y en la empresa grande. En la empresa pequeña se puede
+realizar de forma informal, intercambiando mensajes rápidos y
+frecuentes por Whatsapp. Pero en la empresa grande habrá que
+formalizarlo definiendo un responsable que haga el papel de product
+owner.
+
+La idea de "colaboración con el cliente" es lo que se denomina un
+valor, un elemento general que guía las acciones y son aplicables a
+situaciones muy diversas.
+
+En la definición inglesa de la palabra _value_ nos encontramos con la
+acepción que buscamos:
+
+> Valor:  
+> 
+> 2. Principio o estándar de conducta; juicio personal de lo que es
+>    importante en la vida.
+
+
+<table markdown="1">
+<tr><td>
+
+<img src="imagenes/starbucks.png" width="100px" align="left"></img>
+
+Hoy en día el término se ha popularizado en el mundo de los
+negocios. Se habla de **visión** de la empresa y de **valores**
+asociados a la misma. Por ejemplo, Starbucks define su [misión y
+valores](http://www.starbucks.com/about-us/company-information/mission-statement)
+de la siguiente forma:
+
+**Misión**: Inspirar y cuidar el espíritu humano - persona a persona,
+taza a taza y barrio a barrio.
+
+**Valores**: Con nuestros socios, nuestro café y nuestros clientes en
+el centro de nuestra experiencia, vivimos estos valores:
+
+- Crear una cultura de calidez y **de pertenencia**, donde todo el mundo
+  es bienvenido.
+- Actuar con **valentía**, enfrentándose al _status quo_ y encontrando
+  nuevas formas de hacer crecer nuestra empresa y cada uno de
+  nosotros.
+- Estar **presente y conectar** con transparencia, dignidad y respeto.
+- Entregar **lo mejor de nosotros** en todo lo que hacemos,
+  pudiendo dar cuenta en todo momento de nuestros resultados.
+
+Nuestro objetivo es el rendimiento, a través de la lente del humanismo.
+
+</tr></td></table>
+
+<img src="imagenes/puente-principios-practicas.png" width="400px" align="right">
+
+Los **principios** son ideas que se derivan de los valores, menos
+abastractas, pero no tan concretas como las prácticas. Por ejemplo, en
+el caso de la "colaboración con el cliente" podríamos definir el
+siguiente principio:
+
+> "Nuestra mayor prioridad es satisfacer al cliente a través de la
+> entrega temprana y continua de software valioso"
+
+Estamos dando un ejemplo concreto de colaboración con el cliente. Es
+una idea menos general que la del valor, pero todavía no es algo tan
+concreto como una práctica. Por ejemplo, no estamos definiendo la
+periodicidad, ni la forma de las entregas, ni las acciones que puede
+hacer el cliente cuando recibe el software. 
+
+Kent Beck ilustra la utilidad de los principios con la ilustración que
+vemos a la derecha. Los principios son como un puente que permiten
+movernos desde los valores hasta las prácticas.
+
+Es fundamental conocer los valores y principios subyacentes a las
+prácticas para no caer en la repetición vacía de las mismas y en
+“rituales ágiles” que son cualquier cosa menos ágiles. La aplicación
+ciega de las prácticas, sin contemplar el contexto de la situación,
+puede terminar empeorando el proceso desarrollo. Los valores y principios
+asociados a las prácticas nos permiten razonar sobre el por qué de su
+aplicación y decidir si es o no conveniente.
+
+<img src="imagenes/practicas.png" width="400px" align="right"/>
+
+Los valores y principios también proporcionan una visión común a todos
+los miembros implicados en el desarrollo del proyecto. Muchas veces
+los objetivos a corto plazo de distintos miembros del proyecto entran
+en conflicto y la mejor forma de arbitrar soluciones es usando los
+valores y principios comunes. Si no existen esos valores comunes se
+crea el problema de la _perspectiva fracturada_. En esta situación,
+cada miembro del equipo tiene una forma distinta de ver las distintas
+prácticas de desarrollo y se crean disfunciones y conflictos.
+
+Por ejemplo, si una idea compartida por todos los
+miembros del equipo es la de "entregar valor" al cliente, el equipo de
+desarrollo frenará su tendencia a crear una arquitectura
+de software superavanzada y especializada y se centrará en intentar
+añadir al software algo que entregar al cliente en la siguiente
+iteración.
+
+La visión común de los valores y principios también ayuda a unificar
+las distintas prácticas que se suelen aplicar en los distintos roles
+del desarrollo de software. En la figura de la derecha, tomada del
+libro _Learning Agile_, se muestran prácticas ágiles que habitualmente
+utilizan los managers, product oners, scrum masters (o team leaders) y
+desarrolladores.
+
+### Individuos e interacciones sobre procesos y herramientas ###
+
+
+
+
+
+- Las prácticas pueden usarse bien o mal. Es más importante fijarse en
+  los miembros del equipo, sus motivaciones, preferencias e
+  interacciones.
+- Más importante que una buena documentación es una buena interacción
+  (comunicación continua para que todo el equipo esté informado de las
+  decisiones, temas abiertos, conceptos de negocio, etc.)
+- Cuando no existen problemas de **comunicación** los equipos
+  funcionan mucho mejor (en algunos estudios se habla de hasta 50
+  veces mejor que la media). Para facilitar la comunicación las
+  metodologías ágiles se basan en ciclos frecuentes de
+  **inspeccionar-y-adaptar**. Estos ciclos van desde cada pocos
+  minutos con el _pair programming_, a cada pocas horas con la
+  integración continua, a cada día con las reuniones diarias
+  _standup_, a cada iteración con la revisión y la retrospectiva.
+- Para que funcione bien la comunicación y los ciclos de
+  inspeccionar-y-adaptar es necesario que los miembros del equipo
+  muestren bastantes conductas claves:
+  
+  - respecto por el bienestar de cada persona
+  - verdad en cada comunicación
+  - transparencia en todos los datos, acciones y decisiones
+  - confianza en que cada persona va a apoyar al equipo
+  - compromiso al equipo y a los objetivos del equipo
+
+- Para promover este tipo de conducta, se debe facilitar un entorno
+  que apoye y sea inclusivo. Se debe buscar de forma deliberada este
+  tipo de comportamientos, porque la mayoría de equipos evitan la
+  verdad, la transparencia y la confianza debido a normas culturales o
+  conflictos previos generados por ser honestos en la
+  comunicación. Para combatir estas tendencias, los líderes y los
+  miembros del equipo deben facilitar el conflicto positivo. Cuando
+  los equipos no esconden el conflicto, sino que se enfrentan a él de
+  forma positiva se obtienen muchos beneficios:
+  
+  - La mejora de los procesos depende en que los equipos generen una
+    lista de impedimentos o problemas en la organización, enfrentarse
+    a ellos de forma clara priorizándolos y eliminándolos
+    sistemáticamente.
+  - La innovación sucede únicamente como consecuencia del libre
+    intercambio de ideas enfrentadas.
+  - La resolución de intereses enfrentados es consecuencia de que los
+    equipos se alinean alrededor de objetivos comunes y exponen sus
+    preocupaciones y potenciales conflictos.
+  - El compromiso del trabajo conjunto sucede sólo cuando la gente se
+    pone de acuerdo en objetivos comunes y se esfuerzan en mejorarlos
+    tanto individualmente como en equipo.
+
+### Software en funcionamiento sobre documentación exhaustiva ###
+
+- Software que funciona es software que proporciona **valor**. En
+  muchas ocasiones este valor se puede calcular en forma de
+  **dinero**: los clientes ganan más con el software de lo que les ha
+  costado comprarlo. Nosotros ganamos más con él de lo nos ha costado
+  desarrollarlo.
+- Hay mucha documentación necesaria: manuales de usuario,
+  documentación técnica que se va a consultar. Hay que **eliminar la
+  documentación que no se va a usar** y que no aporta nada a lo que ya
+  sabemos. 
+- El **código** es la mejor documentación. En desarrollo TDD, primero se
+  hacen las pruebas y éstas sirven para validar el sistema y para
+  documentar. Los ejemplos de validación hechos por el _product owner_
+  y los clientes son otro ejemplo de documentación imprescindible.
+- El equipo debe definir lo que considera "software que funciona",
+  esto es, definir claramente cuando considera que una determinada
+  característica está terminada y lista para salir a producción. En un
+  alto nivel, un trozo de funcionalidad está completo cuando sus
+  características pasan todos los tests y puede ser utilizado por el
+  usuario final. Como mínimo se deben realizar tests unitarios y tests
+  a nivel de sitstema. Los mejores equipos incluirán también en la
+  definición de terminado tests de integración, tests de eficiencia y
+  tests de aceptación por el cliente.
+- Es conveniente definir tests de aceptación cuando se está definiendo
+  una nueva característica, ejecutarlos tan pronto la característica
+  se haya terminado de implementar y corregir _bugs_ identificados
+  como de alta prioridad tan pronto como sea posible.
+
+### Colaboración con el cliente sobre negociación de contratos ###
+
+- Esto se aplica también al trabajo dentro de la empresa. Obligar a
+  que "me den el encargo de trabajo por escrito" para poder después
+  cubrirme las espaldas si hay un error **no es un ejemplo de
+  colaboración**. 
+- La flexibilidad y apertura de la colaboración permite cometer fallos
+  sin que nadie se sienta señalado. El equipo es el responsable porque hay un
+  objetivo final en el todos estamos comprometidos.
+- Muchas veces no es posible trabajar mano a mano con el cliente final, por
+  lo que se crea la figura de un "proxy", llamado en Scrum _Product
+  Owner_. Es el encargado de concretar la lista de características que
+  debe tener el producto y priorizarlas.
+- **La _product owner_** es un miembro más del equipo: participa en las
+  reuniones, propone ideas, proporciona ejemplos de prueba y, lo más
+  importante, se siente tan autora del producto final como los demás
+  miembros del equipo.
+
+### Responder al cambio sobre seguir un plan ###
+
+- Habrá un plan general, pero **flexible y adaptable** a los cambios que
+  se puedan introducir en el desarrollo (sobre todo si es un proyecto
+  largo).
+- Hay que dejar de ver los cambios como errores y verlos como
+  **oportunidades** de entregar más valor.
+- La actitud del gestor del proyecto debe ser la de estar
+  continuamente comprobando y reaccionando (sobre todo al final de
+  cada iteración), no sólo la de planificar una vez al principio.
+- Los planes de los equipos ágiles se centran en entregar primero el
+  mayor valor de negocio. Debido a que el 80% del valor reside en el
+  20% de las características, los equipos ágiles tienden a tener listo
+  pronto un producto mínimo que proporcionará un valor claro al
+  cliente. De esta forma se evita el riesgo de no entregar el producto
+  en plazo o de tener que cancelarlo.
+- Los equipos ágiles se basan el conocimiento de que, para que
+  funcionen correctamente, los planes deben cambiar y adaptarse. Por
+  eso tienen establecido procesos, como revisiones y retrospectivas,
+  que están diseñados específicamente para modificar las prioridades
+  de forma regular basándose en la retroalimentación del cliente y en
+  el valor de negocio.
+
+### Principios ágiles ###
+
+
+**1. Our highest priority is to satisfy the customer through early and
+  continuous delivery of valuable software.**
+
+- Tres ideas juntas: lanzar pronto el software, entregar valor
+  continuamente y satisfacer al cliente.
+- Es difícil entender exactamente cómo va a funcionar el software
+  hasta el momento en que **los clientes lo usan**.
+- Por otro lado, para una empresa cliente puede ser difícil trabajar
+  con software incompleto. La empresa debe aprender a valorar la
+  colaboración sobre los contratos. Esto es lo que significa
+  **continuous delivery**.
+
+**2. Welcome changing requirements, even late in development. Agile
+  processes harness change for the customer's competitive advantage.**
+
+- La mayoría de desarrolladores tienen problemas con este principio:
+  **no es fácil** tener que modificar código que ya está hecho. Y menos si
+  no es por nuestra culpa.
+- Hay que verlo desde la perspectiva del cliente. Para el cliente
+  tampoco es fácil pedir un cambio. Muchas veces lo hace por necesidad
+  (ventaja competitiva), porque algo ha cambiado en el negocio desde
+  que se inició el proyecto. Por ejemplo, ha habido un cambio legal o
+  ha surgido alguna nueva tendencia en la sociedad que es interesante
+  incorporar al producto.  El producto obtenido después de los cambios
+  es mejor que el anterior y tiene características que lo hacen
+  destacar frente a los productos de la competencia (que no ha tenido
+  tiempo de introducir los cambios en el negocio).
+  
+- Debemos dejar de pensar en que los cambios son equivocaciones. Son
+  **una forma de aprender**.
+
+**3. Deliver working software frequently, from a couple of weeks to a
+couple of months, with a preference to the shorter timescale.**
+
+- Ya hemos hablado de las ventajas de las iteraciones pequeñas: hay un
+  producto usable al final, todos en el equipo tienen objetivos claros
+  para cada iteración, es más fácil planificar iteración a iteración y
+  tener una visión de más alto nivel.
+- Cuidado, posible problema: perder de vista objetivos a largo plazo y
+  características complejas que necesitan más de una iteración.
+
+**4. Business people and developers must work together daily
+throughout the project.**
+
+- El problema es que la gente de negocio (los clientes) tienen un
+  trabajo que hacer, distinto de ayudar a los desarrolladores. Pero el
+  problema es crítico: cada correo electrónico sin contestar retrasa
+  el proyecto.
+- La gente de negocio debe entender que el equipo va a entregar
+  software valioso para la empresa, que va a solucionar parte de sus
+  problemas y que va a merecer la pena ayudar, y formar parte del
+  equipo (normalmente a través del _product owner_).
+- Por eso es importante que el equipo priorice las características de
+  más valor.
+- Un buen _product owner_ puede ayudar a reducir la cantidad de tiempo
+  que la gente de negocio pasa con el equipo. Puede que sea necesario
+  que se reúnan diariamente, pero las reuniones deben **estar
+  preparadas** y servir principalmente para validar información
+  preparada por el _product owner_.
+
+**5. Build projects around motivated individuals. Give them the
+environment and support they need, and trust them to get the job
+done.**
+
+- Cuidado con "incentivos" que funcionan en contra del equipo como
+  premios por el número de bugs encontrados o el número de líneas
+  escritas.
+- Si cada uno en el equipo intenta cubrirse las espaldas y acusar a
+  otros de los problemas, se genera una **atmósfera perniciosa** para
+  el desarrollo.
+- La motivación por el proyecto que se está desarrollando y la
+  **confianza** son valores que hay que fomentar.
+- El líder del equipo debe aplicar técnicas de trabajo en grupo para
+  conseguir más confianza y sinceridad.
+
+**6. The most efficient and effective method of conveying information
+  to and within a development team is face-to-face conversation.**
+
+- Las conversaciones son más valiosas que la documentación.
+- **Respeta el tiempo** de los demás y prepara bien la conversación, para
+  que sea eficiente.
+- El fin último de las conversaciones es crear un **sentimiento de
+  comunidad** de forma que haya un montón de conocimiento implícito que
+  no sea necesario comunicar una y otra vez.
+
+**7. Working software is the primary measure of progress.**
+
+- La mejor forma de medir el progreso del proyecto es comprobando la
+  cantidad de funcionalidades implementadas y probadas.
+- En el momento en que ves el software funcionando, lo
+  "pillas". Puedes comprobar lo que se ha hecho y lo que falta por
+  hacer.
+- Al **probar el software** al final de cada iteración todo el mundo se
+  hace una idea mucho mejor del progreso que al leer informes y
+  diagramas.
+
+**8. Agile processes promote sustainable development. The sponsors,
+developers, and users should be able to maintain a constant pace
+indefinitely.**
+
+- No caer en la práctica habitual de las horas extras y los fines de
+  semana cuando se acerca la fecha de entrega. A largo plazo esto no
+  funciona.
+- El desarrollo iterativo es mucho más realista, porque un ritmo de
+  desarrollo sostenido durante la iteración nos permite estimar mucho
+  más fielmente lo que se va a entregar al final de las dos, cuatro o
+  seis semanas que dure la iteración.
+
+**9. Continuous attention to technical excellence and good design
+ enhances agility.**
+
+- Es importante resolver los bugs **tan pronto como aparecen**. Cuanto
+  más se tarde en eliminar un bug más difícil es hacerlo.
+- Hay que utilizar buenas prácticas de diseño, buenas
+  herramientas. Pero no sobre-diseñar.
+
+**10. Simplicity--the art of maximizing the amount of work not
+ done--is essential.**
+
+- Borrar código no es una operación demasiado destructiva, porque
+  siempre lo puedes recuperar del sistema de control de versiones. Es
+  peor escribir código de más.
+- Cuantas más líneas de código, más dependencias y más difícil
+  solucionar los errores, ampliar las funcionalidades y realizar
+  cambios.
+
+**11. The best architectures, requirements, and designs emerge from
+ self-organizing teams.** 
+
+- Lo contrario de un equipo auto-organizado es un equipo que obedece
+  ciegamente los diseños propuestos en un proceso rígido como el de
+  cascada. 
+- En un equipo ágil todo el equipo comparte la responsabilidad de la
+  arquitectura del proyecto.
+- En lugar de un gran diseño al principio de todo, el diseño va
+  **emergiendo de forma incremental**, conforme se van desarrollando
+  historias de usuario (de mayor a menor valor).
+- Esto obliga a usar técnicas de diseño que permitan construir el
+  sistema poco a poco, ampliando los módulos, esquemas de la base de
+  datos, etc.
+
+**12. At regular intervals, the team reflects on how to become more
+ effective, then tunes and adjusts its behavior accordingly.**
+
+- El equipo ágil no sólo debe mejora el software de forma continua,
+  sino que también debe mejorar la propia **forma de construir el
+  software**. 
+- Al principio es algo incómodo hablar de errores y cosas que se han
+  hecho mal. Pero con el tiempo la gente se acostumbra a ello y se
+  convierte en una forma de mejorar a base de hacer críticas
+  constructivas (y valorar lo que se ha hecho bien).
 
 ## Impacto del Manifiesto Ágil ##
 
 
 
+
+
 ## Referencias ##
 
+- Artículo de Larman
+- Artículo de Fowler
+- Capítulo XX de Clean Agile
 - Philipp Hohl, Jil Klünder, Arie van Bennekum, Ryan Lockard, James Gifford, Jürgen Münch,
 Michael Stupperich and Kurt Schneider (2018) _Back to the future: origins and directions of the “Agile Manifesto” –
 views of the originators_
+- Capítulo 2 Learning Agile
