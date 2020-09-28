@@ -51,27 +51,9 @@ Las 8 fases definidas son:
 Este enfoque tradicional obligaba a una cantidad muy grande de
 documentación y a procesos muy burocratizados. Los errores y problemas
 detectados en las fases inferiores del proceso debían ser reportados
-usando protocolos muy rígidos y los cambios (denominados "evolutivos"
-en el argot) debían ser aprobados por gerencia y contratados por los
-clientes antes de ser incorporados en el software ("aplicativo"
-también en el argot).
-
-<table markdown="1">
-<tr><td>
-
-En España en la actualidad, dentro de ciertos ámbitos (grandes
-empresas con mucho software heredado como bancos, administraciones
-públicas, etc.), el modelo tradicional de cascada y su terminología
-sigue estando vigente en la actualidad.
-
-Como ejemplo, la siguiente imagen de una nota informativa del
-ministerio de trabajo sobre unos cambios en aplicaciones internas, en
-el que se utiliza la terminología "evolutivo en el aplicativo" para
-referirse a nuevos cambios introducidos.
-
-<img src="imagenes/evolutivo-aplicativo.png" width="400px"/>
-
-</tr></td></table>
+usando protocolos muy rígidos y los cambios debían ser aprobados por
+gerencia y contratados por los clientes antes de ser incorporados en
+el software.
 
 ### Programación y diseño orientado a objetos ###
 
@@ -459,130 +441,183 @@ libro _Learning Agile_, se muestran prácticas ágiles que habitualmente
 utilizan los managers, product oners, scrum masters (o team leaders) y
 desarrolladores.
 
+Veamos a continuación uno a uno los cuatro valores del manifiesto
+ágil, explicando cada uno de ellos en cierta profundidad.
+
 ### Individuos e interacciones sobre procesos y herramientas ###
 
 
 
 
+La mejor garantía de que el proyecto tenga éxito es que el equipo que
+lo desarrolla funcione bien. Los métodos, procesos y herramientas son
+secundarios. Pueden usarse bien o mal. Es más importante fijarse en
+los miembros del equipo, sus motivaciones, preferencias e
+interacciones.
 
-- Las prácticas pueden usarse bien o mal. Es más importante fijarse en
-  los miembros del equipo, sus motivaciones, preferencias e
-  interacciones.
-- Más importante que una buena documentación es una buena interacción
-  (comunicación continua para que todo el equipo esté informado de las
-  decisiones, temas abiertos, conceptos de negocio, etc.)
-- Cuando no existen problemas de **comunicación** los equipos
-  funcionan mucho mejor (en algunos estudios se habla de hasta 50
-  veces mejor que la media). Para facilitar la comunicación las
-  metodologías ágiles se basan en ciclos frecuentes de
-  **inspeccionar-y-adaptar**. Estos ciclos van desde cada pocos
-  minutos con el _pair programming_, a cada pocas horas con la
-  integración continua, a cada día con las reuniones diarias
-  _standup_, a cada iteración con la revisión y la retrospectiva.
-- Para que funcione bien la comunicación y los ciclos de
-  inspeccionar-y-adaptar es necesario que los miembros del equipo
-  muestren bastantes conductas claves:
-  
-  - respecto por el bienestar de cada persona
-  - verdad en cada comunicación
-  - transparencia en todos los datos, acciones y decisiones
-  - confianza en que cada persona va a apoyar al equipo
-  - compromiso al equipo y a los objetivos del equipo
+Las metodologías tradicionales hacen gran énfasis en la documentación
+escrita. Sin embargo, más importante que una buena documentación es
+una buena interacción (comunicación continua para que todo el equipo
+esté informado de las decisiones, temas abiertos, conceptos de
+negocio, etc.).
 
-- Para promover este tipo de conducta, se debe facilitar un entorno
-  que apoye y sea inclusivo. Se debe buscar de forma deliberada este
-  tipo de comportamientos, porque la mayoría de equipos evitan la
-  verdad, la transparencia y la confianza debido a normas culturales o
-  conflictos previos generados por ser honestos en la
-  comunicación. Para combatir estas tendencias, los líderes y los
-  miembros del equipo deben facilitar el conflicto positivo. Cuando
-  los equipos no esconden el conflicto, sino que se enfrentan a él de
-  forma positiva se obtienen muchos beneficios:
+Cuando no existen problemas de comunicación los equipos funcionan
+mucho mejor (en algunos estudios se habla de hasta 50 veces mejor que
+la media). Para facilitar la comunicación las metodologías ágiles se
+basan en ciclos frecuentes de inspeccionar-y-adaptar. Estos ciclos
+van desde cada pocos minutos con el _pair programming_, a cada pocas
+horas con la integración continua, a cada día con las reuniones
+diarias _standup_, a cada iteración con la revisión y la
+retrospectiva.
+
+Para que funcione bien la comunicación y los ciclos de
+inspeccionar-y-adaptar es necesario que los miembros del equipo
+muestren bastantes conductas claves:
   
-  - La mejora de los procesos depende en que los equipos generen una
-    lista de impedimentos o problemas en la organización, enfrentarse
-    a ellos de forma clara priorizándolos y eliminándolos
-    sistemáticamente.
-  - La innovación sucede únicamente como consecuencia del libre
-    intercambio de ideas enfrentadas.
-  - La resolución de intereses enfrentados es consecuencia de que los
-    equipos se alinean alrededor de objetivos comunes y exponen sus
-    preocupaciones y potenciales conflictos.
-  - El compromiso del trabajo conjunto sucede sólo cuando la gente se
-    pone de acuerdo en objetivos comunes y se esfuerzan en mejorarlos
-    tanto individualmente como en equipo.
+- respecto por el bienestar de cada persona
+- verdad en cada comunicación
+- transparencia en todos los datos, acciones y decisiones
+- confianza en que cada persona va a apoyar al equipo
+- compromiso al equipo y a los objetivos del equipo
+
+Para promover este tipo de conducta, se debe facilitar un entorno que
+apoye y sea inclusivo. 
+
+Se debe buscar de forma deliberada este tipo de comportamientos,
+porque la mayoría de equipos evitan la verdad, la transparencia y la
+confianza debido a normas culturales o conflictos previos generados
+por ser honestos en la comunicación. Para combatir estas tendencias,
+los líderes y los miembros del equipo deben facilitar el conflicto
+positivo.
+
+Cuando los equipos no esconden el conflicto, sino que se enfrentan a
+él de forma positiva se obtienen muchos beneficios:
+  
+- La mejora de los procesos depende en que los equipos generen una
+  lista de impedimentos o problemas en la organización, enfrentarse a
+  ellos de forma clara priorizándolos y eliminándolos
+  sistemáticamente.
+- La innovación sucede únicamente como consecuencia del libre
+  intercambio de ideas enfrentadas.
+- La resolución de intereses enfrentados es consecuencia de que los
+  equipos se alinean alrededor de objetivos comunes y exponen sus
+  preocupaciones y potenciales conflictos.
+- El compromiso del trabajo conjunto sucede sólo cuando la gente se
+  pone de acuerdo en objetivos comunes y se esfuerzan en mejorarlos
+  tanto individualmente como en equipo.
 
 ### Software en funcionamiento sobre documentación exhaustiva ###
 
-- Software que funciona es software que proporciona **valor**. En
-  muchas ocasiones este valor se puede calcular en forma de
-  **dinero**: los clientes ganan más con el software de lo que les ha
-  costado comprarlo. Nosotros ganamos más con él de lo nos ha costado
-  desarrollarlo.
-- Hay mucha documentación necesaria: manuales de usuario,
-  documentación técnica que se va a consultar. Hay que **eliminar la
-  documentación que no se va a usar** y que no aporta nada a lo que ya
-  sabemos. 
-- El **código** es la mejor documentación. En desarrollo TDD, primero se
-  hacen las pruebas y éstas sirven para validar el sistema y para
-  documentar. Los ejemplos de validación hechos por el _product owner_
-  y los clientes son otro ejemplo de documentación imprescindible.
-- El equipo debe definir lo que considera "software que funciona",
-  esto es, definir claramente cuando considera que una determinada
-  característica está terminada y lista para salir a producción. En un
-  alto nivel, un trozo de funcionalidad está completo cuando sus
-  características pasan todos los tests y puede ser utilizado por el
-  usuario final. Como mínimo se deben realizar tests unitarios y tests
-  a nivel de sitstema. Los mejores equipos incluirán también en la
-  definición de terminado tests de integración, tests de eficiencia y
-  tests de aceptación por el cliente.
-- Es conveniente definir tests de aceptación cuando se está definiendo
-  una nueva característica, ejecutarlos tan pronto la característica
-  se haya terminado de implementar y corregir _bugs_ identificados
-  como de alta prioridad tan pronto como sea posible.
+Frente a la documentación exhaustiva propia de los métodos
+tradicionales, el manifiesto ágil promueve la idea del software en
+funcionamiento, siendo utilizado por los clientes.
+
+El software que funciona es software que proporciona valor. En
+muchas ocasiones este valor se puede calcular en forma de dinero:
+los clientes ganan más con el software de lo que les ha costado
+comprarlo. Nosotros ganamos más con él de lo nos ha costado
+desarrollarlo.
+
+Hay mucha documentación necesaria: manuales de usuario, documentación
+técnica que se va a consultar. Sin embargo, hay que eliminar la
+documentación que no se va a usar y que no aporta nada a lo que ya
+sabemos.
+
+Por otro lado, un buen código es la mejor documentación. En desarrollo
+TDD, primero se hacen las pruebas y éstas sirven para validar el
+sistema y para documentar. Los ejemplos de validación hechos por el
+_product owner_ y los clientes son otro ejemplo de documentación
+imprescindible.
+
+El equipo debe definir lo que considera "software que funciona", esto
+es, definir claramente cuando considera que una determinada
+característica está terminada y lista para salir a producción. En un
+alto nivel, un trozo de funcionalidad está completo cuando sus
+características pasan todos los tests y puede ser utilizado por el
+usuario final. Como mínimo se deben realizar tests unitarios y tests a
+nivel de sitstema. Los mejores equipos incluirán también en la
+definición de terminado tests de integración, tests de eficiencia y
+tests de aceptación por el cliente.
+
+Es conveniente definir tests de aceptación cuando se está definiendo
+una nueva característica, ejecutarlos tan pronto la característica se
+haya terminado de implementar y corregir _bugs_ identificados como de
+alta prioridad tan pronto como sea posible.
 
 ### Colaboración con el cliente sobre negociación de contratos ###
 
-- Esto se aplica también al trabajo dentro de la empresa. Obligar a
-  que "me den el encargo de trabajo por escrito" para poder después
-  cubrirme las espaldas si hay un error **no es un ejemplo de
-  colaboración**. 
-- La flexibilidad y apertura de la colaboración permite cometer fallos
-  sin que nadie se sienta señalado. El equipo es el responsable porque hay un
-  objetivo final en el todos estamos comprometidos.
-- Muchas veces no es posible trabajar mano a mano con el cliente final, por
-  lo que se crea la figura de un "proxy", llamado en Scrum _Product
-  Owner_. Es el encargado de concretar la lista de características que
-  debe tener el producto y priorizarlas.
-- **La _product owner_** es un miembro más del equipo: participa en las
-  reuniones, propone ideas, proporciona ejemplos de prueba y, lo más
-  importante, se siente tan autora del producto final como los demás
-  miembros del equipo.
+Se promueve la colaboración con el cliente como forma de que éste
+termine satisfecho. Un contrato tradicional obliga a definir a priori
+con todo detalle el conjunto de requisitos del sistema y hacer una
+planificación a largo plazo que siempre va a ser muy difícil de
+cumplir. Sobre todo en procesos no deterministas como el desarrollo de
+software. 
+
+Esto se aplica también al trabajo dentro de la empresa. Obligar a que
+"me den el encargo de trabajo por escrito" para poder después cubrirme
+las espaldas si hay un error no es un ejemplo de colaboración.
+
+La flexibilidad y apertura de la colaboración permite cometer fallos
+sin que nadie se sienta señalado. El equipo es el responsable porque
+hay un objetivo final en el todos estamos comprometidos.
+
+Muchas veces no es posible trabajar mano a mano con el cliente final,
+por lo que se crea la figura de un "proxy", llamado en Scrum Product
+Owner. Es el encargado de concretar la lista de características que
+debe tener el producto y priorizarlas.
+
+El product owner es un miembro más del equipo: participa en las
+reuniones, propone ideas, proporciona ejemplos de prueba y, lo más
+importante, se siente tan autor del producto final como los demás
+miembros del equipo.
 
 ### Responder al cambio sobre seguir un plan ###
 
-- Habrá un plan general, pero **flexible y adaptable** a los cambios que
-  se puedan introducir en el desarrollo (sobre todo si es un proyecto
-  largo).
-- Hay que dejar de ver los cambios como errores y verlos como
-  **oportunidades** de entregar más valor.
-- La actitud del gestor del proyecto debe ser la de estar
-  continuamente comprobando y reaccionando (sobre todo al final de
-  cada iteración), no sólo la de planificar una vez al principio.
-- Los planes de los equipos ágiles se centran en entregar primero el
-  mayor valor de negocio. Debido a que el 80% del valor reside en el
-  20% de las características, los equipos ágiles tienden a tener listo
-  pronto un producto mínimo que proporcionará un valor claro al
-  cliente. De esta forma se evita el riesgo de no entregar el producto
-  en plazo o de tener que cancelarlo.
-- Los equipos ágiles se basan el conocimiento de que, para que
-  funcionen correctamente, los planes deben cambiar y adaptarse. Por
-  eso tienen establecido procesos, como revisiones y retrospectivas,
-  que están diseñados específicamente para modificar las prioridades
-  de forma regular basándose en la retroalimentación del cliente y en
-  el valor de negocio.
+Responder y abrazar el cambio es una de las características
+fundamentales de XP, que se incorpora al manifiesto ágil. 
+
+Habrá un plan general, pero flexible y adaptable a los cambios que se
+puedan introducir en el desarrollo (sobre todo si es un proyecto
+largo).
+
+Hay que dejar de ver los cambios como errores y verlos como
+oportunidades de entregar más valor. La actitud del gestor del
+proyecto, por tanto, debe ser la de estar continuamente comprobando y
+reaccionando (sobre todo al final de cada iteración), no sólo la de
+planificar una vez al principio.
+
+Los planes de los equipos ágiles se centran en entregar primero el
+mayor valor de negocio. Debido a que el 80% del valor reside en el 20%
+de las características, los equipos ágiles tienden a tener listo
+pronto un producto mínimo que proporcionará un valor claro al
+cliente. De esta forma se evita el riesgo de no entregar el producto
+en plazo o de tener que cancelarlo.
+
+Los equipos ágiles se basan el conocimiento de que, para que funcionen
+correctamente, los planes deben cambiar y adaptarse. Por eso tienen
+establecido procesos, como revisiones y retrospectivas, que están
+diseñados específicamente para modificar las prioridades de forma
+regular basándose en la retroalimentación del cliente y en el valor de
+negocio.
+
+Para que sea posible el cambio el software debe estar construido
+correctamente, haciendo frecuentes refactorizaciones que eviten la
+acumulación de deuda técnica. Si dejamos que los parches y las
+soluciones rápidas se queden en el código, tarde o temprano esto
+repercutirá en el proyecto y cada vez será más complicado introducir
+nuevas características. El software se hará cada vez más rígido y
+dejará de ser fluido y "soft". Y la velocidad de desarrollo se hará
+haciendo cada vez mayor.
+
 
 ### Principios ágiles ###
+
+Durante la reunión de Snowbird se elaboró sólo la parte del manifiesto
+dedicada a los valores. Una vez terminada la reunión se trabajó
+durante unas semanas para terminar de configurar la web en la que se
+publicaría el manifiesto. Se intercambiaron correos electrónicos entre
+los participantes y se terminó definiendo una lista de 12 principios
+que terminan de configurar y definir el manifiesto.
 
 <img src="imagenes/principios.png" width="600px"/>
 
