@@ -627,18 +627,18 @@ que terminan de configurar y definir el manifiesto.
 - Tres ideas juntas: lanzar pronto el software, entregar valor
   continuamente y satisfacer al cliente.
 - Es difícil entender exactamente cómo va a funcionar el software
-  hasta el momento en que **los clientes lo usan**.
+  hasta el momento en que  clientes lo usan.
 - Por otro lado, para una empresa cliente puede ser difícil trabajar
   con software incompleto. La empresa debe aprender a valorar la
   colaboración sobre los contratos. Esto es lo que significa
-  **continuous delivery**.
+  continuous delivery.
 
 **2. Damos la bienvenida a requisitos cambiantes, incluso al final del
   desarrollo. Los procesos ágiles aprovechan el cambio para la mejora
   competitiva del cliente.**
 
 - La mayoría de desarrolladores tienen problemas con este principio:
-  **no es fácil** tener que modificar código que ya está hecho. Y menos si
+  no es fácil tener que modificar código que ya está hecho. Y menos si
   no es por nuestra culpa.
 - Hay que verlo desde la perspectiva del cliente. Para el cliente
   tampoco es fácil pedir un cambio. Muchas veces lo hace por necesidad
@@ -651,7 +651,7 @@ que terminan de configurar y definir el manifiesto.
   tiempo de introducir los cambios en el negocio).
   
 - Debemos dejar de pensar en que los cambios son equivocaciones. Son
-  **una forma de aprender**.
+  una forma de aprender.
 
 **3. Entregar software que funciona frecuentemente, desde un par de
 semanas a un par de meses, siendo preferible la escala de tiempo más corta.**
@@ -678,8 +678,8 @@ diariamente y a lo largo de todo el proyecto.**
   más valor.
 - Un buen _product owner_ puede ayudar a reducir la cantidad de tiempo
   que la gente de negocio pasa con el equipo. Puede que sea necesario
-  que se reúnan diariamente, pero las reuniones deben **estar
-  preparadas** y servir principalmente para validar información
+  que se reúnan diariamente, pero las reuniones deben estar
+  preparadas y servir principalmente para validar información
   preparada por el _product owner_.
 
 **5. Construir los proyectos alrededor de individuos motivados. Darles
@@ -689,10 +689,10 @@ el entorno y el apoyo que necesitan y confiar en que van a hacer su trabajo.**
   premios por el número de bugs encontrados o el número de líneas
   escritas.
 - Si cada uno en el equipo intenta cubrirse las espaldas y acusar a
-  otros de los problemas, se genera una **atmósfera perniciosa** para
+  otros de los problemas, se genera una atmósfera perniciosa para
   el desarrollo.
 - La motivación por el proyecto que se está desarrollando y la
-  **confianza** son valores que hay que fomentar.
+  confianza son valores que hay que fomentar.
 - El líder del equipo debe aplicar técnicas de trabajo en grupo para
   conseguir más confianza y sinceridad.
 
@@ -700,10 +700,10 @@ el entorno y el apoyo que necesitan y confiar en que van a hacer su trabajo.**
   dentro de un equipo de desarrollo son las conversaciones cara-a-cara.**
 
 - Las conversaciones son más valiosas que la documentación.
-- **Respeta el tiempo** de los demás y prepara bien la conversación, para
+- Respeta el tiempo de los demás y prepara bien la conversación, para
   que sea eficiente.
-- El fin último de las conversaciones es crear un **sentimiento de
-  comunidad** de forma que haya un montón de conocimiento implícito que
+- El fin último de las conversaciones es crear un sentimiento de
+  comunidad de forma que haya un montón de conocimiento implícito que
   no sea necesario comunicar una y otra vez.
 
 **7. El software en funcionamiento es la primera medida de progreso.**
@@ -713,7 +713,7 @@ el entorno y el apoyo que necesitan y confiar en que van a hacer su trabajo.**
 - En el momento en que ves el software funcionando, lo
   "pillas". Puedes comprobar lo que se ha hecho y lo que falta por
   hacer.
-- Al **probar el software** al final de cada iteración todo el mundo se
+- Al probar el software al final de cada iteración todo el mundo se
   hace una idea mucho mejor del progreso que al leer informes y
   diagramas.
 
@@ -732,7 +732,7 @@ ritmo constante de forma indefinida.**
 **9. La atención continua a la excelencia técnica y al buen diseño
  mejor la agilidad.**
 
-- Es importante resolver los bugs **tan pronto como aparecen**. Cuanto
+- Es importante resolver los bugs tan pronto como aparecen. Cuanto
   más se tarde en eliminar un bug más difícil es hacerlo.
 - Hay que utilizar buenas prácticas de diseño, buenas
   herramientas. Pero no sobre-diseñar.
@@ -756,7 +756,7 @@ ritmo constante de forma indefinida.**
 - En un equipo ágil todo el equipo comparte la responsabilidad de la
   arquitectura del proyecto.
 - En lugar de un gran diseño al principio de todo, el diseño va
-  **emergiendo de forma incremental**, conforme se van desarrollando
+  emergiendo de forma incremental, conforme se van desarrollando
   historias de usuario (de mayor a menor valor).
 - Esto obliga a usar técnicas de diseño que permitan construir el
   sistema poco a poco, ampliando los módulos, esquemas de la base de
@@ -766,8 +766,8 @@ ritmo constante de forma indefinida.**
  efectivo, y ajusta su conducta de forma acorde.**
 
 - El equipo ágil no sólo debe mejora el software de forma continua,
-  sino que también debe mejorar la propia **forma de construir el
-  software**. 
+  sino que también debe mejorar la propia forma de construir el
+  software. 
 - Al principio es algo incómodo hablar de errores y cosas que se han
   hecho mal. Pero con el tiempo la gente se acostumbra a ello y se
   convierte en una forma de mejorar a base de hacer críticas
