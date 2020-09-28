@@ -124,7 +124,7 @@ History_](https://www.craiglarman.com/wiki/downloads/misc/history-of-iterative-l
     > a previous successful step upon failure. You have the
     > opportunity of receiving some feedback from the real world
     > before throwing in all resources intended for a system, and you
-    > can correct possi- ble design errors...
+    > can correct possible design errors.
     >
     > Tom Gilb (Software Metrics, 1976)
 
@@ -138,7 +138,7 @@ History_](https://www.craiglarman.com/wiki/downloads/misc/history-of-iterative-l
 
 -  <img src="imagenes/pragmatic-programmer.png" width="200px" align="right"/> 
 
-    (1995) El [movimiento de código abierto](https://en.wikipedia.org/wiki/History_of_free_and_open-source_software)
+    (1990s) El [movimiento de código abierto](https://en.wikipedia.org/wiki/History_of_free_and_open-source_software)
     demostró que era posible crear de forma distribuida y
     auto-organizada complejos sistemas de software con decenas de
     miles de líneas de código como sistemas operativos
@@ -257,7 +257,7 @@ para todos los enfoques.
 Los firmantes del manifiesto eran representantes de las principales
 metodologías _ligeras_ existentes en la época.
 
-- **XP**: Kent Beck, Bob Martin, Ron Jeffries, Word Cunningham, Martin
+- **XP**: Kent Beck, Bob Martin, Ron Jeffries, Ward Cunningham, Martin
   Fowler, James Grenning
 - **Scrum**: Ken Schwaber, Mike Beedle, Jeff Sutherland
 - **Feature Driven Development**: Jon Kern
