@@ -619,7 +619,7 @@ publicaría el manifiesto. Se intercambiaron correos electrónicos entre
 los participantes y se terminó definiendo una lista de 12 principios
 que terminan de configurar y definir el manifiesto.
 
-<img src="imagenes/principios.png" width="600px"/>
+<img src="imagenes/principios.png" width="700px"/>
 
 **1. Nuestra mayor prioridad es satisfacer al cliente a través de la
   entrega temprana y continua de software de valor.**
