@@ -773,18 +773,13 @@ ritmo constante de forma indefinida.**
   convierte en una forma de mejorar a base de hacer críticas
   constructivas (y valorar lo que se ha hecho bien).
 
-## Impacto del Manifiesto Ágil ##
-
-
-
-
 
 ## Referencias ##
 
-- Artículo de Larman
-- Artículo de Fowler
-- Capítulo XX de Clean Agile
+- Craig Larman, Victor Basili (2003) [_Iterative and Incremental Development: A Brief History_](https://www.craiglarman.com/wiki/downloads/misc/history-of-iterative-larman-and-basili-ieee-computer.pdf)
+- Martin Fowler (2006) [_Writing The Agile Manifesto_](https://www.martinfowler.com/articles/agileStory.html)
+- Robert Martin (2019) [_Clean Agile: Back to Basics, cap. 1](https://learning.oreilly.com/library/view/clean-agile-back/9780135782002/ch01.xhtml#ch01)
 - Philipp Hohl, Jil Klünder, Arie van Bennekum, Ryan Lockard, James Gifford, Jürgen Münch,
-Michael Stupperich and Kurt Schneider (2018) _Back to the future: origins and directions of the “Agile Manifesto” –
-views of the originators_
-- Capítulo 2 Learning Agile
+Michael Stupperich and Kurt Schneider (2018) [_Back to the future: origins and directions of the “Agile Manifesto” –
+views of the originators_](https://jserd.springeropen.com/articles/10.1186/s40411-018-0059-z)
+- Andrew Stellman, Jennifer Greene (2014) [_Understanding Agile, cap. 2_](https://learning.oreilly.com/library/view/learning-agile/9781449363819/ch02.html#understanding_agile_values)
