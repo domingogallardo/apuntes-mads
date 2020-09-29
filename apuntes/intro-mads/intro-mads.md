@@ -222,14 +222,14 @@ metodologías utilizadas en las prácticas. Tendrá una ponderación de un
 
 Las fechas de los exámenes serán las siguientes:
 
-- Examen 1 de teoría (10%): miércoles 21 de octubre de 11:00 a 11:20
-  h. (20 minutos) sobre la teoría vista desde la semana 1 hasta la
+- Examen 1 de teoría (10%): miércoles 21 de octubre de 11:00 a 11:15
+  h. (15 minutos) sobre la teoría vista desde la semana 1 hasta la
   semana anterior incluida.
-- Examen 2 de teoría (10%): miércoles 2 de diciembre de 11:00 a 11:20
-  h. (20 minutos) sobre la teoría vista desde el examen 1 hasta la
+- Examen 2 de teoría (10%): miércoles 2 de diciembre de 11:00 a 11:15
+  h. (15 minutos) sobre la teoría vista desde el examen 1 hasta la
   semana anterior incluida.
 - Examen 3 de teoría (10%): En enero, en la fecha y hora en la que se realice
-  el examen final de la asignatura. También tendrá una duración de 20
+  el examen final de la asignatura. También tendrá una duración de 15
   minutos.
 - Examen de prácticas (20%): miércoles 25 de noviembre, de 11:00 a
   13:00 h. (2 horas) en el horario de teoría.
