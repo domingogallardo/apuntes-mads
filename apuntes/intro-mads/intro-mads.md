@@ -218,6 +218,34 @@ También se hará un examen práctico individual sobre las tecnologías y
 metodologías utilizadas en las prácticas. Tendrá una ponderación de un
 20% en la nota final de la asignatura.
 
+### Exámenes ###
+
+Las fechas de los exámenes serán las siguientes:
+
+- Examen 1 de teoría (10%): miércoles 21 de octubre de 11:00 a 11:20
+  h. (20 minutos) sobre la teoría vista desde la semana 1 hasta la
+  semana anterior incluida.
+- Examen 2 de teoría (10%): miércoles 2 de diciembre de 11:00 a 11:20
+  h. (20 minutos) sobre la teoría vista desde el examen 1 hasta la
+  semana anterior incluida.
+- Examen 3 de teoría (10%): En enero, en la fecha y hora en la que se realice
+  el examen final de la asignatura. También tendrá una duración de 20
+  minutos.
+- Examen de prácticas (20%): miércoles 25 de noviembre, de 11:00 a
+  13:00 h. (2 horas) en el horario de teoría.
+
+Todos los exámenes serán on-line, aunque se podrán realizar desde
+clase para los que tengan docencia presencial ese día. Serán exámenes
+de tipo "libro abierto", en el que se podrán consultar apuntes y estar
+conectados a Internet.
+
+Los exámenes de teoría serán de tipo test y se usará la herramienta de
+cuestionarios de Moodle. En el examen de prácticas se deberá trabajar
+con un repositorio GitHub con una aplicación Spring Boot y realizar una
+serie de modificaciones sobre ella utilizando la metodología de
+trabajo vista en clase de prácticas (commits frecuentes, issues, pull
+requests, versiones, etc.).
+
 ## Bloque 1: Valores y principios ágiles ##
 
 En la actualidad la palabra "Agile" está muy extendida en el mundo de
