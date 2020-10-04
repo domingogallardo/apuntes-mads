@@ -596,4 +596,4 @@ los frameworks y APIs que se están definiendo en la actualidad.
 
 - Robert C. Martin (2000) [_Design Principles and Design Patterns_](https://moodle2020-21.ua.es/moodle/pluginfile.php/144882/mod_resource/content/3/Robert%20C.%20Martin%20-%20Design%20Principles%20and%20Design%20Patterns.pdf)
 - Robert C. Martin (2006) [_Agile Principles, Patterns, and Practices in C#_](https://learning.oreilly.com/library/view/agile-principles-patterns/0131857258/)
-- Kevlin Henney (Charla, 2016) [_Solid Deconstruction_](https://vimeo.com/157708450)
+- Kevlin Henney (2016) [Charla: _Solid Deconstruction_](https://vimeo.com/157708450)
