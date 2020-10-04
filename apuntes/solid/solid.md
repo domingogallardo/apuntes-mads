@@ -588,6 +588,55 @@ los frameworks y APIs que se están definiendo en la actualidad.
 
 ### Interface segregation ###
 
+El principio _Interface segregation_ establece que ningún cliente
+debería depender de métodos que no usa. El principio propone dividir
+interfaces que sean muy grandes en otras más pequeñas y específicas,
+de forma que los clientes sólo tengan que saber de los métodos que
+sean de su interés. Estas interfaces especializadas se suelen
+denominar [_Role
+Interfaces_](https://martinfowler.com/bliki/RoleInterface.html). 
+
+Usando el principio de segregación de interfaces conseguiremos
+mantener el sistema desacoplado, con menos dependencias, y más fácil
+de ser refactorizado, cambiado y redesplegado.
+
+El principio te lleva a dividir las responsabilidades de un objeto
+grande en varias responsabilidades más pequeñas y coherentes, cada una
+relacionada con los distintos roles posibles con los que se interactúa
+con el objeto.
+
+En el fondo, esta idea es muy similar a la de responsabilidad única,
+pero aplicada a interfaces, en lugar de a clases.
+
+Por ejemplo, supongamos la siguiente interfaz:
+
+```java
+public interface LineIO {
+   String read();
+   void write(String lineToWrite); 
+}
+```
+
+En general, pocos objetos van a leer y escribir al mismo tiempo. O
+bien van a leer de un fichero o bien van a escribir en él. Podríamos
+entonces dividir la interfaz en dos interfaces más específicas:
+
+```java
+public interface LineReader {
+   String read();
+}
+
+public interface LineWriter {
+    void write(String lineToWrite);
+}
+```
+
+
+Esta idea de definir interfaces pequeñas específicas y componerlas en
+las clases más complejas es otra de las características de la
+programación basada en interfaces o protocolos que se utiliza
+últimamente en lenguajes como Swift.
+
 
 ### Dependency inversion ###
 
