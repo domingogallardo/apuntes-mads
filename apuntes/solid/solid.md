@@ -667,9 +667,120 @@ de la interacción.
 Cuando hablamos de abstracciones en el marco de lenguajes de
 programación nos estamos refiriendo a interfaces o protocolos. 
 
+Un ejemplo de diseño incorrecto es el siguiente. La clase `Button`
+podría ser mucho más abstracta y codificar el hecho de encender y
+apagar algo mucho más abstracto. Al ligar la clase con una lámpara,
+estamos perdiendo abstracción y no podemos usar ese botón nada más que
+para encender y apagar lámparas. No podemos usarlo para encender y
+apagar televisores o ventiladores o coches eléctricos o ...
 
 ```java
---- ejemplo ---
+public class Lamp {
+
+    public void switchOn() {
+        // Encendemos la lámpara
+    }
+
+    public void switchOff() {
+        // Apagamos la lámpara
+    }
+}
+
+public class Button {
+
+    private Lamp lamp;
+    private Boolean on = false;
+
+    public Button(Lamp lamp) {
+        this.lamp = lamp;
+    }
+
+    public void turnOn() {
+        if (!on) {
+            on = true;
+            lamp.switchOn();
+        }
+    }
+
+    public void turnOff() {
+        if (on) {
+            on = false;
+            lamp.switchOff();
+        }
+    }
+}
+```
+
+Podemos aplicar el principio declarando una interfaz con los métodos
+"encender" y "apagar". De esta forma se puede conectar el botón con
+cualquier otro objeto que implemente esa interfaz. Lo vemos a
+continuación:
+
+```java
+public interface Switchable {
+    public void switchOn();
+    public void switchOff();
+}
+
+public class Lamp implements Switchable {
+    @Override
+    public void switchOn() {
+        // Encendemos la lámpara
+    }
+
+    @Override
+    public void switchOff() {
+        // Apagamos la lámpara
+    }
+}
+
+public class TvSet implements Switchable {
+    @Override
+    public void switchOn() {
+        // Encendemos la TV
+    }
+
+    @Override
+    public void switchOff() {
+        // Apagamos la TV
+    }
+}
+
+public class Button {
+
+    private Switchable device;
+    private Boolean on = false;
+
+    public Button(Switchable device) {
+        this.device = device;
+    }
+
+    public void turnOn() {
+        if (!on) {
+            on = true;
+            device.switchOn();
+        }
+    }
+
+    public void turnOff() {
+        if (on) {
+            on = false;
+            device.switchOff();
+        }
+    }
+}
+
+...
+
+    public static void main(String[] args) {
+        Lamp lamp = new Lamp();
+        TvSet tv = new TvSet();
+        Button lampButton = new Button(lamp);
+        Button tvButton = new Button(tv);
+        lampButton.turnOn();
+        tvButton.turnOn();
+    }
+
 ```
 
 
@@ -677,9 +788,58 @@ En el caso de lenguajes orientados a objetos, se está aplicando este
 principio, por ejemplo, cuando se usa inyección de dependencias o
 cuando se definen factorías.
 
+En un ejemplo muy simplificado, si aplicamos el principio al ejemplo
+que vimos al principio de todo veremos que podemos eliminar la
+dependencia entre un _logger_ concreto y la clase que queremos logear
+usando una inyección de dependencias con la interfaz `ILogger`. Y
+podemos usar una factoría para poder elegir un tipo de logger concreto
+(logger por salida estándar o a un fichero).
+
 ```java
---- ejemplo ---
+public interface ILogger {
+    public void log(Level level, String message);
+}
+
+public class StandardLogger implements ILogger {
+    public void log(Level level, String message) {
+        // Implementación
+    }
+}
+
+public class FileLogger implements ILogger {
+    public void log(Level level, String message) {
+        // Implementación
+    }
+}
+
+public LoggerFactory {
+    static public ILogger standardLogger() {
+        return new StandardLogger();
+    }
+
+}
+
+public class Foo {
+    private ILogger logger;
+    
+    public Foo(ILogger logger) {
+        this.logger = logger;
+    }
+    
+    public void method() {
+        logger.log(Level.WARNING, "Log message");
+    }
+}
+
+...
+
+    public static void main(String[] args) {
+        Foo foo = new Foo(LoggerFactory.standardLogger());
+        foo.method();
+    }
+        
 ```
+
 
 ## Referencias ##
 
