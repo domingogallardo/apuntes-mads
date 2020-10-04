@@ -294,10 +294,6 @@ Clase padre:
 public class ListaSencilla {
     private List datos = new ArrayList();
  
-    public ListaSencilla() {
-        super();
-    }
- 
     public void insertar(String elemento) {
         datos.add(elemento);
     }
@@ -374,10 +370,6 @@ Por ejemplo:
 ```java
 public class ListaSencilla implements Lista {
     private List datos = new ArrayList();
- 
-    public ListaSencilla() {
-        super();
-    }
  
     @Override
     public void insertar(String elemento) {
