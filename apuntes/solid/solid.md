@@ -631,15 +631,55 @@ public interface LineWriter {
 }
 ```
 
-
 Esta idea de definir interfaces pequeñas específicas y componerlas en
 las clases más complejas es otra de las características de la
 programación basada en interfaces o protocolos que se utiliza
 últimamente en lenguajes como Swift.
 
-
 ### Dependency inversion ###
 
+Por último, el principio de la "inversión" de dependencias. Tiene un
+nombre algo confuso. Se refiere a que invertir la forma de definir las
+dependencias con respecto a como se hace cuando se hace mal. O sea que
+hay que definir correctamente las dependencias. Una forma un poco rara
+de darle un nombre a un principio.
+
+Lo que el principio establece es que las abstracciones deben
+de depender únicamente de otras abstracciones y no de implementaciones
+concretas. Si hacemos que una abstracción dependa de una
+implementación concreta estamos diseñando mal el sistema.
+
+En concreto, el principio se suele definir con las siguientes dos
+reglas:
+
+1. Los módulos de alto nivel no deberían depender de módulos de bajo
+   nivel. Ambos deben depender de abstracciones.
+2. Las abstracciones no deberían depender de detalles. Los detalles
+   deberían depender de las abstracciones.
+
+Cuando diseñemos una interacción entre un módulo de alto nivel y otro
+de bajo nivel, debemos definir otra abstracción de la que el módulo de
+bajo nivel sea la implementación. Así la interacción del primer módulo
+será con la abstracción del segundo. De esta forma podremos modificar
+la implementación del segundo sin cambiar la representación abstracta
+de la interacción.
+
+Cuando hablamos de abstracciones en el marco de lenguajes de
+programación nos estamos refiriendo a interfaces o protocolos. 
+
+
+```java
+--- ejemplo ---
+```
+
+
+En el caso de lenguajes orientados a objetos, se está aplicando este
+principio, por ejemplo, cuando se usa inyección de dependencias o
+cuando se definen factorías.
+
+```java
+--- ejemplo ---
+```
 
 ## Referencias ##
 
