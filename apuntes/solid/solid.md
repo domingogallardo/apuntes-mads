@@ -476,9 +476,10 @@ objeto de la clase base podrá usarse otro de la clase derivada.
 
 El principio nos está indicando otra vez que tenemos que tener cuidado
 a la hora de usar la herencia. Debemos cumplir siempre el criterio
-"IS-A" a la hora de definir la clase derivada. Un `Gato` y un
-`Caballo` cumplen "IS-A" con `Mamífero`, por lo que en cualquier parte
-en donde usemos un objeto mamífero podremos usar un gato o un caballo.
+"IS-A" a la hora de definir la clase derivada. Es el típico ejemplo de
+los animales. Un `Gato` y un `Caballo` cumplen "IS-A" con `Mamífero`,
+por lo que en cualquier parte en donde usemos un objeto mamífero
+podremos usar un gato o un caballo.
 
 Aunque parece muy evidente, es muy frecuente que esto se entienda mal.
 
@@ -491,9 +492,13 @@ en la página en la que se explica como comparar objetos en C#.
 
 <img src="imagenes/herencia-mal.png" width="500px"/>
 
-Otro error muy común, pensar en la especialización definida por una
+Otro error muy común es pensar en la especialización definida por una
 subclase como una forma de restringir las posibles instancias de la
-clase padre. Veamos el siguiente ejemplo:
+clase padre. Esto es incorrecto. 
+
+Veamos el siguiente ejemplo, en el que definimos una clase base
+`Rectangle` con un par de métodos para modificar su altura y anchura.
+
 
 ```java
 public class Rectangle {
@@ -513,7 +518,17 @@ public class Rectangle {
         this.width = width;
     }
 }
+```
 
+Y ahora definimos una clase derivada `Square`. Como un cuadrado debe
+tener el mismo alto que ancho, sobreescribimos los métodos que
+modifican la altura y la anchura del rectángulo para que cuando se
+modifique una de ellas se modifique la otra. Y añadimos el método
+`setSide` propio de la clase `Square` que permite modificar el lado
+del cuadrado.
+
+
+```java
 public class Square extends Rectangle {
 
     public Square(double side) {
@@ -538,8 +553,7 @@ public class Square extends Rectangle {
 }
 ```
 
-
-¿Cumple el código anterior la propiedad de sustitución?
+¿Cumple todo el código anterior la propiedad de sustitución?
 
 La respuesta es NO. Un cuadrado NO ES un rectángulo. El cuadrado tiene
 las mismas propiedades que el rectángulo. Pero la _conducta_ de un
