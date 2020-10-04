@@ -293,7 +293,7 @@ Clase padre:
 ```java
 public class ListaSencilla {
     private List datos = new ArrayList();
- 
+
     public void insertar(String elemento) {
         datos.add(elemento);
     }
@@ -452,6 +452,36 @@ posibilidad de refactorizarla.
 
 ### Liskov substitution ###
 
+Este principio fue formulado por Barbara Liskov, al definir el
+comportamiento de tipos y subtipos en teoría de Tipos Abstractos de
+Datos. 
+
+> A type hierarchy is composed of subtypes and supertypes. The
+> intuitive idea of a subtype is one whose objects provide all the
+> behavior of objects of another type (the supertype) plus something
+> extra. 
+>
+> What is wanted here is something like the following substitution
+> property: If for each object o1 of type S there is an object o2 of
+> type T such that for all programs P defined in terms of T, the
+> behavior of P is unchanged when we use o1 or o2, then S is a subtype
+> of T.
+>
+> Barbara Liskov (1987) _Data Abstraction and Hierarchy_
+
+Dicho de otra forma, para cumplir el principio de sustitución una
+clase derivada de una base no debe modificar el comportamiento de la
+clase padre. De esta forma, en cualquier programa en el que se use un
+objeto de la clase base podrá usarse otro de la clase derivada.
+
+El principio nos está indicando otra vez que tenemos que tener cuidado
+a la hora de usar la herencia. Debemos cumplir siempre el criterio
+"IS-A" a la hora de definir la clase derivada. Un `Gato` y un
+`Caballo` cumplen "IS-A" con `Mamífero`, por lo que en cualquier parte
+en donde usemos un objeto mamífero podremos usar un gato o un caballo.
+
+Aunque parece muy evidente, es muy frecuente que esto se entienda mal.
+
 A continuación vemos un ejemplo de mal uso de la herencia, que
 incumple el principio de substitución de Liskov. Por desgracia este
 tipo de mal uso es bastante frecuente. De hecho, la imagen está sacada
@@ -461,6 +491,86 @@ en la página en la que se explica como comparar objetos en C#.
 
 <img src="imagenes/herencia-mal.png" width="500px"/>
 
+Otro error muy común, pensar en la especialización definida por una
+subclase como una forma de restringir las posibles instancias de la
+clase padre. Veamos el siguiente ejemplo:
+
+```java
+public class Rectangle {
+    double height;
+    double width;
+
+    public Rectangle(double height, double width) {
+        this.height = height;
+        this.width = width;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+}
+
+public class Square extends Rectangle {
+
+    public Square(double side) {
+        super(side, side);
+    }
+
+    @Override
+    public void setWidth(double width) {
+        super.setWidth(width);
+        super.setHeight(width);
+    }
+
+    @Override
+    public void setHeight(double height) {
+        super.setHeight(height);
+        super.setWidth(height);
+    }
+
+    public void setSide(double side) {
+        this.setHeight(side);
+    }
+}
+```
+
+
+¿Cumple el código anterior la propiedad de sustitución?
+
+La respuesta es NO. Un cuadrado NO ES un rectángulo. El cuadrado tiene
+las mismas propiedades que el rectángulo. Pero la _conducta_ de un
+cuadrado no es consistente con la conducta de un rectángulo. La
+relación "IS-A" debe formularse en base a conductas, no en base sólo a
+propiedades. En un rectángulo la base y la altura son independientes,
+pero en un cuadrado no. Los métodos `setWidth` y `setHeight` pueden
+ser llamados de forma independiente en el caso del rectángulo. Pero si
+los sobreescribimos para que no sea posible en el caso del cuadrado
+estamos incumpliendo la propiedad de substitución. Si en una parte del
+programa estamos usando un rectángulo y sólo cambiamos su ancho,
+llamando únicamente a `setWidth`, esperamos que la altura del
+rectángulo no cambie. Sin embargo, si sustituimos el rectángulo por un
+cuadrado, al cambiar el ancho también cambiará su altura. Estamos
+cambiando el comportamiento.
+
+Por último, se podría pensar que el principio es demasiado
+estricto. De hecho, en muchos _frameworks_ se utiliza la herencia para
+cambiar comportamientos definidos en las clases base. En la práctica
+en muchos casos se incumple este principio, pero siempre haciéndolo
+con cuidado. Por ejemplo, se puede definir en la clase base un método
+con una conducta por defecto (o "vacía") que sea proporcionada por las
+clases hijas. Esto se hace en muchos frameworks de interfaz de
+usuario. 
+
+Aunque cada vez más se está haciendo más popular el no usar la
+herencia en los frameworks y en su lugar se están utilizando
+interfaces o protocolos. Por ejemplo, en el caso de Swift, cada vez se
+utiliza más la [programación orientada a
+protocolos](https://developer.apple.com/videos/play/wwdc2015/408/) en
+los frameworks y APIs que se están definiendo en la actualidad.
 
 ### Interface segregation ###
 
