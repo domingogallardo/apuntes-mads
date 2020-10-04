@@ -1,5 +1,3 @@
-
-
 # El Manifiesto Ágil #
 
 El Manifiesto Ágil, publicado en febrero de 2001, se considera el
