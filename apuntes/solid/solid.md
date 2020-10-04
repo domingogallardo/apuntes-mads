@@ -788,12 +788,12 @@ En el caso de lenguajes orientados a objetos, se está aplicando este
 principio, por ejemplo, cuando se usa inyección de dependencias o
 cuando se definen factorías.
 
-En un ejemplo muy simplificado, si aplicamos el principio al ejemplo
-que vimos al principio de todo veremos que podemos eliminar la
-dependencia entre un _logger_ concreto y la clase que queremos logear
-usando una inyección de dependencias con la interfaz `ILogger`. Y
-podemos usar una factoría para poder elegir un tipo de logger concreto
-(logger por salida estándar o a un fichero).
+Si aplicamos el principio al ejemplo que vimos al principio de todo
+veremos que podemos eliminar la dependencia entre un _logger_ concreto
+y la clase que queremos logear usando una inyección de dependencias
+con la interfaz `ILogger`. Y podemos usar una factoría para poder
+elegir un tipo de logger concreto (logger por salida estándar o a un
+fichero).
 
 ```java
 public interface ILogger {
@@ -816,7 +816,9 @@ public LoggerFactory {
     static public ILogger standardLogger() {
         return new StandardLogger();
     }
-
+    static public ILooger fileLogger() {
+        return new FileLogger();
+    }
 }
 
 public class Foo {
@@ -840,6 +842,12 @@ public class Foo {
         
 ```
 
+Con este ejemplo no estamos diciendo que esta sea la forma correcta de
+hacer logs en nuestra aplicación. Es sólo un sencillo ejemplo de uso
+de inyección de dependencias y factorías. Las clases reales de logging
+en Java funcionan [de forma
+distinta](https://docs.oracle.com/en/java/javase/11/core/java-logging-overview.html#GUID-B83B652C-17EA-48D9-93D2-563AE1FF8EDA)
+y se configuran usando las preferencias del entorno.
 
 ## Referencias ##
 
