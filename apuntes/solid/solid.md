@@ -285,6 +285,7 @@ herencia ni la herencia múltiple.
 
 <table markdown="1">
 <tr><td>
+
 **Un ejemplo de mal uso de la herencia**
 
 Clase padre:
