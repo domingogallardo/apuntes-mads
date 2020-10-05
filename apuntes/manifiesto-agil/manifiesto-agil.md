@@ -622,154 +622,261 @@ que terminan de configurar y definir el manifiesto.
 **1. Nuestra mayor prioridad es satisfacer al cliente a través de la
   entrega temprana y continua de software de valor.**
 
-- Tres ideas juntas: lanzar pronto el software, entregar valor
-  continuamente y satisfacer al cliente.
-- Es difícil entender exactamente cómo va a funcionar el software
-  hasta el momento en que  clientes lo usan.
-- Por otro lado, para una empresa cliente puede ser difícil trabajar
-  con software incompleto. La empresa debe aprender a valorar la
-  colaboración sobre los contratos. Esto es lo que significa
-  continuous delivery.
+El principio incluye tres ideas juntas: lanzar pronto el software,
+entregar valor continuamente y satisfacer al cliente.
+  
+Por mucho que se intenten especificar los requisitos del software, el
+hecho es que hasta que el cliente no tiene en sus manos software que
+funciona no van a poder visualizar correctamente cómo éste va a
+funcionar y qué valor concreto puede proporcionarles. Cualquier
+aproximación a priori del valor del software no es más que una
+estimación, que se concretará cuando se ponga éste en funcionamiento.
+
+Por eso, cuanto antes entreguemos software al cliente, antes podrá
+concretar sus estimaciones sobre su valor y reaccionar frente a ese
+nuevo conocimiento.
+
+Además, el software entregado es valor real que ponemos en manos del
+cliente. Aunque no esté terminado, el cliente podrá aprovechar parte
+de su funcionalidad.
+
+Puede ser que los clientes no estén acostumbrados a trabajar de esta
+forma, con software incompleto. Pero deben entender que esta es una
+nueva forma de colaborar. En lugar de especificar todo a priori en un
+contrato, el cliente va a poder decidir qué funcionalidades son las
+que quiere incorporar en la siguiente iteración. De esta forma, todos
+ganan en el corto plazo porque se entrega pronto valor, y en el largo
+plazo, porque se maximiza el valor entregado en el producto final.
+
 
 **2. Damos la bienvenida a requisitos cambiantes, incluso al final del
   desarrollo. Los procesos ágiles aprovechan el cambio para la mejora
   competitiva del cliente.**
 
-- La mayoría de desarrolladores tienen problemas con este principio:
-  no es fácil tener que modificar código que ya está hecho. Y menos si
-  no es por nuestra culpa.
-- Hay que verlo desde la perspectiva del cliente. Para el cliente
-  tampoco es fácil pedir un cambio. Muchas veces lo hace por necesidad
-  (ventaja competitiva), porque algo ha cambiado en el negocio desde
-  que se inició el proyecto. Por ejemplo, ha habido un cambio legal o
-  ha surgido alguna nueva tendencia en la sociedad que es interesante
-  incorporar al producto.  El producto obtenido después de los cambios
-  es mejor que el anterior y tiene características que lo hacen
-  destacar frente a los productos de la competencia (que no ha tenido
-  tiempo de introducir los cambios en el negocio).
-  
-- Debemos dejar de pensar en que los cambios son equivocaciones. Son
-  una forma de aprender.
+La mayoría de desarrolladores tienen problemas con este principio: no
+es fácil tener que modificar código que ya está hecho. Y menos si no
+es por nuestra culpa. Hemos puesto mucho cuidado en entregar un
+conjunto de funcionalidades, le hemos dedicado muchas horas de
+trabajo, y ahora nos dicen que no están bien y que hay que
+cambiarlas. Es difícil no sentirse afectado emocionalmente. Pero dar
+la bienvenida al cambio es una de las herramientas más poderosas del
+desarrollo ágil.
+
+Hay que empezar viéndolo desde la perspectiva del cliente. Para el
+cliente tampoco es fácil pedir un cambio. El cliente sabe que si
+incorpora algún cambio, otras cosas se van a quedar fuera del
+proyecto. Muchas veces lo hace por necesidad (ventaja competitiva),
+porque algo ha cambiado en el negocio desde que se inició el
+proyecto. Por ejemplo, ha habido un cambio legal o ha surgido alguna
+nueva tendencia en la sociedad que es interesante incorporar al
+producto. O porque después de probar con las funcionalidades
+entregadas se ha dado cuenta de que el valor real se encontraba en
+otras funcionalidades que se habían desestimado al principio.
+
+Es normal que haya que hacer cambios cuando las tareas que conlleva el
+desarrollo son tan complicadas. Al equipo se le pide que lea la mente
+del cliente y al cliente se le pide que sea capaz de ver el
+futuro. Son dos cosas obviamente imposibles. Cuando lo miramos desde
+este punto de vista es más fácil aceptar los cambios.
+
+Hay que pensar que el producto obtenido después de los cambios va a
+proporcionar más valor al cliente y que tiene características que lo
+hacen destacar frente a los productos de la competencia (que no ha
+tenido tiempo de introducir los cambios en el negocio).
+
+¿Qué significa dar la bienvenida a los cambios? Significa:
+
+- No hay repercusiones negativas cuando hay que hacer
+  cambios. Reconocemos que somos humanos y promovemos un ambiente en
+  el que está permitido tener errores y corregirlos frecuentemente, en
+  lugar de esperar que las cosas salgan perfectas a la primera.
+
+- Estamos todos juntos en esto. El equipo, los clientes, gerencia. Si
+  los requisitos están mal no tiene sentido buscar culpables.
+
+- Cambiamos lo antes posible. Si descubrimos algo que mejorar lo
+  intentamos corregir lo más pronto posible.
+
+- Dejamos de pensar en que los cambios son equivocaciones. Son una
+  forma de aprender sobre el producto que estamos desarrollando.
 
 **3. Entregar software que funciona frecuentemente, desde un par de
 semanas a un par de meses, siendo preferible la escala de tiempo más corta.**
 
-- Ya hemos hablado de las ventajas de las iteraciones pequeñas: hay un
-  producto usable al final, todos en el equipo tienen objetivos claros
-  para cada iteración, es más fácil planificar iteración a iteración y
-  tener una visión de más alto nivel.
-- Cuidado, posible problema: perder de vista objetivos a largo plazo y
-  características complejas que necesitan más de una iteración.
+Ya hemos hablado de las ventajas de las iteraciones pequeñas como
+forma de gestionar un proceso no predecible. Al final de cada
+iteración tenemos una retroalimentación que nos permite aprender más
+sobre la implementación del proyecto y sobre lo que da valor al cliente.
+
+En cierta manera, el estilo de planificación de los equipos ágiles se
+parece al utilizado por los equipos militares denominado
+[command-and-control](https://en.wikipedia.org/wiki/Command_and_control). Para
+llevar a cabo una misión militar se deben dar órdenes (_commands_) al
+equipo y se debe gestionar (_control_) los resultados y cambios a
+corto plazo, monitorizando la evolución del equipo con respecto al
+objetivo a largo plazo.
+
+En este tipo de planificación a corto plazo hay que tener cuidado de
+no perder la visión de más alto nivel y realizar también una revisión
+a largo plazo con cierta periodicidad.
 
 **4. La gente del negocio y los desarrolladores deben trabajar juntos
 diariamente y a lo largo de todo el proyecto.**
 
-- El problema es que la gente de negocio (los clientes) tienen un
-  trabajo que hacer, distinto de ayudar a los desarrolladores. Pero el
-  problema es crítico: cada correo electrónico sin contestar retrasa
-  el proyecto.
-- La gente de negocio debe entender que el equipo va a entregar
-  software valioso para la empresa, que va a solucionar parte de sus
-  problemas y que va a merecer la pena ayudar, y formar parte del
-  equipo (normalmente a través del _product owner_).
-- Por eso es importante que el equipo priorice las características de
-  más valor.
-- Un buen _product owner_ puede ayudar a reducir la cantidad de tiempo
-  que la gente de negocio pasa con el equipo. Puede que sea necesario
-  que se reúnan diariamente, pero las reuniones deben estar
-  preparadas y servir principalmente para validar información
-  preparada por el _product owner_.
+Un problema es que la gente de negocio (los clientes) tienen un
+trabajo que hacer, distinto de ayudar a los desarrolladores. Pero el
+problema es crítico: cada correo electrónico sin contestar retrasa el
+proyecto.
+
+La gente de negocio debe entender que el equipo va a entregar software
+valioso para la empresa, que va a solucionar parte de sus problemas y
+que va a merecer la pena ayudar, y formar parte del equipo
+(normalmente a través del _product owner_).
+
+Por eso es importante que el equipo priorice las características de
+más valor.
+
+Un buen _product owner_ puede ayudar a reducir la cantidad de tiempo
+que la gente de negocio pasa con el equipo. Puede que sea necesario
+que se reúnan diariamente, pero las reuniones deben estar preparadas y
+servir principalmente para validar información preparada por el
+_product owner_.
 
 **5. Construir los proyectos alrededor de individuos motivados. Darles
 el entorno y el apoyo que necesitan y confiar en que van a hacer su trabajo.**
 
-- Cuidado con "incentivos" que funcionan en contra del equipo como
-  premios por el número de bugs encontrados o el número de líneas
-  escritas.
-- Si cada uno en el equipo intenta cubrirse las espaldas y acusar a
-  otros de los problemas, se genera una atmósfera perniciosa para
-  el desarrollo.
-- La motivación por el proyecto que se está desarrollando y la
-  confianza son valores que hay que fomentar.
-- El líder del equipo debe aplicar técnicas de trabajo en grupo para
-  conseguir más confianza y sinceridad.
+Los proyectos funcionan mejor cuando todo el mundo en la empresa
+reconoce que el equipo está construyendo software valioso y cuando
+todos en el equipo reconocen que el producto que se está entregando
+proporciona valor. 
+
+La motivación del equipo es fundamental para crear un ambiente en el
+que todos los miembros se sienten valorados y se facilita la
+comunicación y la compartición de objetivos.
+
+Hay que tener cuidado con las motivaciones extrínsecas en forma de
+incentivos basados en evaluaciones individuales que funcionan en
+contra del equipo como un todo. Por ejemplo, penalizaciones por el
+número de bugs del producto o premios por el número de líneas
+escritas. 
+
+Si cada uno en el equipo intenta cubrirse las espaldas y acusar a
+otros de los problemas, se genera una atmósfera perniciosa para el
+desarrollo.
+
+Al final, el rendimiento individual debería estar basado en lo que
+entrega el equipo, más que en el rol específico que cada uno ha
+jugado. La motivación por el proyecto que se está desarrollando y la
+confianza son valores que hay que fomentar.
+
+El líder del equipo debe aplicar técnicas de trabajo en grupo para
+conseguir más confianza y sinceridad.
 
 **6. La forma más eficiente y efectiva de compartir información con y
   dentro de un equipo de desarrollo son las conversaciones cara-a-cara.**
 
-- Las conversaciones son más valiosas que la documentación.
-- Respeta el tiempo de los demás y prepara bien la conversación, para
-  que sea eficiente.
-- El fin último de las conversaciones es crear un sentimiento de
-  comunidad de forma que haya un montón de conocimiento implícito que
-  no sea necesario comunicar una y otra vez.
+Las conversaciones son más valiosas que la documentación, permiten
+resolver dudas y transmitir información de forma efectiva. 
+
+Pero, por otro lado, es poco eficiente tener que estar repitiendo la
+misma información una y otra vez en conversaciones individuales. Si la
+información está escrita en alguna documentación o en el código, es
+conveniente ahorrar tiempo revisando esas fuentes antes de la
+conversación. Respeta el tiempo de los demás y prepara bien la
+conversación para que sea eficiente.
+
+El fin último de las conversaciones es crear un sentimiento de
+comunidad de forma que haya un montón de conocimiento implícito que no
+sea necesario comunicar una y otra vez.
 
 **7. El software en funcionamiento es la primera medida de progreso.**
 
-- La mejor forma de medir el progreso del proyecto es comprobando la
-  cantidad de funcionalidades implementadas y probadas.
-- En el momento en que ves el software funcionando, lo
-  "pillas". Puedes comprobar lo que se ha hecho y lo que falta por
-  hacer.
-- Al probar el software al final de cada iteración todo el mundo se
-  hace una idea mucho mejor del progreso que al leer informes y
-  diagramas.
+La mejor forma de medir el progreso del proyecto es comprobando la
+cantidad de funcionalidades implementadas y probadas.
+
+En el momento en que ves el software funcionando, lo
+"pillas". Puedes comprobar lo que se ha hecho y lo que falta por
+hacer.
+
+Al probar el software al final de cada iteración todo el mundo se hace
+una idea mucho mejor del progreso que al leer informes y diagramas.
 
 **8. Los procesos ágiles promueven un desarrollo sostenible. Los
 patrocinadores, desarrolladores y usuarios deberían poder mantener un
 ritmo constante de forma indefinida.**
 
-- No caer en la práctica habitual de las horas extras y los fines de
-  semana cuando se acerca la fecha de entrega. A largo plazo esto no
-  funciona.
-- El desarrollo iterativo es mucho más realista, porque un ritmo de
-  desarrollo sostenido durante la iteración nos permite estimar mucho
-  más fielmente lo que se va a entregar al final de las dos, cuatro o
-  seis semanas que dure la iteración.
+No caer en la práctica habitual de las horas extras y los fines de
+semana cuando se acerca la fecha de entrega. A largo plazo esto no
+funciona.
+
+El desarrollo iterativo es mucho más realista, porque un ritmo de
+desarrollo sostenido durante la iteración nos permite estimar mucho
+más fielmente lo que se va a entregar al final de las dos, cuatro o
+seis semanas que dure la iteración.
 
 **9. La atención continua a la excelencia técnica y al buen diseño
  mejor la agilidad.**
 
-- Es importante resolver los bugs tan pronto como aparecen. Cuanto
-  más se tarde en eliminar un bug más difícil es hacerlo.
-- Hay que utilizar buenas prácticas de diseño, buenas
-  herramientas. Pero no sobre-diseñar.
+Es importante resolver los bugs tan pronto como aparecen. Cuanto
+más se tarde en eliminar un bug más difícil es hacerlo.
+
+Hay que utilizar buenas prácticas de diseño, buenas herramientas. Pero
+no sobre-diseñar.
 
 **10. Simplicidad --el arte de maximizar la cantidad de trabajo no
  hecho-- es esencial.**
 
-- Borrar código no es una operación demasiado destructiva, porque
-  siempre lo puedes recuperar del sistema de control de versiones. Es
-  peor escribir código de más.
-- Cuantas más líneas de código, más dependencias y más difícil
-  solucionar los errores, ampliar las funcionalidades y realizar
-  cambios.
+Borrar código no es una operación demasiado destructiva, porque
+siempre lo puedes recuperar del sistema de control de versiones. Es
+peor escribir código de más.
+
+Cuantas más líneas de código, más dependencias y más difícil
+solucionar los errores, ampliar las funcionalidades y realizar
+cambios.
 
 **11. Las mejores arquitecturas, requisitos, y diseños emergen de
  equipos auto-organizados.** 
 
-- Lo contrario de un equipo auto-organizado es un equipo que obedece
-  ciegamente los diseños propuestos en un proceso rígido como el de
-  cascada. 
-- En un equipo ágil todo el equipo comparte la responsabilidad de la
-  arquitectura del proyecto.
-- En lugar de un gran diseño al principio de todo, el diseño va
-  emergiendo de forma incremental, conforme se van desarrollando
-  historias de usuario (de mayor a menor valor).
-- Esto obliga a usar técnicas de diseño que permitan construir el
-  sistema poco a poco, ampliando los módulos, esquemas de la base de
-  datos, etc.
+Lo contrario de un equipo auto-organizado es un equipo que obedece
+ciegamente los diseños propuestos en un proceso rígido como el de
+cascada. En un equipo ágil todo el equipo comparte la responsabilidad
+de la arquitectura del proyecto.
+
+En lugar de un gran diseño al principio de todo, el diseño va
+emergiendo de forma incremental, conforme se van desarrollando
+historias de usuario (de mayor a menor valor). Esto obliga a usar
+técnicas de diseño que permitan construir el sistema poco a poco,
+ampliando los módulos, esquemas de la base de datos, etc.
 
 **12. A intervalos regulares, el equipo reflexiona sobre cómo ser más
  efectivo, y ajusta su conducta de forma acorde.**
 
-- El equipo ágil no sólo debe mejora el software de forma continua,
-  sino que también debe mejorar la propia forma de construir el
-  software. 
-- Al principio es algo incómodo hablar de errores y cosas que se han
-  hecho mal. Pero con el tiempo la gente se acostumbra a ello y se
-  convierte en una forma de mejorar a base de hacer críticas
-  constructivas (y valorar lo que se ha hecho bien).
+El equipo ágil no sólo debe mejora el software de forma continua,
+sino que también debe mejorar la propia forma de construir el
+software. En las reuniones denominadas "retrospectivas" el equipo
+evalúa lo que ha funcionado y lo que no en la última iteración. 
+
+No sólo se debe pensar en qué mejorar a nivel técnico, sino a nivel de
+proceso. ¿Qué podemos hacer para que no hayan tantos bugs? ¿Cuál es el
+problema que ha causado que no haya funcionado la última demo? Es
+importante no repartir culpas, sino buscar las causas últimas (_root
+causes_) de los problemas. Una técnica muy útil es la de los [5 por
+qués](https://en.wikipedia.org/wiki/Five_whys): a cada respuesta sobre
+la causa de un problema se hace una pregunta de ¿por qué?.
+
+Al principio es algo incómodo hablar de errores y cosas que se han
+hecho mal. Pero con el tiempo la gente se acostumbra a ello y se
+convierte en una forma de mejorar a base de hacer críticas
+constructivas (y valorar lo que se ha hecho bien).
+
+Existen una gran cantidad de técnicas específicas para facilitar
+retrospectivas. Algunos libros sobre el tema:
+
+- [Improving Agile Retrospectives: Helping Teams Become More
+  Efficient](https://learning.oreilly.com/library/view/improving-agile-retrospectives/9780134678368/)
+- [Agile
+  Retrospectives](https://learning.oreilly.com/library/view/agile-retrospectives/9781680500295/)
+- [Project Retrospectives: A Handbook for Team Reviews](https://learning.oreilly.com/library/view/project-retrospectives-a/9780133488753/)
 
 
 ## Referencias ##
