@@ -865,9 +865,6 @@ use los principios SOLID.
 El primer commit es el siguiente:
 
 ```java
-import java.util.ArrayList;
-import java.util.Date;
-
 public class Blog {
     private String name;
     private ArrayList<String> posts = new ArrayList<>();
@@ -936,9 +933,6 @@ En el segundo commit se añade la posibilidad de añadir autores a los
 posts:
 
 ```java
-import java.util.ArrayList;
-import java.util.Date;
-
 public class Blog {
     private String name;
     private ArrayList<String> posts = new ArrayList<>();
@@ -1014,9 +1008,6 @@ guiones. En la cadena de salida se procesa la URL y se devuelve entre
 las etiquetas HTML `<img>` y `</img>`.
 
 ```java
-import java.util.ArrayList;
-import java.util.Date;
-
 public class Blog {
     //
     // Sin cambios 
@@ -1062,9 +1053,368 @@ Salida:
 ** Un blog **
 Aitana M. - El primer post (Tue Oct 06 17:38:45 CEST 2020)
 <img>http:mydomain.com/my-image.png</img>Pepa Pig - El tercer post (Tue Oct 06 17:38:45 CEST 2020)
-
 **********/
 ```
+
+### Código usando los principios SOLID ###
+
+En la rama `solid` se encuentra la evolución del código usando los
+principios SOLID. Comenzamos con el mismo código inicial.
+
+Lo que hacemos en el segundo commit es usar la idea básica del diseño OO
+de encapsular datos en clases. Definimos una clase `Post`, de forma
+que separamos la responsabilidad de contener la información de cada
+post de la clase `Blog`. Esto nos permite que la clase `Blog` gestione
+únicamente objetos de tipo `Post` y guardar dentro de cada post su
+información.
+
+La clase `Blog` sigue gestionando el almacén de posts y proporcionando
+identificadores únicos que se asignan a los posts.
+
+```java
+public class Post {
+    private Integer id;
+    private String text;
+    private Date date;
+
+    public Post(String text) {
+        this.text = text;
+        this.date = new Date();
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String print() {
+        return text + " (" + date + ")";
+    }
+}
+
+public class Blog {
+    private String name;
+    private ArrayList<Post> posts = new ArrayList<>();
+    private static int id = 0;
+
+    public Blog(String name) {
+        this.name = name;
+    }
+
+    public int addPost(Post post) {
+        id++;
+        posts.add(post);
+        post.setId(id);
+        return id;
+    }
+
+    public void deletePost(int id) {
+        for (int i = 0; i < posts.size(); i++) {
+            if (posts.get(i).getId().equals(id)) {
+                posts.remove(i);
+                break;
+            }
+        }
+    }
+
+    public String print() {
+        String output = "** " + name + " **\n";
+        int i = 0;
+        for (Post post: posts) {
+            output += post.print();
+            output += "\n";
+            i++;
+        }
+        return output;
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+        Blog blog = new Blog("Un blog");
+        int post1 = blog.addPost(new Post("El primer post"));
+        int post2 = blog.addPost(new Post("El segundo post"));
+        int post3 = blog.addPost(new Post("El tercer post"));
+        blog.deletePost(post2);
+        System.out.println(blog.print());
+    }
+}
+```
+
+En un tercer commit hacemos el cambio de añadir un autor a los
+posts. En este caso sólo tenemos que modificar la clase `Post`:
+
+```java
+public class Post {
+    private Integer id;
+    private String text;
+    private Date date;
+    private String author;
+
+    public Post(String text, String author) {
+        this.text = text;
+        this.date = new Date();
+        this.author = author;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String print() {
+        return author + " - " + text + " (" + date + ")";
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Blog blog = new Blog("Un blog");
+        int post1 = blog.addPost(new Post("El primer post", "Aitana M."));
+        int post2 = blog.addPost(new Post("El segundo post", "Big Foot"));
+        int post3 = blog.addPost(new Post("El tercer post", "Pepa Pig"));
+        blog.deletePost(post2);
+        System.out.println(blog.print());
+    }
+}
+```
+
+En el siguiente commit usamos el principio de inversión de
+dependencia, haciendo que el `Blog` trabaje con objetos abstractos de
+tipo `IPost` en lugar de con una implementación concreta. De esta
+forma preparamos el código para usar el principio de sustitución de
+Liskov, haciendo que la interfaz `IPost` sear la interfaz base de
+la clase `Post` actual y de la futura clase `ImagePost` (post con una
+imagen). 
+
+```java
+public interface IPost {
+    public void setId(Integer id);
+    public Integer getId();
+    public String print();
+}
+
+public class Post implements IPost {
+    // El resto igual
+}
+
+public class Blog {
+    private String name;
+    private ArrayList<IPost> posts = new ArrayList<>();
+    private static int id = 0;
+
+    public Blog(String name) {
+        this.name = name;
+    }
+
+    public int addPost(IPost post) {
+        id++;
+        posts.add(post);
+        post.setId(id);
+        return id;
+    }
+
+    public void deletePost(int id) {
+        for (int i = 0; i < posts.size(); i++) {
+            if (posts.get(i).getId().equals(id)) {
+                posts.remove(i);
+                break;
+            }
+        }
+    }
+
+    public String print() {
+        String output = "** " + name + " **\n";
+        int i = 0;
+        for (IPost post: posts) {
+            output += post.print();
+            output += "\n";
+            i++;
+        }
+        return output;
+    }
+}
+```
+
+En el siguiente commit la definición de un post de tipo imagen es muy
+sencilla. Sólo tenemos que definir otra clase que implemente la
+interfaz `IPost`.
+
+```java
+public class ImagePost implements IPost {
+    private Integer id;
+    private String text;
+    private Date date;
+    private String author;
+    private String img;
+
+    public ImagePost(String text, String author, String img) {
+        this.text = text;
+        this.date = new Date();
+        this.author = author;
+        this.img = img;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String print() {
+        return "<img>" + img + "</img> " + author + " - " + text + " (" + date + ")";
+    }
+}
+
+// El resto del código igual, excepto el programa principal
+// en el que tenemos que crear el post de tipo imagen
+
+public class Main {
+    public static void main(String[] args) {
+        Blog blog = new Blog("Un blog");
+        int post1 = blog.addPost(new Post("El primer post", "Aitana M."));
+        int post2 = blog.addPost(new Post("El segundo post", "Big Foot"));
+        int post3 = blog.addPost(new ImagePost("El tercer post", "Pepa Pig",
+                "http://myhost.com/my-image.png"));
+        blog.deletePost(post2);
+        System.out.println(blog.print());
+    }
+}
+```
+
+Y en el último commit aplicamos el principio de segregación de
+interfaces y separamos la interfaz `IPost` en dos. Una que gestione
+los identificadores y otra que gestione el contenido la conversión de
+un post a texto. El código resultante final es el siguiente.
+
+```java
+public interface Identity {
+    public void setId(Integer id);
+    public Integer getId();
+}
+
+public interface Printable {
+    public String print();
+}
+
+public interface IPost extends Identity, Printable {}
+
+public class Post implements IPost {
+    private Integer id;
+    private String text;
+    private Date date;
+    private String author;
+
+    public Post(String text, String author) {
+        this.text = text;
+        this.date = new Date();
+        this.author = author;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String print() {
+        return author + " - " + text + " (" + date + ")";
+    }
+}
+
+public class ImagePost implements IPost {
+    private Integer id;
+    private String text;
+    private Date date;
+    private String author;
+    private String img;
+
+    public ImagePost(String text, String author, String img) {
+        this.text = text;
+        this.date = new Date();
+        this.author = author;
+        this.img = img;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String print() {
+        return "<img>" + img + "</img> " + author + " - " + text + " (" + date + ")";
+    }
+}
+
+public class Blog {
+    private String name;
+    private ArrayList<IPost> posts = new ArrayList<>();
+    private static int id = 0;
+
+    public Blog(String name) {
+        this.name = name;
+    }
+
+    public int addPost(IPost post) {
+        id++;
+        posts.add(post);
+        post.setId(id);
+        return id;
+    }
+
+    public void deletePost(int id) {
+        for (int i = 0; i < posts.size(); i++) {
+            if (posts.get(i).getId().equals(id)) {
+                posts.remove(i);
+                break;
+            }
+        }
+    }
+
+    public String print() {
+        String output = "** " + name + " **\n";
+        int i = 0;
+        for (IPost post: posts) {
+            output += post.print();
+            output += "\n";
+            i++;
+        }
+        return output;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Blog blog = new Blog("Un blog");
+        int post1 = blog.addPost(new Post("El primer post", "Aitana M."));
+        int post2 = blog.addPost(new Post("El segundo post", "Big Foot"));
+        int post3 = blog.addPost(new ImagePost("El tercer post", "Pepa Pig",
+                "http://myhost.com/my-image.png"));
+        blog.deletePost(post2);
+        System.out.println(blog.print());
+    }
+}
+```
+
+El código resultante podría refactorizarse aun más. Por ejemplo,
+podríamos separar las responsabilidades de la clase `Blog` en dos
+partes: la relacionada con el almacenamiento y creación de
+identificadores y la relacionada con la iteración sobre el almacén
+para obtener todos los posts. Os lo dejo como ejercicio.
 
 ## Referencias ##
 
