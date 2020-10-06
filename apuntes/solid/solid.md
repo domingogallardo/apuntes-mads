@@ -849,6 +849,223 @@ en Java funcionan [de forma
 distinta](https://docs.oracle.com/en/java/javase/11/core/java-logging-overview.html#GUID-B83B652C-17EA-48D9-93D2-563AE1FF8EDA)
 y se configuran usando las preferencias del entorno.
 
+## Ejemplo de código ##
+
+En el repositorio <https://github.com/domingogallardo/solid> podéis
+encontrar un ejemplo de código en el que se han utilizado algunas de
+las técnicas anteriores.
+
+### Versión sin aplicar los principios SOLID ###
+
+En la rama principal `main` está un ejemplo de evolución de un
+sencillo programa con el que se pueden añadir posts a un blog. Se
+añaden funcionalidades sencillas sin refactorizar el código para que
+use los principios SOLID.
+
+El primer commit es el siguiente:
+
+```java
+import java.util.ArrayList;
+import java.util.Date;
+
+public class Blog {
+    private String name;
+    private ArrayList<String> posts = new ArrayList<>();
+    private ArrayList<Date> dates = new ArrayList<>();
+    private ArrayList<Integer> ids = new ArrayList<>();
+    private static int id = 0;
+
+    public Blog(String name) {
+        this.name = name;
+    }
+
+    public int addPost(String text) {
+        id++;
+        posts.add(text);
+        dates.add(new Date());
+        ids.add(id);
+        return id;
+    }
+
+    public void deletePost(int id) {
+        for (int i = 0; i < ids.size(); i++) {
+            if (ids.get(i).equals(id)) {
+                ids.remove(i);
+                posts.remove(i);
+                dates.remove(i);
+                break;
+            }
+        }
+    }
+
+    public String print() {
+        String output;
+        output = "Blog " + name + "\n";
+        int i = 0;
+        for (String post: posts) {
+            output += post + "(" + dates.get(i) + ")";
+            output += "\n";
+            i++;
+        }
+        return output;
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+        Blog blog = new Blog("Mi blog");
+        int post1 = blog.addPost("Mi primer post");
+        int post2 = blog.addPost("Mi segundo post");
+        int post3 = blog.addPost("Mi tercer post");
+        blog.deletePost(post2);
+        System.out.println(blog.print());
+    }
+}
+
+/**********
+Salida:
+
+Blog Mi blog
+Mi primer post(Tue Oct 06 17:30:33 CEST 2020)
+Mi tercer post(Tue Oct 06 17:30:33 CEST 2020)
+**********/
+```
+
+En el segundo commit se añade la posibilidad de añadir autores a los
+posts:
+
+```java
+import java.util.ArrayList;
+import java.util.Date;
+
+public class Blog {
+    private String name;
+    private ArrayList<String> posts = new ArrayList<>();
+    private ArrayList<Date> dates = new ArrayList<>();
+    private ArrayList<Integer> ids = new ArrayList<>();
+    private ArrayList<String> authors = new ArrayList<>();
+    private static int id = 0;
+
+    public Blog(String name) {
+        this.name = name;
+    }
+
+    public int addPost(String text, String author) {
+        id++;
+        posts.add(text);
+        authors.add(author);
+        dates.add(new Date());
+        ids.add(id);
+        return id;
+    }
+
+    public void deletePost(int id) {
+        for (int i = 0; i < ids.size(); i++) {
+            if (ids.get(i).equals(id)) {
+                ids.remove(i);
+                authors.remove(i);
+                posts.remove(i);
+                dates.remove(i);
+                break;
+            }
+        }
+    }
+
+    public String print() {
+        String output;
+        output = "** " + name + " **\n";
+        int i = 0;
+        for (String post: posts) {
+            output += authors.get(i) + " - ";
+            output += post + " (" + dates.get(i) + ")";
+            output += "\n";
+            i++;
+        }
+        return output;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Blog blog = new Blog("Un blog");
+        int post1 = blog.addPost("El primer post", "Aitana M.");
+        int post2 = blog.addPost("El segundo post", "Big Foot");
+        int post3 = blog.addPost("El tercer post", "Pepa Pig");
+        blog.deletePost(post2);
+        System.out.println(blog.print());
+    }
+}
+
+/**********
+Salida:
+
+** Un blog **
+Aitana M. - El primer post (Tue Oct 06 17:32:57 CEST 2020)
+Pepa Pig - El tercer post (Tue Oct 06 17:32:57 CEST 2020)
+**********/
+```
+
+
+Y en un tercer commit la posibilidad de definir un tipo especial de
+post que contiene una imagen. El texto del post debe comenzar con la
+cadena `IMG` y se debe proporcionar la URL de la imagen entre
+guiones. En la cadena de salida se procesa la URL y se devuelve entre
+las etiquetas HTML `<img>` y `</img>`.
+
+```java
+import java.util.ArrayList;
+import java.util.Date;
+
+public class Blog {
+    //
+    // Sin cambios 
+    //
+
+    public String print() {
+        String output;
+        output = "** " + name + " **\n";
+        int i = 0;
+        for (String post: posts) {
+            if (post.startsWith("IMG")) {
+                String[] sentences = post.split("---");
+                output += "<img>" + sentences[1] + "</img>";
+                output += authors.get(i) + " - ";
+                output += sentences[2] + " (" + dates.get(i) + ")";
+            } else {
+                output += authors.get(i) + " - ";
+                output += post + " (" + dates.get(i) + ")";
+            }
+            output += "\n";
+            i++;
+        }
+        return output;
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+        Blog blog = new Blog("Un blog");
+        int post1 = blog.addPost("El primer post", "Aitana M.");
+        int post2 = blog.addPost("El segundo post", "Big Foot");
+        int post3 = blog.addPost("IMG---http:mydomain.com/my-image.png---El tercer post",
+                                "Pepa Pig");
+        blog.deletePost(post2);
+        System.out.println(blog.print());
+    }
+}
+
+/**********
+Salida:
+
+** Un blog **
+Aitana M. - El primer post (Tue Oct 06 17:38:45 CEST 2020)
+<img>http:mydomain.com/my-image.png</img>Pepa Pig - El tercer post (Tue Oct 06 17:38:45 CEST 2020)
+
+**********/
+```
+
 ## Referencias ##
 
 - Robert C. Martin (2000) [_Design Principles and Design Patterns_](https://moodle2020-21.ua.es/moodle/pluginfile.php/144882/mod_resource/content/3/Robert%20C.%20Martin%20-%20Design%20Principles%20and%20Design%20Patterns.pdf)
