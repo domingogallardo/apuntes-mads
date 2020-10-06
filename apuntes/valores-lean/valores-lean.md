@@ -148,6 +148,7 @@ System](http://en.wikipedia.org/wiki/Toyota_Production_System).
 > Toyota (_Toyota Production System_)[https://global.toyota/en/company/vision-and-philosophy/production-system/]
 >
 
+
 TPS está basado en dos principios básicos:
 
 - Just-in-time: Sólo hacer lo que se necesita, sólo cuando se
@@ -167,7 +168,7 @@ central de la palabra automatización (自動化), queriendo decir
       colaboradoras. 
     - Pensar en el conjunto. Equipos multi-funcionales.
 
-<img src="imagenes/machine-change-world.png" width="200px" align="right"/>
+<img src="imagenes/machine-change-world.png" width="150px" align="right"/>
 
 En los años 70 los automóviles japoneses conquistaron los mercados
 mundiales. Modelos de Toyota, Honda, Nissan, Mitsubishi comenzaron a
