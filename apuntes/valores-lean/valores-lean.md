@@ -168,7 +168,7 @@ central de la palabra automatización (自動化), queriendo decir
       colaboradoras. 
     - Pensar en el conjunto. Equipos multi-funcionales.
 
-<img src="imagenes/machine-change-world.png" width="150px" align="right"/>
+<img src="imagenes/machine-change-world.png" width="130px" align="right"/>
 
 En los años 70 los automóviles japoneses conquistaron los mercados
 mundiales. Modelos de Toyota, Honda, Nissan, Mitsubishi comenzaron a
@@ -185,7 +185,7 @@ vehículos producidos, superando a la industria americana y europea.
 
 ## Algunas características de los sistemas de fabricación lean ##
 
-<img src="lean-books.png" width="300px" align="right"/>
+<img src="imagenes/lean-books.png" width="300px" align="right"/>
 
 - Estas ideas dan origen a los denominados sistemas de fabricación
   lean (lean = austero, flaco) 
