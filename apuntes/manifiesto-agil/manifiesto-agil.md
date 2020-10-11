@@ -742,6 +742,10 @@ que se reúnan diariamente, pero las reuniones deben estar preparadas y
 servir principalmente para validar información preparada por el
 _product owner_.
 
+En algunos casos es posible tener a alguien de negocio trabajando
+junto con el equipo. Su función sería aclarar requisitos que pueden
+estar confusos y definir las especificaciones de los tests de aceptación.
+
 **5. Construir los proyectos alrededor de individuos motivados. Darles
 el entorno y el apoyo que necesitan y confiar en que van a hacer su trabajo.**
 
@@ -847,6 +851,8 @@ emergiendo de forma incremental, conforme se van desarrollando
 historias de usuario (de mayor a menor valor). Esto obliga a usar
 técnicas de diseño que permitan construir el sistema poco a poco,
 ampliando los módulos, esquemas de la base de datos, etc.
+
+Equipos multi-funcionales.
 
 **12. A intervalos regulares, el equipo reflexiona sobre cómo ser más
  efectivo, y ajusta su conducta de forma acorde.**

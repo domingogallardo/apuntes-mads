@@ -1190,7 +1190,7 @@ En el siguiente commit usamos el principio de inversión de
 dependencia, haciendo que el `Blog` trabaje con objetos abstractos de
 tipo `IPost` en lugar de con una implementación concreta. De esta
 forma preparamos el código para usar el principio de sustitución de
-Liskov, haciendo que la interfaz `IPost` sear la interfaz base de
+Liskov, haciendo que la interfaz `IPost` sea la interfaz base de
 la clase `Post` actual y de la futura clase `ImagePost` (post con una
 imagen). 
 

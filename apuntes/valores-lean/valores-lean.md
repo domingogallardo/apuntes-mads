@@ -458,6 +458,12 @@ software que deben minimizarse:
   lento. **Solución**: mejorar el proceso de despliegue con
   integración continua.
 
+Una idea bastante radical es la de Michael Feathers, que explica que
+el [código es
+inventario](https://michaelfeathers.typepad.com/michael_feathers_blog/2011/05/the-carrying-cost-of-code-taking-lean-seriously.html). Se
+debería minimizar la cantidad de código existente en el proyecto (en
+línea también con la idea de XP de buscar la simplicidad).
+
 ## Referencias ##
 
 - Taiichi Ohno (1988) [_Toyota Production System_](https://learning.oreilly.com/library/view/toyota-production-system/9781000056488/)
