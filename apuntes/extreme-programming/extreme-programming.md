@@ -13,19 +13,21 @@ responsabilidades de las clases en un diseño orientado a objetos.
 
 En 1996 Kent Beck comenzó a trabajar en el Chrysler Comprehensive
 Compensation System ([proyecto C3](https://www.martinfowler.com/bliki/C3.html), en el que conoció a
-Ron Jeffries. Se trataba de un proyecto de gestión Chrysler que se
+Ron Jeffries. Se trató de un proyecto de gestión Chrysler que se
 hizo famoso no por terminarse con éxito (fue cancelado en 1999) sino
 por considerarse el proyecto en el que nació XP.
 
-El proyecto fue un intento de reemplazar y unificar numerosos sistemas
-de nóminas _legacy_ basados en COBOL. Martin Fowler participó en
-varias ocasiones como consultor desde 1993 y comenzó a desarrollarse
-de forma seria en Smalltalk en 1995. Kent Beck tomó la dirección
-del mismo en 1996 y allí puso en acción todas las prácticas que
-después tomaron el nombre de _Extreme Programming_ (aunque había
-utilizado enfoques similares en proyectos previos). Beck contó también
-con la colaboración de Ron Jeffries en el equipo (otro autor del
-manifiesto ágil).
+El proyecto comenzó realmente en 1993, como un intento de reemplazar y
+unificar numerosos sistemas de nóminas _legacy_ basados en
+COBOL. Martin Fowler comenzó a participar en él como consultor en esta
+época. En 1995 se tomó la decisión de reescribir todo el sistema en el
+lenguaje de programación Smalltalk y Kent Beck tomó la dirección del
+proyecto. Allí puso en acción todas las prácticas que después tomaron
+el nombre de _Extreme Programming_ (aunque había utilizado enfoques
+similares en proyectos previos). Beck contó también con la
+colaboración de Ron Jeffries en el equipo. Ron fue también otro autor
+del manifiesto ágil y de numerosas publicaciones relacionadas con XP y
+metodologías ágiles.
   
 El software se puso en producción en 1997, realizando la gestión de
 nóminas de alrededor de diez mil personas. El proyecto continuó,
@@ -38,29 +40,67 @@ fracasando).
 
 <img src="imagenes/xp-books.png" width="200px" align="right"/>
 
-En 1999 Kent Beck publica su primera edición del "libro blanco" de
-Extreme Programming, en el que establece el conjunto de valores,
-principios y prácticas iniciales de XP.
+En 1999 Kent Beck recopila todas sus ideas sobre XP en su primera
+edición del "libro blanco" de Extreme Programming, en el que establece
+el conjunto de valores, principios y prácticas iniciales de XP.
 
-La segunda edición del “libro blanco” de Kent Beck (2004) fue un hito
-importante. A partir de ahí se ha popularizado la metodología,
-aplicándose en múltiples proyectos y publicándose una abundante
-bibliografía. Esta versión es la que seguiremos en estos apuntes.
+La segunda edición del “libro blanco” de Kent Beck en 2004 fue un hito
+importante. El libro contenía una versión más estructurada y madura de la
+metodología. En la primera edición se definían 12 prácticas
+principales que en la segunda se convierten en 13 y se suman 11
+prácticas secundarias.
+
+Las fechas de publicación de estos dos libros (finales de 1990s y
+principios de 2000s) fue el punto álgido del interés y la adopción de
+XP como metodología de desarrollo principal de los equipos de
+software. A partir de ese punto la metodología ha ido perdiendo
+popularidad y en la última década y media ha sido sustituida por
+Scrum, una metodología más general (menos orientada a desarrollo de
+software) que tiene roles y ceremonias más establecidos y fáciles de
+replicar. 
+
+<img src="imagenes/state-of-agile-practicas-desarrollo.png"
+width="300px" align="right"/>
+
+Sin embargo, paradójicamente, el interés por las prácticas XP no ha
+dejado de crecer. Prácticas como el test driven development (TDD), la
+refactorización, la integración continua o el pair programming son
+cada vez más populares, aunque las encontramos en el marco de otras
+corrientes como el [software
+craftmanship](https://en.wikipedia.org/wiki/Software_craftsmanship).
+
+De hecho, en el último informe sobre adopción de metodologías ágiles
+[14th Annual State of Agile
+Report](https://stateofagile.com/#ufh-i-615706098-14th-annual-state-of-agile-report/7027494)
+en la lista de prácticas más populares (imagen derecha) aparecen
+bastantes promovidas por XP: 
+
+- Continuous integration (55%), 
+- Refactoring (43%)
+- Continuous delivery (41%)
+- Pair programming (31%)
+- Test Driven Development (30%)
+- Collective Code Ownership (29%)
 
 
 ## Introducción rápida a XP ##
 
-XP involves as one team, in a sustainable process without imposed
-overtime, developers working in pairs who truly enjoy their work, and
-an informed and available customer to whom they regularly deliver
-releases. The system's design is clearly described for all by a
-forceful metaphor, driven by a comprehensive suite of developer and
-customer tests, and kept simple and understandable by constant
-refactoring and coding to uniform standards under the team's
-collective responsibility. This turns out to be a lot of fun and
-counter-intuitively effective. 
 
-[Short definition of XP](https://web.archive.org/web/20160709051640/http://c2.com/cgi/wiki?ShortDefinitionOfXp)
+
+
+> XP involves as one team, in a sustainable process without imposed
+> overtime, developers working in pairs who truly enjoy their work,
+> and an informed and available customer to whom they regularly
+> deliver releases. The system's design is clearly described for all
+> by a forceful metaphor, driven by a comprehensive suite of developer
+> and customer tests, and kept simple and understandable by constant
+> refactoring and coding to uniform standards under the team's
+> collective responsibility. This turns out to be a lot of fun and
+> counter-intuitively effective.
+>
+> [Short definition of XP](https://web.archive.org/web/20160709051640/http://c2.com/cgi/wiki?ShortDefinitionOfXp)
+
+
 
 ## Valores ##
 
