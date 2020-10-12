@@ -44,23 +44,23 @@ En 1999 Kent Beck recopila todas sus ideas sobre XP en su primera
 edición del "libro blanco" de Extreme Programming, en el que establece
 el conjunto de valores, principios y prácticas iniciales de XP.
 
-La segunda edición del “libro blanco” de Kent Beck en 2004 fue un hito
-importante. El libro contenía una versión más estructurada y madura de la
-metodología. En la primera edición se definían 12 prácticas
-principales que en la segunda se convierten en 13 y se suman 11
-prácticas secundarias.
+La metodología se vuelve muy popular a finales de los 90, siendo la
+metodología ágil más popular al final de la década. De hecho, de las
+17 personas que elaboran el manifiesto ágil en 2001, 6 provenían de la
+filosofía de XP.
+
+A mediados del 2000, en 2004, Kent Beck publica la segunda edición de
+su libro. Esta nueva edición contenía una versión más estructurada y
+madura de la metodología. En la primera edición se definían 12
+prácticas principales que en la segunda se convierten en 13 y se suman
+11 prácticas secundarias.
 
 Las fechas de publicación de estos dos libros (finales de 1990s y
-principios de 2000s) fue el punto álgido del interés y la adopción de
-XP como metodología de desarrollo principal de los equipos de
-software. A partir de ese punto la metodología ha ido perdiendo
-popularidad y en la última década y media ha sido sustituida por
-Scrum, una metodología más general (menos orientada a desarrollo de
-software) que tiene roles y ceremonias más establecidos y fáciles de
-replicar. 
-
-<img src="imagenes/state-of-agile-practicas-desarrollo.png"
-width="300px" align="right"/>
+principios de 2000s) fueron el punto álgido del interés y la adopción
+de XP. A partir aquí la metodología pierde popularidad y en la última
+década y media ha sido sustituida por Scrum, una metodología más
+general (menos orientada a desarrollo de software) que tiene roles y
+ceremonias más establecidos y fáciles de replicar.
 
 Sin embargo, paradójicamente, el interés por las prácticas XP no ha
 dejado de crecer. Prácticas como el test driven development (TDD), la
@@ -68,6 +68,8 @@ refactorización, la integración continua o el pair programming son
 cada vez más populares, aunque las encontramos en el marco de otras
 corrientes como el [software
 craftmanship](https://en.wikipedia.org/wiki/Software_craftsmanship).
+
+<img src="imagenes/state-of-agile-practicas-desarrollo.png" width="300px" align="right"/>
 
 De hecho, en el último informe sobre adopción de metodologías ágiles
 [14th Annual State of Agile
@@ -86,8 +88,6 @@ bastantes promovidas por XP:
 ## Introducción rápida a XP ##
 
 
-
-
 > XP involves as one team, in a sustainable process without imposed
 > overtime, developers working in pairs who truly enjoy their work,
 > and an informed and available customer to whom they regularly
@@ -101,12 +101,91 @@ bastantes promovidas por XP:
 > [Short definition of XP](https://web.archive.org/web/20160709051640/http://c2.com/cgi/wiki?ShortDefinitionOfXp)
 
 
-
 ## Valores ##
 
 ## Principios ##
 
+<img src="imagenes/puente-principios-practicas.png" width="300px"/>
+
 ## Prácticas ##
+
+<img src="imagenes/practicas-xp.png" width="600px"/>
+
+### 1. Sit Together ###
+
+<img src="imagenes/open-space-spotify.png" width="500px"/>
+
+### 2. Whole Team ###
+
+<img src="imagenes/cross-functional-team.png" width="500px"/>
+
+### 3. Informative Workspace ###
+
+<img src="imagenes/informative-workspace.png" width="500px"/>
+
+### 4. Energized Work ###
+
+<img src="imagenes/pomodoro-technique.png" width="200px"/>
+
+
+### 5. Pair Programming ###
+
+<img src="imagenes/pair-programming.png" width="300px"/>
+
+<img src="imagenes/mob-programming.png" width="300px"/>
+
+### 6. Stories ###
+
+<img src="imagenes/story.png" width="250px"/>
+
+<img src="imagenes/user-story-card.png" width="400px"/>
+
+### 7. Weekly Cycle ###
+
+### 8. Quarterly Cycle ###
+
+### 9. Slack ###
+
+### 10. Ten-Minute Build ###
+
+### 11. Continuos Integration ###
+
+<img src="imagenes/continous-delivery-pipeline.png" width="500px"/>
+
+### 12. Test-First Programming ###
+
+<img src="imagenes/tdd.png" width="400px"/>
+
+### 13. Incremental Design ###
+
+<img src="imagenes/evolutive-process.png" width="400px"/>
+
+### Prácticas secundarias ###
+
+Team
+
+- Real Customer Involvement
+- Team Continuity
+- Shrinking Teams 
+
+Programming
+
+- Shared Code 
+- Code and Test
+- Single Code Base
+
+Business
+
+- Root-Cause Analysis 
+- Negotiated Scope Contract
+- Pay-Per-Use
+
+Deliverying
+
+- Incremental Deployment 
+- Daily Deployment
+
+
 
 ## Referencias ##
 
