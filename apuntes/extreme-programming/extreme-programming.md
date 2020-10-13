@@ -88,6 +88,8 @@ bastantes promovidas por XP:
 <table markdown="1">
 <tr><td>
 
+**Dos ediciones con bastantes diferencias**
+
 La primera y la segunda edición del libro de Kent Beck _Extreme
 Programming Explained_ tienen cambios notables. La primera edición fue
 escrita antes del manifiesto ágil y con la idea de ser un texto
