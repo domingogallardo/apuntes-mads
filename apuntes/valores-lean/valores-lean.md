@@ -286,7 +286,7 @@ vehículos producidos, superando a la industria americana y europea.
 
 ### Sistemas de fabricación _pull_ ###
 
-<imt src="imagenes/sistema-pull.png" width="400px"/>
+<img src="imagenes/sistema-pull.png" width="400px"/>
 
 - Uno de los pilares de la fabricación lean.
 - El proceso de fabricación se divide en un conjunto de  pasos
@@ -367,6 +367,7 @@ vehículos producidos, superando a la industria americana y europea.
 - Ejemplos de tableros Kanban en el desarrollo de software:
 
 <img src="imagenes/tableros-kanban.png" width="700px"/>
+
 ## El desarrollo de software como un proceso de fabricación ##
 
 <img src="imagenes/proceso-fabricacion.png" width="500px"/>

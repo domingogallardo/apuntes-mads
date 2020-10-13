@@ -259,7 +259,8 @@ Los valores que define son los siguientes:
 
 ## Principios ##
 
-<img src="imagenes/puente-principios-practicas.png" width="300px"/>
+<img src="imagenes/puente-principios-practicas.png" width="300px"
+align="right"/>
 
 Los principios guían al equipo a implementar los valores. Son ideas
 más concretas que nos permiten escoger las mejores prácticas. Tanto
