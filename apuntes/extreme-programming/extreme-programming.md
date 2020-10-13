@@ -38,8 +38,6 @@ habían popularizado y habían demostrado su éxito en otros proyectos (a
 pesar de que, paradójicamente, su proyecto inicial terminara
 fracasando).
 
-<img src="imagenes/xp-books.png" width="250px" align="right"/>
-
 En 1999 Kent Beck recopila todas sus ideas sobre XP en su primera
 edición del "libro blanco" de Extreme Programming, en el que establece
 el conjunto de valores, principios y prácticas iniciales de XP.
@@ -87,6 +85,8 @@ bastantes promovidas por XP:
 
 <table markdown="1">
 <tr><td>
+
+<img src="imagenes/xp-books.png" width="250px" align="right"/>
 
 **Dos ediciones con bastantes diferencias**
 
