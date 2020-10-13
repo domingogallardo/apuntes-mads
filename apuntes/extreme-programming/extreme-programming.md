@@ -38,7 +38,7 @@ habían popularizado y habían demostrado su éxito en otros proyectos (a
 pesar de que, paradójicamente, su proyecto inicial terminara
 fracasando).
 
-<img src="imagenes/xp-books.png" width="200px" align="right"/>
+<img src="imagenes/xp-books.png" width="250px" align="right"/>
 
 En 1999 Kent Beck recopila todas sus ideas sobre XP en su primera
 edición del "libro blanco" de Extreme Programming, en el que establece
@@ -70,7 +70,7 @@ cada vez más populares, aunque las encontramos en el marco de otras
 corrientes como el [software
 craftmanship](https://en.wikipedia.org/wiki/Software_craftsmanship).
 
-<img src="imagenes/state-of-agile-practicas-desarrollo.png" width="300px" align="right"/>
+<img src="imagenes/state-of-agile-practicas-desarrollo.png" width="400px" align="right"/>
 
 De hecho, en el último informe sobre adopción de metodologías ágiles
 [14th Annual State of Agile
@@ -216,7 +216,7 @@ Los valores que define son los siguientes:
     - No tiene duplicación
     - Usa el mínimo número de clases y métodos
 
-    <img src="imagenes/xp-cycles.png" width="200px" align="right"/>
+    <img src="imagenes/xp-cycles.png" width="300px" align="right"/>
 
 - **Retroalimentación**: sin una retroalimentación continua y honesta
   todo se desmorona. La retroalimentación es lo que mantiene a todo el
