@@ -351,23 +351,49 @@ los errores como una oportunidad de crecimiento.
 
 ## Prácticas ##
 
+Las prácticas de XP2 (segunda edición del libro de Beck) se muestran
+en la siguiente figura del propio Beck:
+
 <img src="imagenes/practicas-xp.png" width="600px"/>
 
-- El prefacio de la segunda edición de _Extreme Programming Explained_
-  lo firma [Erich Gamma](https://en.wikipedia.org/wiki/Erich_Gamma)
-  en 2004. **Erich Gamma** es uno de los _Gang Of Four_, autores del
-  famoso libro _Design Patterns_. También es co-autor, junto con Beck,
-  de **JUnit**. Y fue líder del equipo que desarrolló inicialmente el
-  **proyecto Eclipse**, el popular IDE de desarrollo de Java.
+Podemos agruparlas de la siguiente forma:
+
+- Prácticas de trabajo en equipo:
+    - Informative workspace
+    - Sit together
+    - Whole team
+    - Energized work
+    - Slack
+- Prácticas de diseño:
+    - Stories
+    - Incremental design
+- Prácticas de programación:
+    - Pair programming
+    - Test-first programming
+- Prácticas de integración:
+    - Continuous integration
+    - Ten minutes build
+- Prácticas de planificación:
+    - Weekly cycle
+    - Quaterly cycle
+
+### Prácticas XP en el desarrollo de Eclipse ###
+
+El prefacio de la segunda edición de _Extreme Programming Explained_
+lo firma [Erich Gamma](https://en.wikipedia.org/wiki/Erich_Gamma)
+en 2004. **Erich Gamma** es uno de los _Gang Of Four_, autores del
+famoso libro _Design Patterns_. También es co-autor, junto con Beck,
+de **JUnit**. Y fue líder del equipo que desarrolló inicialmente el
+**proyecto Eclipse**, el popular IDE de desarrollo de Java.
   
-  En este prefacio, Gamma comenta que **las prácticas XP son claves en
-  el desarrollo de Eclipse**. Al ser un proyecto open source uno de los
-  objetivos es realizar una desarrollo completamente transparente, ya
-  que si no se sabe hacia dónde va el proyecto no es posible colaborar
-  con él ni proporcionar retroalimentación.
+En este prefacio, Gamma comenta que **las prácticas XP son claves en
+el desarrollo de Eclipse**. Al ser un proyecto open source uno de los
+objetivos es realizar una desarrollo completamente transparente, ya
+que si no se sabe hacia dónde va el proyecto no es posible colaborar
+con él ni proporcionar retroalimentación.
   
-  Las prácticas que utiliza Gamma en Eclipse son principalmente
-  **refactoring**, **tests unitarios** y **feedback inmediato**:
+Las prácticas que utiliza Gamma en Eclipse son principalmente
+**refactoring**, **tests unitarios** y **feedback inmediato**:
   
   - **Pruebas desde el principio, frecuentes y automatizadas**: más de
     21,000 tests en el proyecto.
@@ -390,33 +416,31 @@ los errores como una oportunidad de crecimiento.
     siguiente release. El plan se publica en la web pronto para que la
     comunidad pueda unirse al diálogo.
 
-- Si tuviéramos que quedarnos con la enseñanza más importante de XP
+### Énfasis en las pruebas ###
+
+Si tuviéramos que quedarnos con la enseñanza más importante de XP
 sería,  sin lugar a dudas, el énfasis en las pruebas, y en concreto,
 en la práctica de  TDD (Test Driven Development, desarrollo dirigido
 por las pruebas). TDD consiste básicamente en invertir el desarrollo
 habitual de los tests. No hacerlos después de escribir el código para
 comprobar que no hay errores. Sino hacer el test antes de escribir el
 código. Y escribir únicamente el código necesario para que el test
-pase.
-
-Esta idea tan simple en apariencia cambia radicalmente la forma de
+pase. Esta idea tan simple en apariencia cambia radicalmente la forma de
 enfrentarse al desarrollo. Lo veremos más adelante.
 
-- Para XP las pruebas son el elemento fundamental del desarrollo, y
+Para XP las pruebas son el elemento fundamental del desarrollo, y
 todos los desarrolladores deben escribirlas mientras que escriben el
-código que finalmente irá a producción.
+código que finalmente irá a producción. Las pruebas se integran en un
+proceso de integración y construcción continua lo que lleva a una
+plataforma muy estable para el desarrollo futuro.
 
-- Las pruebas se integran en un proceso de integración y construcción
-continua lo que lleva a una plataforma muy estable para el desarrollo
-futuro.
-
-- Este énfasis en las pruebas como parte integral del desarrollo ha
+Este énfasis en las pruebas como parte integral del desarrollo ha
 sobrepasado a la propia XP y se ha incorporado en múltiples
 metodologías y equipos de desarrollo (aunque no utilicen el resto de
 prácticas XP). 
 
-- Kent Beck es también una de las figuras claves de TDD, con sus libros y el
-  software que ha desarrollado (jUnit). 
+Kent Beck es también una de las figuras claves de TDD, con sus libros y el
+software que ha desarrollado (jUnit). 
 
 ### 1. Sit Together ###
 
