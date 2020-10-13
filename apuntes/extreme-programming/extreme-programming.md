@@ -70,7 +70,7 @@ cada vez más populares, aunque las encontramos en el marco de otras
 corrientes como el [software
 craftmanship](https://en.wikipedia.org/wiki/Software_craftsmanship).
 
-<img src="imagenes/state-of-agile-practicas-desarrollo.png" width="400px" align="right"/>
+<img src="imagenes/state-of-agile-practicas-desarrollo.png" width="450px" align="right"/>
 
 De hecho, en el último informe sobre adopción de metodologías ágiles
 [14th Annual State of Agile
