@@ -359,20 +359,20 @@ en la siguiente figura del propio Beck:
 Podemos agruparlas de la siguiente forma:
 
 - Prácticas de trabajo en equipo:
-    - Informative workspace
     - Sit together
     - Whole team
     - Energized work
     - Slack
 - Prácticas de diseño:
+    - Informative workspace
     - Stories
     - Incremental design
 - Prácticas de programación:
     - Pair programming
     - Test-first programming
 - Prácticas de integración:
-    - Continuous integration
     - Ten minutes build
+    - Continuous integration
 - Prácticas de planificación:
     - Weekly cycle
     - Quaterly cycle
@@ -442,7 +442,9 @@ prácticas XP).
 Kent Beck es también una de las figuras claves de TDD, con sus libros y el
 software que ha desarrollado (jUnit). 
 
-### 1. Sit Together ###
+### Prácticas de trabajo en equipo ###
+
+#### Sit Together ####
 
 <img src="imagenes/open-space-spotify.png" width="500px"/>
 
@@ -453,7 +455,7 @@ el número de horas de trabajo.
 - Cuantas más reuniones cara-a-cara, más humano y productivo se
   convierte el proyecto. 
 
-### 2. Whole Team ###
+#### Whole Team ####
 
 <img src="imagenes/cross-functional-team.png" width="500px"/>
 
@@ -463,18 +465,7 @@ apoyamos el trabajo, el crecimiento y el aprendizaje de todos.
   la BD el administrador ya no es necesario y puede dedicarse a otros
   proyectos.
 
-### 3. Informative Workspace ###
-
-<img src="imagenes/informative-workspace.png" width="500px"/>
-
-- Hacer que el espacio de trabajo se empape del proyecto en el que
-estamos trabajando. 
-- Colocar las tarjetas con las historias en las paredes, agrupadas por
-estado (más de esto cuando hablemos de Kanban). 
-- Colocar también en un lugar visible distintas gráficas de evolución
-  del proyecto. 
-
-### 4. Energized Work ###
+#### Energized Work ####
 
 <img src="imagenes/pomodoro-technique.png" width="200px"/>
 
@@ -494,8 +485,80 @@ a eso.
     - La idea original es de Francesco Cirillo. En [esta página](https://cirillocompany.de/pages/pomodoro-technique) anuncia
   sus cursos y se puede obtener su libro original.
 
+#### Slack ####
 
-### 5. Pair Programming ###
+- Trabajar con un cierto colchón que suavice la tensión de cumplir
+compromisos imposibles.
+- Es importante establecer una atmósfera de confianza en la que los
+que piden y los que desarrollan el producto se comunican de forma
+clara y honesta.
+- Trabajar con plazos no realistas introduce errores inmanejables,
+mina la moral y construye relaciones antagonistas.
+- Cumplir los compromisos, incluso modestos, elimina desperdicios
+  (waste), suaviza las tensiones, mejora la credibilidad y construye
+  unas relaciones basadas en la comunicación honesta. 
+
+
+
+### Prácticas de diseño ###
+
+#### Informative Workspace ####
+
+<img src="imagenes/informative-workspace.png" width="500px"/>
+
+- Hacer que el espacio de trabajo se empape del proyecto en el que
+estamos trabajando. 
+- Colocar las tarjetas con las historias en las paredes, agrupadas por
+estado (más de esto cuando hablemos de Kanban). 
+- Colocar también en un lugar visible distintas gráficas de evolución
+  del proyecto. 
+
+#### Stories ####
+
+<img src="imagenes/story.png" width="250px"/>
+
+<img src="imagenes/user-story-card.png" width="400px"/>
+
+- Escribir las historias en tarjetas pequeñas, indicando un nombre,
+una  descripción y una estimación del tiempo. 
+- Es más adecuado hablar de “historias” que de “requisitos” (palabra
+con connotaciones de “inmutabilidad” y “permanencia” que no son
+compatibles con “abrazar el cambio”). 
+- Al estimar cada historia es fácil darse cuenta del coste de cada una
+de ellas y podemos combinarlas, priorizarlas. 
+- Colocar las tarjetas en la pared, en un sitio visible, no en un
+  programa.
+  
+**Hablar de las tres Cs**
+
+
+
+#### Incremental Design ####
+
+<img src="imagenes/evolutive-process.png" width="400px"/>
+
+- Diseño gradual, con pasos pequeños y seguros.
+- El diseño no debe hacerse sólo al principio, sino conforme vamos
+  adquiriendo experiencia. 
+- Invertir cada día en el diseño del sistema, luchando por ver cómo la
+  parte que estamos construyendo puede mejorarlo en su conjunto.
+- Pensar todo el tiempo en el problema en conjunto, buscando formas de
+  diseñar mejor todo el sistema. Cuando tengamos claro un diseño
+  mejor, trabajar gradual pero continuamente para alinear el sistema
+  real con este diseño. 
+- Los equipos XP trabajan duro para crear las condiciones bajo las que
+  el coste de cambiar el software sea bajo.
+- Una regla sencilla para mejorar el diseño: eliminar la duplicación. 
+
+**Hablar algo más de deuda técnica**
+
+
+
+
+
+### Prácticas de programación ###
+
+#### Pair Programming ####
 
 <img src="imagenes/pair-programming.png" width="300px"/>
 
@@ -598,105 +661,7 @@ programar mejor.
     discusiones productivas.
   - Es importante no hacer pairing cuando quieres asimilar algo que has aprendido.
 
-### 6. Stories ###
-
-<img src="imagenes/story.png" width="250px"/>
-
-<img src="imagenes/user-story-card.png" width="400px"/>
-
-- Escribir las historias en tarjetas pequeñas, indicando un nombre,
-una  descripción y una estimación del tiempo. 
-- Es más adecuado hablar de “historias” que de “requisitos” (palabra
-con connotaciones de “inmutabilidad” y “permanencia” que no son
-compatibles con “abrazar el cambio”). 
-- Al estimar cada historia es fácil darse cuenta del coste de cada una
-de ellas y podemos combinarlas, priorizarlas. 
-- Colocar las tarjetas en la pared, en un sitio visible, no en un
-  programa.
-  
-**Hablar de las tres Cs**
-
-### 7. Weekly Cycle ###
-
-<img src="imagenes/weekly-cycle.png" width="700px"/>
-
-- Reunión al comienzo de cada semana:
-    - Revisión del progreso hasta la fecha, incluyendo si el progreso
-    de la semana previa se corresponde con lo previsto. 
-    - Hacer que el cliente escoja historias que sumen una semana de tamaño para la semana actual
-    - Fraccionar las historias en tareas, los miembros del equipo se
-    apuntan a las tareas y las estiman. 
-
-- Comenzar la semana escribiendo las pruebas automáticas que se
-realizarán cuando las historias estén completas y pasar el resto de la
-semana implementándolas e integrándolas en el proyecto 
-
-- Al final de la semana las nuevas historias deben estar disponibles
-  para ser desplegadas.
-
-- La semana es un ciclo corto para poder hacer experimentos del estilo
-  “vamos a usar la técnica del Pomodoro durante una semana” o “esta
-  semana cambiamos de pareja cada hora”. 
-
-### 8. Quarterly Cycle ###
-
-- Es conveniente hacer reuniones con un ciclo superior al semanal para ver la evolución del proyecto en conjunto
-- Cada 3 meses:
-    - Identificar los cuellos de botella, especialmente los que no
-      están controlados por el equipo.
-    - Planificar el tema o los temas para el cuatrimestre.
-    - Escoger historias que sumen un trimestre para cumplir con los
-    temas escogidos. 
-    - Centrarse en una visión general de cómo el proyecto encaja en la
-    organización y del valor que añade. 
-- Los trimestres también son un buen ciclo para reflexionar sobre el
-  equipo y proponer y evaluar experimentos que duren más de una semana.
-
-### 9. Slack ###
-
-- Trabajar con un cierto colchón que suavice la tensión de cumplir
-compromisos imposibles.
-- Es importante establecer una atmósfera de confianza en la que los
-que piden y los que desarrollan el producto se comunican de forma
-clara y honesta.
-- Trabajar con plazos no realistas introduce errores inmanejables,
-mina la moral y construye relaciones antagonistas.
-- Cumplir los compromisos, incluso modestos, elimina desperdicios
-  (waste), suaviza las tensiones, mejora la credibilidad y construye
-  unas relaciones basadas en la comunicación honesta. 
-
-### 10. Ten-Minute Build ###
-
-- Máximo de 10 minutos para construir automáticamente todo el sistema y ejecutar
-todos los tests.
-- Todo el proceso de build y de paso de las pruebas debería estar
-automatizado.
-- No comprobar sólo las pruebas de la nueva parte añadida al sistema, sino todas las anteriores.
-- En continuous delivery se va un paso más allá y se automatiza
-  también el despliegue y el lanzamiento de las nuevas funcionalidades
-  en producción. 
-
-### 11. Continuos Integration ###
-
-<img src="imagenes/continous-delivery-pipeline.png" width="500px"/>
-
-- No dejar pasar más de dos horas sin integrar los cambios que hemos
-  programado. 
-- La programación en equipo es un problema de “divide, vencerás e
-integrarás”. 
-- La integración es un paso no predecible que puede costar más que el
-propio desarrollo.
-- Integración síncrona: cada pareja después de un par de horas sube
-sus cambios y espera a que se complete el build y se hayan pasado
-todas las pruebas sin ningún problema de regresión.
-- Integración asíncrona: cada noche se hace un build diario en el que
-se construye la nueva versión del sistema. Si se producen errores se
-notifica con alertas de mails o cambia de color una lámpara de lava. 
-- El sistema resultante debe ser un sistema listo para lanzarse sin
-  demasiados problemas. Si el objetivo es desplegar una web, hay que
-  desplegar la web (en el entorno de staging).
-  
-### 12. Test-First Programming ###
+#### Test-First Programming ####
 
 Se denomina habitualmente a esta práctica Test Driven Design (TDD). Es
 una de las prácticas más importantes de XP. Hablaremos más adelante
@@ -776,25 +741,81 @@ pronto en algo natural y eficiente: test, code, refactor, test, code,
 refactor
 
 
-### 13. Incremental Design ###
 
-<img src="imagenes/evolutive-process.png" width="400px"/>
 
-- Diseño gradual, con pasos pequeños y seguros.
-- El diseño no debe hacerse sólo al principio, sino conforme vamos
-  adquiriendo experiencia. 
-- Invertir cada día en el diseño del sistema, luchando por ver cómo la
-  parte que estamos construyendo puede mejorarlo en su conjunto.
-- Pensar todo el tiempo en el problema en conjunto, buscando formas de
-  diseñar mejor todo el sistema. Cuando tengamos claro un diseño
-  mejor, trabajar gradual pero continuamente para alinear el sistema
-  real con este diseño. 
-- Los equipos XP trabajan duro para crear las condiciones bajo las que
-  el coste de cambiar el software sea bajo.
-- Una regla sencilla para mejorar el diseño: eliminar la duplicación. 
 
-**Hablar algo más de deuda técnica**
+### Prácticas de integración ###
+#### Ten-Minute Build ####
 
+- Máximo de 10 minutos para construir automáticamente todo el sistema y ejecutar
+todos los tests.
+- Todo el proceso de build y de paso de las pruebas debería estar
+automatizado.
+- No comprobar sólo las pruebas de la nueva parte añadida al sistema, sino todas las anteriores.
+- En continuous delivery se va un paso más allá y se automatiza
+  también el despliegue y el lanzamiento de las nuevas funcionalidades
+  en producción. 
+
+
+#### Continuos Integration ####
+
+<img src="imagenes/continous-delivery-pipeline.png" width="500px"/>
+
+- No dejar pasar más de dos horas sin integrar los cambios que hemos
+  programado. 
+- La programación en equipo es un problema de “divide, vencerás e
+integrarás”. 
+- La integración es un paso no predecible que puede costar más que el
+propio desarrollo.
+- Integración síncrona: cada pareja después de un par de horas sube
+sus cambios y espera a que se complete el build y se hayan pasado
+todas las pruebas sin ningún problema de regresión.
+- Integración asíncrona: cada noche se hace un build diario en el que
+se construye la nueva versión del sistema. Si se producen errores se
+notifica con alertas de mails o cambia de color una lámpara de lava. 
+- El sistema resultante debe ser un sistema listo para lanzarse sin
+  demasiados problemas. Si el objetivo es desplegar una web, hay que
+  desplegar la web (en el entorno de staging).
+  
+
+
+### Prácticas de planificación ###
+
+#### Weekly Cycle ####
+
+<img src="imagenes/weekly-cycle.png" width="700px"/>
+
+- Reunión al comienzo de cada semana:
+    - Revisión del progreso hasta la fecha, incluyendo si el progreso
+    de la semana previa se corresponde con lo previsto. 
+    - Hacer que el cliente escoja historias que sumen una semana de tamaño para la semana actual
+    - Fraccionar las historias en tareas, los miembros del equipo se
+    apuntan a las tareas y las estiman. 
+
+- Comenzar la semana escribiendo las pruebas automáticas que se
+realizarán cuando las historias estén completas y pasar el resto de la
+semana implementándolas e integrándolas en el proyecto 
+
+- Al final de la semana las nuevas historias deben estar disponibles
+  para ser desplegadas.
+
+- La semana es un ciclo corto para poder hacer experimentos del estilo
+  “vamos a usar la técnica del Pomodoro durante una semana” o “esta
+  semana cambiamos de pareja cada hora”. 
+
+#### Quarterly Cycle ####
+
+- Es conveniente hacer reuniones con un ciclo superior al semanal para ver la evolución del proyecto en conjunto
+- Cada 3 meses:
+    - Identificar los cuellos de botella, especialmente los que no
+      están controlados por el equipo.
+    - Planificar el tema o los temas para el cuatrimestre.
+    - Escoger historias que sumen un trimestre para cumplir con los
+    temas escogidos. 
+    - Centrarse en una visión general de cómo el proyecto encaja en la
+    organización y del valor que añade. 
+- Los trimestres también son un buen ciclo para reflexionar sobre el
+  equipo y proponer y evaluar experimentos que duren más de una semana.
 
 ### Prácticas secundarias ###
 
