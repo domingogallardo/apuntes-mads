@@ -132,25 +132,25 @@ El elemento central de XP son sus prácticas. En los siguientes
 párrafos resumimos cómo sería el trabajo de un equipo de desarrollo
 usando estas prácticas.
 
-Un desarrollador trabajando con XP participará en un equipo que se
+- Un desarrollador trabajando con XP participará en un equipo que se
 siente unido, que trabaja en un espacio común con paredes llenas de
 esquemas, fichas, y elementos informativos y que desarrolla su faena a
 pleno rendimiento, trabajando de forma sostenida y sin presión ni
 agobios.
 
-El equipo diseña el software usando fichas denominadas _historias_ que
-utilizan un lenguaje de negocio común y construye la aplicación usando
-un enfoque iterativo y evolutivo, basado en un diseño
-incremental. 
+- El equipo diseña el software escribiendo en tarjetas (denominadas
+_historias_) las nuevas funcionalidades a implementar usando un
+lenguaje de negocio común. El equipo construye la aplicación usando un
+enfoque iterativo y evolutivo, basado en un diseño incremental.
 
-Semanalmente los clientes definen las historias y se añaden a la
+- Semanalmente los clientes definen las historias y se añaden a la
 aplicación, definiendo primero los tests que deben cumplir y
 trabajando en parejas para escribir el código que hace pasar esos
 tests. Continuamente se compila la aplicación, se integra y se pasan
 todos los tests, en un proceso que debería ser muy rápido (menos de 10
 minutos). 
 
-Cada tres meses se reflexiona sobre la dirección global del proyecto,
+- Cada tres meses se reflexiona sobre la dirección global del proyecto,
 estableciendo nuevas prioridades y analizando posibles mejoras en el
 proceso. 
 
