@@ -637,17 +637,19 @@ concreción, definiendo lo que se conoce como las tres Cs:
 - Confirmation
 
 Las historias son un texto corto escrito en una tarjeta que se
-refieren a una conversación con los clientes sobre la funcionalidad
+refiere a una conversación con los clientes sobre la funcionalidad
 que se quiere incluir y que debe tener una lista larga de criterios de
-aceptación en los que se especifican de forma más concreta sus detalles.
+aceptación en los que se especifican de forma más concreta sus
+detalles. Estos criterios de aceptación estarán documentados aparte,
+no en la misma tarjeta.
 
 ##### Lenguaje del dominio #####
 
 Es muy importante usar en las tarjetas un lenguaje y un vocabulario
 propio de los clientes y del negocio o dominio que estamos
-programando. Es parte de nuestro conseguir que ese vocabulario sea
-preciso y corregir las posibles ambigüedades que puede
-contener. Cuando escribamos código y tests debemos usar el mismo
+programando. Es parte de nuestro trabajo conseguir que ese vocabulario
+sea preciso y corregir las posibles ambigüedades que pudiera
+contener. Cuando escribimos código y tests debemos usar el mismo
 vocabulario que el usado por los clientes, de forma que sea posible
 entender el programa en términos lo más cercanos posibles al modelo de
 negocio.
@@ -659,7 +661,12 @@ se sufre una pandemia), hay que distinguir entre "grupos", "turnos" y
 "actividades". Una asignatura tiene varias actividades: por ejemplo,
 teoría y práctica. Cada actividad se divide en grupos de estudiantes
 que comparten aula y horario. Y cada grupo se divide en turnos:
-presencial y on-line.
+presencial y on-line. Estos términos ("grupos", "turnos" y
+"actividad") son precisos y es posible utilizarlos para definir reglas
+y especificaciones. Pero lo habitual es que no haya sido sencillo
+llegar a ellos y que sólo se hayan obtenido después de muchas
+confusiones y malentendidos (por ejemplo, hablar de "grupos" cuando
+queremos decir "actividad" o "turno").
 
 Es muy importante hacer este esfuerzo de precisión con el lenguaje,
 porque ayuda mucho a la hora de especificar las funcionalidades y
