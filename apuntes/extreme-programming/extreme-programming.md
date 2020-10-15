@@ -606,11 +606,11 @@ se haría popular el estilo "Como (rol), quiero (acción) para conseguir
 
 <img src="imagenes/user-story-card.png" width="400px"/>
 
-Cada equipo tiene un estilo de escribir las historias. No creo que sea
-bueno obligar a usar un formato específico. No hay que ser demasiado
-estricto con ello. A veces la historia encaja bien en el formato
-estándar, pero otras no. Si tienes que darle demasiadas vueltas a cómo
-formular tu historia con ese formato, no lo uses.
+Cada equipo tiene un estilo de escribir las historias. No hay que ser
+demasiado estricto con la idea de usar un formato concreto. A veces la
+historia encaja bien en el formato estándar, pero otras no. Si tienes
+que darle demasiadas vueltas a cómo formular tu historia con un
+formato, no lo uses.
 
 Lo importante es que la descripción de la historia sea corta y que en
 ella se especifique alguna funcionalidad visible por el
