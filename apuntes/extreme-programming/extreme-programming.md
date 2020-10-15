@@ -545,18 +545,25 @@ Technique Ilustrated](https://learning.oreilly.com/library/view/pomodoro-techniq
 
 #### Slack ####
 
-- Trabajar con un cierto colchón que suavice la tensión de cumplir
-compromisos imposibles.
-- Es importante establecer una atmósfera de confianza en la que los
-que piden y los que desarrollan el producto se comunican de forma
-clara y honesta.
-- Trabajar con plazos no realistas introduce errores inmanejables,
-mina la moral y construye relaciones antagonistas.
-- Cumplir los compromisos, incluso modestos, elimina desperdicios
-  (waste), suaviza las tensiones, mejora la credibilidad y construye
-  unas relaciones basadas en la comunicación honesta. 
+En cualquier plan es conveniente incluir tareas menores que puedan ser
+abandonadas si surgen problemas para completar el deadline. Es mejor
+cumplir el compromiso y entregar el producto sin esas tareas no
+esenciales que entregar tarde.
 
+También es conveniente incluir en la planificación tiempo para
+realizar tareas de mantenimiento de la arquitectura del proyecto, que
+no se van a dedicar a incorporar nuevas funcionalidades.
 
+Trabajar con un cierto colchón que suavice la tensión de cumplir
+compromisos imposibles. Es importante establecer una atmósfera de
+confianza en la que los que piden y los que desarrollan el producto se
+comunican de forma clara y honesta. Trabajar con plazos no realistas
+introduce errores inmanejables, mina la moral y construye relaciones
+antagonistas.
+
+Cumplir los compromisos, incluso modestos, elimina desperdicios
+(waste), suaviza las tensiones, mejora la credibilidad y construye
+unas relaciones basadas en la comunicación honesta. 
 
 ### Prácticas de diseño ###
 
@@ -564,12 +571,23 @@ mina la moral y construye relaciones antagonistas.
 
 <img src="imagenes/informative-workspace.png" width="500px"/>
 
-- Hacer que el espacio de trabajo se empape del proyecto en el que
-estamos trabajando. 
-- Colocar las tarjetas con las historias en las paredes, agrupadas por
-estado (más de esto cuando hablemos de Kanban). 
-- Colocar también en un lugar visible distintas gráficas de evolución
-  del proyecto. 
+Debemos conseguir que el espacio de trabajo se empape del proyecto en el que
+estamos trabajando. Un observador interesado debería poder obtener
+una idea de cómo va el proyecto sólo caminando por la oficina.
+
+En las paredes colocaremos las tarjetas con las historias, agrupadas por
+estado. Las pendientes en una columna, las que están en marcha en otra
+y las terminadas en otra. También podemos agrupar las que van a ir en
+este release y las que dejamos para el futuro. O las que están ya
+detalladas y las que están pendientes de detallar. Hablaremos más de
+esto en el futuro, cuando veamos la metodología Kanban.
+
+Podemos colocar también en un lugar visible distintas gráficas de evolución
+del proyecto. Por ejemplo: número de historias terminadas esta semana,
+números de pull requests subidos a producción, número de bugs
+encontrados, etc. Si un gráfico deja de actualizarse, lo quitamos y lo
+reemplazamos por algo que sea más importante y que sí que merezca la
+pena mantener vivo.
 
 #### Stories ####
 
