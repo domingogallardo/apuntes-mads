@@ -441,7 +441,7 @@ prácticas XP).
 
 ### Prácticas de trabajo en equipo ###
 
-#### Sit Together ####
+#### Práctica: Sit Together ####
 
 <img src="imagenes/open-space-spotify.png" width="500px"/>
 
@@ -466,7 +466,7 @@ En palabras de Beck:
 > more face time you have, the more humane and productive the project.
 
 
-#### Whole Team ####
+#### Práctica: Whole Team ####
 
 <img src="imagenes/cross-functional-team.png" width="500px"/>
 
@@ -493,7 +493,7 @@ y con otro los martes, miércoles y viernes, sin tener otros
 desarrolladores con los que identificarte, destroza la idea de
 "equipo" y es contraproducente.
 
-#### Energized Work ####
+#### Práctica: Energized Work ####
 
 Es recomendable trabajar a pleno rendimiento, pero solo tantas horas
 como se pueda ser productivo de forma sostenida. No es conveniente
@@ -543,7 +543,7 @@ Technique Ilustrated](https://learning.oreilly.com/library/view/pomodoro-techniq
 </table>
 
 
-#### Slack ####
+#### Práctica: Slack ####
 
 En cualquier plan es conveniente incluir tareas menores que puedan ser
 abandonadas si surgen problemas para completar el deadline. Es mejor
@@ -567,7 +567,7 @@ unas relaciones basadas en la comunicación honesta.
 
 ### Prácticas de diseño ###
 
-#### Informative Workspace ####
+#### Práctica: Informative Workspace ####
 
 <img src="imagenes/informative-workspace.png" width="500px"/>
 
@@ -589,7 +589,7 @@ encontrados, etc. Si un gráfico deja de actualizarse, lo quitamos y lo
 reemplazamos por algo que sea más importante y que sí que merezca la
 pena mantener vivo.
 
-#### Stories ####
+#### Práctica: Stories ####
 
 Los elementos que debemos usar para planificar el trabajo son pequeños
 "trozos" de funcionalidad visible por el cliente. Beck denomina estos
@@ -696,7 +696,7 @@ para definir seis atributos que debe tener una buena historia de usuario:
 - **T**estable: las historias deben ser probadas y los tests deben poder ser
 automatizados.
 
-#### Incremental Design ####
+#### Práctica: Incremental Design ####
 
 Cuando Beck habla de "diseño incremental", se está refiriendo al
 diseño de la estructura del software, a hacer un diseño de software
@@ -806,7 +806,7 @@ usando ejemplos muy interesantes sacados de Spotify y Minecraft.
 
 ### Prácticas de programación ###
 
-#### Pair Programming ####
+#### Práctica: Pair Programming ####
 
 <img src="imagenes/pair-programming.png" width="300px"/>
 
@@ -909,7 +909,7 @@ programar mejor.
     discusiones productivas.
   - Es importante no hacer pairing cuando quieres asimilar algo que has aprendido.
 
-#### Test-First Programming ####
+#### Práctica: Test-First Programming ####
 
 Se denomina habitualmente a esta práctica Test Driven Design (TDD). Es
 una de las prácticas más importantes de XP. Hablaremos más adelante
@@ -991,7 +991,7 @@ refactor
 
 
 ### Prácticas de integración ###
-#### Ten-Minute Build ####
+#### Práctica: Ten-Minute Build ####
 
 - Máximo de 10 minutos para construir automáticamente todo el sistema y ejecutar
 todos los tests.
@@ -1003,7 +1003,7 @@ automatizado.
   en producción. 
 
 
-#### Continuos Integration ####
+#### Práctica: Continuos Integration ####
 
 <img src="imagenes/continous-delivery-pipeline.png" width="500px"/>
 
@@ -1027,7 +1027,7 @@ notifica con alertas de mails o cambia de color una lámpara de lava.
 
 ### Prácticas de planificación ###
 
-#### Weekly Cycle ####
+#### Práctica: Weekly Cycle ####
 
 <img src="imagenes/weekly-cycle.png" width="700px"/>
 
@@ -1049,7 +1049,7 @@ semana implementándolas e integrándolas en el proyecto
   “vamos a usar la técnica del Pomodoro durante una semana” o “esta
   semana cambiamos de pareja cada hora”. 
 
-#### Quarterly Cycle ####
+#### Práctica: Quarterly Cycle ####
 
 - Es conveniente hacer reuniones con un ciclo superior al semanal para ver la evolución del proyecto en conjunto
 - Cada 3 meses:
