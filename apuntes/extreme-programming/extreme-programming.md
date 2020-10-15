@@ -445,42 +445,103 @@ prácticas XP).
 
 <img src="imagenes/open-space-spotify.png" width="500px"/>
 
-- Un espacio abierto en el que todo el equipo pueda trabajar.
-- Una forma de satisfacer la necesidad de espacio privado es limitando
-el número de horas de trabajo.
-- El espacio de trabajo debe promover que florezca la comunicación.
-- Cuantas más reuniones cara-a-cara, más humano y productivo se
-  convierte el proyecto. 
+La oficina en la que se hace el desarrollo debería ser lo
+suficientemente grande para que todo el equipo pueda trabajar
+junto. Es recomendable una oficina de tipo "espacio abierto" (sin
+paneles, ni despachos privados). De esta forma se promueve la
+comunicación y relación entre todos los miembros del equipo. No es
+posible esa interacción cuando todos los miembros del equipo están
+cada uno en despachos individuales separados bastante distancia.
+
+Un posible problema de los espacios abiertos es que el equipo vaya al
+extremo contrario de la falta de comunicación y se genere un entorno
+de excesivo ruido en el que es difícil la concentración. Hay que
+equilibrar ambos extremos. Además de tener un cierto control para
+evitar conversaciones ruidosas, una posible solución es habilitar
+salas de reuniones cercanas a la zona de trabajo.
+
+En palabras de Beck:
+
+> Practices are theories, predictions. “Sit Together” predicts that the
+> more face time you have, the more humane and productive the project.
+
 
 #### Whole Team ####
 
 <img src="imagenes/cross-functional-team.png" width="500px"/>
 
-- Sensación de equipo: todos somos equipo, estamos en esto juntos y
-apoyamos el trabajo, el crecimiento y el aprendizaje de todos. 
-- Los equipos son dinámicos, cuando disminuye el número de cambios en
-  la BD el administrador ya no es necesario y puede dedicarse a otros
-  proyectos.
+Se debe incluir en el proyecto a personas con todas las habilidades y
+perspectivas necesarias para que el proyecto tenga éxito. Esto es, el
+equipo debe ser multi-funcional. Además, el equipo debe tener todos
+los recursos necesarios para elaborar todos los aspectos del proyecto.
+
+Esta idea de que el equipo debe ser completo debe extenderse a la
+sensación de formar un equipo:
+
+- Sensación de pertenencia al grupo.
+- Estamos en esto juntos.
+- Apoyamos el trabajo, crecimiento y aprendizaje del resto del equipo.
+
+El equipo debe tener un tamaño pequeño. Beck habla de un máximo de 12
+personas.
+
+En algunas empresas se asignan los desarrolladores a proyectos:
+"trabajarás el 40% en este proyecto y el 60% en este otro". Es mucho
+mejor hacer un equipo único que gestione todos los
+proyectos. Tener que identificarse con un programa los lunes y jueves
+y con otro los martes, miércoles y viernes, sin tener otros
+desarrolladores con los que identificarte, destroza la idea de
+"equipo" y es contraproducente.
 
 #### Energized Work ####
 
-<img src="imagenes/pomodoro-technique.png" width="200px"/>
+Es recomendable trabajar a pleno rendimiento, pero solo tantas horas
+como se pueda ser productivo de forma sostenida. No es conveniente
+quemarse trabajando un número de horas que no se puedan mantener de
+forma regular.
 
-- Trabajar a pleno rendimiento, pero solo tantas horas como se pueda
-ser productivo de forma sostenida.
-- Con suficiente cafeína es muy fácil llegar al punto en el que el
-código que se escribe quita valor al proyecto y (lo más peligroso) no
-darse cuenta de ello.
-- Es posible aumentar la productividad gestionando mejor el
-tiempo. Por ejemplo, declarar una franja de dos horas como "Tiempo de
+Cuando trabajamos cansados (ya sea porque estamos enfermos, o porque
+estamos agotados) dejamos de aportar valor y mucho de lo que
+hacemos es mejorable. Hay que dejar de trabar y volver a hacerlo
+cuando nos hayamos recuperado.
+
+Es posible aumentar la productividad gestionando mejor el tiempo. Por
+ejemplo, declarar una franja de dos horas como "Tiempo de
 Programación", desconectar los e-mails y los móviles y dedicarse sólo
-a eso.
+a eso. 
 
-- La técnica del Pomodoro es un ejemplo muy recomendable de
-  utilización del trabajo energético. 
-    - Libro interesante sobre la técnica del Pomodoro [Pomodoro Technique Ilustrated](https://pragprog.com/book/snfocus/pomodoro-technique-illustrated).
-    - La idea original es de Francesco Cirillo. En [esta página](https://cirillocompany.de/pages/pomodoro-technique) anuncia
-  sus cursos y se puede obtener su libro original.
+<table markdown="1">
+<tr><td>
+
+<img src="imagenes/pomodoro-technique.png" width="200px" align="right"/>
+
+**Técnica del pomodoro**
+
+En la línea del trabajo con concentración y energía es muy
+recomendable la técnica del pomodoro. La técnica está ideada por un
+italiano y coge el nombre de los temporizadores con forma de tomate
+que se usan en las cocinas.
+
+Cuando usamos esta técnica ponemos en marcha un temporizador de 25
+minutos y trabajamos concentrados y sin interrupciones con un objetivo
+concreto hasta que suene la alarma. En ese momento habremos cumplido
+"1 pomodoro". Después descansamos un poco, o nos dedicamos a alguna
+tarea en la que tengamos que interactuar con otra persona, hasta que
+volvamos a poder lanzar otro pomodoro. Al final del día contamos el
+número de pomodoros que hemos completado. En un día productivo
+habremos hecho 10/12 pomodoros. En un día con muchas reuniones e
+interrupciones serán 5/6.
+
+La idea original es de Francesco Cirillo. En [esta
+página](https://francescocirillo.com/pages/pomodoro-technique) la
+explica y se puede acceder a materiales y cursos relacionados.
+
+Un libro muy interesante sobre la técnica es [Pomodoro
+Technique Ilustrated](https://learning.oreilly.com/library/view/pomodoro-technique-illustrated/9781680500103/).
+
+</td></tr>
+</table>
+
 
 #### Slack ####
 
