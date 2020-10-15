@@ -698,24 +698,111 @@ automatizados.
 
 #### Incremental Design ####
 
+Cuando Beck habla de "diseño incremental", se está refiriendo al
+diseño de la estructura del software, a hacer un diseño de software
+que vaya creciendo, adaptado siempre al tamaño de la aplicación que
+estamos desarrollando. 
+
+Frente a esta idea está el enfoque tradicional de dedicarle mucho
+tiempo a diseñar el sistema completamente al principio, creando una
+arquitectura muy grande y compleja, que sea capaz de soportar todas
+las funcionalidades y el rendimiento de lo que pensamos que será la
+versión final del sistema.
+
+Este enfoque tradicional se justifica por el hecho de que en muchos
+estudios se comprueba que es muy complicado modificar una
+arquitectura de software. Y cuanto más grande es el sistema más
+complicado es hacerlo. Por eso, tradicionalmente se realiza todo el
+esfuerzo de diseño al principio.
+
+Pero Beck afirma que, con las técnicas adecuadas, es posible mantener
+estable el coste de modificación del diseño. Estas técnicas son las
+propias de XP: el uso de TDD, revisión continua de código,
+refactorización, etc. Los equipos XP trabajan duro para crear las
+condiciones bajo las que el coste de cambiar el software sea bajo.
+
+Al ser estable el coste de la modificación del diseño, no nos interesa
+hacer una sobre-arquitectura del sistema. En cada momento debemos usar
+la arquitectura mínima para soportar el sistema actual. Al añadir
+nuevas funcionalidades nos daremos cuenta de que el diseño se va
+quedando retrasado y que es necesario refactorizarlo. Tendremos
+entonces que adaptarlo y alinearlo con las nuevas necesidades. Lo
+haremos introduciendo cambios graduales, con pasos pequeños y seguros.
+
+En el artículo [The Pragmatic Designer: Ur-Technical
+Debt](https://www.georgefairbanks.com/ieee-software-v32-n4-july-2020-ur-technical-debt)
+George Fairbanks comenta que la idea original de Ward Cunningham
+cuando acuñó el término "deuda técnica" (_Technical Debt_) era
+precisamente hablar no de los fallos en general acumulados en el
+software, ni de software mal escrito, sino del problema de que las
+funcionalidades y las ideas sobre el sistema crecen a más velocidad
+que el propio diseño del mismo.
+
+> “If you develop a program for a long period of time by only adding
+> features and never reorganizing it to reflect your understanding of
+> those features, then eventually that program simply does not contain
+> any understanding and all efforts to work on it take longer and
+> longer.” 
+> 
+> Ward Cunningham
+
+Por eso es necesario hacer una inversión continua en la evolución del
+código. No sólo para añadir nuevas funcionalidades, sino para mejorar
+y reconfigurar su estructura.
+
+Más adelante hablaremos de técnicas de refactorización. Pero hay una
+idea muy sencilla que nos permite siempre mejorar el diseño del
+código: eliminar la duplicación. Para mejorar el diseño en estos casos
+deberemos encontrar formas de generalizar el código para eliminar esta
+duplicación.
+
+
+<table>
+<tr><td>
+
+**Minimum Viable Product**
+
+Podemos enmarcar la idea del diseño incremental dentro de la idea más
+general del diseño del producto mínimo viable (MVP, _Minimum Viable
+Product_). El MVP está formado por un conjunto pequeño de
+funcionalidades que permiten componer un producto del que el usuario
+puede obtener algún beneficio. La siguiente figura de Henrik Kniberg
+muestra esta idea:
+
 <img src="imagenes/evolutive-process.png" width="400px"/>
 
-- Diseño gradual, con pasos pequeños y seguros.
-- El diseño no debe hacerse sólo al principio, sino conforme vamos
-  adquiriendo experiencia. 
-- Invertir cada día en el diseño del sistema, luchando por ver cómo la
-  parte que estamos construyendo puede mejorarlo en su conjunto.
-- Pensar todo el tiempo en el problema en conjunto, buscando formas de
-  diseñar mejor todo el sistema. Cuando tengamos claro un diseño
-  mejor, trabajar gradual pero continuamente para alinear el sistema
-  real con este diseño. 
-- Los equipos XP trabajan duro para crear las condiciones bajo las que
-  el coste de cambiar el software sea bajo.
-- Una regla sencilla para mejorar el diseño: eliminar la duplicación. 
+Evidentemente, se trata de una metáfora. Lo que quiere representar con
+ella Kniberg es que es posible construir un producto grande de dos
+formas: aportando valor sólo al final, o aportando valor durante todo
+el proceso.
 
-**Hablar algo más de deuda técnica**
+En el primer enfoque se realizan incrementos que terminan construyendo
+el producto que quiere el cliente, pero el cliente sólo lo puede usar
+al final. El producto se construye de forma incremental, por partes,
+pero las iteraciones intermedias no proporcionan ningún valor al
+cliente.
 
-**Refactoring**
+En el segundo enfoque se busca una secuencia de iteraciones en las que
+continuamente existe un producto que aporta valor al usuario. El
+primer producto de la secuencia que hace que el usuario esté
+minimamente satisfecho es el MVP. Y a partir de ahí seguimos iterando,
+añadiendo funcionalidades que amplíen cada vez más el producto en la
+línea de lo que el cliente necesite.
+
+A veces es complicado encontrar este camino de iteraciones. Incluso
+puede ser que sea más complicado que el camino original. Es más
+difícil convertir una motocicleta en un descapotable que ponerle un
+volante y un techo a un coche para terminar de construirlo. Pero
+siempre es interesante reflexionar sobre ello e intentar entregar
+valor lo más pronto posible.
+
+Kniberg explica más detalles sobre estas ideas en su artículo [Why I
+prefer Earliest
+Testable/Usable/Lovable](https://blog.crisp.se/2016/01/25/henrikkniberg/making-sense-of-mvp),
+usando ejemplos muy interesantes sacados de Spotify y Minecraft.
+
+</td></tr></table>
+
 
 ### Prácticas de programación ###
 
