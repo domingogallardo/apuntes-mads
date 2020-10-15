@@ -439,9 +439,6 @@ sobrepasado a la propia XP y se ha incorporado en múltiples
 metodologías y equipos de desarrollo (aunque no utilicen el resto de
 prácticas XP). 
 
-Kent Beck es también una de las figuras claves de TDD, con sus libros y el
-software que ha desarrollado (jUnit). 
-
 ### Prácticas de trabajo en equipo ###
 
 #### Sit Together ####
@@ -529,8 +526,19 @@ de ellas y podemos combinarlas, priorizarlas.
 - Colocar las tarjetas en la pared, en un sitio visible, no en un
   programa.
   
-**Hablar de las tres Cs**
+**Hablar de las tres Cs y de la "metáfora/DDD"**
 
+INVEST 
+Acrónimo creado por Bill Wake www.xp123.com
+Una buena historia tiene que tener seis atributos:
+
+Independiente: dependencias entre las historias crean problemas de priorización y estimación
+Negociable: no son contratos, son recordatorios de conversaciones
+Valiosa: las historias deben ser valiosas para los que  pagan el software 
+Estimable: el tamaño de la historia debe poder ser estimado, aunque sea de forma gruesa
+Pequeña: para poder estimarse correctamente, es recomendable que la historia sea pequeña; hay que dividir las épicas
+Testable: las historias deben ser probadas y los tests deben poder ser
+automatizados
 
 
 #### Incremental Design ####
@@ -552,9 +560,7 @@ de ellas y podemos combinarlas, priorizarlas.
 
 **Hablar algo más de deuda técnica**
 
-
-
-
+**Refactoring**
 
 ### Prácticas de programación ###
 
@@ -742,8 +748,6 @@ refactor
 
 
 
-
-
 ### Prácticas de integración ###
 #### Ten-Minute Build ####
 
@@ -809,7 +813,7 @@ semana implementándolas e integrándolas en el proyecto
 - Cada 3 meses:
     - Identificar los cuellos de botella, especialmente los que no
       están controlados por el equipo.
-    - Planificar el tema o los temas para el cuatrimestre.
+    - Planificar el tema o los temas para el trimestre.
     - Escoger historias que sumen un trimestre para cumplir con los
     temas escogidos. 
     - Centrarse en una visión general de cómo el proyecto encaja en la
