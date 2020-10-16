@@ -923,7 +923,7 @@ refactor
 
 #### Práctica: Pair Programming ####
 
-<img src="imagenes/pair-programming.png" width="400px" align="left"/>
+<img src="imagenes/pair-programming.png" width="400px"/>
 
 Todo el código del programa que se suba a producción debe haber sido
 escrito por dos personas sentadas frente a la misma máquina. El
