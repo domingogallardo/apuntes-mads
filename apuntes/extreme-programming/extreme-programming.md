@@ -930,11 +930,11 @@ dividir en dos y terminarla antes.
 En los últimos años se ha empezado a popularizar una técnica
 denominada [_mob
 programming_](https://en.wikipedia.org/wiki/Mob_programming) en donde
-no sólo programa una pareja, sino que es todo el equipo el que
-participa en la programación: una persona programa y el resto del
-equipo mira y colabora. Si te interesa esta idea puedes profundizar en
-ella en el libro de Mark Pearl (2018) [_Code with the Wisdom of the
-Crowd_](https://learning.oreilly.com/library/view/code-with-the/9781680506297/). 
+no sólo programa una pareja, sino que la técnica se extiende a tres o
+más personas. Una persona programa y el resto mira y
+colabora. Si te interesa esta idea puedes profundizar en ella en el
+libro de Mark Pearl (2018) [_Code with the Wisdom of the
+Crowd_](https://learning.oreilly.com/library/view/code-with-the/9781680506297/).
 
 
 #### Práctica: Test-First Programming ####
