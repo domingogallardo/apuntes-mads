@@ -1036,37 +1036,76 @@ Crowd_](https://learning.oreilly.com/library/view/code-with-the/9781680506297/).
 ### Prácticas de integración ###
 #### Práctica: Ten-Minute Build ####
 
-- Máximo de 10 minutos para construir automáticamente todo el sistema y ejecutar
-todos los tests.
-- Todo el proceso de build y de paso de las pruebas debería estar
-automatizado.
-- No comprobar sólo las pruebas de la nueva parte añadida al sistema, sino todas las anteriores.
-- En continuous delivery se va un paso más allá y se automatiza
-  también el despliegue y el lanzamiento de las nuevas funcionalidades
-  en producción. 
+Se debe poder construir automáticamente todo el sistema y ejecutar
+todos los tests en un máximo de diez minutos. Una compilación e
+integración que dure más de diez minutos se usará mucho menos
+frecuentemente y se perderá la oportunidad de la retroalimentación.
 
+Si no es posible lanzar todos los tests del sistema, al menos
+deberíamos lanzar los correspondientes al módulo que se ha
+modificado.
+
+Se debe automatizar todo el proceso de compilación y construcción. Es
+fundamental basar todo el proceso en herramientas como Maven, Gradle,
+etc. que permiten automatizarlo y configurarlo mediante
+scripts. Aunque podemos usar IDEs para el desarrollo y la compilación
+en el entorno del desarrollador, es básico configurar correctamente la
+automatización de la construcción de forma que podamos lanzarla
+también en el propio entorno de desarrollo.
+
+Cuando hablemos de _continuous delivery_ comentaremos también la
+necesidad de basar en scripts también el proceso de despliegue de la
+aplicación, de forma que se pueda configurar y automatizar la puesta
+en producción de la misma. 
+
+Esta práctica está muy relacionada con la siguiente, integración
+continua. 
 
 #### Práctica: Continuos Integration ####
 
+No se debe dejar pasar más de dos horas sin integrar los cambios que hemos
+programado en el sistema completo.
+
+Es necesario realizar esta integración continuamente, porque en muchas
+ocasiones el proceso de integración puede costar más que el propio
+proceso de desarrollo.
+
+Existe dos posibles formas de realizar una integración continua:
+síncrona o asíncrona. 
+
+En la integración síncrona una vez que el desarrollador ha hecho los
+cambios lanza una integración, por ejemplo realizando un pull
+request. Si todos los tests pasan correctamente, se integran los
+cambios en el sistema.
+
+En la integración asíncrona existe un proceso que periódicamente, a un
+intervalo fijo, realiza la construcción automática del proyecto. Por
+ejemplo, todas las noches. Se genera un informe que se envía
+automáticamente al equipo y que se revisará a la mañana siguiente.
+
+Se pueden combinar ambos esquemas haciendo que, por ejemplo, en la
+integración síncrona se lancen los tests más rápidos y se dejen los
+tests de integración más lentos para el proceso automática que se
+lanza todas las noches.
+
+El sistema resultante debe ser un sistema listo para lanzarse sin
+demasiados problemas. Por ejemplo, si el proyecto es una aplicación
+web, habrá que configurar un entorno de _stage_ en el se construirá el
+build y en el que que se podrá comprobar que todo funciona
+correctamente.
+
+La automatización del despliegue y de la puesta en producción es algo
+que veremos en la parte de _continuous delivery_. Uno de los elementos
+centrales es la construcción de una [_delivery
+pipeline_](https://www.atlassian.com/continuous-delivery/pipeline)
+(tubería de entrega) en la que automatizar todo el proceso. La
+siguiente figura muestra los elementos más importantes de esta tubería.
+
 <img src="imagenes/continous-delivery-pipeline.png" width="500px"/>
 
-- No dejar pasar más de dos horas sin integrar los cambios que hemos
-  programado. 
-- La programación en equipo es un problema de “divide, vencerás e
-integrarás”. 
-- La integración es un paso no predecible que puede costar más que el
-propio desarrollo.
-- Integración síncrona: cada pareja después de un par de horas sube
-sus cambios y espera a que se complete el build y se hayan pasado
-todas las pruebas sin ningún problema de regresión.
-- Integración asíncrona: cada noche se hace un build diario en el que
-se construye la nueva versión del sistema. Si se producen errores se
-notifica con alertas de mails o cambia de color una lámpara de lava. 
-- El sistema resultante debe ser un sistema listo para lanzarse sin
-  demasiados problemas. Si el objetivo es desplegar una web, hay que
-  desplegar la web (en el entorno de staging).
-  
-
+Veremos que el trabajo de programar, configurar y gestionar todo este
+proceso está creando una nueva figura en los equipos de desarrollos:
+los [devops](https://en.wikipedia.org/wiki/DevOps).
 
 ### Prácticas de planificación ###
 
