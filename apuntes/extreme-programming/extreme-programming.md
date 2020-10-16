@@ -826,7 +826,7 @@ usando ejemplos muy interesantes sacados de Spotify y Minecraft.
 
 #### Práctica: Pair Programming ####
 
-<img src="imagenes/pair-programming.png" width="300px"/>
+<img src="imagenes/pair-programming.png" width="400px"/>
 
 Todo el código del programa que se suba a producción debe haber sido
 escrito por dos personas sentadas frente a la misma máquina. El
@@ -838,10 +838,10 @@ Es fundamental configurar un entorno de trabajo en el que se pueda
 programar en parejas sin invadir el espacio personal. También es
 fundamental que las personas que programan en parejas se sientan
 cómodas haciéndolo. Si una persona no está cómoda trabajando con
-alguien en concreto, debería comentarlo a algún miembro respetado del
+alguien en concreto debería comentarlo a algún miembro respetado del
 equipo, o algún gerente o a alguien de recursos humanos. 
 
-Para que funcione correctamente la actividad de programación en
+Para que funcione correctamente, la actividad de programación en
 parejas debe ser un diálogo entre dos personas que están programando,
 analizando, diseñando y testeando simultáneamente.
 
@@ -888,8 +888,8 @@ pendientes de codificar. De forma similar a la conducción, el copiloto
 es el responsable de definir los objetivos y puede mirar alrededor y
 avisar de posibles problemas que pueden surgir.
 
-En la propuesta del ping-pong se hace programación en parejas y
-TDD:
+En la propuesta del ping-pong se combina la programación en parejas
+con TDD:
 
 - A escribe un test nuevo y lo ve fallar
 - B implementa el código para que el test pase
@@ -899,7 +899,7 @@ TDD:
   necesidad por el que está escribiendo en ese momento. 
 
 Un problema muy frecuente de la programación en parejas es convencer a
-los gerentes y responsables fuera del equipo de trabajo de que es una
+los gerentes y responsables fuera del equipo de desarrollo de que es una
 forma eficiente de trabajar. Cuando se trabaja en parejas ¿no se está
 desaprovechando el trabajo de una persona? ¿no escriben el doble de
 código dos programadores por separado que cuando están haciendo
@@ -908,9 +908,9 @@ programación en parejas?
 La respuesta es que en la programación el cuello de botella del
 desarrollo no es teclear. No se desarrolla más rápido escribiendo el
 doble de líneas de código, sino consiguiendo una evolución del código
-continua que evite retrasos y problemas en introducir nuevas líneas de
-código y nuevas funcionalidades. Ya hemos vistos que muchos de estos
-problemas se producen debido a:
+continua que evite retrasos y que minimice los problemas de introducir
+nuevas líneas y nuevas funcionalidades. Ya hemos vistos que
+muchos de estos problemas se producen debido a:
 
 - Código poco expresivo difícil de entender.
 - Diseño excesivamente complicado, no adaptado al producto que estamos codificando.
@@ -925,15 +925,14 @@ También es posible dejar de utilizar la técnica en momentos en los que
 se esté haciendo alguna tarea repetitiva y rutinaria que se podría
 dividir en dos y terminarla antes.
 
-<img src="imagenes/mob-programming.png" width="300px"/>
+<img src="imagenes/mob-programming.png" width="400px"/>
 
 En los últimos años se ha empezado a popularizar una técnica
 denominada [_mob
 programming_](https://en.wikipedia.org/wiki/Mob_programming) en donde
-no sólo programa una pareja, sino que la técnica se extiende a tres o
-más personas. Una persona programa y el resto mira y
-colabora. Si te interesa esta idea puedes profundizar en ella en el
-libro de Mark Pearl (2018) [_Code with the Wisdom of the
+la técnica se extiende a tres o más personas. Una persona programa y
+el resto mira y colabora. Si te interesa esta idea puedes profundizar
+en ella en el libro de Mark Pearl (2018) [_Code with the Wisdom of the
 Crowd_](https://learning.oreilly.com/library/view/code-with-the/9781680506297/).
 
 
