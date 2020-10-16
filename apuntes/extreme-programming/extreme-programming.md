@@ -1167,28 +1167,57 @@ próximos tres meses.
 
 ### Prácticas secundarias ###
 
-Team
+**Equipo**
 
-- Real Customer Involvement
-- Team Continuity
-- Shrinking Teams 
+- **Real Customer Involvement**: los clientes deberían formar parte del
+  equipo de desarrollo.
+- **Team Continuity**: mantener junto al equipo de desarrollo. No
+  considerar que las personas son recursos fácilmente reemplazables.
+- **Shrinking Teams**: conforme el proyecto avanza el equipo se hace más
+  capaz. Mantener la carga de trabajo constante y gradualmente reducir
+  el tamaño del equipo, liberando a la persona con menos carga para
+  que se integre en otros equipos. Cuando el equipo sea demasiado pequeño,
+  mezclarlo con otro equipo pequeño.
 
-Programming
+**Programación**
 
-- Shared Code 
-- Code and Test
-- Single Code Base
+- **Shared Code**: el código es propiedad y responsabilidad de
+  todos. Si tienes que cambiar algo no debes tener que pedir permiso;
+  hazlo. En el momento que veas cómo corregir un error o una oportunidad de mejora
+  debes hacerlo.
+- **Code and Test**: el único elemento permanente del proyecto es el
+  código y los tests. Toda la documentación deben de generarse a partir
+  del código y los tests.
+- **Single Code Base**: se debe desarrollar en una única rama. Es
+  posible usar ramas temporales, pero nunca deben durar más de unos
+  pocos días. Se deben usar ficheros de configuración que permitan
+  gestionar distintas versiones (por ejemplo para distintos clientes,
+  o para distintos entornos) con una única base de código.
 
-Business
+**Entrega continua**
 
-- Root-Cause Analysis 
-- Negotiated Scope Contract
-- Pay-Per-Use
+- **Incremental Deployment**: construir el sistema poco a poco, de
+  forma incremental. No hacer grandes cambios de una vez. Sustituir
+  las partes _legacy_ del sistema poco a poco, no todo a la vez.
+- **Daily Deployment**: poner software en producción cada día. Ir
+  subiendo a producción poco a poco los cambios grandes: primero
+  pequeños cambios en la base de datos, después cambios en el API y al
+  final el cambio grande en la interfaz de usuario.
 
-Deliverying
+**Negocio**
 
-- Incremental Deployment 
-- Daily Deployment
+- **Root-Cause Analysis**: buscar siempre la raíz de los
+  problemas. Usar, por ejemplo, la técnica de los cinco por qués.
+- **Negotiated Scope Contract**: los contratos con los clientes deben
+  fijar el tiempo, el coste y la calidad, pero deben dejar abierta a
+  la negociación el alcance. Dividir un contrato grande en partes más
+  pequeñas que serán acometidas sólo si ambas partes están de
+  acuerdo. Rebajar el coste de los contratos de mantenimiento y
+  convertirlos en contratos para ampliar funcionalidades.
+- **Pay-Per-Use**: cargar al cliente no por el desarrollo, sino por el
+  uso. Cada vez se está utilizando más este modelo en la filosofía de
+  [_Software as a Service_](https://en.wikipedia.org/wiki/Software_as_a_service).
+
 
 
 ## Referencias ##
