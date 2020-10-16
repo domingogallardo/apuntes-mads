@@ -1109,41 +1109,61 @@ los [devops](https://en.wikipedia.org/wiki/DevOps).
 
 ### Prácticas de planificación ###
 
+Aunque XP establece de una forma más ligera que Scrum las ceremonias y
+reuniones a realizar, Beck define dos importantes ciclos: el ciclo
+semanal y el ciclo trimestral.
+
+El ciclo semanal es similar al sprint de Scrum, y en él se construyen
+las nuevas funcionalidades del sistema. En el ciclo trimestral se hace
+una reflexión y planificación más a largo plazo. 
+
+Ambas prácticas constituyen lo que en la primera edición del libro de
+Beck se denominaba el _planning game_.
+
 #### Práctica: Weekly Cycle ####
 
 <img src="imagenes/weekly-cycle.png" width="700px"/>
 
-- Reunión al comienzo de cada semana:
-    - Revisión del progreso hasta la fecha, incluyendo si el progreso
-    de la semana previa se corresponde con lo previsto. 
-    - Hacer que el cliente escoja historias que sumen una semana de tamaño para la semana actual
-    - Fraccionar las historias en tareas, los miembros del equipo se
-    apuntan a las tareas y las estiman. 
+El equipo de XP realizará un ciclo de trabajo semanal representado por
+la figura anterior. Al comienzo de cada semana se realizará una
+revisión en la que se realizarán las siguientes acciones:
 
-- Comenzar la semana escribiendo las pruebas automáticas que se
-realizarán cuando las historias estén completas y pasar el resto de la
-semana implementándolas e integrándolas en el proyecto 
+1. Revisión del progreso hasta la fecha, incluyendo si el progreso de
+  la semana previa se corresponde con lo previsto.
+2. Hacer que el cliente escoja historias que sumen una semana de
+  tamaño para la semana actual.
+3. Fraccionar las historias en tareas. Los miembros del equipo se
+  apuntan a las tareas y las estiman.
 
-- Al final de la semana las nuevas historias deben estar disponibles
-  para ser desplegadas.
+Se comienza la semana escribiendo las pruebas automáticas que se
+realizarán cuando las historias estén completas y se pasará el resto
+de la semana implementándolas e integrándolas en el proyecto.
 
-- La semana es un ciclo corto para poder hacer experimentos del estilo
-  “vamos a usar la técnica del Pomodoro durante una semana” o “esta
-  semana cambiamos de pareja cada hora”. 
+Al final de la semana las nuevas historias deben estar disponibles
+para ser desplegadas.
+
+El ciclo semanal también nos permite hacer frecuentes experimentos del
+estilo de “vamos a usar la técnica del Pomodoro durante una semana” o
+“esta semana cambiamos de pareja cada hora”.
 
 #### Práctica: Quarterly Cycle ####
 
-- Es conveniente hacer reuniones con un ciclo superior al semanal para ver la evolución del proyecto en conjunto
-- Cada 3 meses:
-    - Identificar los cuellos de botella, especialmente los que no
-      están controlados por el equipo.
-    - Planificar el tema o los temas para el trimestre.
-    - Escoger historias que sumen un trimestre para cumplir con los
-    temas escogidos. 
-    - Centrarse en una visión general de cómo el proyecto encaja en la
+Es conveniente hacer reuniones con un ciclo superior al semanal para
+ver la evolución del proyecto en conjunto. Un ciclo bastante natural
+es el trimestre, el ciclo de las estaciones.
+
+Cada 3 meses:
+
+- Identificar los cuellos de botella, especialmente los que no están controlados por el equipo.
+- Planificar el tema o los temas para el trimestre.
+- Escoger historias que sumen un trimestre para cumplir con los
+  temas escogidos. 
+- Centrarse en una visión general de cómo el proyecto encaja en la
     organización y del valor que añade. 
-- Los trimestres también son un buen ciclo para reflexionar sobre el
-  equipo y proponer y evaluar experimentos que duren más de una semana.
+
+Los trimestres también son un buen ciclo para reflexionar sobre el
+equipo y proponer y evaluar experimentos a realizar durante los
+próximos tres meses.
 
 ### Prácticas secundarias ###
 
