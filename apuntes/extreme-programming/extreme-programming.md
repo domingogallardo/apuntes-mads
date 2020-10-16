@@ -876,7 +876,7 @@ Es importante que los tests vayan haciendo crecer la funcionalidad en
 pequeños incrementos. Al ser los cambios pequeños hay menos
 posibilidades de estropear cosas.
 
-<img src="imagenes/onion-architecture.png" width="200px" align="right"/>
+<img src="imagenes/onion-architecture.png" width="300px" align="right"/>
 
 En TDD se utiliza un enfoque _bottom-up_: primero se programan los
 elementos y funcionalidades básicas y después se van programando
@@ -923,7 +923,7 @@ refactor
 
 #### Práctica: Pair Programming ####
 
-<img src="imagenes/pair-programming.png" width="400px"/>
+<img src="imagenes/pair-programming.png" width="400px" align="left"/>
 
 Todo el código del programa que se suba a producción debe haber sido
 escrito por dos personas sentadas frente a la misma máquina. El
