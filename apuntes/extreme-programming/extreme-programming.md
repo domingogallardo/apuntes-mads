@@ -824,6 +824,103 @@ usando ejemplos muy interesantes sacados de Spotify y Minecraft.
 
 ### Prácticas de programación ###
 
+#### Práctica: Test-First Programming ####
+
+Se denomina habitualmente a esta práctica Test Driven Design (TDD). Es
+una de las prácticas más importantes de XP. Hablaremos más adelante
+con mayor profundidad de esta técnica y haremos alguna
+demostración. Veremos también un ejemplo en las prácticas.
+
+La técnica se basa en escribir el código de forma iterativa, paso a
+paso, y siempre comenzando por los tests. 
+
+Supongamos que tenemos que implementar una determinada
+funcionalidad. La analizamos y pensamos en cómo implementarla,
+dividiéndola en pequeños elementos necesarios para poder
+completarla. Escribimos estos elementos en una lista y empezamos a
+codificarlos utilizando el siguiente ciclo:
+
+1. Pensamos. Analizamos qué pequeño paso nos puede servir para avanzar
+   en la funcionalidad que estamos desarrollando. Anotamos las ideas
+   que se nos ocurran como pequeños pasos que hay que implementar. Se
+   escoge el paso más básico, el inicial que sirve de base para todo
+   lo demás.
+2. Se escribe un único en el que se especifica lo que debe
+   realizar el código para implementar el pequeño incremento de
+   funcionalidad. Qué se le pasa cómo parámetro y qué debe devolver,
+   un ejemplo de lo que el código debe hacer en forma de test. Se
+   añade el test a los ya existentes y se lanzan todos. El test que
+   acabamos de añadir falla (rojo).
+3. Se escribe únicamente el código necesario que hace que el test
+   pase (verde).
+4. Ahora que tenemos una base de tests que funciona perfectamente, se
+   analiza el código y los tests, se detectan problemas de diseño y se
+   realiza una refactorización (profundizaremos más adelante
+   en esto). Se vuelven a lanzar los tests para asegurarnos
+   que la refactorización no ha roto nada.
+
+<img src="imagenes/tdd.png" width="500px"/>
+
+Se repite el ciclo, cada vez añadiendo nuevos tests que vayan
+acercando el código a la nueva funcionalidad. En el proceso de añadir
+pequeños tests y ampliar el código, nos iremos dando cuenta de cosas
+que hay que implementar y que no habíamos tenido en cuenta. Las
+anotamos en la lista de tareas a hacer y en algún momento tocará
+resolverlas con el ciclo de TDD.
+
+Los tests y el código que generan deben ser muy pequeños y
+concretos. Sólo se generalizará cuando se detecte que sea
+necesario. Se hará en la fase de refactorización. 
+
+Es importante que los tests vayan haciendo crecer la funcionalidad en
+pequeños incrementos. Al ser los cambios pequeños hay menos
+posibilidades de estropear cosas.
+
+<img src="imagenes/onion-architecture.png" width="200px" align="right"/>
+
+En TDD se utiliza un enfoque _bottom-up_: primero se programan los
+elementos y funcionalidades básicas y después se van programando
+funcionalidades de mayor nivel que se basan en las anteriores. Muchas
+veces se utiliza la [metáfora de la
+cebolla](https://dev.to/barrymcauley/onion-architecture-3fgl). Las
+capas de la cebolla represen las capas de nuestro proyecto
+software. En TDD construiremos la cebolla de dentro a afuera: primero
+las capas más internas y después las superiores, basándonos en las ya
+construidas anteriormente.
+
+En TDD no nos preocupamos demasiado de que los tests sean unitarios ni
+de usar mocks para aislar funcionalidades. Como la batería de tests se
+construye de forma incremental, cuando hacemos los tests de más alto
+nivel no hace falta aislar los elementos de bajo nivel porque ya hemos
+comprobado que funcionan correctamente.
+
+En ocasiones sí que se usarán mocks por motivos de eficiencia y para
+que los tests pasen más rápido. Sobre todo en los casos de tests de
+integración en los que hay que conectar con servicios externos.
+
+Utilizando esta técnica las pruebas no sólo sirven para comprobar que
+el software funciona correctamente, sino que sirven para especificarlo
+y diseñarlo.
+
+La utilización de TDD tiene muchas ventajas:
+
+- En todo momento tenemos una especificación clara de lo que nuestro
+  código tiene que hacer.
+- Cohesión y acoplamiento - si es difícil escribir el test,  es una
+señal de que tenemos un problema de  diseño. El código débilmente
+acoplado y altamente  cohesionado es más fácil de probar.
+- Confianza: escribiendo código limpio que funciona y  demostrando tus
+intenciones con las pruebas construye una relación de confianza con
+tus compañeros.
+- Ritmo: es muy fácil perderse durante horas cuando se está
+programando. Con el enfoque de test-first, está claro lo que hay que
+hacer a continuación: o escribimos una prueba o hacemos que funcione
+una prueba  rota (broken test). El ciclo que se genera se convierte
+pronto en algo natural y eficiente: test, code, refactor, test, code,
+refactor
+
+
+
 #### Práctica: Pair Programming ####
 
 <img src="imagenes/pair-programming.png" width="400px"/>
@@ -934,87 +1031,6 @@ la técnica se extiende a tres o más personas. Una persona programa y
 el resto mira y colabora. Si te interesa esta idea puedes profundizar
 en ella en el libro de Mark Pearl (2018) [_Code with the Wisdom of the
 Crowd_](https://learning.oreilly.com/library/view/code-with-the/9781680506297/).
-
-
-#### Práctica: Test-First Programming ####
-
-Se denomina habitualmente a esta práctica Test Driven Design (TDD). Es
-una de las prácticas más importantes de XP. Hablaremos más adelante
-con mayor profundidad de esta técnica y haremos alguna
-demostración. Veremos también un ejemplo en las prácticas.
-
-La técnica se basa en escribir el código de forma iterativa, paso a
-paso, y siempre comenzando por los tests. Supongamos que tenemos que
-implementar una determinada funcionalidad. La analizamos y pensamos en
-cómo implementarla, dividiéndola en pequeños elementos necesarios para
-poder completarla. Escribimos estos elementos en una lista y empezamos
-a codificarlos utilizando el siguiente ciclo:
-
-1. Se escribe un único test en el que se especifica un pequeño
-   incremento de funcionalidad que el código debe realizar, un ejemplo
-   de lo que el código debe hacer en forma de test. Se añade el test a
-   los ya existentes y se lanzan todos. El test que acabamos de añadir
-   falla (rojo).
-2. Se escribe únicamente el código necesario que hace que el test
-   pase (verde).
-3. Ahora que tenemos una base de tests que funciona perfectamente, se
-   analiza el código y los tests, se detectan problemas de diseño y se
-   realiza una refactorización (profundizaremos más adelante
-   en esto). Se vuelven a lanzar los tests para asegurarnos
-   que la refactorización no ha roto nada.
-
-<img src="imagenes/tdd.png" width="500px"/>
-
-Se repite el ciclo, cada vez añadiendo nuevos tests que vayan
-acercando el código a la nueva funcionalidad. En el proceso de añadir
-pequeños tests y ampliar el código, nos iremos dando cuenta de cosas
-que hay que implementar y que no habíamos tenido en cuenta. Las
-anotamos en la lista de tareas a hacer y en algún momento tocará
-resolverlas con el ciclo de TDD.
-
-Los tests y el código que generan deben ser muy pequeños y
-concretos. Sólo se generalizará cuando se detecte que sea
-necesario. Se hará en la fase de refactorización. 
-
-Es importante que los tests vayan haciendo crecer la funcionalidad en
-pequeños incrementos. Al ser los cambios pequeños hay menos
-posibilidades de estropear cosas.
-
-En TDD se utiliza un enfoque _bottom-up_: primero se programan los
-elementos y funcionalidades básicas y después se van programando
-funcionalidades de mayor nivel que se basan en las anteriores.
-
-En TDD no nos preocupamos demasiado de que los tests sean unitarios ni
-de usar mocks para aislar funcionalidades. Como la batería de tests se
-construye de forma incremental, cuando hacemos los tests de más alto
-nivel no hace falta aislar los elementos de bajo nivel porque ya hemos
-comprobado que funcionan correctamente.
-
-En ocasiones sí que se usarán mocks por motivos de eficiencia y para
-que los tests pasen más rápido. Sobre todo en los casos de tests de
-integración en los que hay que conectar con servicios externos.
-
-Utilizando esta técnica las pruebas no sólo sirven para comprobar que
-el software funciona correctamente, sino que sirven para especificarlo
-y diseñarlo.
-
-La utilización de TDD tiene muchas ventajas:
-
-- En todo momento tenemos una especificación clara de lo que nuestro
-  código tiene que hacer.
-- Cohesión y acoplamiento - si es difícil escribir el test,  es una
-señal de que tenemos un problema de  diseño. El código débilmente
-acoplado y altamente  cohesionado es más fácil de probar.
-- Confianza: escribiendo código limpio que funciona y  demostrando tus
-intenciones con las pruebas construye una relación de confianza con
-tus compañeros.
-- Ritmo: es muy fácil perderse durante horas cuando se está
-programando. Con el enfoque de test-first, está claro lo que hay que
-hacer a continuación: o escribimos una prueba o hacemos que funcione
-una prueba  rota (broken test). El ciclo que se genera se convierte
-pronto en algo natural y eficiente: test, code, refactor, test, code,
-refactor
-
 
 
 ### Prácticas de integración ###
