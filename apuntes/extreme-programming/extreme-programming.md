@@ -47,6 +47,15 @@ metodología ágil más popular al final de la década. De hecho, de las
 17 personas que elaboran el manifiesto ágil en 2001, 6 provenían de la
 filosofía de XP.
 
+A comienzos del 2000, Ward Cunningham pone en marcha una
+[wiki](https://en.wikipedia.org/wiki/Wiki) en la que colabora la
+comunidad XP para ir agregando ideas sobre la metodología y sus
+prácticas. El resultado es un poco desordenado, pero tiene interés
+histórico y sigue manteniéndose abierto en la actualidad (aunque
+deshabilitada la posibilidad de edición). Por ejemplo,
+se puede hacer una vistia a la [página con el de sobre Extreme
+Programming](http://wiki.c2.com/?ExtremeProgrammingRoadmap).
+
 A mediados del 2000, en 2004, Kent Beck publica la segunda edición de
 su libro. Esta nueva edición contenía una versión más estructurada y
 madura de la metodología. En la primera edición se definían 12
@@ -723,11 +732,20 @@ condiciones bajo las que el coste de cambiar el software sea bajo.
 
 Al ser estable el coste de la modificación del diseño, no nos interesa
 hacer una sobre-arquitectura del sistema. En cada momento debemos usar
-la arquitectura mínima para soportar el sistema actual. Al añadir
-nuevas funcionalidades nos daremos cuenta de que el diseño se va
-quedando retrasado y que es necesario refactorizarlo. Tendremos
-entonces que adaptarlo y alinearlo con las nuevas necesidades. Lo
-haremos introduciendo cambios graduales, con pasos pequeños y seguros.
+la arquitectura mínima para soportar el sistema actual. 
+
+Si seguimos esta recomendación, al principio del desarrollo del
+proyecto la velocidad es muy rápida. Es muy fácil añadir nuevas
+funcionalidades porque vale cualquier diseño y hay muy pocas cosas que
+romper. 
+
+Sin embargo, conforme vamos añadiendo más código, la velocidad de
+desarrollo es cada vez menor. Se introducen cada vez más dependencias
+en el código y es más difícil de modificar. Para evitar este problema
+es fundamental mantener un diseño simple. Será necesario refactorizar
+el código para adaptarlo, generalizarlo y alinearlo con las nuevas
+necesidades. Lo deberemos hacer introduciendo cambios graduales, con
+pasos pequeños y seguros.
 
 En el artículo [The Pragmatic Designer: Ur-Technical
 Debt](https://www.georgefairbanks.com/ieee-software-v32-n4-july-2020-ur-technical-debt)
@@ -810,104 +828,114 @@ usando ejemplos muy interesantes sacados de Spotify y Minecraft.
 
 <img src="imagenes/pair-programming.png" width="300px"/>
 
+Todo el código del programa que se suba a producción debe haber sido
+escrito por dos personas sentadas frente a la misma máquina. El
+espacio de trabajo debe ser amplio para que las dos personas puedan
+estar sentadas frente al ordenador con comodidad y puedan cambiarse
+fácilmente el teclado y el ratón. 
+
+Es fundamental configurar un entorno de trabajo en el que se pueda
+programar en parejas sin invadir el espacio personal. También es
+fundamental que las personas que programan en parejas se sientan
+cómodas haciéndolo. Si una persona no está cómoda trabajando con
+alguien en concreto, debería comentarlo a algún miembro respetado del
+equipo, o algún gerente o a alguien de recursos humanos. 
+
+Para que funcione correctamente la actividad de programación en
+parejas debe ser un diálogo entre dos personas que están programando,
+analizando, diseñando y testeando simultáneamente.
+
+La programación en parejas ayuda a programar mejor. Cuando dos
+personas programan juntas:
+
+- Se mantienen centrados mutuamente.
+- Se clarifican ideas.
+- Se vencen los bloqueos individuales.
+- Se cumplen mejor los estándares de codificación equipo.
+
+Trabajar en parejas no implica que no se deba trabajar en
+solitario. Si se necesita probar alguna cosa de forma individual se
+puede hacer. Después se volverá al trabajo en parejas para comprobarlo
+con el equipo.
+
+La programación en parejas asegura que todo el código en producción
+haya sido revisado y es una alternativa a otras prácticas en las que
+el equipo revisa el código cuando se sube a los pull requests.
+
+La programación en parejas obliga a una alta concentración y requiere
+esfuerzo. La mayoría de desarrolladores no pueden desarrollar esta
+práctica más de 4 o 5 horas seguidas. Tal y como hemos visto en la
+técnica del pomodoro, es conveniente tener
+breves interrupciones que sirvan para poder descansar y recuperar
+energía (parar para beber agua, levantarse y caminar un poco, etc.).
+
+Es aconsejable también cambiar de pareja de forma regular. Por
+ejemplo, cada hora. Esto facilita la diseminación del conocimiento y
+de los estándares entre todos los miembros del equipo.
+
+Desde la formulación original de Beck se ha escrito mucho sobre la
+técnica. Se han hecho estudios y se han escrito muchos posts. Uno de
+los aspectos más analizados es el de los distintos papeles que deben
+tomar cada uno de los participantes en la actividad. Veamos un par de
+propuesta: conductor-navegador y ping-pong.
+
+En la propuesta de conductor-navegador (_driver-navigator_) se utiliza
+la metáfora de la conducción de un coche con un conductor que conduce
+y un copiloto (navegador) que va analizando la ruta que se sigue. En
+la programación en parejas el conductor es el que escribe el código y
+el copiloto analiza el código escrito, sugiere ideas o anota cosas
+pendientes de codificar. De forma similar a la conducción, el copiloto
+es el responsable de definir los objetivos y puede mirar alrededor y
+avisar de posibles problemas que pueden surgir.
+
+En la propuesta del ping-pong se hace programación en parejas y
+TDD:
+
+- A escribe un test nuevo y lo ve fallar
+- B implementa el código para que el test pase
+- B escribe el nuevo test y lo ve fallar
+- A implementa el código para que el test pase 
+- Y así sucesivamente. El refactoring se hace cuando surge la
+  necesidad por el que está escribiendo en ese momento. 
+
+Un problema muy frecuente de la programación en parejas es convencer a
+los gerentes y responsables fuera del equipo de trabajo de que es una
+forma eficiente de trabajar. Cuando se trabaja en parejas ¿no se está
+desaprovechando el trabajo de una persona? ¿no escriben el doble de
+código dos programadores por separado que cuando están haciendo
+programación en parejas?
+
+La respuesta es que en la programación el cuello de botella del
+desarrollo no es teclear. No se desarrolla más rápido escribiendo el
+doble de líneas de código, sino consiguiendo una evolución del código
+continua que evite retrasos y problemas en introducir nuevas líneas de
+código y nuevas funcionalidades. Ya hemos vistos que muchos de estos
+problemas se producen debido a:
+
+- Código poco expresivo difícil de entender.
+- Diseño excesivamente complicado, no adaptado al producto que estamos codificando.
+- Desconocimiento del dominio.
+- Cambiar cosas y volver a probarlo todo a mano, en lugar de usar
+  tests automatizados (o no hacerlo y provocar nuevos fallos).
+
+La combinación de programación en parejas con el resto de técnicas de
+XP permite resolver todos estos problemas.
+
+También es posible dejar de utilizar la técnica en momentos en los que
+se esté haciendo alguna tarea repetitiva y rutinaria que se podría
+dividir en dos y terminarla antes.
+
 <img src="imagenes/mob-programming.png" width="300px"/>
 
-- Todo el código que va a producción debe ser  escrito con dos
-personas sentadas frente a la  máquina.
-- Pair programming es un diálogo entre dos personas  que están
-simultáneamente analizando, diseñando,  probando e intentando
-programar mejor. 
-- Ventajas:
-    - Se mantienen centrados mutuamente
-    - Se clarifican ideas
-    - Se vencen los bloqueos individuales
-    - Se cumplen mejor los estándares del equipo
-- Consejos:
-    - Rotar las parejas
-    - No juntar dos programadores novatos
-    - No invadir el espacio personal del otro (monitores grandes)
+En los últimos años se ha empezado a popularizar una técnica
+denominada [_mob
+programming_](https://en.wikipedia.org/wiki/Mob_programming) en donde
+no sólo programa una pareja, sino que es todo el equipo el que
+participa en la programación: una persona programa y el resto del
+equipo mira y colabora. Si te interesa esta idea puedes profundizar en
+ella en el libro de Mark Pearl (2018) [_Code with the Wisdom of the
+Crowd_](https://learning.oreilly.com/library/view/code-with-the/9781680506297/). 
 
-- **Hablar de los dos roles distintos cuando se está haciendo pair programming.**
-
-- Muy interesante el post [Pair
-  programming](http://www.programania.net/desarrollo-agil/pair-programming/)
-  de [Luis Artola](https://twitter.com/artolamola):
-  - ¿Es más caro el desarrollo con pair programming? Su respuesta es
-    que no. El **cuello de botella del desarrollo** no es teclear, es:
-       - código poco expresivo difícil de entender
-       - diseño no simple (complicado)
-       - desconocimiento del dominio
-       - cambiar cosas y volver a probarlo todo a mano (o no hacerlo y
-         provocar nuevos fallos)
-
-    Yo añadiría un par más, relacionados con problemas técnicos:
-    
-       - desconocimiento de las herramientas/frameworks/lenguajes con
-         los que se trabaja
-       - uso de herramientas/frameworks/lenguajes poco apropiados
-       
-  - La velocidad de desarrollo es cada vez menor: "Al principio voy
-    rápido porque hay poco código y con un diseño cualquiera me
-    vale. Pero cada vez me cuesta más añadir nuevas funcionalidades
-    porque, además, no sé lo que estoy rompiendo.". Para evitar este
-    problema es fundamental mantener un diseño simple. TDD y XP ayuda
-    a ello.
-
-  - Para que el pair programming resulte realmente eficaz:
-    - Dos teclados y dos ratones (¡incluso dos pantallas!), dos sillas
-      y la pantalla en medio. Hay que estar cómodo. También es muy
-      útil tener a mano un ordenador auxiliar (portátil o tablet) en
-      el que poder a veces buscar más información mientras que la otra
-      persona programa.
-    - Máxima intensidad: pomodoros, y un objetivo (troceado en un
-      pequeño log de la sesión de pairing)
-    - Máxima concentración: el que no escribe debe mantener la
-      atención muy activa, por ejemplo llevando el log y aportando ideas
-      todo el rato. Sino: ping pong (ver después).
-    - Si un problema que nadie sabe resolver interrumpe la dinámica –>
-      es mejor DEJAR DE PAIREAR y buscar la solución.
-
-  -  Algunas malas costumbres:
-     - Acceso poco equitativo a teclado o pantalla / dominio de una persona del teclado
-     - Matrimonios: parejas que nunca cambian
-     - Uno trabaja el otro descansa
-     - Dos ordenadores
-     - Cada uno hace “su propio trabajo”
-     - Los debates duran más de diez minutos sin escribir código nuevo
-
-  - Algunos buenos hábitos:
-     - Descansar
-     - Ser humilde y receptivo
-     - Comunicarte y escuchar
-     - Defender tu visión y saber ceder
-
-- Patrón Ping pong (pair programming y TDD)
-  - A escribe un test nuevo y lo ve fallar
-  - B implementa el código para que el test pase
-  - B escribe el nuevo test y lo ve fallar
-  - A implementa el código para que el test pase 
-  - Y así sucesivamente. El refactoring se hace cuando surge la
-    necesidad por el que está escribiendo en ese momento.
-
-- [Un entorno productivo en
-  pareja](http://www.programania.net/diseno-de-software/un-entorno-productivo-en-pareja/),
-  otro artículo de Luis Artola en el que explica con más detalle el
-  entorno de trabajo para un proyecto concreto en el que usaron pair
-  programming y añade algunas ideas más sobre cuándo hacer pairing y
-  cuando no:
-  
-  - Hacemos pairing siempre que lo que nos impide avanzar es el
-    conocimiento (ya sea técnico o de dominio).
-  - Hacemos pairing siempre que se va a tomar una decisión de diseño
-    importante en la que se va a basar el proyecto (cómo vamos a
-    organizar los componentes, si se va a usar tal o cuál patrón,
-    estrategia de testeo, etc…)
-  - Siempre que hacemos pairing tenemos una lista preparada con el
-    orden del día. Y sí: normalmente hacemos pairing de jornadas
-    completas, preparando el entorno previamente para ser productivos
-    y tener toda la información disponible y la posibilidad de tener
-    discusiones productivas.
-  - Es importante no hacer pairing cuando quieres asimilar algo que has aprendido.
 
 #### Práctica: Test-First Programming ####
 
@@ -1091,6 +1119,8 @@ Deliverying
 
 ## Referencias ##
 
-- Ward Cunningham y otros, [Páginas de WikiWiki sobre Extreme Programming](http://wiki.c2.com/?ExtremeProgrammingRoadmap)
 - Kent Beck (2004) [_Extreme Programming Explained: Embracing Change (Second
   Edition)_](https://learning.oreilly.com/library/view/extreme-programming-explained/0321278658/)
+- Birgitta Böckeler y Nina Siessegger (2020) [_On Pair Programming_](https://martinfowler.com/articles/on-pair-programming.html)
+- Ron Jeffries (2011) [_What is Extreme
+  Programming_](https://www.ronjeffries.com/xprog/what-is-extreme-programming/) 
