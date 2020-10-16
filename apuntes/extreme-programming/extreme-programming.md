@@ -840,6 +840,8 @@ dividiéndola en pequeños elementos necesarios para poder
 completarla. Escribimos estos elementos en una lista y empezamos a
 codificarlos utilizando el siguiente ciclo:
 
+<img src="imagenes/tdd.png" width="400px" align="right"/>
+
 1. Pensamos. Analizamos qué pequeño paso nos puede servir para avanzar
    en la funcionalidad que estamos desarrollando. Anotamos las ideas
    que se nos ocurran como pequeños pasos que hay que implementar. Se
@@ -858,8 +860,6 @@ codificarlos utilizando el siguiente ciclo:
    realiza una refactorización (profundizaremos más adelante
    en esto). Se vuelven a lanzar los tests para asegurarnos
    que la refactorización no ha roto nada.
-
-<img src="imagenes/tdd.png" width="500px"/>
 
 Se repite el ciclo, cada vez añadiendo nuevos tests que vayan
 acercando el código a la nueva funcionalidad. En el proceso de añadir
