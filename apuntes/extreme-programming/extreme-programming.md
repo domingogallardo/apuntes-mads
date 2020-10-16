@@ -53,7 +53,7 @@ comunidad XP para ir agregando ideas sobre la metodología y sus
 prácticas. El resultado es un poco desordenado, pero tiene interés
 histórico y sigue manteniéndose abierto en la actualidad (aunque
 deshabilitada la posibilidad de edición). Por ejemplo,
-se puede hacer una vistia a la [página con el de sobre Extreme
+se puede hacer una vistia a la [página con el roadmap sobre Extreme
 Programming](http://wiki.c2.com/?ExtremeProgrammingRoadmap).
 
 A mediados del 2000, en 2004, Kent Beck publica la segunda edición de
@@ -70,11 +70,11 @@ década y media ha sido sustituida por Scrum, una metodología más
 general (menos orientada a desarrollo de software) que tiene roles y
 ceremonias más establecidos y fáciles de replicar.
 
-Sin embargo, paradójicamente, el interés por las prácticas XP no ha
-dejado de crecer. Prácticas como el test driven development (TDD), la
-refactorización, la integración continua o el pair programming son
-cada vez más populares, aunque las encontramos en el marco de otras
-corrientes como el [software
+Es curioso que, aunque la popularidad de XP haya bajado, el interés
+por sus prácticas XP no haya dejado de crecer. Prácticas como el test
+driven development (TDD), la refactorización, la integración continua
+o el pair programming son cada vez más populares, aunque las
+encontramos en el marco de otras corrientes como el [software
 craftmanship](https://en.wikipedia.org/wiki/Software_craftsmanship).
 
 <img src="imagenes/state-of-agile-practicas-desarrollo.png" width="450px" align="right"/>
@@ -367,22 +367,22 @@ en la siguiente figura del propio Beck:
 
 Podemos agruparlas de la siguiente forma:
 
-- Prácticas de trabajo en equipo:
+- **Prácticas de trabajo en equipo**
     - Sit together
     - Whole team
     - Energized work
     - Slack
-- Prácticas de diseño:
+- **Prácticas de diseño**
     - Informative workspace
     - Stories
     - Incremental design
-- Prácticas de programación:
+- **Prácticas de programación**
     - Pair programming
     - Test-first programming
-- Prácticas de integración:
+- **Prácticas de integración**
     - Ten minutes build
     - Continuous integration
-- Prácticas de planificación:
+- **Prácticas de planificación**
     - Weekly cycle
     - Quaterly cycle
 
