@@ -189,13 +189,13 @@ Para el trabajo individual deberás proponer un título sobre en tema
 relacionado con la asignatura y el profesor dará el visto bueno. En el
 trabajo deberás realizar una pequeña investigación bibliográfica en
 artículos, blogs, libros, etc. sobre el tema propuesto y escribir un
-ensayo con una extensión de alrededor de 3.500 palabras. En el trabajo
+ensayo con una extensión de alrededor de 3.000 palabras. En el trabajo
 deberás incluir:
 
 - Introducción
 - Desarrollo
 - Conclusiones
-- Bibliografía (al menos 4 fuentes bibliográficas)
+- Bibliografía (al menos 3 fuentes bibliográficas)
 
 El trabajo deberá ser original. Se utilizará una herramienta de
 detección de plagio para detectar la copia de párrafos sin atribuir la
