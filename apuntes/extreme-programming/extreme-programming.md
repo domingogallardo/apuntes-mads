@@ -1224,6 +1224,7 @@ próximos tres meses.
 
 - Kent Beck (2004) [_Extreme Programming Explained: Embracing Change (Second
   Edition)_](https://learning.oreilly.com/library/view/extreme-programming-explained/0321278658/)
+- [An interview with Kent Beck](https://accu.org/journals/overload/8/35/josuttis_509/)
 - Birgitta Böckeler y Nina Siessegger (2020) [_On Pair Programming_](https://martinfowler.com/articles/on-pair-programming.html)
 - Ron Jeffries (2011) [_What is Extreme
   Programming_](https://www.ronjeffries.com/xprog/what-is-extreme-programming/) 
