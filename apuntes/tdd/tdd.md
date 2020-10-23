@@ -372,8 +372,15 @@ Es una técnica que se utiliza continuamente en nuestros teléfonos
 móviles para obtener su localización usando satélites como balizas
 (GPS) o antenas de Wifi (localización por Wifi).
 
-</td></tr>
-</table>
+Es una técnica que se utiliza continuamente en nuestros teléfonos
+móviles para obtener su localización usando satélites como balizas
+(GPS) o antenas de Wifi (localización por Wifi).
+
+Es una técnica que se utiliza continuamente en nuestros teléfonos
+móviles para obtener su localización usando satélites como balizas
+(GPS) o antenas de Wifi (localización por Wifi).
+
+</td></tr></table>
 
 
 ### Triangulamos el test equals ###
