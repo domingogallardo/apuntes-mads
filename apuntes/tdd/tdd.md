@@ -361,7 +361,7 @@ obligar a generalizar el código.
 <table>
 <td><tr>
 
-<img src="imagenes/triangulacion.png" width="300px" align="right"/>
+<img src="imagenes/triangulacion.png" width="200px" align="right"/>
 
 El nombre de "triangulación" viene de la técnica para localizar
 una posición en un mapa a partir de la distancia a balizas
@@ -374,7 +374,6 @@ móviles para obtener su localización usando satélites como balizas
 
 </td></tr>
 </table>
-
 
 
 ### Triangulamos el test equals ###
