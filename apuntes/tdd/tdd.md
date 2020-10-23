@@ -40,13 +40,20 @@ Cada ciclo de TDD consta de 3 pasos:
 - Código que hace pasar el test.
 - Refactorización para eliminar duplicación.
 
-Utilizaremos jUnit.
+A este ciclo de 3 pasos es importante añadir un paso fundamental, que
+hay que hacer continuamente: pensar. Tenemos que pensar en los
+objetivos que queremos cumplir, en los problemas del diseño actual y
+en cómo solucionarlos. 
 
-Mantendremos una lista de cosas por hacer para mantenernos
-concentrados, y decidir qué hacer cuando hayamos terminado cada uno de
-los tests. Pondremos en negrita lo siguiente a hacer y tacharemos lo
-que hayamos terminado. Cuando pensemos en que necesitamos escribir
-otro test, lo añadiremos a la lista.
+Como resultado de esta reflexión continua mantendremos una lista de
+cosas por hacer, que nos ayudará a mantenernos concentrados, y decidir
+qué hacer cuando hayamos terminado cada uno de los tests. 
+
+Pondremos en negrita lo siguiente a hacer y tacharemos lo que hayamos
+terminado. Cuando pensemos en que necesitamos escribir otro test, lo
+añadiremos a la lista.
+
+### Pensamos ###
 
 Del ejemplo en la tabla vemos que inicialmente hay dos cosas
 importantes que tenemos que hacer:
@@ -78,7 +85,7 @@ crearla. Añadimos una tarea más a la lista.
 | **Crear una moneda con 5 dólares** |
 
 
-### Test 1: Creación de 5 dólares###
+### Test creación de 5 dólares ###
 
 Vamos a especificar el test para el objetivo de crear una moneda de 5
 dólares. 
@@ -133,8 +140,11 @@ duplicación es un indicador de dependencia.
 En este caso hemos acoplado el valor 5 del código directamente al
 valor introducido en el test.
 
-Vamos entonces a refactorizar para eliminar esa duplicidad. Empezamos
-moviendo la asignación de la cantidad dentro del constructor:
+### Refactorización código creación dólares ###
+
+Vamos entonces a refactorizar para eliminar la duplicidad del valor
+`5` entre el test y el código. Empezamos moviendo la asignación de la
+cantidad dentro del constructor (pequeños pasos):
 
 ```java
 public class Dolar {
@@ -164,6 +174,8 @@ public class Dolar {
 }
 ```
 
+### Pensamos ###
+
 Con esto hemos cumplido el objetivo y lo tachamos de la lista:
 
 | Cosas por hacer  |
@@ -172,22 +184,24 @@ Con esto hemos cumplido el objetivo y lo tachamos de la lista:
 | **5 USD * 2 = 10 USD** |
 | ~~Crear una moneda con 5 dólares~~ |
 
+Ahora podemos ya podemos centrarnos en el test de la
+multiplicación. 
 
 ### Test multiplicación en dólares ###
 
-Ahora podemos ya podemos definir el test de la multiplicación. Lo
-añadimos a la clase de test:
+Añadimos el test de multiplicación a la clase de test. En principio
+vamos a usar un diseño típicamente orientado a objetos, en el que las
+operaciones mutan el estado del objeto. En este caso, la operación
+`multuplicadoPor(int)` modifica la cantidad almacenada en la instancia:
 
 
 ```java
-    ...
     @Test
     public void testMultiplicacion() {
         Dolar cinco = new Dolar(5);
         cinco.multiplicadoPor(2);
         assertEquals(10, cinco.cantidad);
     }
-    ...
 ```
 
 Creamos la cantidad de 5 dólares y llamamos al método
@@ -211,6 +225,7 @@ public class Dolar {
 }
 ```
 
+Con eso ya hemos pasado el test de la multiplicación.
 
 | Cosas por hacer  |
 |------------------|
@@ -219,11 +234,17 @@ public class Dolar {
 | ~~Crear una moneda con 5 dólares~~ |
 
 
-### Siguiente paso ###
+### Pensamos ###
 
 Analizando el diseño del código y de los tests, nos damos cuenta de
-que hay varias cosas que se podrían mejorar.
+que hay varias cosas que se podrían mejorar:
 
+- Hacer `cantidad` privado.
+- Podría haber efectos laterales en `Dolar` por utilizar programación
+  orientada a objetos tradicional. ¿Usamos un objeto valor?
+- Estamos limitando los valores y las cantidades a multiplicar a enteros.
+
+Las anotamos en la lista:
 
 | Cosas por hacer  |
 |------------------|
@@ -235,8 +256,8 @@ que hay varias cosas que se podrían mejorar.
 | Usar punto flotante - redondeo? |
 
 
-Empezamos con los efectos laterales. Un objeto llamado `cinco` no
-debería tener `10`.
+Decidimos empezar con los efectos laterales. Un objeto llamado `cinco` no
+debería tener un valor de `10`.
 
 | Cosas por hacer  |
 |------------------|
@@ -246,8 +267,12 @@ debería tener `10`.
 | **Efectos laterales en Dolar?** |
 | Usar punto flotante - redondeo? |
 
-Vamos a usar el patrón **Value Object** para mejorar el
-diseño. Modificamos el test para usar este patrón:
+### Refactorización de test con patrón value object ###
+
+Vamos a usar el patrón [value
+object](https://martinfowler.com/bliki/ValueObject.html) para mejorar
+el diseño. Modificamos el test para usar este patrón (también hay que
+refactorizar los tests):
 
 ```java
     @Test
@@ -259,7 +284,6 @@ diseño. Modificamos el test para usar este patrón:
         assertEquals(15, resultado.cantidad);
     }
 ```
-
 
 Y modificados el código para que el test pase:
 
@@ -285,10 +309,12 @@ Una cosa menos por hacer:
 | Usar punto flotante - redondeo? |
 
 
-### Siguiente paso ###
+### Pensamos ###
 
-En el patrón **Value Object** es necesario poder comparar objetos
-según su valor. Debemos implementar `equals`.
+En el patrón Value Object es necesario poder comparar objetos según su
+valor. Debemos implementar `equals` y `hashCode`.
+
+Empezamos por `equals`.
 
 | Cosas por hacer  |
 |------------------|
@@ -300,7 +326,11 @@ según su valor. Debemos implementar `equals`.
 | **equals()** | 
 | hashCode() |
 
-Test:
+
+### Test equals ###
+
+El test para implementar `equals` es muy sencillo:
+
 
 ```java
     @Test
@@ -309,13 +339,46 @@ Test:
     }
 ```
 
-Código mínimo que lo pasa:
+Siguiendo la filosofía de TDD (¡exagerándola!), el mínimo código que
+hace que pase es haciendo que el método devuelva `true`:
 
 ```java
     public boolean equals(Object object) {
         return true;
     }
 ```
+
+El test pasa, pero tenemos la sensación de que no es la solución
+correcta. De hecho, está pasando lo mismo que al principio, hay
+duplicación de código (el `true` que devuelve el método está
+duplicando el `assertTrue` del test). 
+
+Para comprobar si todo está bien introducimos una segunda aserción en
+el test, que obliga a generalizar el código. Kent Beck llama
+"triangular" a esta técnica de introducir nuevas aserciones para
+obligar a generalizar el código.
+
+<table>
+<td><tr>
+
+<img src="triangulacion.png" width="300px" align="right"/>
+
+El nombre de "triangulación" viene de la técnica para localizar
+una posición en un mapa a partir de la distancia a balizas
+conocidas. Para localizar unívocamente una posición es necesario
+obtener la distancia a tres balizas.
+
+Es una técnica que se utiliza continuamente en nuestros teléfonos
+móviles para obtener su localización usando satélites como balizas
+(GPS) o antenas de Wifi (localización por Wifi).
+
+</td></tr>
+</table>
+
+
+
+### Triangulamos el test equals ###
+
 
 Triangulamos, añadiendo otro ejemplo al test:
 
