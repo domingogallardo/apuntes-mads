@@ -39,18 +39,18 @@ que hay que implementar y que no habíamos tenido en cuenta. Las
 anotamos en la lista de tareas a hacer y en algún momento tocará
 resolverlas con el ciclo de TDD. 
 
+<img src="imagenes/tdd-think.png" width="200px" align="right"/>
+
 Esta labor de diseño y de reflexión para elaborar el test mínimo y
 seleccionar cual es el siguiente test a implementar está implícita en
 el ciclo original anterior. Pero algún autor, como James Shore, la ha
 incluido en el propio ciclo, tal y como se ve en la siguiente imagen.
 
-<img src="imagenes/tdd-think.png" width="200px"/>
-
-1. Pensamos. Analizamos qué pequeño paso nos puede servir para avanzar
-   en la funcionalidad que estamos desarrollando. Anotamos las ideas
-   que se nos ocurran como pequeños pasos que hay que implementar. Se
-   escoge el paso más básico, el inicial que sirve de base para todo
-   lo demás.
+En el paso inicial de "pensar" debemos analizar qué pequeño paso nos
+puede servir para avanzar en la funcionalidad que estamos
+desarrollando. Anotamos las ideas que se nos ocurran como pequeños
+pasos que hay que implementar. Se escoge el paso más básico, el
+inicial que sirve de base para todo lo demás.
 
 ### Los tests deben ser pequeños pasos ###
 
