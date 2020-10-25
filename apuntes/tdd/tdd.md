@@ -263,6 +263,7 @@ debería tener un valor de `10`.
 |------------------|
 | 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
 | ~~5 USD * 2 = 10 USD~~ |
+| ~~Crear una moneda con 5 dólares~~ |
 | Hacer "cantidad" privado |
 | **Efectos laterales en Dolar?** |
 | Usar punto flotante - redondeo? |
@@ -304,6 +305,7 @@ Una cosa menos por hacer:
 |------------------|
 | 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
 | ~~5 USD * 2 = 10 USD~~ |
+| ~~Crear una moneda con 5 dólares~~ |
 | Hacer "cantidad" privado |
 | ~~Efectos laterales en Dolar?~~ |
 | Usar punto flotante - redondeo? |
@@ -320,6 +322,7 @@ Empezamos por `equals`.
 |------------------|
 | 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
 | ~~5 USD * 2 = 10 USD~~ |
+| ~~Crear una moneda con 5 dólares~~ |
 | Hacer "cantidad" privado |
 | ~~Efectos laterales en Dolar?~~ |
 | Usar punto flotante - redondeo? |
@@ -358,9 +361,6 @@ el test, que obliga a generalizar el código. Kent Beck llama
 "triangular" a esta técnica de introducir nuevas aserciones para
 obligar a generalizar el código.
 
-<table>
-<td><tr>
-
 <img src="imagenes/triangulacion.png" width="200px" align="right"/>
 
 El nombre de "triangulación" viene de la técnica para localizar
@@ -372,19 +372,12 @@ Es una técnica que se utiliza continuamente en nuestros teléfonos
 móviles para obtener su localización usando satélites como balizas
 (GPS) o antenas de Wifi (localización por Wifi).
 
-Es una técnica que se utiliza continuamente en nuestros teléfonos
-móviles para obtener su localización usando satélites como balizas
-(GPS) o antenas de Wifi (localización por Wifi).
-
-Es una técnica que se utiliza continuamente en nuestros teléfonos
-móviles para obtener su localización usando satélites como balizas
-(GPS) o antenas de Wifi (localización por Wifi).
-
-</td></tr></table>
+En el caso del TDD, muchas veces no es suficiente con una única
+aserción para definir un test. Necesitamos más aserciones para obligar
+a eliminar la dependencia entre el test y el código.
 
 
 ### Triangulamos el test equals ###
-
 
 Triangulamos, añadiendo otro ejemplo al test:
 
@@ -405,6 +398,10 @@ El código falla y tenemos que generalizarlo:
     }
 ```
 
+El test ya pasa. Perfecto, seguimos avanzando.
+
+### Pensamos ###
+
 ¿Qué pasa si comparamos con `null` o con otro objeto? Lo añadimos a la
 lista de cosas por hacer y lo dejamos para después.
 
@@ -412,6 +409,7 @@ lista de cosas por hacer y lo dejamos para después.
 |------------------|
 | 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
 | ~~5 USD * 2 = 10 USD~~ |
+| ~~Crear una moneda con 5 dólares~~ |
 | Hacer "cantidad" privado |
 | ~~Efectos laterales en Dolar?~~ |
 | Usar punto flotante - redondeo? |
@@ -421,12 +419,24 @@ lista de cosas por hacer y lo dejamos para después.
 | Equal object |
 
 
-### Siguiente ciclo ###
+Miramos el código y nos damos cuenta de que ahora que tenemos
+implementada la igualdad, podemos refactorizar el test de la
+multiplicación para usar esta implementación. No tenemos que acceder a
+`cantidad`. De esta forma podremos hacer el atributo privado.
 
-Ahora que tenemos implementada la igualdad, podemos refactorizar el
-test de la multiplicación:
+### Refactorización tests para usar equals ###
+
+Tenemos que refactorizar los tests en los que se usa la cantidad para
+comparar y pasar a comparar usando el nuevo método equals:
+
 
 ```java
+
+    @Test
+    public void testCrearMoneda() {
+        assertEquals(new Dolar(5), new Dolar(5));
+    }
+
 
     @Test
     public void testMultiplicacion() {
@@ -436,9 +446,12 @@ test de la multiplicación:
     }
 ```
 
-Probamos que el test sigue funcionando.
+Probamos que los tests siguen funcionando.
 
-Y ahora ya podemos hacer privado el atributo `cantidad`:
+### Refactorización código ###
+
+Y ahora ya podemos hacer privado el atributo `cantidad`, porque no lo
+necesitamos en ninguno de los tests.
 
 Código:
 
@@ -447,10 +460,13 @@ Código:
 +    private int cantidad;
 ```
 
+Una cosa menos en la lista:
+
 | Cosas por hacer  |
 |------------------|
 | 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
 | ~~5 USD * 2 = 10 USD~~ |
+| ~~Crear una moneda con 5 dólares~~ |
 | ~~Hacer "cantidad" privado~~ |
 | ~~Efectos laterales en Dolar?~~ |
 | Usar punto flotante - redondeo? |
@@ -460,19 +476,18 @@ Código:
 | Equal object |
 
 
-### Siguiente ciclo ###
+### Pensamos ###
 
 El primer ítem de la lista está todavía muy lejos. No es posible
 implementarlo con un pequeño cambio. Necesitamos como prerrequisto
 tener un objeto `Euro`, similar al `Dolar`. Añadimos otro ítem que nos
 obliga a crear la clase `Euro`.
 
-
-
 | Cosas por hacer  |
 |------------------|
 | 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
 | ~~5 USD * 2 = 10 USD~~ |
+| ~~Crear una moneda con 5 dólares~~ |
 | ~~Hacer "cantidad" privado~~ |
 | ~~Efectos laterales en Dolar?~~ |
 | Usar punto flotante - redondeo? |
@@ -482,6 +497,7 @@ obliga a crear la clase `Euro`.
 | Equal object |
 | ** 5 EUR * 2 = 10 EUR** |
 
+### Test multiplicación en euros ###
 
 Copiamos y modificamos el test de la multiplicación en Dolares.
 
@@ -494,11 +510,11 @@ Test:
         assertEquals(new Euro(10), cinco.multiplicadoPor(2));
         assertEquals(new Euro(15), cinco.multiplicadoPor(3));
     }
-```
+    ```
 
 Para pasar el test copiamos y modificamos el código de `Dolar`.
 
-Código:
+El código es el siguiente:
 
 ```java
 public class Euro {
@@ -519,12 +535,13 @@ public class Euro {
 }
 ```
 
-Hemos dado una solución rápida y pequeña. Eliminaremos después la duplicidad.
+Hemos dado una solución rápida y pequeña. 
 
 | Cosas por hacer  |
 |------------------|
 | 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
 | ~~5 USD * 2 = 10 USD~~ |
+| ~~Crear una moneda con 5 dólares~~ |
 | ~~Hacer "cantidad" privado~~ |
 | ~~Efectos laterales en Dolar?~~ |
 | Usar punto flotante - redondeo? |
@@ -533,12 +550,35 @@ Hemos dado una solución rápida y pequeña. Eliminaremos después la duplicidad
 | Equal null |
 | Equal object |
 | ~~5 EUR * 2 = 10 EUR~~ |
-| Duplicación Dolar Euro |
+
+
+### Pensamos ###
+
+Vemos que hay mucho código duplicado. El objetivo final es eliminar
+la duplicación entre `Dolar` y `Euro`, creando una clase común que
+contenga el código repetido (`equals` y `multiplicadoPor`).
+
+Vamos a comenzar creando una clase común que elimine la duplicación de `equals`.
+
+| Cosas por hacer  |
+|------------------|
+| 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
+| ~~5 USD * 2 = 10 USD~~ |
+| ~~Crear una moneda con 5 dólares~~ |
+| ~~Hacer "cantidad" privado~~ |
+| ~~Efectos laterales en Dolar?~~ |
+| Usar punto flotante - redondeo? |
+| ~~equals()~~ | 
+| hashCode() |
+| Equal null |
+| Equal object |
+| ~~5 EUR * 2 = 10 EUR~~ |
+| **Duplicación Dolar Euro** |
 | **equals duplicado** |
 | multiplicadoPor duplicado |
 
 
-Refactorización.
+### Refactorización eliminar duplicación equals ###
 
 Vamos a refactorizar el código para crear una clase común que contenga
 el código duplicado. Comenzaremos por `equals`.
@@ -569,10 +609,9 @@ public class Dolar extends Moneda {
 -    private int cantidad;
 ```
 
-
 Los tests siguen pasando.
 
-Cambiamos el método `equals`:
+Cambiamos el método `equals`, generalizándolo para que trabaje con monedas:
 
 ```java
     public boolean equals(Object object) {
@@ -610,7 +649,7 @@ public class Dolar extends Moneda {
 Y los tests siguen pasando.
 
 Tenemos que hacer ahora lo mismo con `Euro`, pero nos faltan
-tests que hagan de red de seguridad de la refactirzación. Añadimos
+tests que hagan de red de seguridad de la refactorización. Añadimos
 tests en el test de igualdad de `Dolar`:
 
 ```java
@@ -667,6 +706,7 @@ public class Euro extends Moneda {
 |------------------|
 | 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
 | ~~5 USD * 2 = 10 USD~~ |
+| ~~Crear una moneda con 5 dólares~~ |
 | ~~Hacer "cantidad" privado~~ |
 | ~~Efectos laterales en Dolar?~~ |
 | Usar punto flotante - redondeo? |
@@ -675,12 +715,12 @@ public class Euro extends Moneda {
 | Equal null |
 | Equal object |
 | ~~5 EUR * 2 = 10 EUR~~ |
-| Duplicación Dolar Euro |
+| **Duplicación Dolar Euro** |
 | ~~equals duplicado~~ |
 | multiplicadoPor duplicado |
 
 
-### Siguiente ciclo ###
+### Pensamos ###
 
 Ya que estamos con `equals` tenemos que asegurarnos que la comparación
 entre euros y dólares es `false`:
@@ -689,6 +729,7 @@ entre euros y dólares es `false`:
 |------------------|
 | 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
 | ~~5 USD * 2 = 10 USD~~ |
+| ~~Crear una moneda con 5 dólares~~ |
 | ~~Hacer "cantidad" privado~~ |
 | ~~Efectos laterales en Dolar?~~ |
 | Usar punto flotante - redondeo? |
@@ -697,13 +738,15 @@ entre euros y dólares es `false`:
 | Equal null |
 | Equal object |
 | ~~5 EUR * 2 = 10 EUR~~ |
-| Duplicación Dolar Euro |
+| **Duplicación Dolar Euro** |
 | ~~equals duplicado~~ |
 | multiplicadoPor duplicado |
-| **Comparar francos con dólares** |
+| **Comparar euros con dólares** |
 
 
-Añadimos una nueva línea al test de `equals`:
+### Test comparación euros con dólares ###
+
+Añadimos una nueva línea al test de igualdad:
 
 ```diff
     @Test
@@ -716,7 +759,7 @@ Añadimos una nueva línea al test de `equals`:
     }
 ```
 
-Modificamos el código para que pase el test:
+El test falla. Modificamos el código para que pase el test:
 
 ```diff
     public boolean equals(Object object) {
@@ -727,16 +770,11 @@ Modificamos el código para que pase el test:
 }
 ```
 
-La solución es un poco sucia, porque utilizamos las clases de Java y
-no un concepto del dominio, por ejemplo guardar de alguna forma la
-denominación de la moneda. Añadimos un elemento más a la lista de
-cosas por hacer:
-
-
 | Cosas por hacer  |
 |------------------|
 | 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
 | ~~5 USD * 2 = 10 USD~~ |
+| ~~Crear una moneda con 5 dólares~~ |
 | ~~Hacer "cantidad" privado~~ |
 | ~~Efectos laterales en Dolar?~~ |
 | Usar punto flotante - redondeo? |
@@ -748,18 +786,54 @@ cosas por hacer:
 | **Duplicación Dolar Euro** |
 | ~~equals duplicado~~ |
 | multiplicadoPor duplicado |
-| ~~Comparar francos con dólares~~|
+| ~~Comparar euros con dólares~~|
+
+
+### Pensamos ###
+
+La solución anterior es un poco sucia, porque utilizamos las clases de
+Java y no un concepto del dominio, por ejemplo guardar de alguna forma
+la denominación de la moneda. Añadimos un elemento más a la lista de
+cosas por hacer y seguimos eliminando la duplicación de `Dolar` y
+`Euro`. 
+
+Para ello nos fijamos como objetivo eliminar la duplicación del método
+`multiplicadoPor`. 
+
+| Cosas por hacer  |
+|------------------|
+| 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
+| ~~5 USD * 2 = 10 USD~~ |
+| ~~Crear una moneda con 5 dólares~~ |
+| ~~Hacer "cantidad" privado~~ |
+| ~~Efectos laterales en Dolar?~~ |
+| Usar punto flotante - redondeo? |
+| ~~equals()~~ | 
+| hashCode() |
+| Equal null |
+| Equal object |
+| ~~5 EUR * 2 = 10 EUR~~ |
+| **Duplicación Dolar Euro** |
+| ~~equals duplicado~~ |
+| **multiplicadoPor duplicado** |
+| ~~Comparar euros con dólares~~|
 | Denominación moneda? |
 
+Como este cambio no se puede hacer con un pequeño paso, aplicamos
+otros patrones que nos acerquen a ese objetivo. Vamos a hacer algunas
+refactorizaciones basadas en el principio de inversión de
+dependencias de SOLID. Este principio nos dice que deberíamos depender
+de abstracciones, en lugar de implementaciones concretas.
 
-### Siguiente ciclo ###
+Para ello vamos a eliminar en la medida de lo posible el uso de clases
+concretas `Dolar` y `Euro` y usar la clase más abstracta
+`Moneda`. Convertiremos la clase `Moneda` en una factoría con métodos
+que devuelvan euros y dólares.
 
-Refactorización. 
+### Refactorización para usar monedas en lugar de clases concretas ###
 
-Vamos con la duplicación de `Dolar` y `Euro`. 
-
-Empezamos por igualar el código de `multiplicaPor` de ambas clases,
-haciendo que devuelven una `Moneda`:
+Empezamos por el código de `multiplicaPor` de ambas clases, haciendo
+que devuelvan una `Moneda`:
 
 
 ```java
@@ -781,19 +855,27 @@ public class Euro extends Moneda {
 Los tests siguen pasando.
 
 Vamos ahora a intentar eliminar del código el uso de las clases
-`Dolar` y `Euro`. Para ello vamos a convertir `Moneda` en una
-factoría. Lo empezamos a hacer el el test de multiplicación:
+`Dolar` y `Euro`, de forma que no tengamos que hacer explícitamente un
+`new` de esas clases. Así ganamos en abstracción.
+
+Para ello vamos a convertir `Moneda` en una factoría, con un método
+`dolar` que devuelva un dolar. Empezamos refactorizando el test de
+multiplicación para que use la factoría. 
+
 
 ```java
     @Test
     public void testMultiplicacion() {
         Dolar cinco = Moneda.dolar(5);
-        assertEquals(new Dolar(10), cinco.multiplicadoPor(2));
-        assertEquals(new Dolar(15), cinco.multiplicadoPor(3));
+        assertEquals(Moneda.dolar(10), cinco.multiplicadoPor(2));
+        assertEquals(Moneda.dolar(15), cinco.multiplicadoPor(3));
     }
 ```
 
-Código:
+Al eliminar las llamadas a los constructores, hemos desacoplado los
+tests de la relación de herencia entre `Dolar` y `Moneda`.
+
+Escribimos el código para que el test pase correctamente:
 
 ```java
 public class Moneda {
@@ -808,14 +890,14 @@ public class Moneda {
 ```
 
 Pasan los tests. Pero queremos eliminar el uso de la clase `Dolar`,
-por lo que modificamos el test de la siguiente forma:
+por lo que modificamos declarando el objeto `cinco` de tipo `Moneda`:
 
 ```java
     @Test
     public void testMultiplicacion() {
         Moneda cinco = Moneda.dolar(5);
-        assertEquals(new Dolar(10), cinco.multiplicadoPor(2));
-        assertEquals(new Dolar(15), cinco.multiplicadoPor(3));
+        assertEquals(Moneda.dolar(10), cinco.multiplicadoPor(2));
+        assertEquals(Moneda.dolar(15), cinco.multiplicadoPor(3));
     }
 ```
 
@@ -842,22 +924,8 @@ abstract public class Moneda {
 
 Los tests pasan, por lo que no hemos roto nada.
 
-Refactorizamos los tests para usar el método de la factoría para
-obtener dólares:
-
-```java
-    @Test
-    public void testMultiplicacion() {
-        Moneda cinco = Moneda.dolar(5);
-        assertEquals(Moneda.dolar(10), cinco.multiplicadoPor(2));
-        assertEquals(Moneda.dolar(15), cinco.multiplicadoPor(3));
-    }
-```
-
-Al eliminar las llamadas a los constructores, hemos desacoplado los
-tests de la relación de herencia entre `Dolar` y `Moneda`.
-
-Refactorizamos de la misma forma el test`testMultiplicacionEuro`:
+Refactorizamos ahora el test `testMultiplicacionEuro` para que trabaje
+con la factoría, ahora con un método que devuelve euros:
 
 ```java
     @Test
@@ -879,9 +947,15 @@ abstract public class Moneda {
     ...
 ```
 
-Y refactorizamos el otro test:
+Y, por último, refactorizamos el resto de tests para que usen también la factoría:
 
 ```java
+
+    @Test
+    public void testCrearMoneda() {
+        assertEquals(Moneda.dolar(5), Moneda.dolar(5));
+    }
+
     @Test
     public void testIgualdad() {
         assertTrue(Moneda.dolar(5).equals(Moneda.dolar(5)));
@@ -893,12 +967,19 @@ Y refactorizamos el otro test:
 ```
 
 
-### Siguiente ciclo ###
+### Pensamos ###
+
+Seguimos intentando eliminar la duplicación de los dos
+multiplicadores. Pero por ahora no es posible hacerlo con un paso
+sencillo. Nos decidimos entonces atacar el objetivo de la denominación
+de la moneda.
+
 
 | Cosas por hacer  |
 |------------------|
 | 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
 | ~~5 USD * 2 = 10 USD~~ |
+| ~~Crear una moneda con 5 dólares~~ |
 | ~~Hacer "cantidad" privado~~ |
 | ~~Efectos laterales en Dolar?~~ |
 | Usar punto flotante - redondeo? |
@@ -909,15 +990,14 @@ Y refactorizamos el otro test:
 | ~~5 EUR * 2 = 10 EUR~~ |
 | **Duplicación Dolar Euro** |
 | ~~equals duplicado~~ |
-| multiplicadoPor duplicado |
-| ~~Comparar francos con dólares~~|
+| **multiplicadoPor duplicado** |
+| ~~Comparar euros con dólares~~|
 | **Denominación moneda?** |
 
 
-Queremos quitar las subclases. Vamos primero con la denominación de
-las monedas. Usaremos `strings`.
+### Test denominación monedas ###
 
-Test:
+Especificamos el objetivo con el siguiente test:
 
 
 ```java
@@ -928,7 +1008,7 @@ Test:
     }
 ```
 
-Código:
+El código que lo hace pasar es muy directo:
 
 ```java
 abstract public class Moneda {
@@ -952,9 +1032,10 @@ public class Dolar extends Moneda {
 
 ```
 
+### Refactorización denominación ###
 
-Refactorizamos, para intentar obtener la misma implementación en ambas
-clases. Usaremos una variable de instancia.
+Refactorizamos el código anterior, para intentar obtener la misma
+implementación en ambas clases. Usaremos una variable de instancia.
 
 ```java
 public class Euro extends Moneda {
@@ -988,9 +1069,12 @@ public class Dolar extends Moneda {
 
 ```
 
+Pasan los tests correctamente.
 
-Refactorizamos otra vez, subiendo la declaración de la variable y la
-implementación y eliminamos los métodos de cada clase.
+Vemos que el código del método `denominacion` es ahora exactamente el
+mismo en ambas clases. Podemos entonces subir la declaración de la
+variable y el método a la clase padre. Y eliminarlos de las clases hijas.
+
 
 ```java
 abstract public class Moneda {
@@ -1002,8 +1086,16 @@ abstract public class Moneda {
 }
 ```
 
-Refactorizamos para tener una implementación común de los dos
-constructores:
+
+Si nos fijamos en los constructores de `Dolar` y `Euro` vemos que
+podemos refactorizarlos y hacerlos idénticos, haciendo que la
+denominación se pase como parámetro del constructor. 
+
+Tenemos que refactorizar también la creación en los métodos de
+factoría para que se pasen los identificadores correctos y
+refactorizar en el método `multiplicadoPor` la construcción del objeto
+valor resultante para que llame al método de factoría:
+
 
 ```java
 public class Euro extends Moneda {
@@ -1045,9 +1137,11 @@ abstract public class Moneda {
 }
 ```
 
+Lanzamos los tests y comprobamos que siguen funcionando correctamente.
 
-Por último, los constructores son idénticos: podemos subir la
-implementación.
+Como último paso, ahora ya tenemos los constructores idénticos y
+podemos subir la implementación a la clase `Moneda`.
+
 
 ```java
 public class Euro extends Moneda {
@@ -1076,11 +1170,15 @@ abstract public class Moneda {
 }
 ```
 
+Lanzamos los tests, comprobamos que funcionan y con esto hemos
+conseguido el objetivo que estábamos buscando.
+
 
 | Cosas por hacer  |
 |------------------|
 | 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
 | ~~5 USD * 2 = 10 USD~~ |
+| ~~Crear una moneda con 5 dólares~~ |
 | ~~Hacer "cantidad" privado~~ |
 | ~~Efectos laterales en Dolar?~~ |
 | Usar punto flotante - redondeo? |
@@ -1092,16 +1190,28 @@ abstract public class Moneda {
 | **Duplicación Dolar Euro** |
 | ~~equals duplicado~~ |
 | **multiplicadoPor duplicado** |
-| ~~Comparar francos con dólares~~|
+| ~~Comparar euros con dólares~~|
 | ~~Denominación moneda?~~ |
 
 
-Vamos a eliminar la duplicidad de `multiplicadoPor`.
+### Refactorización para eliminar duplicidad de multiplicadoPor ###
 
+Ahora ya estamos muy cerca de poder eliminar la duplicidad del código
+de `multiplicadoPor`. Y también de eliminar la duplicidad entre las
+clases `Dolar` y `Euro`, eliminando la necesidad de usar subclases.
 
-### Siguiente ciclo ###
+Si miramos el código vemos que, al añadir la denominación de la moneda
+como una propiedad, ya no es necesario usar la propia clase para
+identificar si tenemos una moneda de un tipo o de otro. El tipo de
+moneda lo tenemos en su denominación.
 
-Refactorizamos para subir `multiplicadoPor` a `Moneda`. Quitamos `abstract`:
+De esta forma, podemos hacer que la multiplicación devuelva un objeto
+`Moneda`, con el mismo identificador del objeto que estamos
+multiplicando. El código sería entonces el mismo en ambas clases y ya
+podemos subirlo a la clase `Moneda`.
+
+Necesitamos también quitar el `abstract` de la clase `Moneda`, para
+poder crear objetos de la propia clase:
 
 ```java
 public class Moneda {
@@ -1125,22 +1235,13 @@ public class Dolar extends Moneda {
 }
 ```
 
-Hay un test que falla después de este cambio. Es el test de igualdad,
-porque el método `equals` hace una comparación de clases. Ahora las
-clases ya no son distintas; son todos objetos de la clase `Moneda`.
+Hay tests que fallan después de este cambio. Son los tests de
+igualdad, porque el método `equals` hace una comparación de
+clases. Ahora las clases ya no son distintas; son todos objetos de la
+clase `Moneda`. 
 
-Definimos un nuevo test para probar específicamente esto.
-
-Test:
-
-```java
-    @Test
-    public void testIgualdadDiferentesClases() {
-        assertTrue(new Moneda(10, "EUR").equals(new Euro(10, "EUR")));
-    }
-```
-
-Modificamos el código de `equals` para que funcione correctamente:
+Modificamos el código de `equals` para que funcione correctamente,
+comparando las denominaciones en lugar de las clases:
 
 ```java
     public boolean equals(Object object) {
@@ -1150,6 +1251,7 @@ Modificamos el código de `equals` para que funcione correctamente:
     }
 ```
 
+
 Y los tests vuelven a pasar correctamente. Hemos conseguido
 unificar el método `multiplicadoPor`.
 
@@ -1158,6 +1260,7 @@ unificar el método `multiplicadoPor`.
 |------------------|
 | 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
 | ~~5 USD * 2 = 10 USD~~ |
+| ~~Crear una moneda con 5 dólares~~ |
 | ~~Hacer "cantidad" privado~~ |
 | ~~Efectos laterales en Dolar?~~ |
 | Usar punto flotante - redondeo? |
@@ -1169,14 +1272,17 @@ unificar el método `multiplicadoPor`.
 | **Duplicación Dolar Euro** |
 | ~~equals duplicado~~ |
 | ~~multiplicadoPor duplicado~~ |
-| ~~Comparar francos con dólares~~|
+| ~~Comparar euros con dólares~~|
 | ~~Denominación moneda?~~ |
 
+### Refactorización para eliminar las clases Dolar y Euro ###
 
-Por último, vamos a intentar eliminar las clases `Dolar` y `Euro`.
+Por último, vamos a hacer una refactorización para eliminar las clases
+`Dolar` y `Euro`. Veremos que, con todas las refactorizaciones
+anteriores, el código que habrá que cambiar es ya muy poco.
 
-Primera refactorización. Podemos quitar las referencias a las clases
-en los métodos factoría y sustituirlas por `Moneda`:
+Quitamos las referencias a las clases en los métodos factoría y
+sustituirlas por `Moneda`:
 
 ```java
 public class Moneda {
@@ -1194,10 +1300,11 @@ public class Moneda {
 
 Los tests pasan correctamente.
 
-Podemos refactorizar finalmente eliminando las clases `Dolar` y
-`Euro`, ya que nadie las usa. Cambiamos también las variables de
-instancia de `Moneda` a `private`.
+Y ya podemos eliminar las clases `Dolar` y `Euro`, ya que nadie las
+usa. Cambiamos también las variables de instancia de `Moneda` a
+`private`.
 
+Las borramos, lanzamos los tests y vemos que todos pasan.
 
 Por último, hay que cambiar el test de igualdad. Podemos simplificar
 los tests de igualdad y dejarlos sólo en esto:
@@ -1219,6 +1326,7 @@ Y con esto hemos terminado la unificación de `Dolar` y `Euro`.
 |------------------|
 | 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
 | ~~5 USD * 2 = 10 USD~~ |
+| ~~Crear una moneda con 5 dólares~~ |
 | ~~Hacer "cantidad" privado~~ |
 | ~~Efectos laterales en Dolar?~~ |
 | Usar punto flotante - redondeo? |
@@ -1230,11 +1338,21 @@ Y con esto hemos terminado la unificación de `Dolar` y `Euro`.
 | ~~Duplicación Dolar Euro~~ |
 | ~~equals duplicado~~ |
 | ~~multiplicadoPor duplicado~~ |
-| ~~Comparar francos con dólares~~|
+| ~~Comparar euros con dólares~~|
 | ~~Denominación moneda?~~ |
 
+Quedan todavía bastantes cosas por hacer. La mas importante la primera
+funcionalidad de sumar cantidades de distintas monedas. Pero no nos da
+más tiempo a terminarlo todo. Con lo que hemos visto hasta aquí creo
+que es suficiente para tener una idea bastante completa del
+funcionamiento práctico del TDD.
 
-El código queda de la siguiente manera:
+Si estás interesado en ver como termina todo el ejercicio, puedes
+consultar el libro de Kent Beck que está en las referencias.
+
+### Código final ###
+
+Después de todos los tests y refactorizaciones, el código queda de la siguiente manera:
 
 Clase `Moneda`:
 
