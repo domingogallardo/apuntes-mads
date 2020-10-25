@@ -18,20 +18,15 @@ codificarlos utilizando el siguiente ciclo:
 
 <img src="imagenes/tdd.png" width="400px" align="right"/>
 
-1. Pensamos. Analizamos qué pequeño paso nos puede servir para avanzar
-   en la funcionalidad que estamos desarrollando. Anotamos las ideas
-   que se nos ocurran como pequeños pasos que hay que implementar. Se
-   escoge el paso más básico, el inicial que sirve de base para todo
-   lo demás.
-2. Se escribe un único en el que se especifica lo que debe
+1. Se escribe un único en el que se especifica lo que debe
    realizar el código para implementar el pequeño incremento de
    funcionalidad. Qué se le pasa cómo parámetro y qué debe devolver,
    un ejemplo de lo que el código debe hacer en forma de test. Se
    añade el test a los ya existentes y se lanzan todos. El test que
    acabamos de añadir falla (rojo).
-3. Se escribe únicamente el código necesario que hace que el test
+2. Se escribe únicamente el código necesario que hace que el test
    pase (verde).
-4. Ahora que tenemos una base de tests que funciona perfectamente, se
+3. Ahora que tenemos una base de tests que funciona perfectamente, se
    analiza el código y los tests, se detectan problemas de diseño y se
    realiza una refactorización (profundizaremos más adelante
    en esto). Se vuelven a lanzar los tests para asegurarnos
@@ -42,7 +37,22 @@ acercando el código a la nueva funcionalidad. En el proceso de añadir
 pequeños tests y ampliar el código, nos iremos dando cuenta de cosas
 que hay que implementar y que no habíamos tenido en cuenta. Las
 anotamos en la lista de tareas a hacer y en algún momento tocará
-resolverlas con el ciclo de TDD.
+resolverlas con el ciclo de TDD. 
+
+Esta labor de diseño y de reflexión para elaborar el test mínimo y
+seleccionar cual es el siguiente test a implementar está implícita en
+el ciclo original anterior. Pero algún autor, como James Shore, la ha
+incluido en el propio ciclo, tal y como se ve en la siguiente imagen.
+
+<img src="imagenes/tdd-think.png" width="200px"/>
+
+1. Pensamos. Analizamos qué pequeño paso nos puede servir para avanzar
+   en la funcionalidad que estamos desarrollando. Anotamos las ideas
+   que se nos ocurran como pequeños pasos que hay que implementar. Se
+   escoge el paso más básico, el inicial que sirve de base para todo
+   lo demás.
+
+### Los tests deben ser pequeños pasos ###
 
 Los tests y el código que generan deben ser muy pequeños y
 concretos. Sólo se generalizará cuando se detecte que sea
@@ -51,6 +61,8 @@ necesario. Se hará en la fase de refactorización.
 Es importante que los tests vayan haciendo crecer la funcionalidad en
 pequeños incrementos. Al ser los cambios pequeños hay menos
 posibilidades de estropear cosas.
+
+### Los tests se implementan de dentro a afuera ###
 
 <img src="imagenes/onion-architecture.png" width="300px" align="right"/>
 
@@ -73,6 +85,8 @@ comprobado que funcionan correctamente.
 En ocasiones sí que se usarán mocks por motivos de eficiencia y para
 que los tests pasen más rápido. Sobre todo en los casos de tests de
 integración en los que hay que conectar con servicios externos.
+
+### Ventajas del uso de TDD ###
 
 Utilizando esta técnica las pruebas no sólo sirven para comprobar que
 el software funciona correctamente, sino que sirven para especificarlo
@@ -1529,3 +1543,7 @@ public class TestMonedas {
 ## Referencias ##
 
 - Kent Beck (2002) (_Test-Driven Development By Example_)[https://learning.oreilly.com/library/view/test-driven-development/0321146530/]
+- James Shore (2020) (_Incremental Test-Driven
+  Development_)[https://www.youtube.com/watch?v=nlGSDUuK7C4&t=889s] -
+  Vídeo con un ejemplo de código interesante: implementación de la
+  codificación [ROT13](https://en.wikipedia.org/wiki/ROT13) en JavaScript.
