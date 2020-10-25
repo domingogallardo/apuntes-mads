@@ -39,7 +39,7 @@ que hay que implementar y que no habíamos tenido en cuenta. Las
 anotamos en la lista de tareas a hacer y en algún momento tocará
 resolverlas con el ciclo de TDD. 
 
-<img src="imagenes/tdd-think.png" width="200px" align="right"/>
+<img src="imagenes/tdd-think.png" width="200px" align="left"/>
 
 Esta labor de diseño y de reflexión para elaborar el test mínimo y
 seleccionar cual es el siguiente test a implementar está implícita en
