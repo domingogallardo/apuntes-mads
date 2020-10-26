@@ -1696,8 +1696,7 @@ public class TestMonedas {
 
 ## Referencias ##
 
-- Kent Beck (2002) (_Test-Driven Development By Example_)[https://learning.oreilly.com/library/view/test-driven-development/0321146530/]
-- James Shore (2020) (_Incremental Test-Driven
-  Development_)[https://www.youtube.com/watch?v=nlGSDUuK7C4&t=889s] -
+- Kent Beck (2002) [_Test-Driven Development By Example_](https://learning.oreilly.com/library/view/test-driven-development/0321146530/)
+- James Shore (2020) [_Incremental Test-Driven Development_](https://www.youtube.com/watch?v=nlGSDUuK7C4&t=889s) -
   Vídeo con un ejemplo de código interesante: implementación de la
   codificación [ROT13](https://en.wikipedia.org/wiki/ROT13).
