@@ -112,14 +112,12 @@ trozo grande de código y después perderlo!
 
 Beck escribió esta técnica en septiembre de 2018 en un post titulado
 [test && commit
-|| revert](https://medium.com/@kentbeck_7670/test-commit-revert-870bbd756864). 
-
-Después ha seguido publicando algún artículo más y algunos vídeos en
-YouTube demostrando el uso de la técnica en problemas sencillos. Por
-ejemplo [Substring, TCR
-style](https://www.youtube.com/watch?v=ZrHBVTCbcE0) o una [serie de
-vídeos](https://youtu.be/tnO2Mos0RjU) publicados en abril de 2020
-explicando ejemplos de TCR en Python.
+|| revert](https://medium.com/@kentbeck_7670/test-commit-revert-870bbd756864). Después 
+ha seguido publicando algún artículo más y algunos vídeos en YouTube
+demostrando el uso de la técnica en problemas sencillos. Por ejemplo
+[Substring, TCR style](https://www.youtube.com/watch?v=ZrHBVTCbcE0) o
+una [serie de vídeos](https://youtu.be/tnO2Mos0RjU) publicados en
+abril de 2020 explicando ejemplos de TCR en Python.
 
 Una de las frases más usadas por Beck en los últimos años es la
 siguiente:
