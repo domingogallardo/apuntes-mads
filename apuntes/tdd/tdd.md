@@ -1,14 +1,19 @@
-# TDD #
+# Test Driven Development #
 
-## Introducción al Test Driven Development ##
+En este apartado vamos a resumir los elementos más importantes de Test
+Driven Development (TDD) y a presentar un ejemplo completo de
+desarrollo de código usando la práctica.
 
-Se denomina habitualmente a esta práctica Test Driven Design (TDD). Es
-una de las prácticas más importantes de XP. Hablaremos más adelante
-con mayor profundidad de esta técnica y haremos alguna
-demostración. Veremos también un ejemplo en las prácticas.
+## Introducción a TDD ##
+
+La práctica de TDD fue introducida por Kent Beck como una de las
+prácticas propias de XP. Se denominó inicialmente _test-first
+programming_. Con el paso del tiempo se ha convertido en una de las
+prácticas más populares de la metodología y también es usada por
+desarrolladores y equipos que no utilizan el resto de técnicas de XP.
 
 La técnica se basa en escribir el código de forma iterativa, paso a
-paso, y siempre comenzando por los tests. 
+paso, y siempre comenzando por los tests.
 
 Supongamos que tenemos que implementar una determinada
 funcionalidad. La analizamos y pensamos en cómo implementarla,
@@ -18,14 +23,16 @@ codificarlos utilizando el siguiente ciclo:
 
 <img src="imagenes/tdd.png" width="400px" align="right"/>
 
-1. Se escribe un único en el que se especifica lo que debe
+1. Se escribe un único test en el que se especifica lo que debe
    realizar el código para implementar el pequeño incremento de
-   funcionalidad. Qué se le pasa cómo parámetro y qué debe devolver,
-   un ejemplo de lo que el código debe hacer en forma de test. Se
-   añade el test a los ya existentes y se lanzan todos. El test que
-   acabamos de añadir falla (rojo).
+   funcionalidad deseado. El test constituye un ejemplo funcionamiento
+   en el que se invoca el código (que todavía no existe) y se realiza
+   una aserción, una hipótesis, de qué debe suceder como resultado de
+   la ejecución de ese código. Se añade el test a los ya existentes y
+   se lanzan todos. El test que acabamos de añadir falla (rojo).
 2. Se escribe únicamente el código necesario que hace que el test
-   pase (verde).
+   pase (verde). No hay que añadir código adicional, sólo el necesario
+   para que el test pase.
 3. Ahora que tenemos una base de tests que funciona perfectamente, se
    analiza el código y los tests, se detectan problemas de diseño y se
    realiza una refactorización (profundizaremos más adelante
