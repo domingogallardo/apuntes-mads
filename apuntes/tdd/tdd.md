@@ -44,23 +44,80 @@ resolverlas con el ciclo de TDD.
 Esta labor de diseño y de reflexión para elaborar el test mínimo y
 seleccionar cual es el siguiente test a implementar está implícita en
 el ciclo original anterior. Pero algún autor, como James Shore, la ha
-incluido en el propio ciclo, tal y como se ve en la siguiente imagen.
+incluido en el propio ciclo, tal y como se ve en la imagen a la izquierda.
 
-En el paso inicial de "pensar" debemos analizar qué pequeño paso nos
-puede servir para avanzar en la funcionalidad que estamos
+Este paso inicial de "pensar" consiste en analizar qué pequeño paso
+nos puede servir para avanzar en la funcionalidad que estamos
 desarrollando. Anotamos las ideas que se nos ocurran como pequeños
 pasos que hay que implementar. Se escoge el paso más básico, el
 inicial que sirve de base para todo lo demás.
 
-### Los tests deben ser pequeños pasos ###
+James Shore dice que la base de TDD es la realización de una serie de
+hipótesis y su validación. ¿Qué quiere decir con eso? Cuando
+escribimos código siempre tenemos en la cabeza qué queremos que ese
+código haga. Eso es lo que Shore denomina una hipótesis. Es una
+predicción sobre qué va a pasar cuando el código se incorpore al
+programa. En TDD lo que hacemos es hacer explícitas estas hipótesis o
+predicciones en formas de tests. Y las escribimos antes que el propio
+código, con la idea de que al escribirlo y lanzar el test se valide la
+predicción que el test dice que el código va a implementar.
+
+En este proceso pueden haber sorpresas. A veces el código no hace lo
+que esperamos que haga. O el test no expresa correctamente el propósito que
+pretendemos que haga el código. Las sorpresas son continuas cuando
+programamos. Significa que hemos escrito mal algo o que estamos
+haciendo suposiciones que no son correctas. La ventaja fundamental de
+TDD es que estas sorpresas aparecerán pronto en el proceso y tendré la
+obligación de corregirlas.
+
+### Los tests deben representar pequeños pasos hacia adelante ###
 
 Los tests y el código que generan deben ser muy pequeños y
 concretos. Sólo se generalizará cuando se detecte que sea
-necesario. Se hará en la fase de refactorización. 
+necesario. Se hará en la fase de refactorización.
 
 Es importante que los tests vayan haciendo crecer la funcionalidad en
 pequeños incrementos. Al ser los cambios pequeños hay menos
 posibilidades de estropear cosas.
+
+También es más sencillo encontrar un error cuando se algo no sale como
+esperábamos. Si te acostumbras a usar TDD verás que no será necesario
+utilizar el debugger para encontrar dónde están los errores. Los
+encontrarás rápidamente en el momento que los hayas cometido.
+
+Kent Beck ha ideado recientemente una técnica de testeo denominada TCR
+(Test && Commit || Revert) en la que si escribimos un test que pasa
+se hace un commit y si escribimos un test que falla se elimina el
+código que hemos escrito y se vuelve al commit anterior. Sí, has leído
+bien, el código se elimina. Desaparece. Borrado.
+
+Beck escribió esta técnica en septiembre de 2018 en un post titulado
+[test && commit
+|| revert](https://medium.com/@kentbeck_7670/test-commit-revert-870bbd756864). 
+
+Después ha seguido publicando algún artículo más y algunos vídeos en
+YouTube demostrando el uso de la técnica en problemas sencillos. Por
+ejemplo [Substring, TCR
+style](https://www.youtube.com/watch?v=ZrHBVTCbcE0) o una [serie de
+vídeos](https://youtu.be/tnO2Mos0RjU) publicados en abril de 2020
+explicando ejemplos de TCR en Python.
+
+Al borrar el código escrito cuando un test no pasa, obligatoriamente
+tienes que esforzarte en escribir muy poco código y hacerlo con
+seguridad. ¡A nadie le gusta tener que escribir código de nuevo!
+
+Una de las frases más usadas por Beck en los últimos años es la
+siguiente:
+
+> "Make the change easy and then make the easy change"
+>
+> Kent Beck
+
+
+Significa que cuando queramos hacer un cambio en nuestra aplicación
+debemos ir refactorizando poco a poco el programa de forma que los
+tests sigan funcionando y acercarnos hasta una situación en la que el
+programa sea fácil de cambiar y sea fácil introducir el cambio deseado.
 
 ### Los tests se implementan de dentro a afuera ###
 
@@ -86,7 +143,37 @@ En ocasiones sí que se usarán mocks por motivos de eficiencia y para
 que los tests pasen más rápido. Sobre todo en los casos de tests de
 integración en los que hay que conectar con servicios externos.
 
-### Ventajas del uso de TDD ###
+A la hora de implementar un algoritmo usando TDD se suelen definir los
+tests en el siguiente orden:
+
+1. Interfaz central
+2. Cálculos y condicionales
+3. Bucles y generalizaciones
+4. Casos especiales y manejo de errores
+
+En primer lugar escribimos los tests que definen la interfaz central
+de nuestro problema: nombres de métodos, de parámetros, tipos de
+datos de los parámetros y de los valores devueltos, etc.
+
+En segundo lugar escribimos tests que obligan a implementar la parte
+más sencilla del algoritmo, la que define los cálculos y los
+condicionales necesarios.
+
+En tercer lugar pasamos a especificar los bucles y las
+generalizaciones. Podría ser que el cálculo del paso 2 lo hayamos
+definido para un solo elemento y ahora tengamos que hacer un bucle
+para aplicarlo a _n_. Y además puede que tengamos que generalizar para
+tratar distintos tipos de elementos. Con esto tendremos el algoritmo
+casi terminado a falta del paso 4 en el que trataremos los casos
+especiales y el manejo de errores.
+
+En el vídeo de James Shore [_Incremental Test Driven
+Develpment_](https://www.youtube.com/watch?v=nlGSDUuK7C4) se muestra
+esta técnica con un sencillo ejemplo de uso de TDD para implementar un
+algoritmo que codifica texto usando el algoritmo
+[ROT13](https://en.wikipedia.org/wiki/ROT13) en JavaScript.
+
+### Ventajas y críticas del uso de TDD ###
 
 Utilizando esta técnica las pruebas no sólo sirven para comprobar que
 el software funciona correctamente, sino que sirven para especificarlo
@@ -108,6 +195,61 @@ hacer a continuación: o escribimos una prueba o hacemos que funcione
 una prueba  rota (broken test). El ciclo que se genera se convierte
 pronto en algo natural y eficiente: test, code, refactor, test, code,
 refactor.
+
+A pesar de sus beneficios, TDD tiene bastantes críticos. Es una
+técnica que no es fácil y que obliga a una disciplina que al principio
+no gusta a muchos programadores. Al principio, cuando uno no está
+acostumbrado, se siente que la velocidad de desarrollo es mucho peor,
+que haríamos las cosas mucho más rápido sin la obligación de ir paso a
+paso.
+
+A esta crítica se suele responder con dos argumentos. En primer lugar,
+en muchos ejercicios se suelen exagerar los pequeños pasos y se hacen
+más pequeños de lo que en realidad podrían ser. Los pasos deben ser
+pequeños, pero no minúsculos. Estos pasos también serán algo más
+grandes en programadores con más experiencia, que tengan más dominio
+de los patrones de diseño.
+
+En segundo lugar, la velocidad de desarrollo es muy relativa y puede
+cambiar mucho cuando la medimos a medio-largo plazo. Lo que puede
+parecer un desarrollo rápido, en el que hemos introducido un cambio
+importante en poco tiempo, se puede convertir con el tiempo en mucho
+más lento debido al aumento de bugs y a la necesidad de
+arreglarlos. En TDD la velocidad de desarrollo es mucho más constante,
+sin altibajos, en la línea del principio de XP de desarrollo
+sostenido.
+
+Entre las críticas que han tenido más difusión se encuentra la de
+[David Heinemeir Hanson](https://dhh.dk) (creador de Ruby on Rails),
+en su artículo de 2014 [TDD is dead. Long live
+testing](https://dhh.dk/2014/tdd-is-dead-long-live-testing.html). Hanson
+comenta que durante muchos años ha estado usando TDD pero que ha
+llegado un momento en el que se ha dado cuenta de que no se sentía
+cómodo con este estilo y de que era más productivo no usándolo. Sobre
+todo en la parte en la que tenía que hacer tests que no eran
+unitarios, en los que tenía que tocar la base de datos o la entrada
+salida. En sus palabras:
+
+> Test-first units leads to an overly complex web of intermediary
+> objects and indirection in order to avoid doing anything that's
+> "slow". Like hitting the database. Or file IO. Or going through the
+> browser to test the whole system. It's given birth to some truly
+> horrendous monstrosities of architecture. A dense jungle of service
+> objects, command patterns, and worse. 
+
+La alternativa que propone Hanson es que prefiere en esos casos hacer
+tests que toquen los servicios reales (bases de datos, entrada-salida,
+etc.) o mocks de esos servicios (como se hace en Rails y en Spring
+Boot) y lanzar esos tests del sistema (aunque sean lentos) en
+servicios especializados en la nube.
+
+El artículo tuvo mucha repercusión por si mismo, pero también porque a
+raíz de su publicación se organizó una conversación pública en YouTube
+entre el propio Hanson, Beck y Fowler. La conversación se dividió en
+seis vídeos publicados en YouTube, con una duración total de
+alrededor de 3 horas y media. En el post de Fowler [_Is TDD
+Dead_](https://martinfowler.com/articles/is-tdd-dead/) se resumen
+todos los vídeos y se proporcionan los enlaces a YouTube.
 
 
 ## Ejemplo práctico: cambio de monedas ##
@@ -1546,4 +1688,4 @@ public class TestMonedas {
 - James Shore (2020) (_Incremental Test-Driven
   Development_)[https://www.youtube.com/watch?v=nlGSDUuK7C4&t=889s] -
   Vídeo con un ejemplo de código interesante: implementación de la
-  codificación [ROT13](https://en.wikipedia.org/wiki/ROT13) en JavaScript.
+  codificación [ROT13](https://en.wikipedia.org/wiki/ROT13).
