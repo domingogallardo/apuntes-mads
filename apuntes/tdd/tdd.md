@@ -81,22 +81,34 @@ obligación de corregirlas.
 
 Los tests y el código que generan deben ser muy pequeños y
 concretos. Sólo se generalizará cuando se detecte que sea
-necesario. Se hará en la fase de refactorización.
+necesario. Se hará en la fase de refactorización. Es importante que
+los tests vayan haciendo crecer la funcionalidad en pequeños
+incrementos. Al ser los cambios pequeños hay menos posibilidades de
+estropear cosas.
 
-Es importante que los tests vayan haciendo crecer la funcionalidad en
-pequeños incrementos. Al ser los cambios pequeños hay menos
-posibilidades de estropear cosas.
+Si el incremento de código es pequeño también es más sencillo
+encontrar un error cuando se algo no sale como esperábamos. Si te
+acostumbras a usar TDD verás que no será necesario utilizar el
+debugger para encontrar dónde están los errores. Los encontrarás
+rápidamente en el momento que los hayas cometido.
 
-También es más sencillo encontrar un error cuando se algo no sale como
-esperábamos. Si te acostumbras a usar TDD verás que no será necesario
-utilizar el debugger para encontrar dónde están los errores. Los
-encontrarás rápidamente en el momento que los hayas cometido.
+Esta idea de buscar el incremento más pequeño que puede hacer avanzar
+nuestro programa es una de las ideas más importante de TDD. Y se puede
+usar fuera de TDD. De hecho, Kent Beck ha creado recientemente una
+técnica basada en ella denominada TCR (_Test && Commit || Revert_).
 
-Kent Beck ha ideado recientemente una técnica de testeo denominada TCR
-(Test && Commit || Revert) en la que si escribimos un test que pasa
-se hace un commit y si escribimos un test que falla se elimina el
-código que hemos escrito y se vuelve al commit anterior. Sí, has leído
-bien, el código se elimina. Desaparece. Borrado.
+En TCR se avanza el desarrollo del programa escribiendo código y
+haciendo tests (no es necesario escribir el test antes). Si el test
+pasa, automáticamente se hace un commit y el código se graba. Lo
+original de la técnica es lo que pasa cuando el test falla. Si el test
+falla, se revierte automáticamente el código al último commit,
+haciendo un `reset --hard`. Sí, has leído bien, el código se
+elimina. Desaparece. Borrado. Esto obliga a tener que volverlo a
+escribir.
+
+Evidentemente la técnica te obliga a hacer incrementos pequeños
+validados continuamente con tests. ¡Nadie se arriesga a escribir un
+trozo grande de código y después perderlo!
 
 Beck escribió esta técnica en septiembre de 2018 en un post titulado
 [test && commit
@@ -109,17 +121,12 @@ style](https://www.youtube.com/watch?v=ZrHBVTCbcE0) o una [serie de
 vídeos](https://youtu.be/tnO2Mos0RjU) publicados en abril de 2020
 explicando ejemplos de TCR en Python.
 
-Al borrar el código escrito cuando un test no pasa, obligatoriamente
-tienes que esforzarte en escribir muy poco código y hacerlo con
-seguridad. ¡A nadie le gusta tener que escribir código de nuevo!
-
 Una de las frases más usadas por Beck en los últimos años es la
 siguiente:
 
 > "Make the change easy and then make the easy change"
 >
 > Kent Beck
-
 
 Significa que cuando queramos hacer un cambio en nuestra aplicación
 debemos ir refactorizando poco a poco el programa de forma que los
