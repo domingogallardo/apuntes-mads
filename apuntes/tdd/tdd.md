@@ -267,7 +267,11 @@ todos los vídeos y se proporcionan los enlaces a YouTube.
 ## Ejemplo práctico: cambio de monedas ##
 
 Vamos a presentar un ejemplo tomado del libro de Kent Beck
-"Test-Driven Development By Example".
+"Test-Driven Development By Example". El ejemplo está codificado en
+Java y puedes descargarlo y comprobar su [realización
+completa](https://github.com/domingogallardo/tdd-monedas/commits/main)
+en el repositorio de GitHub
+<https://github.com/domingogallardo/tdd-monedas>.
 
 Tenemos un sistema de gestión de fondos de inversión y acciones que
 produce informes como este:
