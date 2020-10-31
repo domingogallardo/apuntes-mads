@@ -348,25 +348,61 @@ que los cambios toquen distintas líneas del mismo fichero, git
 identifica los cambios como compatibles y no lo marca como un
 conflicto.
 
-Estrictamente, un conflicto sucede cuando el orden en que se aplican
-los cambios de la mezcla dan lugar a ficheros distintos. En el
-ejemplo, si tenemos un fichero que se ha modificado en el commit `C4`
-y en el commit `C3`, Git detecta un conflicto cuando el fichero
-resultante de aplicar los cambios `C4`+`C3` es distinto al de aplicar
-los cambios `C3`+`C4`.
-
-La solución de un conflicto es sencilla. En los ficheros en los que
-hay conflicto, Git introducirá los textos de los commits que entran en
-conflicto y tendremos que editarlo y dejarlo como nos interesa. Una
-vez editado
+Por ejemplo, en la siguiente figura, en una rama se elimina las
+últimas líneas de un fichero y en otra se modifican algunas líneas del
+principio. En este caso no habría un conflicto.
 
 <img src="imagenes/no-conflicto.png" width="500px"/>
 
+Estrictamente, es posible aplicar los cambios de la mezcla en
+cualquier orden, obteniendo el mismo fichero resultado. En el ejemplo
+anterior, cualquier orden de ejecución de los cambios tendría como
+resultado el mismo fichero:
 
-**Los cambios en el repositorio remoto son ramas**
+- Primero eliminamos las últimas líneas y después se modifican las
+  primeras.
+- Primero se modifican las primeras líneas y después se eliminan las
+  últimas.
 
-Se bajan haciendo fetch y se pueden examinar los cambios, etc. y
-después integrarlos.
+<img src="imagenes/conflicto.png" width="200px" align="right"/>
+
+Si aparece un conflicto, Git paraliza el merge e identifica los
+ficheros en los que existe el conflicto. También modifica su contenido
+de forma que se marquen los posibles cambios que se introducen en una
+y otra rama. 
+
+Tendremos que editar los ficheros, dejarlos como queramos que se
+queden, hacer un `add` y al hacer el commit confirmamos el merge:
+
+```text
+$ git add .
+$ git status
+On branch master
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+
+    modified:   index.html
+$ git commit -m "Merge branch 'iss56' y resueltos conflictos"
+[master 2046b52] Merge branch 'iss56' y resueltos conflictos
+```
+
+#### Ramas remotas ####
+
+Cuando hacemos un `fetch` del repositorio remoto, Git descarga los
+cambios en los commits que hay en remoto y los coloca en ramas
+locales con nombres especiales, para que podamos examinar los cambios
+antes de hacer la integración.
+
+<img src="imagenes/fetch.png" width="700px"/>
+
+Por ejemplo, en la imagen anterior alguien ha subido a `master` en el
+servidor `origin` los commits mostrados en verde. Nosotros hemos
+añadido dos commits en la rama `master` en nuestra. 
+
+La imagen inferior muestra el resultado de hacer un `git fetch`. Git
+ha creado una rama local con el nombre `origin/master`.
 
 
 
