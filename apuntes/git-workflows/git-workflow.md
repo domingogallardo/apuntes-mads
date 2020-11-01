@@ -557,8 +557,6 @@ problema, lo único que hemos hecho es adelantar la incorporación de
 los cambios de un commit a la rama.
 
 
-
-
 ### Actualizar una rama con los cambios en master ###
 
 Si estamos trabajando en una rama y hay cambios que se han subido a
@@ -566,18 +564,20 @@ Si estamos trabajando en una rama y hay cambios que se han subido a
 estamos haciendo en la rama, o incorporar alguna funcionalidad que
 necesitamos para los cambios en los que estamos trabajando.
 
-Hay dos formas de hacer esto: hacer un `merge` de `master` en la rama
-o hacer un rebase.
-
-#### Merge de master en otra rama ####
-
-Supongamos el siguiente grafo de commits:
+Por ejemplo, supongamos el siguiente grafo de commits:
 
 <img src="imagenes/merge-master.png" width="400px"/>
 
 Los commits `C8` y `C9` en color verde no están en la rama `featureA`
-que estamos desarrollando. Si queremos incorporar esos commits en esa
-rama basta con hacer un merge de `master`
+que estamos desarrollando. 
+
+Hay dos formas de incorporar esos commits a `featureA`, haciendo un
+merge de `master` en la rama o hacer un rebase de la rama en `master`.
+
+#### Merge de master en otra rama ####
+
+Si queremos incorporar los nuevos commits de `master` en la rama
+`featureA` basta con hacer un merge de `master` en `featureA`:
 
 ```text
 $ git checkout featureA
