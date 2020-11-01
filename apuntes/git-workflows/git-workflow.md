@@ -546,7 +546,7 @@ $ git cherry-pick 2fa6489
 
 El grafo resultante será:
 
-<img src="imagenes/cherry-pick.png" width="500px"/>
+<img src="imagenes/cherry-pick2.png" width="500px"/>
 
 Los cambios del commit `c4` se habrán incorporado a la rama
 `master`. El commit añadido (`c4'`)contiene los mismos cambios, pero
