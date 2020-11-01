@@ -454,6 +454,41 @@ Y ahora podríamos hacer un `git push` para subir los cambios a
 
 <img src="imagenes/push.png" width="600px"/>
 
+El comando `git branch -vva` nos da la información de las ramas
+locales y las ramas remotas con las que están conectadas:
+
+```text
+$ git branch -vva
+* iss59                 2090ea1 Segundo cambio [iss59]
+  master                7c4205e [origin/master] Merge remote-tracking branch 'origin/master'
+  remotes/origin/HEAD   -> origin/master
+  remotes/origin/master 7c4205e Merge remote-tracking branch 'origin/master'
+```
+
+Por último, si en el repositorio remoto algún compañero ha subido
+alguna nueva rama, al hacer `fetch` nos la bajaremos:
+
+```text
+$ git fetch
+...
+From https://github.com/domingogallardo/curso-git-repo1
+   a4fe1f4..7c4205e  master     -> origin/master
+ * [new branch]      iss59      -> origin/iss59
+```
+
+Esa rama ahora una rama remota local, a la que no podemos
+cambiar. Al hacer un `checkout` se crea una rama local conectada a esa
+rama remota:
+
+```text
+$ git checkout iss59
+Branch iss59 set up to track remote branch iss59 from origin.
+Switched to a new branch 'iss59'
+```
+
+Podemos trabajar ahora con esa rama de forma similar a cuando
+trabajamos con `master`: haciendo `push` y `pull`.
+
 
 #### git merge --no-ff ####
 
@@ -492,7 +527,104 @@ Esta opción es muy útil para dejar constancia de las mezclas en
 el grafo con la historia de commits. Es la opción que usa GitHub
 cuando hace un merge en un pull request.
 
+#### Cherry-pick ####
 
+El comando `git cherry-pick` permite mover un commit específico a la
+rama actual.
+
+Por ejemplo, supongamos el siguiente grafo:
+
+<img src="imagenes/cherry-pick.png" width="400px"/>
+
+
+Suponemos que estamos en `master` y queremos añadir los cambios del
+ commit `c4` a la rama actual. Podemos hacer lo siguiente:
+
+```text
+$ git cherry-pick 2fa6489 
+```
+
+El grafo resultante será:
+
+<img src="imagenes/cherry-pick.png" width="500px"/>
+
+Los cambios del commit `c4` se habrán incorporado a la rama
+`master`. El commit añadido (`c4'`)contiene los mismos cambios, pero
+tiene un identificador distinto.
+
+La posterior mezcla de la rama `iss54` con `master` no dará ningún
+problema, lo único que hemos hecho es adelantar la incorporación de
+los cambios de un commit a la rama.
+
+
+
+
+### Actualizar una rama con los cambios en master ###
+
+Si estamos trabajando en una rama y hay cambios que se han subido a
+`master` podemos querer probar que esos cambios no rompen lo que
+estamos haciendo en la rama, o incorporar alguna funcionalidad que
+necesitamos para los cambios en los que estamos trabajando.
+
+Hay dos formas de hacer esto: hacer un `merge` de `master` en la rama
+o hacer un rebase.
+
+#### Merge de master en otra rama ####
+
+Supongamos el siguiente grafo de commits:
+
+<img src="imagenes/merge-master.png" width="400px"/>
+
+Los commits `C8` y `C9` en color verde no están en la rama `featureA`
+que estamos desarrollando. Si queremos incorporar esos commits en esa
+rama basta con hacer un merge de `master`
+
+```text
+$ git checkout featureA
+$ git merge master
+```
+
+El resultado será el siguiente:
+
+<img src="imagenes/merge-master2.png" width="450px"/>
+
+El comando diff sigue funcionando correctamente y muestra sólo los
+cambios de la rama:
+
+```text
+$ git diff master...featureA
+# Muestra los cambios de los commits C6 y C7
+```
+
+Podemos seguir trabajando en la rama, subirla a repositorio remoto y
+los compañeros pueden seguir trabajando en ella.
+
+#### Rebase de la rama sobre master ####
+
+La otra opción es hacer un rebase y mover el origen de la rama al
+último commit de master:
+
+```text
+$ git checkout featureA
+$ git rebase master
+```
+
+El resultado es el siguiente:
+
+<img src="imagenes/rebase.png" width="600px"/>
+
+El rebase crea commits nuevos en cabeza de `master` (similar a como lo
+haría cherry-pick) y mueve el puntero de la rama al último de esos
+commits.
+
+El problema principal del rebase es que modifica el grafo de historia
+de commits. Si la rama estaba subida al repositorio, no podremos hacer
+un `push`, sino que tendremos que hacer un `push --force`. Esto
+causará problemas a los compañeros que se hayan descargado la rama y
+estén trabajando en ella.
+
+Además, si hay conflictos, pueden ser más complicados de resolver que
+con el merge.
 
 ### Pull requests ###
 
