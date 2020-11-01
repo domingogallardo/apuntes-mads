@@ -336,6 +336,8 @@ automáticamente en un nuevo commit y se avanza la rama `master`:
 
 <img src="imagenes/ramas-8.png" width="500px"/>
 
+#### Conflictos en el merge ####
+
 En el caso en que hubiera conflicto, el merge no se realiza y se queda
 abierto, hasta que se confirmen cuáles son los cambios correctos o se
 deshaga el merge.
@@ -354,25 +356,45 @@ principio. En este caso no habría un conflicto.
 
 <img src="imagenes/no-conflicto.png" width="500px"/>
 
-Estrictamente, es posible aplicar los cambios de la mezcla en
-cualquier orden, obteniendo el mismo fichero resultado. En el ejemplo
-anterior, cualquier orden de ejecución de los cambios tendría como
-resultado el mismo fichero:
-
-- Primero eliminamos las últimas líneas y después se modifican las
-  primeras.
-- Primero se modifican las primeras líneas y después se eliminan las
-  últimas.
-
-<img src="imagenes/conflicto.png" width="200px" align="right"/>
+Estrictamente, no hay conflicto en un merge cuando es posible aplicar
+los cambios de la mezcla en cualquier orden, obteniendo el mismo
+fichero resultado. En el ejemplo anterior, cualquier orden de
+ejecución de los cambios tendría como resultado el mismo fichero. Si
+primero eliminamos las últimas líneas y después se modifican las
+primeras o si primero se modifican las primeras líneas y después se
+eliminan las últimas. En ambos casos se obtendría el mismo fichero
+resultante.
 
 Si aparece un conflicto, Git paraliza el merge e identifica los
-ficheros en los que existe el conflicto. También modifica su contenido
-de forma que se marquen los posibles cambios que se introducen en una
-y otra rama. 
+ficheros en los que existe el conflicto. 
 
-Tendremos que editar los ficheros, dejarlos como queramos que se
-queden, hacer un `add` y al hacer el commit confirmamos el merge:
+```text
+$ git merge iss56
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+<img src="imagenes/conflicto.png" width="250px" align="right"/>
+
+Git modifica el contenido de los ficheros en los que ha detectado el
+conflicto, de forma que se marquen los posibles cambios que se
+introducen en una y otra rama. En la figura de la derecha podemos ver
+un ejemplo de un fichero que ha sido modificado por Git al detectar un
+conflicto.
+
+Git marca la zona en la que existe el conflicto y muestra en la parte
+de arriba el resultado de los cambios de una rama y en la de abajo el
+resultado de los cambios de otra.
+
+Tendremos que editar los ficheros y dejar el código como
+queramos. Hay editores que tienen una interfaz especial que permite
+seleccionar uno de los cambios o los dos. Yo prefiero hacerlo con un
+editor normal y borrar o modificar las líneas de código que me
+interesan. 
+
+Una vez modificados todos los ficheros en los que hay un error hacer
+un `add` y al hacer el commit confirmamos el merge:
 
 ```text
 $ git add .
@@ -395,14 +417,80 @@ cambios en los commits que hay en remoto y los coloca en ramas
 locales con nombres especiales, para que podamos examinar los cambios
 antes de hacer la integración.
 
-<img src="imagenes/fetch.png" width="700px"/>
+<img src="imagenes/fetch.png" width="600px"/>
 
 Por ejemplo, en la imagen anterior alguien ha subido a `master` en el
 servidor `origin` los commits mostrados en verde. Nosotros hemos
 añadido dos commits en la rama `master` en nuestra. 
 
-La imagen inferior muestra el resultado de hacer un `git fetch`. Git
-ha creado una rama local con el nombre `origin/master`.
+La parte inferior de la imagen muestra el resultado de hacer un `git
+fetch`. Git ha creado una rama local con el nombre `origin/master` en
+la que se han copiado los commits introducidos en la rama remota.
+
+La rama `origin/master` es una rama local como otra cualquiera. La
+única diferencia es que es una rama de solo lectura. `HEAD` no puede
+apuntar a ella (no podemos hacer un checkout y añadir commits como en
+una rama normal). 
+
+Mezclamos los cambios descargados en master local haciendo un merge.
+
+Una vez en local podríamos comprobar los cambios y después hacer un
+merge:
+
+```text
+$ git diff origin/master
+$ git merge origin/master
+```
+
+El comando `git pull` hace automáticamente un `git fetch` + `git
+merge`.
+
+El resultado del merge sería el siguiente:
+
+<img src="imagenes/merge-remote.png" width="600px"/>
+
+Y ahora podríamos hacer un `git push` para subir los cambios a
+`origin`:
+
+<img src="imagenes/push.png" width="600px"/>
+
+
+#### git merge --no-ff ####
+
+La opción `--no-ff` (no fast forward) en un merge siempre se incluye
+un nodo de merge, aunque no fuera necesario por estar la rama y
+`master` en la misma línea de commits.
+
+Por ejemplo, en la siguiente figura hemos creado la rama `iss54` y
+añadido los commits `c4` y `c5`:
+
+<img src="imagenes/merge-noff1.png" width="400px"/>
+
+Si hiciéramos un `git merge` normal con los siguientes comandos:
+
+```text
+$ git checkout master
+$ git merge iss54
+```
+
+el grafo de commits resultante sería el siguiente:
+
+<img src="imagenes/merge-noff2.png" width="400px"/>
+
+Sin embargo, si usáramos la opción `--no-ff`:
+
+```text
+$ git checkout master
+$ git merge --no-ff iss54
+```
+
+El grafo de commits resultantes es el siguiente:
+
+<img src="imagenes/merge-noff3.png" width="450px"/>
+
+Esta opción es muy útil para dejar constancia de las mezclas en
+el grafo con la historia de commits. Es la opción que usa GitHub
+cuando hace un merge en un pull request.
 
 
 
