@@ -32,7 +32,8 @@ Y en GitHub hay que cambiar la rama por defecto:
 - Ir a repository > Settings > Branches
 - Seleccionar `main` como rama principal
 - Ir a Code > Branches y borrar la rama `master`
-</td></tr>/</table>
+
+</td></tr></table>
 
 ## Git ##
 
