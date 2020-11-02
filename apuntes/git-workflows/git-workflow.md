@@ -1,3 +1,6 @@
+
+
+
 # Flujos de trabajo Git #
 
 En este tema vamos a hacer un breve repaso de los conceptos fundamentales de
@@ -186,16 +189,52 @@ git tag
 
 ### Trabajar con la historia en Git ###
 
-#### Movernos a un commit pasado ####
+A la hora de trabajar con Git es importante tener en cuenta que la
+rama es realmente un índice que apunta al último commit
+añadido. Además el índice `HEAD` indica nuestra posición en el
+repositorio.
 
-<img src="imagenes/git-checkout.png" width="400px" />
+Por ejemplo, podemos mover esta posición haciendo un `checkout` a un
+commit pasado. Todos los ficheros de nuestro directorio de trabajo
+cambiarán automáticamente y se mostrarán como estaban en ese commit.
+
+IMAGEN
+
+Si hacemos un checkout al commit `0bf82cd` moveremos `HEAD` a ese
+commit.
 
 ```text
 $ git checkout 0bf82cd
+```
+
+IMAGEN
+
+Todos los ficheros del directorio de trabajo se muestran tal
+y como estaban en ese commit. Este podría ser el momento de la
+historia en el que aparece por primera vez un bug.
+
+Podemos hacer ahora arreglar el bug con un nuevo commit:
+
+```text
 # Hacemos cambios
 $ git add .
 $ git commit -m "Cambios sobre un commit pasado"
 ```
+
+<img src="imagenes/git-checkout.png" width="400px" />
+
+Y, por último, podríamos crear una rama, movernos a `master` y mergear
+el fix:
+
+```
+$ git branch fix
+$ git checkout master
+$ git merge fix
+```
+
+IMAGEN
+
+Hablaremos más adelante más de ramas y merges.
 
 #### Cambiar el último commit en local ####
 
@@ -262,6 +301,38 @@ master (incluido), usando la opción -n:
 ```text
 $ git revert -n master~5..master~2
 ```
+
+
+#### Deshacer un conjunto de commits ####
+
+El comando `git reset` permite mover el índice de la rama a un commit
+anterior, eliminando los commits que intermedios.
+
+Por ejemplo, si tenemos la siguiente historia de commits:
+
+IMAGEN
+
+Si hacemos
+
+```text
+$ git reset <commit>
+```
+
+obtendremos lo siguiente:
+
+IMAGEN
+
+Todos los cambios de los commits intermedios se mantienen en el
+espacio de trabajo, pero desaparecen los commits.
+
+Sin embargo, si hacemos
+
+```text
+$ git reset --hard <commit>
+```
+
+eliminamos todos los cambios y toda la historia. Es equivalente a un
+`checkout` moviendo el índice de la rama.
 
 
 ### Trabajo con ramas en Git ###
@@ -653,6 +724,8 @@ con el merge.
 
 ### Pull requests ###
 
+<img src="imagenes/pull-request-origin.png" width="600px"/>
+
 La idea del `pull request` tiene su origen en el desarrollo de
 código abierto, para gestionar la posibilidad de que desarrolladores
 externos puedan contribuir con cambios. El nombre es un poco confuso,
@@ -732,7 +805,7 @@ en esta apartado los flujos de trabajo más comunes que se utilizan.
 Una idea importante a la hora de analizar los distintos flujos de
 trabajo es el tiempo de vida de las ramas. Podemos diferenciar entre
 ramas de corta duración (_short-lived branch_) y ramas de larga
-duración (_long-lived branch).
+duración (_long-lived branch_).
 
 - Una rama de corta duración es aquella que surge de otra, dura lo
   necesario para hacer un trabajo independiente de la rama original y
@@ -786,12 +859,162 @@ rama que están desarrollando se llama `vista-equipos`.
     (Alberto) $ git push (intenta subir sus cambios)
               error: failed to push some refs to 
     (Alberto) $ git pull (se baja e integra los cambios del reopo remoto)
-    (Alberto) $ 
+    (Alberto) $ git push
     ```
 
-### Short-lived branches ###
+4. Ana se descarga los cambios de Alberto:
+
+    ```text
+    (Ana) $ git pull
+    (Ana) $ git push
+    ```
+
+Puede suceder que en algún momento haya un conflicto entre los cambios
+de Ana y Alberto. El primero que sube los commits no tendría que hacer
+nada y sería el otro el que tendría que bajar los commits, habría un
+conflicto, y debería solucionarlo y subir la resolución.
+
+### GitHub flow ###
+
+El flujo de trabajo [GitHub
+flow](https://guides.github.com/introduction/flow/), también
+denominado de [ramas de
+features](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow)
+es el que hemos estado utilizando en las prácticas de la asignatura
+hasta ahora.
+
+Es un flujo en el que hay una única rama de larga duración en el
+repositorio. De esta rama principal se sacan ramas de características
+en las que se trabaja de forma independiente. En una característica
+puede trabajar más de una persona usando el flujo de trabajo anterior
+de desarrollo sobre una rama. Cuando la característica está terminada
+se integra en la rama principal mediante un pull request.
+
+El pull request se puede usar para revisar el código y para lanzar los
+tests automáticos mediante un sistema de integración continua como
+GitHub Actions o Travis.
+
+Los comandos más importantes del flujo de trabajo son los siguientes:
+
+1. Uno de los miembros del equipo crea la rama en la que se va a
+   desarrollar la característica. Se puede subir al repositorio remoto
+   para que algún compañero colabore en el desarrollo:
+
+    ```text
+    $ git checkout master
+    $ git checkout -b rama-feature
+    $ git push -u origin rama-feature
+    ```
+
+2. Se trabaja en la rama, realizando commits que se suben al
+   repositorio remoto. Uno o más compañeros pueden colaborar en el
+   desarrollo usando el flujo de trabajo anterior:
+   
+    ```text
+    $ git commit -m "Cambios"
+    $ git push
+    ```
+    
+3. Cuando se ha terminado el desarrollo se crea un pull request en
+   GitHub. Allí se revisa el código y se termina integrando. Si
+   hubiera algún conflicto se resuelve de la forma que hemos comentado
+   en el apartado sobre pull requests. Se borra en GitHub la rama
+   mezclada.
+   
+4. Se actualiza el repositorio local con la mezcla realizada por el
+   pull request y se borra la rama de característica y la referencia a
+   la rama remota:
+   
+    ```text
+    $ git checkout master
+    $ git pull
+    $ git branch -d rama-feature
+    $ git remote prune origin
+    ```
+
+Es posible 
+
+
+
+
+### Trunk-based development ###
+
+En el _trunk-based development_ todo el equipo utiliza una única rama
+de larga duración en la que está la versión actual del proyecto. Todos
+los desarrolladores deben subir los cambios diariamente a esta
+rama. Es posible trabajar en ramas, pero deben ser ramas que se
+integren rápidamente, como muy tarde a los dos o tres días.
+
+De esta forma se quiere combatir el problema de que una rama con una
+característica tarde demasiado en integrarse y la rama principal
+termine divergiendo demasiado, con los consecuentes problemas en la
+futura integración.
+
+Al integrarse pronto la rama con el cambio en la rama principal, todos
+los desarrolladores se verán obligados a tratar con esos cambios
+pronto y el código evolucionará teniendo en cuenta la presencia de
+estos cambios.
+
+Esta forma de trabajar es la propia de desarrollos en los que el
+resultado es una aplicación web en la que existe una única versión en
+producción y no tienen que mantener versiones anteriores
+independientes (como sucedería con una app con distintas versiones y
+que veremos en el siguiente apartado). 
+
+Cuando hablemos de Continuous Delivery comprobaremos que se usa este
+flujo de trabajo.
+
 
 ### Ramas de versiones ###
+
+En muchas aplicaciones y sistemas software (sistemas operativos,
+librerías, lenguajes de programación, etc.) es necesario mantener
+distintas versiones vivas, actualizando y modificando todas ellas de
+forma simultánea.
+
+Por ejemplo, puedes poner a la venta la versión 3.0 de una app y dar
+acceso a todos los mantenimientos 3.x. Y al mismo tiempo puede ser que
+hagas un upgrade con nuevas funcionalidades y vendas la versión
+4.0. Habrá usuarios que se muevan a la nueva versión (pagando una
+pequeña cantidad), pero algunos se quedarán en la 3.x. Deberás
+mantener ambas versiones, solucionando bugs y realizando pequeños
+arreglos en las dos.
+
+Una forma sencilla de gestionar esto es usando una rama de larga
+duración por cada una de las versiones (veremos que GitFlow es otra
+alternativa). Por ejemplo, en la siguiente imagen vemos el repositorio
+de [Spring Boot en
+GitHub](https://github.com/spring-projects/spring-boot). Puedes
+visitar la página para estudiar con detalle el flujo de trabajo que
+usan.
+
+<img src="imagenes/versiones.png" width="500px"/>
+
+El desarrollo de la versión actual se hace en la rama `master`. Allí
+abrimos ramas de features y mantenemos la siguiente versión no
+lanzada.
+
+Cuando lanzamos una nueva versión (mayor o menor, siguiendo la
+terminología del versionado semántico) creamos una rama nueva y
+cambiamos la versión de la rama master a la próxima. Por ejemplo, las
+versiones 3.1 y 3.2 irían en ramas distintas.
+
+Las versiones patch que solucionan bugs (3.1.1 o 3.1.2) se identifican
+con tags en la rama de la versión menor.
+
+<img src="imagenes/fix-version.png" width="600px"/>
+
+Antes de abrir una rama de versión se puede crear una rama de limpieza
+(_polishing branch_) en la que estabilizar el código, revisarlo con más
+detalle y hacer unos últimos arreglos de bugs.
+
+Los cambios se integran después también en master y se abre a partir
+de ahí la rama con el número de la versión. La rama de limpieza se
+puede borrar.
+
+Los fixes en la rama de versión se integran también en `master`
+mezclando la rama de versión en `master` o haciendo un cherry-pick.
+
 
 ### GitFlow ###
 
