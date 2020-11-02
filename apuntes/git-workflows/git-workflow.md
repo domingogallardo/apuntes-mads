@@ -628,16 +628,80 @@ con el merge.
 
 ### Pull requests ###
 
-### Solución de conflictos en pull requests ###
+La idea del `pull request` tiene su origen en el desarrollo de
+código abierto, para gestionar la posibilidad de que desarrolladores
+externos puedan contribuir con cambios. El nombre es un poco confuso,
+yo hablaría mejor de `merge request`. Lo que se pretende con la
+funcionalidad es, de hecho, solicitar el merge de una rama que se ha
+subido al repositorio remoto. Esta rama incluso puede provenir de otro
+repositorio creado a partir de un fork del repositorio original.
 
+Esta funcionalidad no está implementada en el propio Git, sino que se
+facilita por el servicio que hace el hosting del repositorio (GitHub,
+GitLab, Bitbucket, etc.). Por ejemplo, en la siguiente imagen se puede
+ver la interfaz de GitHub para gestionar un pull request.
 
+<img src="imagenes/pull-request.png" width="700px"/>
 
+Como se ve en la ilustración, la interfaz web permite revisar el
+código que se quiere integrar, abrir conversaciones, aceptar el merge,
+etc. El servicio de pull request comprueba automáticamente si hay
+algún conflicto entre la rama que se está subiendo y la rama en la que
+se va a mezclar. Si lo hubiera, lo marca y no deja realizar el merge.
 
+Es posible seguir subiendo commits a la rama remota mientras el pull
+request está abierto. La página se actualiza automáticamente con el
+nuevo commit y se vuelve a comprobar si hay conflictos.
 
+También es posible integrar el pull request con algún servicio de
+integración continua (como Travis o el propio GitHub Actions). En este
+caso, no sólo se comprueba si Git marca conflictos con la rama principal
+sino que también el servicio de integración continua realiza el merge,
+lanza los tests y comprueba si los tests pasan correctamente.
+
+Una vez aceptado el merge en la interfaz web, la rama remota se
+integra en la rama principal (o sobre la que estemos haciendo el
+PR). Podemos borrar la rama remota con el interfaz web.
+
+La próxima vez que cualquier miembro del equipo haga un `pull` se
+descargará los nuevos commits mergeados.
+
+En concreto, para actualizar en local el resultado del pull request:
+
+```text
+$ git checkout master 
+$ git pull
+$ git branch -d iss54
+$ git remote prune origin
+```
+
+Los últimos dos comandos borran la rama mezclada y limpian las
+referencias a ramas remotas borradas.
+
+#### Solución de conflictos en pull requests ####
+
+Como hemos dicho, la página de pull request nos informa si hay
+conflictos entre los cambios que se van a mezclar y los cambios que se
+hayan hecho en master.
+
+En la práctica 3 haremos un ejercicio para resolver conflictos en pull
+requests.
+
+La forma de resolver los conflictos es muy sencilla:
+
+- Hacer un merge de `master` en la rama del PR (en local) y resolver los
+conflictos.
+- Subir el commit de merge a la rama remota y al PR. El PR dejará de
+  mostrar el conflicto.
+- Hacer el merge en GitHub.
+
+En GitHub sólo aparecerán en el PR los cambios de la rama que estamos
+mezclando, no aparecerá código de `master`.
 
 ## Trunk-based development ##
 
 ## Short-lived branches ##
 
+## Ramas de versiones ##
 ## GitFlow ##
 
