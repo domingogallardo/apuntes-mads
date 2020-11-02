@@ -767,7 +767,7 @@ rama que están desarrollando se llama `vista-equipos`.
     (Ana) $ git checkout vista-equipos
     ```
 
-2. Desarrollan en la rama y uno de ellos sube los cambios a GitHub
+2. Desarrollan en la rama y Ana sube los cambios a GitHub
 
     ```text
     (Alberto) # Hace cambios 
@@ -776,11 +776,17 @@ rama que están desarrollando se llama `vista-equipos`.
     (Alberto) $ git commit -m "Cambiado tipo de letra"
     (Ana) $ # También hace cambios
     (Ana) $ git commit -m "Añadida función JavaScript"
-    (Ana) $ git fetch 
+    (Ana) $ git pull (se baja e integra los posibles cambios en remoto)
     (Ana) $ git push
     ```
 
-3. 
+3. Alberto sube también sus cambios:
+
+    ```text
+    (Alberto) $ git pull (se baja e integra los cambios en remoto)
+    (Alberto) $ 
+    ```
+
 
 ### Short-lived branches ###
 
