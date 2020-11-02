@@ -5,8 +5,8 @@ Git y a presentar los flujos de trabajo más habituales que se utilizan
 para gestionar el trabajo de equipos de desarrollo usando esta
 herramienta de control de versiones.
 
-<table>
-<tr><td>
+<table><tr><td>
+
 En todas las imágenes y en el texto aparece `master` como la rama
 principal, aunque la tendencia en la actualidad es usar `main` como
 nombre de la rama principal. Términos como _master_/_slave_ tienen
