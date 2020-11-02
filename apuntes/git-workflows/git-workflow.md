@@ -9,15 +9,15 @@ herramienta de control de versiones.
 
 En todas las imágenes y en el texto aparece `master` como la rama
 principal, aunque la tendencia en la actualidad es usar
-`main`. Términos como _master_-_slave_ tienen connotaciones racistas
-en sociedades con un pasado esclavista como la de Estados Unidos y
-[están siendo sustituidos por
-otros](https://www.wired.com/story/tech-confronts-use-labels-master-slave/). A
-pesar de que el uso del término _master_ de forma individual (como es
-el caso de Git, para denominar la rama principal) lo aleja de estas
-connotaciones racistas, GitHub ha decidido modificar el nombre por
-defecto de la rama principal a _main_ (puedes leer aquí el [anuncio de
-la noticia](https://github.com/github/renaming)).
+`main`. 
+
+Términos como _master_-_slave_ tienen connotaciones racistas en
+sociedades con un pasado esclavista como la de Estados Unidos y están
+siendo sustituidos por otros. En Git se usa el término _master_ de
+forma individual, sin el término _slave_, y esto lo aleja de estas
+connotaciones racistas. Sin embargo, GitHub ha decidido modificar el
+nombre por defecto de la rama principal a _main_ (puedes leer aquí el
+[anuncio de la noticia](https://github.com/github/renaming)).
 
 Es muy sencillo renombrar la rama principal a `main`. Lo único que
 tienes que hacer en local es:
