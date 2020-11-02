@@ -776,14 +776,16 @@ rama que están desarrollando se llama `vista-equipos`.
     (Alberto) $ git commit -m "Cambiado tipo de letra"
     (Ana) $ # También hace cambios
     (Ana) $ git commit -m "Añadida función JavaScript"
-    (Ana) $ git pull (se baja e integra los posibles cambios en remoto)
+    (Ana) $ git pull (se baja e integra los posibles cambios del repo remoto)
     (Ana) $ git push
     ```
 
 3. Alberto sube también sus cambios:
 
     ```text
-    (Alberto) $ git pull (se baja e integra los cambios en remoto)
+    (Alberto) $ git push (intenta subir sus cambios)
+              error: failed to push some refs to 
+    (Alberto) $ git pull (se baja e integra los cambios del reopo remoto)
     (Alberto) $ 
     ```
 
