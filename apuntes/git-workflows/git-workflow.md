@@ -723,10 +723,75 @@ conflictos.
 En GitHub sólo aparecerán en el PR los cambios de la rama que estamos
 mezclando, no aparecerá código de `master`.
 
-## Trunk-based development ##
+## Flujos de trabajo en Git ##
 
-## Short-lived branches ##
+Dada la cantidad de comandos y la flexibilidad de Git es lógico que no
+exista una única forma de utilizarlo para trabajar en equipo. Veremos
+en esta apartado los flujos de trabajo más comunes que se utilizan.
 
-## Ramas de versiones ##
-## GitFlow ##
+Una idea importante a la hora de analizar los distintos flujos de
+trabajo es el tiempo de vida de las ramas. Podemos diferenciar entre
+ramas de corta duración (_short-lived branch_) y ramas de larga
+duración (_long-lived branch).
 
+- Una rama de corta duración es aquella que surge de otra, dura lo
+  necesario para hacer un trabajo independiente de la rama original y
+  se termina integrando en ella.
+- Un rama de larga duración es una rama que se mantiene para siempre
+  en el repositorio remoto. Podemos tener varias ramas de larga
+  duración para mantener distintas versiones del código.
+
+### Desarrollo sobre una rama ###
+
+<img src="imagenes/trabajo-rama.png" width="400px" align="right"/>
+
+Vamos a comenzar con el flujo de trabajo para que un equipo desarrolle
+sobre una rama, sin hacer ramas adicionales ni pull requests. Los
+desarrolladores actualizan su versión local de la rama, trabajan sobre
+esa única rama en local y, cuando tienen el código listo para
+integrarlo, hacen un push y suben a esa rama los commits que han
+añadido.
+
+El flujo de trabajo se puede aplicar a la rama `main` o a una rama
+secundaria en la que un par de desarrolladores están desarrollando una
+funcionalidad. Vamos a suponer este último caso y supongamos que la
+rama que están desarrollando se llama `vista-equipos`.
+
+1. En primer lugar, ambos desarrolladores se bajan la rama y se mueven
+   a ella:
+   
+    ```text
+    (Alberto) $ git fetch
+    (Alberto) $ git checkout vista-equipos
+    (Ana) $ git fetch
+    (Ana) $ git checkout vista-equipos
+    ```
+
+2. Desarrollan en la rama y uno de ellos sube los cambios a GitHub
+
+    ```text
+    (Alberto) # Hace cambios 
+    (Alberto) $ git commit -m "Añadido botón"
+    (Alberto) # Cambia más cosas
+    (Alberto) $ git commit -m "Cambiado tipo de letra"
+    (Ana) $ # También hace cambios
+    (Ana) $ git commit -m "Añadida función JavaScript"
+    (Ana) $ git fetch 
+    (Ana) $ git push
+    ```
+
+3. 
+
+### Short-lived branches ###
+
+### Ramas de versiones ###
+
+### GitFlow ###
+
+
+
+## Referencias ##
+
+- Scott Chacon, Ben Straub (2014), [_Pro Git_](https://git-scm.com/book/en/v2)
+- Atlassian [_Comparing workflows_](https://www.atlassian.com/git/tutorials/comparing-workflows)
+- Vincent Driessen (2010), [Git Flow](https://nvie.com/posts/a-successful-git-branching-model/)
