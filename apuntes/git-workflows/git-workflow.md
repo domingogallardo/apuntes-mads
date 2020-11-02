@@ -8,10 +8,10 @@ herramienta de control de versiones.
 <table><tr><td>
 
 En todas las imágenes y en el texto aparece `master` como la rama
-principal, aunque la tendencia en la actualidad es usar `main` como
-nombre de la rama principal. Términos como _master_/_slave_ tienen
-connotaciones racistas en sociedades con un pasado esclavista como la
-de Estados Unidos y [están siendo sustituidos por
+principal, aunque la tendencia en la actualidad es usar
+`main`. Términos como _master_-_slave_ tienen connotaciones racistas
+en sociedades con un pasado esclavista como la de Estados Unidos y
+[están siendo sustituidos por
 otros](https://www.wired.com/story/tech-confronts-use-labels-master-slave/). A
 pesar de que el uso del término _master_ de forma individual (como es
 el caso de Git, para denominar la rama principal) lo aleja de estas
