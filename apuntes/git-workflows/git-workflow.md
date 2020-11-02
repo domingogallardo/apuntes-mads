@@ -789,7 +789,6 @@ rama que están desarrollando se llama `vista-equipos`.
     (Alberto) $ 
     ```
 
-
 ### Short-lived branches ###
 
 ### Ramas de versiones ###
