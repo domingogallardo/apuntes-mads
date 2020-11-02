@@ -780,7 +780,7 @@ rama que están desarrollando se llama `vista-equipos`.
     (Ana) $ git push
     ```
 
-3. 
+3. Alberto cambia cosas
 
 ### Short-lived branches ###
 
