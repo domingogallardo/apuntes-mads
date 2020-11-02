@@ -5,10 +5,34 @@ Git y a presentar los flujos de trabajo más habituales que se utilizan
 para gestionar el trabajo de equipos de desarrollo usando esta
 herramienta de control de versiones.
 
-En muchas diapositivas e imágenes aparece `master`. Hemos cambiado a
-`main`.
+<table>
+<tr><td>
+En todas las imágenes y en el texto aparece `master` como la rama
+principal, aunque la tendencia en la actualidad es usar `main` como
+nombre de la rama principal. Términos como _master_/_slave_ tienen
+connotaciones racistas en sociedades con un pasado esclavista como la
+de Estados Unidos y [están siendo sustituidos por
+otros](https://www.wired.com/story/tech-confronts-use-labels-master-slave/). A
+pesar de que el uso del término _master_ de forma individual (como es
+el caso de Git, para denominar la rama principal) lo aleja de estas
+connotaciones racistas, GitHub ha decidido modificar el nombre por
+defecto de la rama principal a _main_ (puedes leer aquí el [anuncio de
+la noticia](https://github.com/github/renaming)).
 
-**Enlace a cómo cambiar en GitHub master por main**
+Es muy sencillo renombrar la rama principal a `main`. Lo único que
+tienes que hacer en local es:
+
+```text
+$ git branch -M master main
+$ git push -u origin main
+```
+
+Y en GitHub hay que cambiar la rama por defecto:
+
+- Ir a repository > Settings > Branches
+- Seleccionar `main` como rama principal
+- Ir a Code > Branches y borrar la rama `master`
+</td></tr>/</table>
 
 ## Git ##
 
