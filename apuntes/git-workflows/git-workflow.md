@@ -1,7 +1,7 @@
 # Flujos de trabajo Git #
 
 En este tema vamos a hacer un breve repaso de los conceptos fundamentales de
-Git y a presentar los flujos de trabajo más habituales que se utilizan
+Git y presentar los flujos de trabajo más habituales que se utilizan
 para gestionar el trabajo de equipos de desarrollo usando esta
 herramienta de control de versiones.
 
