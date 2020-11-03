@@ -181,35 +181,74 @@ veremos que los cambios no están en stage (están en rojo).
     Por ejemplo:
     
     ```text
-    $ echo "prueba" > prueba.txt (creamos el fichero prueba)
-    $ 
+    $ rm imagen.png
+    $ git status
+    On branch main
+    Your branch is up to date with 'origin/main'.
+
+    Changes not staged for commit:
+      (use "git add/rm <file>..." to update what will be committed)
+      (use "git checkout -- <file>..." to discard changes in working directory)
+
+    	deleted:    imagen.png (EN ROJO)
+
+    no changes added to commit (use "git add" and/or "git commit -a")
+    $ git add .
+    $ git status
+    On branch main
+    Your branch is up to date with 'origin/main'.
+
+    Changes to be committed:
+        (use "git reset HEAD <file>..." to unstage)
+
+	    deleted:    imagen.png (EN VERDE)
+    $ git commit -m "Borrado fichero imagen"
     ```
     
-    
+    Puede resultar curioso que para borrar un fichero tengamos que
+    hacer un `git add`, pero hay que entender que lo que estamos
+    haciendo es añadir en el stage el cambio (un borrado).
 
-- Los eliminamos y renombramos con los comandos del sistema operativo
-y después hacemos un git add para incluir esos cambios en el stage.
+- La otra forma es usando los comandos equivalentes de Git: `git rm` y
+  `git mv`. Estos comandos realizan el cambio en el directorio de
+  trabajo y lo añaden al stage. No hace falta usar `git add`:
+  
+    ```text
+    $ git rm imagen.png
+    $ git status
+    On branch main
+    Your branch is up to date with 'origin/main'.
 
+    Changes to be committed:
+        (use "git reset HEAD <file>..." to unstage)
 
-- Los eliminamos y renombramos con los comandos propios de git:
+	    deleted:    repository.png (EN VERDE)
+    ```
 
-git rm <fichero> para eliminar un fichero (o un patrón)
-git mv <nombre-antiguo> <nuevo-nombre> para renombrar un fichero del
-repositorio.
+#### Grafo de commits e índices ####
 
-<img src="imagenes/grafo-commits.png" width="600px" />
+<img src="imagenes/grafo-commits.png" width="400px" />
 
-La figura muestra un grafo de commits de un repositorio.
+La figura muestra un grafo de commits de un repositorio. Los commits
+tienen identificadores únicos.
 
-El espacio de trabajo se encuentra en HEAD, en el commit que acabamos
-de crear.
+En verde aparecen los índices que se utilizan en Git para definir
+ramas (`master` y `origin/master`), etiquetas (`v1.0`) y el commit
+actual en el que nos encontramos (`HEAD`). Los índices de las ramas y
+tags apuntan a commits concretos. El índice `HEAD` apunta a una rama,
+para indicar que estamos en esa rama, o a un commit concreto cuando
+hacemos un `checkout` (ver el siguiente apartado).
 
-Las ramas master y origin/master (rama remota) se siguen encontrando
-en el mismo sitio, el último commit de la rama principal.
+En la figura, las ramas `master` y `origin/master` (rama remota
+copiada en local) se encuentran en el mismo commit, el último commit
+añadido. Estamos en la rama `master` (`HEAD` apunta a esa rama). Y el
+segundo commit está etiquetado con `v1.0`.
 
-Podemos usar tags para referirnos a un commit concreto.
+Para etiquetar un commit, nos movemos a él y hacemos un `git tag`:
 
-git tag
+```text
+$ git tag v1.0
+```
 
 ### Trabajar con la historia en Git ###
 
