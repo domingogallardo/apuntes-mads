@@ -385,24 +385,28 @@ muestran los cambios introducidos en los últimos dos commits:
 Si hacemos:
 
 ```text
-$ git reset 
+$ git reset C2
 ```
 
-obtendremos lo siguiente:
+moveremos el índice de la rama actual a `C2` y todos los cambios de
+los commits intermedios (`C3` y `C4`) se mantienen en el directorio de
+trabajo, pero sin estar anotados en ningún commit:
 
-IMAGEN
+<img src="imagenes/git-reset2.png" width="300px"/>
 
-Todos los cambios de los commits intermedios se mantienen en el
-espacio de trabajo, pero desaparecen los commits.
+El comando anterior es equivalente a hacer un `git reset --soft`. Es
+un comando seguro que no borra nada del directorio de trabajo.
 
 Sin embargo, si hacemos
 
 ```text
-$ git reset --hard <commit>
+$ git reset --hard C2
 ```
 
 eliminamos todos los cambios y toda la historia. Es equivalente a un
 `checkout` moviendo el índice de la rama.
+
+<img src="imagenes/git-reset3.png" width="300px"/>
 
 
 ### Trabajo con ramas en Git ###
