@@ -252,29 +252,35 @@ $ git tag v1.0
 
 ### Trabajar con la historia en Git ###
 
-A la hora de trabajar con Git es importante tener en cuenta que la
+A la hora de trabajar con Git es importante tener en cuenta que una
 rama es realmente un índice que apunta al último commit
 añadido. Además el índice `HEAD` indica nuestra posición en el
 repositorio.
 
-Por ejemplo, podemos mover esta posición haciendo un `checkout` a un
-commit pasado. Todos los ficheros de nuestro directorio de trabajo
-cambiarán automáticamente y se mostrarán como estaban en ese commit.
+Si hacemos un `checkout` a un commit pasado el índice `HEAD` se
+moverá a ese commit y todos los ficheros de nuestro directorio de
+trabajo cambiarán automáticamente y se mostrarán tal y como estaban en
+ese commit. Podremos examinarlos, compilarlos y, por ejemplo, buscar
+el origen de algún bug justo en el momento en que se originó.
 
-IMAGEN
-
-Si hacemos un checkout al commit `0bf82cd` moveremos `HEAD` a ese
-commit.
+En la imagen anterior, podemos hacer un checkout al commit `0bf82cd`:
 
 ```text
 $ git checkout 0bf82cd
 ```
 
-IMAGEN
+El comando anterior sería equivalente a hacer un checkout al tag
+`v1.0`;
 
-Todos los ficheros del directorio de trabajo se muestran tal
-y como estaban en ese commit. Este podría ser el momento de la
-historia en el que aparece por primera vez un bug.
+```text
+$ git checkout v1.0
+```
+
+El resultado será que moveremos `HEAD` a ese commit y que todos los
+ficheros en nuestro directorio de trabajo se cambiarán
+automáticamente a como estaban en aquel momento.
+
+<img src="imagenes/grafo-commits2.png" width="500px" />
 
 Podemos hacer ahora arreglar el bug con un nuevo commit:
 
@@ -284,20 +290,21 @@ $ git add .
 $ git commit -m "Cambios sobre un commit pasado"
 ```
 
-<img src="imagenes/git-checkout.png" width="400px" />
+<img src="imagenes/grafo-commits3.png" width="500px" />
 
 Y, por último, podríamos crear una rama, movernos a `master` y mergear
 el fix:
 
-```
+```text
 $ git branch fix
 $ git checkout master
 $ git merge fix
 ```
 
-IMAGEN
+<img src="imagenes/grafo-commits4.png" width="600px" />
 
-Hablaremos más adelante más de ramas y merges.
+Hablaremos más adelante más de ramas y merges y quedará más claro todo
+esto. 
 
 #### Cambiar el último commit en local ####
 
