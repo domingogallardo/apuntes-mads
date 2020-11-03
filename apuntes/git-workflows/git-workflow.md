@@ -380,7 +380,7 @@ anterior, eliminando los commits que intermedios.
 Por ejemplo, supongamos la siguiente historia de commits, en la que se
 muestran los cambios introducidos en los últimos dos commits:
 
-<img src="imagenes/git-reset1.png" width="400px"/>
+<img src="imagenes/git-reset1.png" width="600px"/>
 
 Si hacemos:
 
@@ -392,7 +392,7 @@ moveremos el índice de la rama actual a `C2` y todos los cambios de
 los commits intermedios (`C3` y `C4`) se mantienen en el directorio de
 trabajo, pero sin estar anotados en ningún commit:
 
-<img src="imagenes/git-reset2.png" width="300px"/>
+<img src="imagenes/git-reset2.png" width="500px"/>
 
 El comando anterior es equivalente a hacer un `git reset --soft`. Es
 un comando seguro que no borra nada del directorio de trabajo.
@@ -406,7 +406,7 @@ $ git reset --hard C2
 eliminamos todos los cambios y toda la historia. Es equivalente a un
 `checkout` moviendo el índice de la rama.
 
-<img src="imagenes/git-reset3.png" width="300px"/>
+<img src="imagenes/git-reset3.png" width="200px"/>
 
 
 ### Trabajo con ramas en Git ###
