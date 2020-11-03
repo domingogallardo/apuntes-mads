@@ -101,16 +101,16 @@ ramas simultáneamente.
 
 ### Sistemas de control de versiones distribuidos ###
 
-Los sistemas de control de versiones modernos como Git y Mercurial son distribuidos.
+<img src="imagenes/sistema-distribuido.png" width="450px" />
 
-Cada desarrollador tiene su propio repositorio y su copia de trabajo
-en su máquina. 
+Los sistemas de control de versiones modernos como Git y Mercurial son
+distribuidos. Cada desarrollador tiene su propio repositorio y su
+copia de trabajo en su máquina.
 
 Después de hacer un commit de tus cambios, los demás no tienen acceso
-a ellos hasta que los subes (push) al repositorio remoto central. 
-
-Para obtener los cambios del repositorio central hay que bajarlos
-(fetch) al repositorio local y actualizar la copia de trabajo. 
+a ellos hasta que los subes (push) al repositorio remoto central. Para
+obtener los cambios del repositorio central hay que bajarlos (fetch)
+al repositorio local y actualizar la copia de trabajo.
 
 El ciclo de trabajo básico es:
 
@@ -120,13 +120,10 @@ push al repositorio central.
 - Los compañeros hacen un fetch para actualizar su repositorio local.
 - Después actualizan su copia de trabajo.
 
-Hacer notar que la confirmación y actualización sólo mueven los
-cambios entre la copia de trabajo y el repositorio local. Y al
-contrario, push y fetch suben y bajan cambios del repositorio local al
-repositorio remoto.  Sistemas de control de versiones centralizados
-
-<img src="imagenes/sistema-distribuido.png" width="450px" />
-
+Hacer notar que la confirmación (commit) solo mueve los cambios entre
+el directorio de trabajo y el repositorio local. A diferencia de otros
+sistemas de control de versiones centralizados, es necesario otro
+comando (git push) para mover el cambio al repositorio central.
 
 
 ### Repositorios y copias de trabajo ###
@@ -134,39 +131,66 @@ repositorio remoto.  Sistemas de control de versiones centralizados
 <img src="imagenes/repository.png" width="150px" align="right"/>
 
 Un sistema de control de versiones usa un repositorio (una
-recopilación de todos los cambios) y una copia de trabajo (el
-directorio actual) donde haces tu trabajo.
+recopilación de todos los cambios) donde se almacena la historia de
+cambios cambios que se han realizado. Este repositorio se guarda en el
+directorio `.git` del proyecto.
 
-La copia de trabajo es tu copia personal de todos los ficheros del
-proyecto. Puedes realizar los cambios que desees en esta copia
-personal sin afectar a la historia. Cuando estás contento con el
-resultado, confirmas (commit en inglés) los cambios en el repositorio
-y añades un commit a la historia.
+Mientras que trabajas en el directorio actual no se modifica nada en
+el repositorio Git. Cuando has realizado un conjunto de cambios con
+una cierta entidad, confirmas (commit en inglés) esos cambios y se
+guardan en el repositorio con un nombre, añadiéndose un nuevo commit a
+la historia del proyecto.
+
+#### Zona de stage ####
 
 <img src="imagenes/git-areas.png" width="200px" align="left"/>
 
 Podemos entender mejor el funcionamiento de los comandos git add y git
 commit introduciendo el concepto de zona de stage.
 
-En Git no es obligatorio introducir todos los cambios en el siguiente
-commit, sino que es conveniente seleccionar los cambios que queremos
-introducir en el commit.
+En Git no es obligatorio introducir en el siguiente commit todos los
+cambios que hayamos hecho, podemos seleccionar una parte de ellos (o
+todos, si así nos interesa). Para ello se define en Git la denominada
+zona de _stage_.
 
-El comando git add añade a la zona de stage los cambios que queremos
-incluir en el nuevo commit.
+El comando `git add` sirve para añadir nuevos ficheros que antes no
+estaban en seguimiento y para marcar los cambios que queremos que
+vayan en el siguiente commit. Todos esos cambios se guardan en la zona
+de stage.
 
-Además de usarlo para añadir nuevos ficheros que antes no estaban
-trackeados, también hay que usarlo incluir cambios que queremos que
-vayan en el siguiente commit.
+Después, el comando `git commit` añade estos cambios que están en la
+zona de stage al repositorio.
 
-El comando git commit añade los cambios que están en la zona de stage
-al repositorio.
 
-Hay dos posibles formas de eliminar y renombrar ficheros en un
-repositorio:
+#### Borrado y renombrado ####
+
+Existen dos formas posibles de borrar y renombrar un fichero: usando
+los comandos propios del sistema operativo o usando los comandos
+equivalentes de Git.
+
+- En el primer caso, podemos usar los comandos `rm` para borrar un
+fichero o `mv` para cambiar el nombre de un fichero. Una vez realizado
+el cambio en el directorio de trabajo, si hacemos un `git status`
+veremos que los cambios no están en stage (están en rojo).
+
+    Debemos entonces hacer un `git add .` para confirmar el borrado o
+    el cambio de nombre. Si hacemos un `git status` veremos que ya
+    están en verde, con lo que los cambios se confirmarán en el
+    siguiente commit.
+    
+    Por ejemplo:
+    
+    ```text
+    $ echo "prueba" > prueba.txt (creamos el fichero prueba)
+    $ 
+    ```
+    
+    
 
 - Los eliminamos y renombramos con los comandos del sistema operativo
 y después hacemos un git add para incluir esos cambios en el stage.
+
+
 - Los eliminamos y renombramos con los comandos propios de git:
 
 git rm <fichero> para eliminar un fichero (o un patrón)
