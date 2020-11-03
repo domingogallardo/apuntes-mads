@@ -1018,6 +1018,201 @@ mezclando la rama de versión en `master` o haciendo un cherry-pick.
 
 ### GitFlow ###
 
+El flujo de trabajo GitFlow fue propuesto en 2010 por Vincent Driessen
+en un artículo que publicó en la web titulado [A sucessful Git
+branching
+model](http://nvie.com/posts/a-successful-git-branching-model/). 
+
+El flujo se hizo muy popular y fue adoptado por muchas
+empresas. También surgieron muchos comentarios y algunas críticas en
+las que se proponía flujos de trabajo alternativos:
+
+- [GitFlow considered harmful](http://endoflineblog.com/gitflow-considered-harmful)
+- [Follow-up to 'GitFlow considered harmful'](https://www.endoflineblog.com/follow-up-to-gitflow-considered-harmful)
+- [A succesful Git branching model considered harmful](https://barro.github.io/2016/02/a-succesful-git-branching-model-considered-harmful/)
+
+El propio Driessen, en una nota añadida este mismo año en la página,
+avisa de que su propuesta no es válida para gestionar el flujo de Git
+de aplicaciones web que son entregadas continuamente y en las que no
+hay mantener múltiples versiones.
+
+Pero, sin embargo, sí que es un flujo muy útil a la hora de trabajar
+con aplicaciones en las que se mantiene una única versión antigua que
+vamos manteniendo con bug fixes y una versión de desarrollo en la que
+estamos trabajando con la nueva release. Veremos que integra algunos
+de los flujos ya vistos anteriormente, como el trabajo con ramas de
+características o el de las ramas de versiones.
+
+El flujo de trabajo contiene dos ramas de larga duración:
+
+- `master`, donde van los commits de release.
+- `develop`, la rama de desarrollo, donde se desarrolla la siguiente
+  versión del proyecto.
+
+Se muestran en la siguiente imagen:
+
+<img src="imagenes/git-flow1.png" width="400px"/>
+
+Se definen distintas ramas de corta duración:
+
+- Ramas de _feature_, en las que se desarrollan las distintas
+  funcionalidades de la nueva versión.
+- Ramas de _release_, en las que se prepara el lanzamiento de una nueva
+  versión. 
+- Ramas de _hotfix_, en las que se corrigen bugs de versiones ya lanzadas.
+
+**Ramas de feature**
+
+<img src="imagenes/git-flow2.png" width="300px" align="right"/>
+
+Las ramas de feature salen de `develop` y se mezclan en
+`develop`. Contienen cambios que añaden funcionalidades a la versión
+actual en desarrollo.
+
+Pueden recibir cualquier nombre, salvo `master`, `develop`,
+`release-*` y `hotfix-*`, que son nombres reservados para los otros
+tipos de rama.
+
+El trabajo con estas ramas es similar al del flujo de trabajo con
+ramas de características. Pueden subirse al servidor y compartirse con
+otros desarrolladores para hacer trabajo en común. Y pueden integrarse
+de nuevo en `develop` haciendo un merge o un pull request.
+
+Cuando Driessen propuso el flujo de trabajo, no se había desarrollado
+todavía la idea de los pull requests, por lo que él sólo habla de
+hacer merges. Nosotros en la práctica utilizaremos el pull request
+como forma de añadir la funcionalidad a la rama principal de desarrollo.
+
+**Ramas de release**
+
+<img src="imagenes/git-flow3.png" width="400px" align="right"/>
+
+Las ramas de release son ramas de corta duración que salen de
+`develop` y se mezclan en `master` y en `develop`. Deben llamarse
+`release-<numero de release>`.
+
+Contienen un commit en el que se modifica el número de la versión y
+otros en los que se corrigen y añaden cuestiones de última
+hora. 
+
+Cuando todo está listo para lanzar la versión, se mezcla con `master`
+y se pone una etiqueta en el commit de mezcla. Esa etiqueta marca la
+versión lanzada. También se mezcla con `develop` para integrar los
+últimos cambios que se han añadido a la versión.
+
+Por ejemplo, supongamos que la última versión en producción es la
+`1.1.5` y que hemos añadido en `develop` nuevas características para
+una nueva versión, que llamaremos `1.2`. Abrimos entonces una rama de
+release desde `develop` y cambiamos el número de versión (con un
+script que llamamos `bump-version.sh`:
+
+```text
+$ git checkout develop
+$ git checkout -b release-1.2
+$ ./bump-version.sh 1.2
+$ git commit -am "Cambiada la versión a 1.2"
+```
+
+Una vez que hemos creado esta rama, hacemos una última
+revisión y corregimos los últimos bugs que detectamos. Podemos mezclar
+estas correcciones también con `develop`:
+
+```text
+$ git checkout release-1.2
+# Corregimos un bug
+$ git add .
+$ git commit -m "Bug corregido"
+$ git checkout develop
+$ git merge release-1.2
+```
+
+Por último, cuando ya queremos hacer el release, mezclamos la rama con
+`master` y etiquetamos el commit con el número de versión:
+
+```text
+$ git checkout master
+$ git merge release-1.2
+$ git tag -a 1.2
+```
+
+Por último, mezclamos en `develop` para asegurarnos de que todos los
+cambios en la versión también se pasan a la rama de desarrollo. Y
+podemos borrar la rama:
+
+```text
+$ git checkout develop
+$ git merge release-1.2
+$ git branch -d release-1.2
+```
+
+Todos los merges anteriores (o los que contengan código importante que
+deba ser revisado) pueden hacerse mediante pull requests.
+
+**Ramas de hotfix**
+
+<img src="imagenes/git-flow4.png" width="300px" align="right"/>
+
+Las ramas de hotfix son ramas de corta duración que salen de `master`
+y se mezclan en `master` y `develop`. Su nombre es `hotfix-<numero de
+versión>`.
+
+En la rama se guaradan commits que reparan bugs encontrados en alguna release y
+también se modifica el número de la versión.
+
+Por ejemplo, supongamos que hemos encontrado unos bugs que queremos
+reparar en la versión lanzada en `master`, la `1.2`. Deberemos ir a
+`master`, sacar de allí una rama de hotfix y arreglar los bugs en
+ella. También cambiaremos el número de versión. 
+
+Una vez arreglados lo bugs, crearemos una nueva versión mezclando con
+`master`. Mezclaremos también con `develop` para copiar también allí
+las correcciones. Y, por último, borraremos la rama de hotfix.
+
+```text
+$ git checkout master
+$ git checkout -b hotfix-1.2.1
+$ ./bump-version.sh 1.2.1
+$ git commit -am "Cambiada la versión a 1.2.1"
+$ # Corregimos los bugs
+$ git add .
+$ git commit -m "Corregidos los bugs"
+$ git checkout master
+$ git merge hotfix-1.2.1
+$ git tag -a 1.2.1
+$ git checkout develop
+$ git merge hotfix-1.2.1
+$ git branch -d hotfix-1.2.1
+```
+
+Igual que antes, los merges anteriores pueden realizarse mediante pull
+requests.
+
+La siguiente ilustración muestra el flujo completo, con las distintas
+opciones y ramas que hemos explicado:
+
+<img src="imagenes/git-flow5.png" width="600px"/>
+
+Hay que hacer notar que GitFlow sólo permite corregir los bugs de la
+release más reciente. En la figura, por ejemplo, no podríamos corregir
+algún bug que encontráramos en la versión `0.2` siguiendo
+estrictamente las indicaciones del flujo. En el flujo se dice que para
+corregir un bug debemos ir a `master` y corregirlo allí. Entonces
+estaríamos corrigiendo un bug detectado en la `0.2`en la versión más
+reciente `1.1`. Si alguien quiere arreglar ese bug debería descargarse
+la versión más reciente y no podría continuar con la versión `0.2`.
+
+Para solucionar este problema podríamos arreglar el bug en una rama
+nueva que abrimos a partir del commit `0.2`, pero entonces ya
+estaríamos utilizando otro flujo de trabajo (el de ramas de versiones).
+
+Tal y como dice Driessen, lo que tenemos que hacer es conocer bien las
+distintas técnicas y posibilidades y configurar un flujo de trabajo
+adaptado a nuestras necesidades (y no seamos _haters_).
+
+> To conclude, always remember that panaceas don't exist. Consider
+> your own context. Don't be hating. Decide for yourself. 
+>
+> Vincent Driessen
 
 
 ## Referencias ##
