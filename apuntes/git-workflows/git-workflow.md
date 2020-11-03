@@ -227,7 +227,7 @@ veremos que los cambios no están en stage (están en rojo).
 
 #### Grafo de commits e índices ####
 
-<img src="imagenes/grafo-commits.png" width="400px" />
+<img src="imagenes/grafo-commits.png" width="500px" />
 
 La figura muestra un grafo de commits de un repositorio. Los commits
 tienen identificadores únicos.
