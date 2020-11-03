@@ -372,20 +372,20 @@ master (incluido), usando la opción -n:
 $ git revert -n master~5..master~2
 ```
 
-
-#### Deshacer un conjunto de commits ####
+#### Deshacer un conjunto de commits (git reset) ####
 
 El comando `git reset` permite mover el índice de la rama a un commit
 anterior, eliminando los commits que intermedios.
 
-Por ejemplo, si tenemos la siguiente historia de commits:
+Por ejemplo, supongamos la siguiente historia de commits, en la que se
+muestran los cambios introducidos en los últimos dos commits:
 
-IMAGEN
+<img src="imagenes/git-reset1.png" width="400px"/>
 
-Si hacemos
+Si hacemos:
 
 ```text
-$ git reset <commit>
+$ git reset 
 ```
 
 obtendremos lo siguiente:
