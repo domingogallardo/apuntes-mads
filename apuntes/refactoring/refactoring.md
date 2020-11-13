@@ -378,8 +378,8 @@ class Customer {
 -           thisAmount = each.getCharge();
             ...
             result += "\t" + each.getMovie().getTitle() + "\t" +
-                    String.valueOf(each.getCharge()) + "\n";
-            totalAmount += each.getCharge();
++                    String.valueOf(each.getCharge()) + "\n";
++            totalAmount += each.getCharge();
         }
         ...
     }
@@ -392,7 +392,7 @@ método `getCharge()` tiene una complejidad temporal de `O(1)` y no
 afecta para nada a la eficiencia del programa llamarlo dos veces en
 lugar de una (aunque estemos dentro de un bucle).
 
-<table><tr></td>
+<table><tr><td>
 
 **¿Código optimizado o código comprensible?**
 
