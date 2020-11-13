@@ -583,8 +583,8 @@ $ git commit -m "Merge branch 'iss56' y resueltos conflictos"
 #### Ramas remotas ####
 
 Cuando hacemos un `fetch` del repositorio remoto, Git descarga los
-cambios en los commits que hay en remoto y los coloca en ramas
-locales con nombres especiales, para que podamos examinar los cambios
+cambios en los commits que hay en remoto y los coloca en ramas locales
+con nombres `<servidor>/<rama>`, para que podamos examinar los cambios
 antes de hacer la integración.
 
 <img src="imagenes/fetch.png" width="600px"/>
