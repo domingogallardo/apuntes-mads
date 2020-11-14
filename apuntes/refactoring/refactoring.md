@@ -657,7 +657,7 @@ Nuestra primera idea sería hacer una subclase de `Movie` por cada tipo
 de película. Una clase `RegularMovie` otra `NewReleaseMovie`,
 etc. 
 
-<img src="imagenes/herencia-movie.png" width="400px"/>
+<img src="imagenes/herencia-movies.png" width="400px"/>
 
 Pero esto es problemático y no funciona, porque una película puede
 cambiar su clase durante su vida. Podría ser que inicialmente una
@@ -883,5 +883,5 @@ _Refactoring_ de Martin Fowler. Hay que hacer notar el cambio del
 lenguaje de programación entre las dos ediciones. En la primera
 edición era Java y en la segunda JavaScript.
 
-- Martin Fowler (1999) [_Refactoring (primera edición)_]
-- Martin Fowler (2019) [_Refactoring (segunda edición)_]
+- Martin Fowler (1999) [_Refactoring (primera edición)_](https://learning.oreilly.com/library/view/refactoring-improving-the/0201485672/)
+- Martin Fowler (2019) [_Refactoring (segunda edición)_](https://learning.oreilly.com/library/view/refactoring-improving-the/9780134757681/)
