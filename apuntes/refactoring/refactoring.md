@@ -4,6 +4,22 @@ Una refactorización (_refactoring_ en inglés) de un programa consiste
 en la realización de una transformación de su código fuente sin
 cambiar su funcionamiento.
 
+Por ejemplo, cuando cambiamos el nombre de un método y cambiamos el
+nombre de todas las invocaciones a ese método.
+
+```java
+
+
+```
+
+El comportamiento del programa no ha cambiado en absoluto. Pero hemos
+modificado su diseño y lo hemos hecho más comprensible.
+
+En esta sesión vamos a tratar ...
+
+
+## Introducción ##
+
 El objetivo de las refactorizaciones es el de mejorar el diseño del
 código, haciéndolo más sencillo, comprensible y modificable.
 
@@ -21,8 +37,17 @@ una colección de patrones de refactorización.
 Como ya sabes, la refactorización es una parte fundamental de la
 técnica de TDD. Una vez que se ha hecho 
 
+### Refactorización en los IDEs ###
 
-## Refactorización en los IDEs ##
+
+
+
+## Ejemplos de refactorizaciones ##
+
+### Extract Method ###
+### Move Method ###
+### Replace Temp with Query ###
+### Change Function Declaration ###
 
 
 ## Code smells ##
