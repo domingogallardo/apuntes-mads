@@ -5,23 +5,64 @@ en la realización de una transformación de su código fuente sin
 cambiar su funcionamiento.
 
 Por ejemplo, cuando cambiamos el nombre de un método y cambiamos el
-nombre de todas las invocaciones a ese método.
+nombre de todas las invocaciones a ese método estamos haciendo un
+ejemplo concreto de la refactorización _Change Function
+Declaration_. 
+
+Por ejemplo, el método de la siguiente clase `Movie` es muy poco
+descriptivo.
+
 
 ```java
+public class Movie {
+    public double compute(int number) {
+        ...
+    }
+}
 
+    ...
+    int daysRented = 4;
+    double price = movie.compute(daysRented);
+    ...
+```
 
+Si cambiamos el nombre del método y su invocación, queda el siguiente
+código:
+
+```java
+public class Movie {
+    public double getCharge(int numberOfDays) {
+        ...
+    }
+}
+
+    ...
+    int daysRented = 4;
+    double price = movie.getCharge(daysRented);
+    ...
 ```
 
 El comportamiento del programa no ha cambiado en absoluto. Pero hemos
 modificado su diseño y lo hemos hecho más comprensible.
 
-En esta sesión vamos a tratar ...
+En esta sesión vamos a ver brevemente la historia de las técnicas de
+refactoring, una pequeña lista de técnicas concretas, los denominados
+_code smells_ que nos indican cuándo es posible que necesitemos
+aplicar alguna refactorización y terminaremos con un ejemplo completo
+de refactorización de código aplicando distintas técnicas completas.
+
+<img src="imagenes/refactoring.png" width="600px"/>
+
+Este tema está basado en la primera y segunda edición del libro
+_Refactoring_ de  Martin Fowler (ver el apartado de Referencias).
 
 
 ## Introducción ##
 
-El objetivo de las refactorizaciones es el de mejorar el diseño del
-código, haciéndolo más sencillo, comprensible y modificable.
+El objetivo de las técnicas de refactorización es mejorar el diseño
+del código, haciéndolo más sencillo, comprensible y modificable. Pero
+(y esto es fundamental) sin modificar en absoluto el comportamiento
+del programa.
 
 ¿Cómo podemos garantizar que el funcionamiento del programa sigue
 siendo el mismo después de la refactorización? La forma más habitual
@@ -31,11 +72,14 @@ que los tests siguen pasando.
 
 Además, es conveniente que las refactorización se realice mediante
 pasos pequeños. Una refactorización grande se puede subdividir en
-refactorizaciones más elementales. El libro de Martin Fowler contiene
-una colección de patrones de refactorización.
+refactorizaciones más elementales.
+
+
+El libro de Martin Fowler contiene una colección de patrones de
+refactorización.
 
 Como ya sabes, la refactorización es una parte fundamental de la
-técnica de TDD. Una vez que se ha hecho 
+técnica de TDD.
 
 ### Refactorización en los IDEs ###
 
@@ -47,7 +91,7 @@ técnica de TDD. Una vez que se ha hecho
 ### Extract Method ###
 ### Move Method ###
 ### Replace Temp with Query ###
-### Change Function Declaration ###
+### Change Function ###
 
 
 ## Code smells ##
@@ -897,6 +941,234 @@ class NewReleasePrice extends Price {
     ...
     int getFrequentRenterPoints(int daysRented) {
         return (daysRented > 1) ? 2 : 1;
+    }
+}
+```
+
+### Versión final ###
+
+Mostramos a continuación la versión final del programa.
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        Movie tenet = new Movie("Tenet", Movie.NEW_RELEASE);
+        Movie busan = new Movie("Train to Busan", Movie.REGULAR);
+        Movie padre = new Movie("Padre no hay más que uno", Movie.CHILDRENS);
+
+        Rental rental1 = new Rental(tenet, 2);
+        Rental rental2 = new Rental(busan, 2);
+        Rental rental3 = new Rental(padre, 1);
+
+        Customer customer = new Customer("domingogallardo");
+
+        customer.addRental(rental1);
+        customer.addRental(rental2);
+        customer.addRental(rental3);
+
+        System.out.println(customer.statement());
+        System.out.println("*************************");
+        System.out.println(customer.htmlStatement());
+    }
+}
+
+
+import java.util.Enumeration;
+import java.util.Vector;
+
+class Customer {
+    private String name;
+    private Vector rentals = new Vector();
+
+    public Customer(String name) {
+        this.name = name;
+    }
+
+    public void addRental(Rental arg) {
+        rentals.addElement(arg);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String statement() {
+        Enumeration allRentals = rentals.elements();
+        String result = "Rental Record for " + getName() + "\n";
+        while (allRentals.hasMoreElements()) {
+            Rental each = (Rental) allRentals.nextElement();
+
+            //show figures for this rental
+            result += "\t" + each.getMovie().getTitle() + "\t" +
+                    String.valueOf(each.getCharge()) + "\n";
+        }
+        //add footer lines
+        result += "Amount owed is " + String.valueOf(getTotalCharge()) + "\n";
+        result += "You earned " + String.valueOf(getTotalFrequentRenterPoints()) +
+                " frequent renter points";
+        return result;
+    }
+
+    public String htmlStatement() {
+        Enumeration allRentals = rentals.elements();
+        String result = "<h1>Rental Record for <em>" + getName() + "</em></h1>\n";
+        result += "<ul>\n";
+        while (allRentals.hasMoreElements()) {
+            Rental each = (Rental) allRentals.nextElement();
+
+            //show figures for this rental
+            result += "<li>" + each.getMovie().getTitle() + ":" +
+                    String.valueOf(each.getCharge()) + "</li>\n";
+        }
+        result += "</ul>\n";
+        //add footer lines
+        result += "<p>Amount owed is <em>" + String.valueOf(getTotalCharge()) + "</em></p>\n";
+        result += "<p>You earned <em>" + String.valueOf(getTotalFrequentRenterPoints()) +
+                "</em> frequent renter points</p>\n";
+        return result;
+    }
+
+    private double getTotalCharge() {
+        double result = 0;
+        Enumeration elements = rentals.elements();
+        while (elements.hasMoreElements()) {
+            Rental each = (Rental) elements.nextElement();
+            result += each.getCharge();
+        }
+        return result;
+    }
+
+    private double getTotalFrequentRenterPoints() {
+        double result = 0;
+        Enumeration elements = rentals.elements();
+        while (elements.hasMoreElements()) {
+            Rental each = (Rental) elements.nextElement();
+            result += each.getFrequentRenterPoints();
+        }
+        return result;
+    }
+
+}
+
+
+class Rental {
+    private Movie movie;
+    private int daysRented;
+
+    public Rental(Movie movie, int daysRented) {
+        this.movie = movie;
+        this.daysRented = daysRented;
+    }
+    public int getDaysRented() {
+        return daysRented;
+    }
+    public Movie getMovie() {
+        return movie;
+    }
+
+    double getCharge() {
+        return movie.getCharge(daysRented);
+    }
+
+    int getFrequentRenterPoints() {
+        return movie.getFrequentRenterPoints(daysRented);
+    }
+}
+
+public class Movie {
+
+    public static final int CHILDRENS = 2;
+    public static final int REGULAR = 0;
+    public static final int NEW_RELEASE = 1;
+
+    private String title;
+    private Price price;
+
+    public Movie(String title, int priceCode) {
+        this.title = title;
+        setPriceCode(priceCode);
+    }
+
+    double getCharge(int daysRented) {
+        return price.getCharge(daysRented);
+    }
+
+    int getFrequentRenterPoints(int daysRented) {
+        return price.getFrequentRenterPoints(daysRented);
+    }
+
+    public int getPriceCode() {
+        return price.getPriceCode();
+    }
+
+    public void setPriceCode(int arg) {
+        switch (arg) {
+            case REGULAR:
+                price = new RegularPrice();
+                break;
+            case CHILDRENS:
+                price = new ChildrensPrice();
+                break;
+            case NEW_RELEASE:
+                price = new NewReleasePrice();
+                break;
+            default:
+                throw new IllegalArgumentException("Incorrect Price Code");
+        }
+    }
+
+    public String getTitle (){
+        return title;
+    };
+}
+
+
+abstract public class Price {
+    abstract int getPriceCode();
+    abstract double getCharge(int daysRented);
+
+    int getFrequentRenterPoints(int daysRented) {
+        return 1;
+    }
+}
+
+class ChildrensPrice extends Price {
+    int getPriceCode() {
+        return Movie.CHILDRENS;
+    }
+
+    double getCharge(int daysRented) {
+        double result = 1.5;
+        if (daysRented > 3)
+            result += (daysRented - 3) * 1.5;
+        return result;
+    }
+}
+
+class NewReleasePrice extends Price {
+    int getPriceCode() {
+        return Movie.NEW_RELEASE;
+    }
+
+    double getCharge(int daysRented) {
+        return daysRented * 3;
+    }
+
+    int getFrequentRenterPoints(int daysRented) {
+        return (daysRented > 1) ? 2 : 1;
+    }
+}
+
+class RegularPrice extends Price {
+    int getPriceCode() {
+        return Movie.REGULAR;
+    }
+
+    double getCharge(int daysRented) {
+        double result = 2;
+        if (daysRented > 2)
+            result += (daysRented - 2) * 1.5;
+        return result;
     }
 }
 ```
