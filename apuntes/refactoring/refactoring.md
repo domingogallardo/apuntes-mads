@@ -43,7 +43,10 @@ public class Movie {
 ```
 
 El comportamiento del programa no ha cambiado en absoluto. Pero hemos
-modificado su diseño y lo hemos hecho más comprensible.
+modificado su diseño y lo hemos hecho más comprensible. Hemos cambiado
+el nombre genérico de _calcular(int number)_ por el nombre mucho más concreto e
+informativo de _obtenerCargo(int diasDeAlquiler)_. Ahora está mucho
+más claro qué hace ese método.
 
 En esta sesión vamos a ver brevemente la historia de las técnicas de
 refactoring, una pequeña lista de técnicas concretas, los denominados
@@ -56,7 +59,6 @@ de refactorización de código aplicando distintas técnicas completas.
 Este tema está basado en la primera y segunda edición del libro
 _Refactoring_ de  Martin Fowler (ver el apartado de Referencias).
 
-
 ## Introducción ##
 
 El objetivo de las técnicas de refactorización es mejorar el diseño
@@ -64,15 +66,52 @@ del código, haciéndolo más sencillo, comprensible y modificable. Pero
 (y esto es fundamental) sin modificar en absoluto el comportamiento
 del programa.
 
-¿Cómo podemos garantizar que el funcionamiento del programa sigue
-siendo el mismo después de la refactorización? La forma más habitual
-es mediante una batería de tests que prueba el código que se
-refactoriza. Basta con comprobar, una vez hecha la refactorización,
-que los tests siguen pasando.
+En palabras de Martin Fowler:
 
-Además, es conveniente que las refactorización se realice mediante
-pasos pequeños. Una refactorización grande se puede subdividir en
-refactorizaciones más elementales.
+> "Refactoring es el proceso de cambiar un sistema de software de
+> una forma que no se altera el comportamiento externo del código,
+> pero sí que se mejor su estructura interna. Es una forma
+> disciplinada de limpiar el código que minimiza las posibilidades de
+> introducir nuevos bugs. En esencia, cuando realizas una
+> refactorización, mejoras el diseño del código después de haberlo
+> escrito.
+
+La idea de mejorar el diseño mediante la realización de
+refactorizaciones es una idea muy importante. Ya la vimos en
+TDD. Tradicionalmente, en las metodologías clásicas de cascada o otras
+basadas en enfoques predictivos, el diseño se hace siempre al
+principio, antes de empezar a desarrollar el código.
+
+En metodologías como XP, TDD o _software craftmanship_ el diseño del
+software es algo que estamos mejorando continuamente. No se sobre
+diseña, sino que diseñamos sólo para lo que necesita el programa
+actual. Conforme vamos escribiendo más código, añadiendo nuevas
+funcionalidades, vamos también realizando rediseño mediante
+refactorizaciones del código.
+
+Hemos comentado que la refactorización no debe modificar el
+comportamiento del código. ¿Cómo podemos garantizar que el
+funcionamiento del programa sigue siendo el mismo después de la
+refactorización? La forma más habitual es mediante una batería de
+tests que prueba el código que se refactoriza. Basta con comprobar,
+una vez hecha la refactorización, que los tests siguen pasando.
+
+Es conveniente que la refactorización se realice mediante pasos
+pequeños. Una refactorización grande se puede subdividir en
+refactorizaciones más elementales. El hecho de hacer pasos pequeños
+hace más difícil introducir bugs.
+
+
+### Orígenes de las técnicas de refactorización ###
+
+Es difícil encontrar el origen de la palabra o el concepto de
+_refactoring_. La idea de modificar el código fuente para mejorar su
+diseño ha estado presente desde el principio de la historia de la
+programación.
+
+Pero sí que podemos trazar el origen de la idea de usar la
+refactorización como un elemento fundamental del proceso de diseño de
+software. 
 
 
 El libro de Martin Fowler contiene una colección de patrones de
