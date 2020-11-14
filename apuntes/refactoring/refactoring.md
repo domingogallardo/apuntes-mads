@@ -33,9 +33,15 @@ Indicadores de que el diseño no es correcto y habría que refactorizar.
 
 ## Ejemplo completo ##
 
+Veamos un ejemplo completo  que usa alguna de las refactorizaciones
+presentadas anteriormente.
+
+Está sacado del libro de Martin Fowler _Refactoring_.
+
 
 ### Versión inicial ###
 
+DESCRIPCIÓN DEL NEGOCIO DE ALQUILER DE PELÍCULAS
 
 **Clase Movie**
 
@@ -197,11 +203,20 @@ You earned 4 frequent renter points
 
 ### Refactorización para imprimir la cuenta en HTML ###
 
-El objetivo de toda esta primera refactorización va a ser simplificar
-el código del método `statement()` para que sólo se encargue de
-imprimir. Ahora tiene mezcladas la impresión de la cuenta con el
-cálculo de sus elementos. No cumple el principio de responsabilidad
-única.
+Supongamos que el cliente para el que hemos hecho el programa nos pide
+que el resultado de la cuenta no sea en texto plano sino que sea en
+HTML.
+
+Podríamos copiar y pegar el código del método `statement()`, en un
+nuevo método `htmlStatement()` en el que mantuviéramos los cálculos y
+cambiáramos las sentencias de texto. El problema de esto es que
+tendríamos duplicado el código con los cálculos y en el momento que
+haya que cambiar algo este código habrá que hacerlo en dos sitios, con
+los problemas que eso puede conllevar.
+
+Vamos entonces a realizar una refactorización que que simplifique el
+código del método `statement()` para que sólo se encargue de imprimir
+y cumpla el principio de responsabilidad única.
 
 #### Paso 1: Extract Method ####
 
@@ -401,24 +416,24 @@ aras de una supuesta optimización. Existen programadores a los que les
 gusta hacer continuamente estas optimizaciones y conseguir arañar
 milisegundos de eficiencia. El problema es que el código resultante
 muchas veces es menos comprensible y modificable que el original. Si
-en algún momento hay que modificarlo, tendremos primero que perder el
-tiempo para entender qué hacía el código y después tendremos casi
-seguramente que deshacer la optimización para introducir la
-modificación.
+en algún momento hay que modificar ese código optimizado, tendremos
+primero que perder el tiempo para entender qué era lo que hacía y
+después tendremos casi seguramente que deshacer la optimización para
+introducir la modificación.
 
-Además muchas supuestas optimizaciones que se realizan en el código
-resultan no siendo tales, porque se hace un trabajo redundante al que
-realiza el compilador o incluso se dificulta su funcionamiento. Los
+Muchas supuestas optimizaciones que se realizan en el código resultan
+no siendo tales, porque se hace un trabajo redundante al que realiza
+el compilador o incluso se dificulta su funcionamiento. Los
 compiladores modernos son muy avanzados y el código que generan es un
 código altamente optimizado. No hagamos un trabajo que ya está
 haciendo el compilador.
 
 Mi consejo es que, en general, nunca debemos hacer el programa menos
-comprensible o modular por el hecho de intentar hacerlo más
-eficiente. Sólo cuando hagamos un análisis de rendimiento y detectemos
-los verdaderos cuellos de botella del programa es cuando tendremos que
-centrarnos en optimizar el rendimiento del código. Pero sólo de aquel
-código responsable del cuello de botella.
+comprensible por el hecho de intentar hacerlo más eficiente. Sólo
+cuando hagamos un análisis de rendimiento y detectemos los verdaderos
+cuellos de botella del programa es cuando tendremos que centrarnos en
+optimizar su rendimiento. Pero sólo de aquel código responsable del
+cuello de botella.
 
 </table></tr></td>
 
@@ -542,6 +557,331 @@ que genera el HTML:
     }
 ```
 
+Al extraer todos los cálculos hemos podido crear el método
+`htmlStatement` y reutilizar todo el código de cálculo que estaba en
+el método original. No hemos copiado y pegado, de forma que si las
+reglas de cálculo cambian solo tenemos que ir a modificarlas a un
+único sitio.
 
 ### Refactorización para introducir herencia y polimorfismo ###
 
+Supongamos que ahora nuestro cliente está planeando de hacer cambios
+en la clasificación de las películas. Todavía no está claro que
+cambios van a ser, pero parece que se van a introducir nuevas
+categorías y se tendrán que decidir el cargo y los puntos de promoción
+de estas nuevas categorías.
+
+Vamos ahora a mejorar el diseño para evitar tener que entrar en los
+códigos condicionales cada vez que vayamos a hacer alguna de estas
+modificaciones. 
+
+Haremos una refactorización en la que reemplazaremos la lógica
+condicional por polimorfismo.
+
+#### Paso 1: Move Method ####
+
+Movemos el código del método `Rental.getCharge()` a la clase `Movie`,
+que es donde debería estar. Un indicador de ello es que estamos
+haciendo un `switch` basándonos en un atributo de otro objeto. Si
+tenemos que hacer un `switch` debemos hacerlo basándonos en nuestros
+propios datos, no en los datos de otro.
+
+Quedaría así:
+
+```java
+class Rental {
+    ...
+    double getCharge() {
+        return movie.getCharge(daysRented);
+    }
+    ...
+}
+
+public class Movie {
+    ...
+    double getCharge(int daysRented) {
+        double result = 0;
+        //determine amounts for each line
+        switch (getPriceCode()) {
+            case Movie.REGULAR:
+                result += 2;
+                if (daysRented > 2)
+                    result += (daysRented - 2) * 1.5;
+                break;
+            case Movie.NEW_RELEASE:
+                result += daysRented * 3;
+                break;
+            case Movie.CHILDRENS:
+                result += 1.5;
+                if (daysRented > 3)
+                    result += (daysRented - 3) * 1.5;
+                break;
+        }
+        return result;
+    }
+    ...
+```
+
+
+
+#### Paso 2: Move Method ####
+
+Hacemos lo mismo con el cálculo de los puntos de promoción por
+alquiler frecuente.
+
+```java
+class Rental {
+    ...
+    int getFrequentRenterPoints() {
+        return movie.getFrequentRenterPoints(daysRented);
+    }
+}
+
+public class Movie {
+    ...
+    int getFrequentRenterPoints(int daysRented) {
+        if ((getPriceCode() == Movie.NEW_RELEASE) &&
+                daysRented > 1)
+            return 2;
+        else return 1;
+    }
+    ...
+```
+
+#### Paso 3: Encapsulate Variable ####
+
+Vamos a comenzar ahora el proceso de introducir la herencia y el
+polimorfismo. 
+
+Nuestra primera idea sería hacer una subclase de `Movie` por cada tipo
+de película. Una clase `RegularMovie` otra `NewReleaseMovie`,
+etc. 
+
+<img src="imagenes/herencia-movie.png" width="400px"/>
+
+Pero esto es problemático y no funciona, porque una película puede
+cambiar su clase durante su vida. Podría ser que inicialmente una
+película fuera `NewReleseMovie` y después pasara a ser
+`RegularMovie`. Sin embargo un objeto no puede cambiar de clase en su
+ciclo de vida.
+
+Podemos modelar esto usando el patrón _State_, en el que definimos un
+atributo `price` que es que define el tipo de película. Lo muestra la
+siguiente figura:
+
+<img src="imagenes/herencia-state.png" width="600px"/>
+
+De esta forma para que una película cambiara de clase sólo tendríamos
+que asociarle un nuevo objeto de tipo `Price`.
+
+Para hacer esto, lo primero que debemos hacer es encapsular el
+atributo `price` de `Movie` de forma que todos los accesos a él sean a
+través de un método `getter` o `setter`.
+
+Sólo hay que cambiar el acceso en el constructor de `Movie`:
+
+```diff
+    public Movie(String title, int priceCode) {
+         this.title = title;
+-        this.priceCode = priceCode;
++        setPriceCode(priceCode);
+     }
+
+```
+
+#### Paso 4: Replace Type Code with State ####
+
+En este paso introducimos la clase `Price` y reemplazamos la
+instancia de tipo `int` en la que codificábamos el tipo de película
+por un objeto de este tipo. El código `int` para el tipo de película
+lo seguimos manteniendo, pero encapsulado en el objeto de tipo `Price`.
+
+```java
+public class Movie {
+    ...
+    private Price price;
+    ...
+    public int getPriceCode() {
+        return price.getPriceCode();
+    }
+
+    public void setPriceCode(int arg) {
+        switch (arg) {
+            case REGULAR:
+                price = new RegularPrice();
+                break;
+            case CHILDRENS:
+                price = new ChildrensPrice();
+                break;
+            case NEW_RELEASE:
+                price = new NewReleasePrice();
+                break;
+            default:
+                throw new IllegalArgumentException("Incorrect Price Code");
+        }
+    }
+    ...
+}
+
+abstract public class Price {
+    abstract int getPriceCode();
+}
+
+class ChildrensPrice extends Price {
+    int getPriceCode() {
+        return Movie.CHILDRENS;
+    }
+}
+
+class NewReleasePrice extends Price {
+    int getPriceCode() {
+        return Movie.NEW_RELEASE;
+    }
+}
+
+class RegularPrice extends Price {
+    int getPriceCode() {
+        return Movie.REGULAR;
+    }
+}
+```
+
+#### Paso 5: Move Method ####
+
+Ahora movemos el código del método `getCharge` de la clase `Movie` a
+la clase `Price`:
+
+```java
+public class Movie {
+    ...
+    double getCharge(int daysRented) {
+        return price.getCharge(daysRented);
+    }
+    ...
+}
+
+abstract public class Price {
+    ...
+    double getCharge(int daysRented) {
+        double result = 0;
+        switch (getPriceCode()) {
+            case Movie.REGULAR:
+                result += 2;
+                if (daysRented > 2)
+                    result += (daysRented - 2) * 1.5;
+                break;
+            case Movie.NEW_RELEASE:
+                result += daysRented * 3;
+                break;
+            case Movie.CHILDRENS:
+                result += 1.5;
+                if (daysRented > 3)
+                    result += (daysRented - 3) * 1.5;
+                break;
+        }
+        return result;
+    }
+}
+```
+
+
+
+#### Paso 6: Replace Conditional with Polymorphism ####
+
+Ahora ya podemos aplicar la refactorización de reemplazar el
+condicional con el polimorfismo, para el método `getCharge`.
+
+```java
+abstract public class Price {
+    abstract int getPriceCode();
+    abstract double getCharge(int daysRented);
+}
+
+class ChildrensPrice extends Price {
+    int getPriceCode() {
+        return Movie.CHILDRENS;
+    }
+
+    double getCharge(int daysRented) {
+        double result = 1.5;
+        if (daysRented > 3)
+            result += (daysRented - 3) * 1.5;
+        return result;
+    }
+}
+
+class NewReleasePrice extends Price {
+    int getPriceCode() {
+        return Movie.NEW_RELEASE;
+    }
+
+    double getCharge(int daysRented) {
+        return daysRented * 3;
+    }
+}
+
+class RegularPrice extends Price {
+    int getPriceCode() {
+        return Movie.REGULAR;
+    }
+
+    double getCharge(int daysRented) {
+        double result = 2;
+        if (daysRented > 2)
+            result += (daysRented - 2) * 1.5;
+        return result;
+    }
+}
+```
+
+Al haber definido el comportamiento de `getCharge` en cada subclase es
+mucho más sencillo modificar cada uno de ellos de forma
+independiente. También podemos incluir nuevas clases de forma más
+sencilla que antes.
+
+
+
+
+#### Paso 7: Replace Conditional with Polymorphism ####
+
+Por último, podemos aplicar también el polimorfismo para obtener los
+puntos de promoción por alquileres frecuentes. 
+
+La lógica condicional está también basada en el tipo de precio. Para
+los nuevos lanzamientos se devuelven 1 o 2 puntos dependiendo de los
+días alquilados. En el resto de tipos se devuelve siempre 1.
+
+Queda de la siguiente forma, después de la refactorización:
+
+```java
+public class Movie {
+    ...
+    int getFrequentRenterPoints(int daysRented) {
+        return price.getFrequentRenterPoints(daysRented);
+    }
+}
+
+abstract public class Price {
+    ...
+    int getFrequentRenterPoints(int daysRented) {
+        return 1;
+    }
+}
+
+class NewReleasePrice extends Price {
+    ...
+    int getFrequentRenterPoints(int daysRented) {
+        return (daysRented > 1) ? 2 : 1;
+    }
+}
+```
+
+## Referencias ##
+
+Toda la sesión está basada en las dos ediciones de los libros
+_Refactoring_ de Martin Fowler. Hay que hacer notar el cambio del
+lenguaje de programación entre las dos ediciones. En la primera
+edición era Java y en la segunda JavaScript.
+
+- Martin Fowler (1999) [_Refactoring (primera edición)_]
+- Martin Fowler (2019) [_Refactoring (segunda edición)_]
