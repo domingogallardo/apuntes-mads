@@ -122,22 +122,187 @@ técnica de TDD.
 
 ### Refactorización en los IDEs ###
 
+Aunque veremos que no es complicado realizar las refactorizaciones
+manualmente, es posible usar las acciones de refactorización de los
+IDEs que, en ocasiones, pueden ser de ayuda.
 
+Casi todos los IDEs tienen la refactorización más básica, que es la de
+renombrar un método, variable o función. Para realizar de forma
+correcta la refactorización el IDE tiene que usar el análisis
+sintáctico del código fuente para identificar quién usa esa variable,
+método o función y no limitarse a hacer una mera substitución y
+reemplazo de un texto por otro.
 
+Entre los IDEs más avanzados en capacidades de refactorización se
+encuentra IntelliJ. Podemos ver una introducción a sus capacidades de
+refactorización en el tutorial [Introduction to
+refactoring﻿](https://www.jetbrains.com/help/idea/tutorial-introduction-to-refactoring.html). Y
+también en bastantes vídeos del canal de IntellJ, como por ejemplo
+[Extract Refactorings in
+Action](https://www.youtube.com/watch?v=UYrhNG9bRng&t=6s). El manual
+completo con todas las opciones de refactorización de IntellJ se
+encuentra en [este enlace](https://www.jetbrains.com/help/idea/refactoring-source-code.html).
 
 ## Ejemplos de refactorizaciones ##
 
+En la primera edición del libro de Martin Fowler se presentan 72
+refactorizaciones. En la segunda quedan reducidas a 61. Es una lista
+amplia que recoge la mayoría de patrones más usados.
+
+<img src="imagenes/list-refactorings.png" width="600px"/>
+
+Obviamente, son demasiados para verlos en una clase. Veremos sólo
+cuatro, con el objeto de tener una idea de cómo se plantean. La lista
+completa también la puedes consultar en la web de Fowler
+[refactoring.com](https://refactoring.com/catalog/). 
+
+La segunda edición del libro está escrito en el lenguaje
+JavaScript. Utilizaremos los ejemplos de la primera edición, escritos
+en Java.
+
 ### Extract Method ###
+
+**Código inicial**
+
+```java
+void printOwing(double amount) {
+    printBanner();
+
+    //print details
+    System.out.println ("name:" + _name);
+    System.out.println ("amount" + amount);
+}
+```
+
+**Código refactorizado**
+
+```java
+void printOwing(double amount) {
+    printBanner();
+    printDetails(amount);
+}
+
+void printDetails (double amount) {
+    System.out.println ("name:" + _name);
+    System.out.println ("amount" + amount);
+}
+```
+
+Un ejemplo algo más complicado:
+
+**Código inicial**
+
+```java
+void printOwing(double previousAmount) {
+
+    Enumeration e = _orders.elements();
+    double outstanding = previousAmount * 1.2;
+
+    printBanner();
+
+    // calculate outstanding
+    while (e.hasMoreElements()) {
+        Order each = (Order) e.nextElement();
+        outstanding += each.getAmount();
+    }
+
+    printDetails(outstanding);
+}
+```
+
+**Código refactorizado**
+
+```java
+void printOwing(double previousAmount) {
+    printBanner();
+    double outstanding = getOutstanding(previousAmount * 1.2);
+    printDetails(outstanding);
+}
+
+double getOutstanding(double initialValue) {
+    double result = initialValue;
+    Enumeration e = orders.elements();
+    while (e.hasMoreElements()) {
+        Order each = (Order) e.nextElement();
+        result += each.getAmount();
+   }
+    return result;
+}
+```
+
 ### Move Method ###
+
+> Create a new method with a similar body in the class it uses
+> most. Either turn the old method into a simple delegation, or remove
+> it altogether.
+
+**Código inicial**
+
+```java
+public class Account {
+    private AccountType type;
+    private int daysOverdrawn;
+    ...
+    double overdraftCharge() {
+        if (type.isPremium()) {
+             double result = 10;
+             if (daysOverdrawn > 7) result += (_daysOverdrawn - 7) * 0.85;
+             return result;
+        }
+        else return daysOverdrawn * 1.75;
+    }
+
+    double bankCharge() {
+        double result = 4.5;
+        if (daysOverdrawn > 0) result += overdraftCharge();
+        return result;
+    }
+}
+```
+
+**Código refactorizado**
+
+```java
+public class Account {
+    ...
+    double overdraftCharge() {
+        return type.overdraftCharge(daysOverdrawn);
+    }
+    
+    double bankCharge() {
+        double result = 4.5;
+        if (daysOverdrawn > 0) result += overdraftCharge();
+        return result;
+    }
+}
+
+public class AccountType {
+    ...
+    double overdraftCharge(int daysOverdrawn) {
+        if (isPremium()) {
+            double result = 10;
+            if (daysOverdrawn > 7) result += (daysOverdrawn - 7) * 0.85;
+            return result;
+        }
+        else return daysOverdrawn * 1.75;
+    }
+}
+```
+
+
+
 ### Replace Temp with Query ###
+
 ### Change Function ###
+
+
 
 
 ## Code smells ##
 
 Indicadores de que el diseño no es correcto y habría que refactorizar.
 
-
+DRY
 
 ## Ejemplo completo ##
 
