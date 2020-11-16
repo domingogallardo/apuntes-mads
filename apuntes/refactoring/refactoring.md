@@ -162,6 +162,10 @@ en Java.
 
 ### Extract Method ###
 
+En la refactorización _Extraer método_ se encapsula un conjunto de
+código en una función y se reemplaza ese código por una llamada a la
+nueva función.
+
 **Código inicial**
 
 ```java
@@ -232,9 +236,11 @@ double getOutstanding(double initialValue) {
 
 ### Move Method ###
 
-> Create a new method with a similar body in the class it uses
-> most. Either turn the old method into a simple delegation, or remove
-> it altogether.
+La refactorización _Mover método_ consiste en crear un nuevo método
+con un cuerpo similar en la clase que lo usa más. El método antiguo
+podemos transformarlo en una delegación, manteniendo sin cambios el
+código llamador, o eliminarlo y sustituir el código llamador por una
+llamada al nuevo método.
 
 **Código inicial**
 
@@ -290,11 +296,190 @@ public class AccountType {
 ```
 
 
-
 ### Replace Temp with Query ###
 
-### Change Function ###
+En la refactorización _Reemplazar variable temporal por invocación_ se
+sustituye el uso de una variable por una llamada a un método.
 
+**Código inicial**
+
+```java
+    double basePrice = _quantity * _itemPrice;
+    if (basePrice > 1000)
+        return basePrice * 0.95;
+    else
+        return basePrice * 0.98;
+```
+
+**Código refactorizado**
+
+```java
+    if (basePrice() > 1000)
+        return basePrice() * 0.95;
+    else
+        return basePrice() * 0.98;
+...
+  double basePrice() {
+      return _quantity * _itemPrice;
+  }
+```
+
+Otro ejemplo
+
+**Código inicial**
+
+```java
+double getPrice() {
+    int basePrice = quantity * itemPrice;
+    double discountFactor;
+    if (basePrice > 1000) discountFactor = 0.95;
+    else discountFactor = 0.98;
+    return basePrice * discountFactor;
+}
+```
+
+**Paso 1**
+
+```java
+double getPrice() {
+    double discountFactor;
+    if (basePrice() > 1000) discountFactor = 0.95;
+    else discountFactor = 0.98;
+    return basePrice() * discountFactor;
+}
+
+private int basePrice() {
+    return quantity * itemPrice;
+}
+```
+
+**Paso 2**
+
+```java
+double getPrice() {
+    double discountFactor = discountFactor()
+    return basePrice() * discountFactor;
+}
+
+private int basePrice() {
+    return quantity * itemPrice;
+}
+
+private double discountFactor() {
+    if (basePrice() > 1000) return 0.95;
+    else return 0.98;
+}
+```
+
+
+
+**Código refactorizado (Paso 3)**
+
+```java
+double getPrice() {
+    return basePrice() * discountFactor();
+}
+
+private int basePrice() {
+    return quantity * itemPrice;
+}
+
+private double discountFactor() {
+    if (basePrice() > 1000) return 0.95;
+    else return 0.98;
+}
+```
+
+
+### Parameterize Function ###
+
+La refactorización _Parametrizar función_ permite unificar varias
+funciones o métodos que tienen una lógica similar en una única función
+o método añadiendo algún parámetro adicional.
+
+Un ejemplo muy sencillo:
+
+**Código inicial**
+
+```java
+public class Employee {
+    void tenPercentRise() {
+        salary *= 1.1;
+    }
+    
+    void fivePercentRise() {
+        salary *= 1.05;
+    }
+}
+
+    ...
+    employee.tenPercentRise();
+    otherEmployee.fivePercentRise();
+    ...
+```
+
+
+**Código refactorizado**
+
+```java
+public class Employee {
+    void raisePercentage(double percentage) {
+        salary *= (1 + (percentage / 100));
+    }
+}
+
+    ...
+    employee.raisePercentage(10);
+    otherEmployee.raisePercentage(5);
+    ...
+```
+
+
+Otro ejemplo:
+
+**Código inicial**
+
+```java
+public class Book {
+    ...
+    public void addReservation(Customer customer) {
+        this.reservations.push(customer);
+    }
+    
+    public void addReservationWithPriority(Customer customer) {
+        this.priorityReservations.push(customer);
+    }
+}
+
+    ...
+    book.addReservation(aCustomer);
+    ...
+    // cliente prioritario
+    book.addReservationWithPriority(prioritaryCustomer);
+    ...
+```
+
+**Código refactorizado**
+
+```java
+public class Book {
+    ...
+    public void addReservation(Customer customer, boolean priority) {
+        if (priority) {
+            this.priorityRservations.push(customer);
+        } else {
+            this.reservations.push(customer);
+        }
+    }
+}
+
+    ...
+    book.addReservation(aCustomer, false);
+    ...
+    // cliente prioritario
+    book.addReservation(prioritaryCustomer, true);
+    ...
+```
 
 
 
