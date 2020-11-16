@@ -485,9 +485,50 @@ public class Book {
 
 ## Code smells ##
 
-Indicadores de que el diseño no es correcto y habría que refactorizar.
+En el contexto del refactoring se habla de _bad [code
+smells](https://en.wikipedia.org/wiki/Code_smell)_ (malos olores en el
+código) para referirse a indicaciones de que hay problemas en el
+diseño del código y que podría ser necesario introducir una
+refactorización en ese punto. 
+
+En general estas indicaciones van desde problemas relativamente
+sencillos y frecuentes como nombres incorrectos, código repetido,
+funciones y métodos demasiado largos, etc. hasta problemas más
+complejos relacionados con el incumplimiento de alguno de los
+principios SOLID.
+
+### Lista de indicadores de mal diseño ###
+
+En el libro de Fowler se realiza un listado de estos indicadores de
+mal diseño (_bad code smells_) y una explicación de qué
+refactorizaciones podrían ser más adecuadas para corregir el mal
+diseño, en el caso en que lo hubiera. Listamos a continuación los más
+importantes, en el orden y con el nombre que aparecen en la segunda
+edición.
+
+#### Mysterious Name ####
+
+#### Duplicate Code ####
 
 DRY
+
+#### Long Function ####
+
+#### Long Parameter List ####
+
+#### Global Data ####
+
+#### Mutable Data ####
+
+#### Message Chains ####
+
+#### Middle Man ####
+
+#### Large Class ####
+
+#### Refused Bequest ####
+
+_Legado rechazado_
 
 ## Ejemplo completo ##
 
