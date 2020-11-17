@@ -298,21 +298,26 @@ completo con todas las opciones de refactorización de IntellJ se
 encuentra en [este
 enlace](https://www.jetbrains.com/help/idea/refactoring-source-code.html).
 
-## Ejemplos de refactorizaciones ##
+## Listado de refactorizaciones ##
 
 En la primera edición del libro de Martin Fowler se presentan 72
 refactorizaciones. En la segunda quedan reducidas a 61. Es una lista
-amplia que recoge la mayoría de patrones más usados.
+amplia que recopila y da nombre a la mayoría de patrones más
+usados. La lista completa la puedes consultar en la web de Fowler
+[refactoring.com](https://refactoring.com/catalog/).
+
+En la siguiente imagen se muestra el listado de las 61
+refactorizaciones (lo que aparece entre paréntesis es la página del
+libro en la que se explica esa refactorización):
 
 <img src="imagenes/list-refactorings.png" width="600px"/>
 
-Obviamente, son demasiados para verlos en una clase. Veremos sólo
-cuatro, con el objeto de tener una idea de cómo se plantean. La lista
-completa también la puedes consultar en la web de Fowler
-[refactoring.com](https://refactoring.com/catalog/). 
+Obviamente, son demasiadas para verlas en clase. Pero sí que podemos
+repasar cuatro de ellas, con el objetivo de estudiar la técnica en más
+profundidad, estudiando ejemplos concretos de su uso.
 
-La segunda edición del libro está escrito en el lenguaje
-JavaScript. Utilizaremos los ejemplos de la primera edición, escritos
+Aunque la segunda edición del libro está escrito en el lenguaje
+JavaScript, utilizaremos los ejemplos de la primera edición, escritos
 en Java.
 
 ### Extract Method ###
@@ -320,6 +325,25 @@ en Java.
 En la refactorización `Extraer método` se encapsula un conjunto de
 código en una función y se reemplaza ese código por una llamada a la
 nueva función.
+
+Esta refactorización hace que el código sea mucho más comprensible y
+reduce el tamaño del método o función de la que se extrae el
+código. Un principio fundamental del buen diseño es el uso de métodos
+y funciones muy cortos.
+
+> He desarrollado el hábito de escribir funciones muy cortas,
+> típicamente de sólo unas pocas líneas de código. Para mi, cualquier
+> función con más de media docena de líneas empieza a oler, y tengo
+> bastantes funciones con una única línea de código.
+>
+> Martin Fowler, Refactoring
+
+Una indicación de que esta refactorización es necesaria suele ser la
+utilización de comentarios para explicar qué hace el código a
+continuación. Podemos coger ese código, extraerlo a un método y
+ponerle al método el nombre del comentario.
+
+#### Ejemplo 1 ####
 
 **Código inicial**
 
@@ -332,6 +356,9 @@ void printOwing(double amount) {
     System.out.println ("amount" + amount);
 }
 ```
+
+El comentario `print details` nos da una pista de que podemos extraer
+las dos líneas siguientes en un método.
 
 **Código refactorizado**
 
@@ -347,7 +374,10 @@ void printDetails (double amount) {
 }
 ```
 
-Un ejemplo algo más complicado:
+#### Ejemplo 2 ####
+
+Veamos ahora un ejemplo algo más complicado, en el que el código
+extraído usa una variable que hay que pasar como parámetro.
 
 **Código inicial**
 
@@ -368,6 +398,16 @@ void printOwing(double previousAmount) {
     printDetails(outstanding);
 }
 ```
+
+El código anterior recibe un parámetro `double previousAmount`,
+imprime una cabecera, después realiza el cálculo de la cuenta, que
+guarda en la variable `double outstanding` y, por último, imprime la
+cantidad calculada.
+
+Podemos extraer el código del cálculo de la cuenta en un
+método. Como el método usa un valor inicial, podemos pasar este valor
+inicial por parámetro.
+
 
 **Código refactorizado**
 
@@ -391,11 +431,24 @@ double getOutstanding(double initialValue) {
 
 ### Move Method ###
 
-La refactorización `Mover método` consiste en crear un nuevo método
-con un cuerpo similar en la clase que lo usa más. El método antiguo
+La refactorización `Mover método` consiste, como su nombre indica, en
+mover un método de una clase a otra. El método antiguo
 podemos transformarlo en una delegación, manteniendo sin cambios el
 código llamador, o eliminarlo y sustituir el código llamador por una
 llamada al nuevo método.
+
+Esta refactorización se utiliza cuando nos damos cuenta de que el
+método está más relacionado con otra clase y que mejoramos la
+modularidad del programa realizando el cambio. Para conseguir una
+buena modularidad debemos agrupar métodos y atributos que estén
+relacionados y que cambien al mismo tiempo. Cuando haya
+que hacer un cambio no habrá que tocar distintas clases, sino que
+limitaremos el alcance de los cambios el máximo posible.
+
+#### Ejemplo ####
+
+Tenemos el método `overdraftCharge()` que calcula un cargo en función
+del tipo de cuenta.
 
 **Código inicial**
 
@@ -420,6 +473,10 @@ public class Account {
     }
 }
 ```
+
+Podemos mover el método `overdraftCharge()` a la clase `AccountType` y
+mantener el método `overdraftCharge()` en `Account` que realiza una
+llamada el método trasladado.
 
 **Código refactorizado**
 
@@ -453,8 +510,28 @@ public class AccountType {
 
 ### Replace Temp with Query ###
 
-En la refactorización `Reemplazar variable temporal por invocación` se
-sustituye el uso de una variable por una llamada a un método.
+En la refactorización `Reemplazar variable auxiliar por invocación` se
+sustituye el uso de una variable auxiliar por una llamada a un método.
+
+Las variables auxiliares permiten capturar el valor de algún código
+para usarlo posteriormente. El uso de una variable auxiliar permite
+referirnos a su valor al tiempo que lo explicamos (con el nombre de la
+variable) y también evitamos repetir el código que lo calcula.
+
+Sin embargo, a veces es mejor sustituir el uso de estas variables por
+llamadas a un método que realizan el cálculo y devuelven el
+valor. Esto nos permite encapsular este cálculo y evitar
+duplicaciones.
+
+Esta refactorización (al igual que `Extract Method`) funciona bien
+cuando estamos dentro de una clase, ya que la clase proporciona el
+contexto del que el nuevo método puede obtener los atributos y no es
+necesario añadir demasiados parámetros.
+
+#### Ejemplo 1 ####
+
+En el siguiente código usamos varias veces la variable auxiliar
+`basePrice`.
 
 **Código inicial**
 
@@ -465,6 +542,12 @@ sustituye el uso de una variable por una llamada a un método.
     else
         return basePrice * 0.98;
 ```
+
+Si aplicamos la refactorización definimos el valor de `basePrice` en
+un método y usamos una invocación a ese método en el código
+principal. El código queda mucho más claro, porque encapsulamos el
+cálculo del precio base y no se mezcla ese cálculo con la decisión de
+hacer el descuento.
 
 **Código refactorizado**
 
@@ -479,7 +562,10 @@ sustituye el uso de una variable por una llamada a un método.
   }
 ```
 
-Otro ejemplo
+#### Ejemplo 2 ####
+
+Vamos a complicar un poco más el ejemplo anterior, añadiendo otra
+variable auxiliar `discountFactor`.
 
 **Código inicial**
 
@@ -495,6 +581,10 @@ double getPrice() {
 
 **Paso 1**
 
+Empezamos haciendo la misma refactorización que en el ejemplo 1 y
+sustituimos la variable auxiliar `basePrice` por una llamada al método
+`basePrice()`. 
+
 ```java
 double getPrice() {
     double discountFactor;
@@ -509,6 +599,9 @@ private int basePrice() {
 ```
 
 **Paso 2**
+
+Ahora aplicamos `Extract Method` y realizamos el cálculo del descuento
+en el método `discountFactor()`:
 
 ```java
 double getPrice() {
@@ -527,8 +620,12 @@ private double discountFactor() {
 ```
 
 
-
 **Código refactorizado (Paso 3)**
+
+Por último aplicamos la refactorización `Inline Variable` (no la hemos
+comentado aquí) y eliminamos el uso de la variable `discountFactor`,
+sustituyéndola por la invocación al método:
+
 
 ```java
 double getPrice() {
@@ -546,13 +643,36 @@ private double discountFactor() {
 ```
 
 
+
+
 ### Parameterize Function ###
 
 La refactorización `Parametrizar función` permite unificar varias
 funciones o métodos que tienen una lógica similar en una única función
 o método añadiendo algún parámetro adicional.
 
-Un ejemplo muy sencillo:
+Los parámetros de una función definen cómo esa función encaja en el
+resto del mundo. Los parámetros definen quiénes van a poder usar la
+función. Si tenemos una función que formatea el número de teléfono de
+una persona, y esa función toma como argumento a una persona, entonces
+no podré usarla para formatear el número de teléfono de una
+empresa. Sin embargo, si cambiamos el parámetro persona por propio número
+de teléfono, el código de formateo va a poder ser usado desde más
+sitios. 
+
+Además, al escoger un parámetro más concreto, puedo mejorar la
+modularidad porque puedo mover la función a un sitio en el que no se
+necesite saber nada de personas, sólo de formateo.
+
+En el caso de la técnica de `parametrizar función` la decisión de qué
+parámetro usar no es difícil de tomar porque viene dada directamente
+por los distintos ejemplos del código que queremos parametrizar.
+
+#### Ejemplo 1 ####
+
+Empezamos por un ejemplo muy sencillo, en el que tenemos dos métodos
+que cambian el salario de un empleado, uno subiéndolo un 10% y otro un
+5%. 
 
 **Código inicial**
 
@@ -573,6 +693,8 @@ public class Employee {
     ...
 ```
 
+La refactorización es bastante sencilla: definimos un método con un
+parámetro que define el porcentaje de subida del sueldo.
 
 **Código refactorizado**
 
@@ -590,7 +712,11 @@ public class Employee {
 ```
 
 
-Otro ejemplo:
+#### Ejemplo 2 ####
+
+En este segundo ejemplo tenemos dos métodos que hacen una reserva de
+un libro. El primero una reserva normal y el segundo una reserva
+prioritaria.
 
 **Código inicial**
 
@@ -613,6 +739,10 @@ public class Book {
     book.addReservationWithPriority(prioritaryCustomer);
     ...
 ```
+
+En el método refactorizado incorporamos el parámetro booleano
+`priority` que puede ser `true` o `false`:
+
 
 **Código refactorizado**
 
