@@ -2,7 +2,9 @@
 
 Una refactorización (_refactoring_ en inglés) de un programa consiste
 en la realización de una transformación de su código fuente sin
-cambiar su funcionamiento.
+cambiar su funcionamiento. A diferencia de un cambio del código en el
+que se añaden o modifican sus funcionalidades, en una refactorización
+únicamente se modifica la _estructura_ del programa.
 
 Por ejemplo, cuando cambiamos el nombre de un método y cambiamos el
 nombre de todas las invocaciones a ese método estamos haciendo un
@@ -46,7 +48,7 @@ El comportamiento del programa no ha cambiado en absoluto. Pero hemos
 modificado su diseño y lo hemos hecho más comprensible. Hemos cambiado
 el nombre genérico de `calcular(int number)` por el nombre mucho más
 concreto e informativo de `obtenerCargo(int diasDeAlquiler)`. Ahora
-está mucho más claro qué hace ese método.
+está mucho más claro qué hace ese método únicamente leyendo su nombre.
 
 En esta sesión vamos a ver brevemente la historia de las técnicas de
 refactoring, una pequeña lista de técnicas concretas, los denominados
