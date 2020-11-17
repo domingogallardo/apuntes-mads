@@ -237,14 +237,37 @@ programación.
 
 Pero sí que podemos trazar el origen de la idea de usar la
 refactorización como un elemento fundamental del proceso de diseño de
-software. 
+software. Ward Cunningham y Kent Beck, que trabajaban en los 80 con
+Smalltalk (uno de los primeros lenguajes orientados a objetos),
+exploraron en el entorno de desarrollo de Smalltalk ideas como las de
+patrones de diseño, testing y refactorización. Estas ideas dieron
+lugar al desarrollo de Extreme Programming  por parte de Kent Beck. En
+la práctica de estas ideas se dieron cuenta de que la refactorización
+era una de las prácticas más importante en la mejora de su
+productividad. 
 
+La comunidad de Smalltalk adoptó rápidamente las técnicas de
+refactorización debido a que varias de estas técnicas se incluyeron en
+el entorno de desarrollo (una de las características de Smalltalk es
+que junto con el lenguaje se acompaña un entorno de desarrollo nativo,
+escrito en el propio Smalltalk).
 
-El libro de Martin Fowler contiene una colección de patrones de
-refactorización.
+En los años 90, con la popularización de XP y de TDD, la idea de
+refactorizar el código fue ganando interés entre distintas comunidades
+de desarrollo y programadores de distintos lenguajes de
+programación.
 
-Como ya sabes, la refactorización es una parte fundamental de la
-técnica de TDD.
+Y a finales de los 90 Martin Fowler publicó el libro fundacional
+`Refactoring`. Utilizando Java como lenguaje de ejemplo, en él se
+formaliza la idea de la refactorización y se proporcionan un enorme
+número de ejemplos y patrones de refactorización, dándoles nombre y
+categorizándolos. El libro se hizo muy popular y toda la industria
+adoptó rápidamente sus ideas. La refactorización se introdujo también
+a partir de entonces en muchas herramientas y entornos de
+programación, sobre todo de Java.
+
+Hoy en día la refactorización se ha convertido en una práctica común
+en el desarrollo de software.
 
 ### Refactorización en los IDEs ###
 
