@@ -258,7 +258,7 @@ de desarrollo y programadores de distintos lenguajes de
 programación.
 
 Y a finales de los 90 Martin Fowler publicó el libro fundacional
-`Refactoring`. Utilizando Java como lenguaje de ejemplo, en él se
+_Refactoring_. Utilizando Java como lenguaje de ejemplo, en él se
 formaliza la idea de la refactorización y se proporcionan un enorme
 número de ejemplos y patrones de refactorización, dándoles nombre y
 categorizándolos. El libro se hizo muy popular y toda la industria
@@ -270,6 +270,8 @@ Hoy en día la refactorización se ha convertido en una práctica común
 en el desarrollo de software.
 
 ### Refactorización en los IDEs ###
+
+<img src="imagenes/refactoring-intellij.png" widht="200px"/>
 
 Aunque veremos que no es complicado realizar las refactorizaciones
 manualmente, es posible usar las acciones de refactorización de los
@@ -283,14 +285,18 @@ método o función y no limitarse a hacer una mera substitución y
 reemplazo de un texto por otro.
 
 Entre los IDEs más avanzados en capacidades de refactorización se
-encuentra IntelliJ. Podemos ver una introducción a sus capacidades de
-refactorización en el tutorial [Introduction to
+encuentra IntelliJ. En la imagen de la derecha mostramos la cantidad
+de opciones que tiene el menú `Refactoring`.
+
+Podemos ver una introducción a las capacidades de refactorización de
+IntelliJ en el tutorial [Introduction to
 refactoring﻿](https://www.jetbrains.com/help/idea/tutorial-introduction-to-refactoring.html). Y
 también en bastantes vídeos del canal de IntellJ, como por ejemplo
 [Extract Refactorings in
 Action](https://www.youtube.com/watch?v=UYrhNG9bRng&t=6s). El manual
 completo con todas las opciones de refactorización de IntellJ se
-encuentra en [este enlace](https://www.jetbrains.com/help/idea/refactoring-source-code.html).
+encuentra en [este
+enlace](https://www.jetbrains.com/help/idea/refactoring-source-code.html).
 
 ## Ejemplos de refactorizaciones ##
 
