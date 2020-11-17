@@ -271,7 +271,7 @@ en el desarrollo de software.
 
 ### Refactorización en los IDEs ###
 
-<img src="imagenes/refactoring-intellij.png" widht="200px"/>
+<img src="imagenes/refactoring-intellij.png" width="200px" align="right"/>
 
 Aunque veremos que no es complicado realizar las refactorizaciones
 manualmente, es posible usar las acciones de refactorización de los
