@@ -269,9 +269,9 @@ programación, sobre todo de Java.
 Hoy en día la refactorización se ha convertido en una práctica común
 en el desarrollo de software.
 
-### Refactorización en los IDEs ###
-
 <img src="imagenes/refactoring-intellij.png" width="200px" align="right"/>
+
+### Refactorización en los IDEs ###
 
 Aunque veremos que no es complicado realizar las refactorizaciones
 manualmente, es posible usar las acciones de refactorización de los
