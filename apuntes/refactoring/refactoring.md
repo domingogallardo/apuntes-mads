@@ -9,8 +9,8 @@ nombre de todas las invocaciones a ese método estamos haciendo un
 ejemplo concreto de la refactorización _Change Function
 Declaration_. 
 
-Por ejemplo, el método de la siguiente clase `Movie` es muy poco
-descriptivo.
+Es el caso del ejemplo siguiente. El método `compute` de la siguiente
+clase `Movie` es muy poco descriptivo.
 
 
 ```java
@@ -44,9 +44,9 @@ public class Movie {
 
 El comportamiento del programa no ha cambiado en absoluto. Pero hemos
 modificado su diseño y lo hemos hecho más comprensible. Hemos cambiado
-el nombre genérico de _calcular(int number)_ por el nombre mucho más concreto e
-informativo de _obtenerCargo(int diasDeAlquiler)_. Ahora está mucho
-más claro qué hace ese método.
+el nombre genérico de `calcular(int number)` por el nombre mucho más
+concreto e informativo de `obtenerCargo(int diasDeAlquiler)`. Ahora
+está mucho más claro qué hace ese método.
 
 En esta sesión vamos a ver brevemente la historia de las técnicas de
 refactoring, una pequeña lista de técnicas concretas, los denominados
@@ -54,10 +54,11 @@ _code smells_ que nos indican cuándo es posible que necesitemos
 aplicar alguna refactorización y terminaremos con un ejemplo completo
 de refactorización de código aplicando distintas técnicas completas.
 
-<img src="imagenes/refactoring.png" width="600px"/>
-
 Este tema está basado en la primera y segunda edición del libro
 _Refactoring_ de  Martin Fowler (ver el apartado de Referencias).
+
+<img src="imagenes/refactoring.png" width="600px"/>
+
 
 ## Introducción ##
 
@@ -68,26 +69,32 @@ del programa.
 
 En palabras de Martin Fowler:
 
-> "Refactoring es el proceso de cambiar un sistema de software de
-> una forma que no se altera el comportamiento externo del código,
-> pero sí que se mejor su estructura interna. Es una forma
-> disciplinada de limpiar el código que minimiza las posibilidades de
-> introducir nuevos bugs. En esencia, cuando realizas una
-> refactorización, mejoras el diseño del código después de haberlo
-> escrito.
+> Refactoring es el proceso de cambiar un sistema de software de una
+> forma que no se altera el comportamiento externo del código, pero sí
+> que se mejora su estructura interna. Es una forma disciplinada de
+> limpiar el código que minimiza las posibilidades de introducir
+> nuevos bugs. En esencia, cuando realizas una refactorización,
+> mejoras el diseño del código después de haberlo escrito.
+>
+> Martin Fowler (2019), Refactoring
+
 
 La idea de mejorar el diseño mediante la realización de
 refactorizaciones es una idea muy importante. Ya la vimos en
-TDD. Tradicionalmente, en las metodologías clásicas de cascada o otras
-basadas en enfoques predictivos, el diseño se hace siempre al
-principio, antes de empezar a desarrollar el código.
+TDD. Tiene un impacto directo en la forma de enfrentarse al diseño del
+software. 
 
-En metodologías como XP, TDD o _software craftmanship_ el diseño del
-software es algo que estamos mejorando continuamente. No se sobre
-diseña, sino que diseñamos sólo para lo que necesita el programa
+Tradicionalmente, en las metodologías clásicas de cascada o otras
+basadas en enfoques predictivos, el diseño se hace siempre al
+principio, antes de empezar a desarrollar el código. Sin embargo, en
+metodologías como XP, TDD o _software craftmanship_ el diseño del
+software es algo que estamos mejorando continuamente. No se
+sobre-diseña, sino que diseñamos sólo para lo que necesita el programa
 actual. Conforme vamos escribiendo más código, añadiendo nuevas
 funcionalidades, vamos también realizando rediseño mediante
 refactorizaciones del código.
+
+### Tests ###
 
 Hemos comentado que la refactorización no debe modificar el
 comportamiento del código. ¿Cómo podemos garantizar que el
@@ -96,10 +103,64 @@ refactorización? La forma más habitual es mediante una batería de
 tests que prueba el código que se refactoriza. Basta con comprobar,
 una vez hecha la refactorización, que los tests siguen pasando.
 
+En el libro de Michael Feathers [_Working Effectively with Legacy
+Code_](https://learning.oreilly.com/library/view/working-effectively-with/0131177052/)
+se explica claramente el importante papel de los tests antes de hacer
+una refactorización. Para asegurar que la refactorización no rompe
+nada Feathers aconseja realizar antes de cualquier refactorización una
+serie de tests sobre el código que se va a refactorizar que actúen de
+red de seguridad frente a los cambios.
+
+> La acción de mejorar el diseño [del código] sin cambiar su conducta
+> se denomina refactorización. La idea tras la refactorización es que
+> podemos hacer el software más mantenible sin cambiar su conducta si
+> escribimos tes para asegurarnos de que la conducta existente no
+> cambia y realizamos pequeños cambios para verificarlo todo a lo
+> largo del proceso.
+>
+> Michael Feathers (2004), Working Effectively with Legacy Code
+
+Lo que nos lleva a la idea de los pequeños pasos.
+
+### Pequeños pasos ###
+
+Cuando empezamos a refactorizar un código es fácil empezar a pasar de
+un cambio a otro de una forma descontrolada. Vemos una oportunidad de
+cambio y la refactorizamos. Seguimos escarbando en el código y seguimos
+encontrando cosas que cambiar. Refactorizamos más cosas y seguimos
+escarbando más profundamente. Cuanto más dentro nos metemos, más
+cambios hacemos. Y al final terminamos metidos en un hoyo del que es
+muy difícil salir.
+
+Si refactorizamos el código de forma descontrolada podemos terminar
+introduciendo bugs sutiles que nos hagan retrasar el proyecto días o
+incluso semanas. Por eso es fundamental realizar la refactorización de
+forma sistemática y controlada.
+
 Es conveniente que la refactorización se realice mediante pasos
 pequeños. Una refactorización grande se puede subdividir en
 refactorizaciones más elementales. El hecho de hacer pasos pequeños
-hace más difícil introducir bugs.
+hace más difícil introducir bugs. La técnica de hacer
+refactorizaciones pequeñas y seguras está tomada de la idea de Kent
+Beck de pequeños pasos. Aunque a veces puede parecer que los pasos son
+demasiados pequeños, es una forma de obligarse a ser disciplinado y
+saber que no se van a introducir bugs mientras se hace la
+refactorización.
+
+Veamos un ejemplo. Supongamos el siguiente código que calcula el
+precio de un pedido:
+
+```java
+double price() {
+    // price is base price - quantity discount + shipping
+    return _quantity * _itemPrice -
+        Math.max(0, _quantity - 500) * _itemPrice * 0.05 +
+        Math.min(_quantity * _itemPrice * 0.1, 100.0);
+}
+```
+
+La expresión es complicada y difícil de entender. Podemos aplicar
+varias veces la refactorización `Extract Method`.
 
 
 ### Orígenes de las técnicas de refactorización ###
