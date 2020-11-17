@@ -770,7 +770,7 @@ public class Book {
 
 ## Code smells ##
 
-En el contexto del refactoring se habla de _bad [code
+En el contexto del refactoring se habla de _[bad code
 smells](https://en.wikipedia.org/wiki/Code_smell)_ (malos olores en el
 código) para referirse a indicaciones de que hay problemas en el
 diseño del código y que podría ser necesario introducir una
@@ -790,6 +790,14 @@ refactorizaciones podrían ser más adecuadas para corregir el mal
 diseño, en el caso en que lo hubiera. Listamos a continuación los más
 importantes, en el orden y con el nombre que aparecen en la segunda
 edición.
+
+|---------------------|-----------------|
+| Mysterious Name     | Mutable Data    |
+| Duplicate Code      | Message Chains  |
+| Long Function       | Middle Man      |
+| Long Parameter List | Large Class     |
+| Global Data         | Refused Bequest |
+
 
 #### Mysterious Name ####
 
@@ -814,6 +822,8 @@ DRY
 #### Refused Bequest ####
 
 _Legado rechazado_
+
+
 
 ## Ejemplo completo ##
 
