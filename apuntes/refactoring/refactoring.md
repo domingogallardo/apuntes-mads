@@ -791,6 +791,7 @@ diseño, en el caso en que lo hubiera. Listamos a continuación los más
 importantes, en el orden y con el nombre que aparecen en la segunda
 edición.
 
+|                     |                 |
 |---------------------|-----------------|
 | Mysterious Name     | Mutable Data    |
 | Duplicate Code      | Message Chains  |
