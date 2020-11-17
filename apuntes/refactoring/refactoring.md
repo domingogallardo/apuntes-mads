@@ -782,65 +782,113 @@ funciones y métodos demasiado largos, etc. hasta problemas más
 complejos relacionados con el incumplimiento de alguno de los
 principios SOLID.
 
-### Lista de indicadores de mal diseño ###
+### Ejemplos de indicadores de mal diseño ###
 
 En el libro de Fowler se realiza un listado de estos indicadores de
 mal diseño (_bad code smells_) y una explicación de qué
 refactorizaciones podrían ser más adecuadas para corregir el mal
-diseño, en el caso en que lo hubiera. Listamos a continuación los más
-importantes, en el orden y con el nombre que aparecen en la segunda
-edición.
+diseño, en el caso en que lo hubiera. 
 
-- Mysterious Name (Nombre misterioso)
-- Duplicate Code (Código duplicado)
-- Long Function (Función larga)
-- Long Parameter List (Lista de parámetros larga)
-- Global Data (Datos globales)
-- Mutable Data (Datos mutables)
-- Message Chains (Cadenas de mensajes)
-- Middle Man (Intermediario)
-- Large Class (Clase grande)
-- Refused Bequest (Legado rechazado)
+En el libro de Fowler se listan 24 indicadores y, para cada uno de
+ellos, se proporciona una explicación y una lista de las
+refactorizaciones más apropiadas para corregir el diseño.
 
-Y vamos a explicarlos brevemente.
+Como ejemplo, vamos a ver tres de los más comunes.
 
 #### Mysterious Name ####
 
+Cuando leemos el código deberíamos entender claramente todos los
+nombres que aparecen: funciones, clases, métodos, variables. Todos los
+elementos deben tener un nombre claro, bien pensado, que comunique sin
+ambigüedad qué es lo que hace y cómo lo podemos usar.
+
+Pero encontrar un nombre correcto para las cosas es uno de los
+problemas más difíciles en la programación. Por lo que muchas veces
+tendremos que aplicar alguna refactorización cuando encontremos un
+nombre mejor.
+
+Las refactorizaciones que se utilizan con más frecuencia para resolver
+este indicador son:
+
+- Change Function Declaration (Cambiar la declaración de la función)
+- Rename Variable (Renombrar variable)
+- Rename Field (Renombrar campo)
+
 #### Duplicate Code ####
 
-DRY
+Otro de los problemas de diseño más habituales es el del código
+repetido. En programación existe el dicho [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) (_Don't Repeat
+Yourself_) que se utiliza cada vez que se incumple el principio de que
+no debe haber conceptos repetidos en el código.
+
+La duplicación significa que cada vez que leemos la copia de lo que está
+repetido, tenemos que hacer el esfuerzo de comprobar cuidadosamente si
+hay alguna diferencia. Si necesitamos cambiar el código duplicado
+tendremos que hacer el cambio en dos sitios, con el consiguiente
+peligro de introducir un bug en alguno de los sitios.
+
+Frente al código duplicado podemos usar las refactorizaciones:
+
+- Extract Function (Extraer función)
+- Pull Up Method (Subir método) que sube a la clase padre métodos
+  repetidos de subclases.
 
 #### Long Function ####
 
-#### Long Parameter List ####
+Desde los primeros tiempo de la programación la gente se ha dado
+cuenta de que cuanto más larga es una función, más difícil es de
+entender.
 
-#### Global Data ####
+El código formado por funciones pequeñas, con nombres apropiados, es
+mucho más fácil de entender y, por tanto, de modificar.
 
-#### Mutable Data ####
+Una heurística que se suele seguir es que siempre que sintamos la
+necesidad de comentar algo debemos escribir una función. Esa función
+contendrá el código que queremos comentar pero tendrá el nombre de la
+intención del código (lo que queremos que el código haga) más que de
+la forma en la que el código trabaja.
 
-#### Message Chains ####
+Haremos esto incluso en los casos en que el código que vamos a extraer
+es una única línea de código. El nombre del método al que llamaremos
+definirá el propósito del código y se entenderá mucho mejor.
 
-#### Middle Man ####
+Las refactorizaciones que se utilizarán son:
 
-#### Large Class ####
-
-#### Refused Bequest ####
-
-_Legado rechazado_
-
-
+- Extract Function (Extraer función)
+- Replace Temp with Query (Reemplazar variable auxiliar con llamada)
+- Replace Function with Command (Reemplazar función con comando)
 
 ## Ejemplo completo ##
 
-Veamos un ejemplo completo  que usa alguna de las refactorizaciones
-presentadas anteriormente.
-
-Está sacado del libro de Martin Fowler _Refactoring_.
-
+Veamos por último a presentar un ejemplo completo de refactorización
+de código, el que Fowler presenta en la primera edición de _Refactoring_.
 
 ### Versión inicial ###
 
-DESCRIPCIÓN DEL NEGOCIO DE ALQUILER DE PELÍCULAS
+El ejemplo está un algo desfasado, porque tiene que ver con un negocio
+que ya ha desaparecido completamente, sepultado por el streaming de
+series y películas online: una aplicación de gestión de un videoclub.
+
+Por si no lo has conocido, un videoclub es un lugar en el que se
+alquilaban películas en formato físico (inicialmente VHS, después DVD
+y BlueRay). El cliente se llevaba una o varias películas durante un
+plazo de uno o varios días para verlas en su casa. Después debía
+devolverlas, pagando un recargo si lo hacía fuera de plazo.
+
+En el ejemplo que vemos a continuación, el precio de las películas
+varía en función de su categoría. El programa principal calcula y
+muestra la cuenta a cobrar a un cliente que ha alquilado una lista de
+películas. Además, el cliente acumula puntos de bonificación.
+
+El programa tiene tres clases principales:
+
+- `Movie`: clase que define una película, con un título de
+  película y un código de precio.
+- `Rental`: clase que define un alquiler, con la película y el número
+  de días alquilada.
+- `Customer`: clase que representa el cliente, con la lista de
+  alquileres que ha realizado y el cálculo de la cuenta.
+  
 
 **Clase Movie**
 
@@ -962,6 +1010,7 @@ class Customer {
 }
 ```
 
+Podemos ver un ejemplo de ejecución con la siguiente clase `Main`.
 
 **Clase Main**
 
@@ -987,8 +1036,7 @@ public class Main {
 }
 ```
 
-
-Salida de la ejecución:
+Si lanzamos el programa, se muestra la siguiente salida:
 
 ```
 Rental Record for domingogallardo
@@ -999,6 +1047,10 @@ Amount owed is 9.5
 You earned 4 frequent renter points
 ```
 
+En lugar de tener una batería de tests automatizados (sería lo ideal),
+esta vez vamos a comprobar que el código funciona correctamente
+lanzando el programa después de cada refactorización y comprobando que
+el resultado es el mismo.
 
 ### Refactorización para imprimir la cuenta en HTML ###
 
