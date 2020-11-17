@@ -6,8 +6,8 @@ cambiar su funcionamiento.
 
 Por ejemplo, cuando cambiamos el nombre de un método y cambiamos el
 nombre de todas las invocaciones a ese método estamos haciendo un
-ejemplo concreto de la refactorización _Change Function
-Declaration_. 
+ejemplo concreto de la refactorización `Change Function
+Declaration`. 
 
 Es el caso del ejemplo siguiente. El método `compute` de la siguiente
 clase `Movie` es muy poco descriptivo.
@@ -153,15 +153,78 @@ precio de un pedido:
 ```java
 double price() {
     // price is base price - quantity discount + shipping
-    return _quantity * _itemPrice -
-        Math.max(0, _quantity - 500) * _itemPrice * 0.05 +
-        Math.min(_quantity * _itemPrice * 0.1, 100.0);
+    return quantity * itemPrice -
+        Math.max(0, quantity - 500) * itemPrice * 0.05 +
+        Math.min(quantity * itemPrice * 0.1, 100.0);
 }
 ```
 
 La expresión es complicada y difícil de entender. Podemos aplicar
 varias veces la refactorización `Extract Method`.
 
+**Paso 1**
+
+En el primer paso extraemos un método para el precio base:
+
+```java
+double price() {
+    // price is base price - quantity discount + shipping
+    return basePrice() -
+        Math.max(0, quantity - 500) * itemPrice * 0.05 +
+        Math.min(basePrice() * 0.1, 100.0);
+}
+
+private double basePrice() {
+    return quantity * itemPrice;
+}
+```
+
+**Paso 2**
+
+En el segundo paso extraemos otro método para los gastos de envío:
+
+```java
+double price() {
+    // price is base price - quantity discount + shipping
+    return basePrice() -
+        Math.max(0, quantity - 500) * itemPrice * 0.05 +
+        shipping();
+}
+
+private double shipping() {
+    return Math.min(basePrice() * 0.1, 100.0);
+}
+
+private double basePrice() {
+    return quantity * itemPrice;
+}
+```
+
+
+**Paso 3**
+
+Y en el tercer paso extraemos el método para calcular el descuento:
+
+```java
+double price() {
+    return basePrice() - discount() + shipping();
+}
+
+private double discount() {
+    Math.max(0, quantity - 500) * itemPrice * 0.05
+}
+
+private double shipping() {
+    return Math.min(basePrice() * 0.1, 100.0);
+}
+
+private double basePrice() {
+    return quantity * itemPrice;
+}
+```
+
+Veremos varios ejemplos de esta técnica de los pasos pequeños a la
+hora de realizar refactorizaciones.
 
 ### Orígenes de las técnicas de refactorización ###
 
@@ -223,7 +286,7 @@ en Java.
 
 ### Extract Method ###
 
-En la refactorización _Extraer método_ se encapsula un conjunto de
+En la refactorización `Extraer método` se encapsula un conjunto de
 código en una función y se reemplaza ese código por una llamada a la
 nueva función.
 
@@ -234,7 +297,7 @@ void printOwing(double amount) {
     printBanner();
 
     //print details
-    System.out.println ("name:" + _name);
+    System.out.println ("name:" + name);
     System.out.println ("amount" + amount);
 }
 ```
@@ -248,7 +311,7 @@ void printOwing(double amount) {
 }
 
 void printDetails (double amount) {
-    System.out.println ("name:" + _name);
+    System.out.println ("name:" + name);
     System.out.println ("amount" + amount);
 }
 ```
@@ -260,7 +323,7 @@ Un ejemplo algo más complicado:
 ```java
 void printOwing(double previousAmount) {
 
-    Enumeration e = _orders.elements();
+    Enumeration e = orders.elements();
     double outstanding = previousAmount * 1.2;
 
     printBanner();
@@ -297,7 +360,7 @@ double getOutstanding(double initialValue) {
 
 ### Move Method ###
 
-La refactorización _Mover método_ consiste en crear un nuevo método
+La refactorización `Mover método` consiste en crear un nuevo método
 con un cuerpo similar en la clase que lo usa más. El método antiguo
 podemos transformarlo en una delegación, manteniendo sin cambios el
 código llamador, o eliminarlo y sustituir el código llamador por una
@@ -313,7 +376,7 @@ public class Account {
     double overdraftCharge() {
         if (type.isPremium()) {
              double result = 10;
-             if (daysOverdrawn > 7) result += (_daysOverdrawn - 7) * 0.85;
+             if (daysOverdrawn > 7) result += (daysOverdrawn - 7) * 0.85;
              return result;
         }
         else return daysOverdrawn * 1.75;
@@ -359,13 +422,13 @@ public class AccountType {
 
 ### Replace Temp with Query ###
 
-En la refactorización _Reemplazar variable temporal por invocación_ se
+En la refactorización `Reemplazar variable temporal por invocación` se
 sustituye el uso de una variable por una llamada a un método.
 
 **Código inicial**
 
 ```java
-    double basePrice = _quantity * _itemPrice;
+    double basePrice = quantity * itemPrice;
     if (basePrice > 1000)
         return basePrice * 0.95;
     else
@@ -381,7 +444,7 @@ sustituye el uso de una variable por una llamada a un método.
         return basePrice() * 0.98;
 ...
   double basePrice() {
-      return _quantity * _itemPrice;
+      return quantity * itemPrice;
   }
 ```
 
@@ -454,7 +517,7 @@ private double discountFactor() {
 
 ### Parameterize Function ###
 
-La refactorización _Parametrizar función_ permite unificar varias
+La refactorización `Parametrizar función` permite unificar varias
 funciones o métodos que tienen una lógica similar en una única función
 o método añadiendo algún parámetro adicional.
 
