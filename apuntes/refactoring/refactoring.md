@@ -791,14 +791,18 @@ diseño, en el caso en que lo hubiera. Listamos a continuación los más
 importantes, en el orden y con el nombre que aparecen en la segunda
 edición.
 
-| <!-- -->            | <!-- -->        |
-|---------------------|-----------------|
-| Mysterious Name     | Mutable Data    |
-| Duplicate Code      | Message Chains  |
-| Long Function       | Middle Man      |
-| Long Parameter List | Large Class     |
-| Global Data         | Refused Bequest |
+- Mysterious Name (Nombre misterioso)
+- Duplicate Code (Código duplicado)
+- Long Function (Función larga)
+- Long Parameter List (Lista de parámetros larga)
+- Global Data (Datos globales)
+- Mutable Data (Datos mutables)
+- Message Chains (Cadenas de mensajes)
+- Middle Man (Intermediario)
+- Large Class (Clase grande)
+- Refused Bequest (Legado rechazado)
 
+Y vamos a explicarlos brevemente.
 
 #### Mysterious Name ####
 
