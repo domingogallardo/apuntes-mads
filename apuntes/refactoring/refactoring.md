@@ -116,7 +116,7 @@ red de seguridad frente a los cambios.
 > La acción de mejorar el diseño [del código] sin cambiar su conducta
 > se denomina refactorización. La idea tras la refactorización es que
 > podemos hacer el software más mantenible sin cambiar su conducta si
-> escribimos tes para asegurarnos de que la conducta existente no
+> escribimos tets para asegurarnos de que la conducta existente no
 > cambia y realizamos pequeños cambios para verificarlo todo a lo
 > largo del proceso.
 >
