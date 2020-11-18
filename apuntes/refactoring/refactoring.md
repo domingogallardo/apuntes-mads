@@ -306,14 +306,14 @@ amplia que recopila y da nombre a la mayoría de patrones más
 usados. La lista completa la puedes consultar en la web de Fowler
 [refactoring.com](https://refactoring.com/catalog/).
 
-En la siguiente imagen se muestra el listado de las 61
+En la siguiente imagen se muestra el listado de estas
 refactorizaciones (lo que aparece entre paréntesis es la página del
 libro en la que se explica esa refactorización):
 
 <img src="imagenes/list-refactorings.png" width="600px"/>
 
 Obviamente, son demasiadas para verlas en clase. Pero sí que podemos
-repasar cuatro de ellas, con el objetivo de estudiar la técnica en más
+repasar alguna de ellas, con el objetivo de estudiar la técnica en más
 profundidad, estudiando ejemplos concretos de su uso.
 
 Aunque la segunda edición del libro está escrito en el lenguaje
@@ -438,7 +438,7 @@ código llamador, o eliminarlo y sustituir el código llamador por una
 llamada al nuevo método.
 
 Esta refactorización se utiliza cuando nos damos cuenta de que el
-método está más relacionado con otra clase y que mejoramos la
+método está más relacionado con otra clase y mejoramos la
 modularidad del programa realizando el cambio. Para conseguir una
 buena modularidad debemos agrupar métodos y atributos que estén
 relacionados y que cambien al mismo tiempo. Cuando haya
@@ -521,7 +521,44 @@ variable) y también evitamos repetir el código que lo calcula.
 Sin embargo, a veces es mejor sustituir el uso de estas variables por
 llamadas a un método que realizan el cálculo y devuelven el
 valor. Esto nos permite encapsular este cálculo y evitar
-duplicaciones.
+duplicaciones de código.
+
+A veces la sustitución de variables auxiliares por llamadas a métodos
+va a obligar a llamar varias veces al mismo método o función, haciendo
+un código que en apariencia es menos eficiente. Sin embargo, la
+mayoría de las veces el impacto en la eficiencia es mínimo, a no ser
+que la función a la que se llama tenga un coste no lineal y que se
+dispare el orden del coste total.
+
+<table><tr><td>
+
+**¿Código optimizado o código comprensible?**
+
+Muchas veces nos vemos tentados a hacer el código menos entendible en
+aras de una supuesta optimización. Existen programadores a los que les
+gusta hacer continuamente estas optimizaciones y conseguir arañar
+milisegundos de eficiencia. El problema es que el código resultante
+muchas veces es menos comprensible y modificable que el original. Si
+en algún momento hay que modificar ese código optimizado, tendremos
+primero que perder el tiempo para entender qué era lo que hacía y
+después tendremos casi seguramente que deshacer la optimización para
+introducir la modificación.
+
+Muchas supuestas optimizaciones que se realizan en el código resultan
+no siendo tales, porque se hace un trabajo redundante al que realiza
+el compilador o incluso se dificulta su funcionamiento. Los
+compiladores modernos son muy avanzados y el código que generan es un
+código altamente optimizado. No hagamos un trabajo que ya está
+haciendo el compilador.
+
+Mi consejo es que, en general, nunca debemos hacer el programa menos
+comprensible por el hecho de intentar hacerlo más eficiente. Sólo
+cuando hagamos un análisis de rendimiento y detectemos los verdaderos
+cuellos de botella del programa es cuando tendremos que centrarnos en
+optimizar su rendimiento. Pero sólo de aquel código responsable del
+cuello de botella.
+
+</table></tr></td>
 
 Esta refactorización (al igual que `Extract Method`) funciona bien
 cuando estamos dentro de una clase, ya que la clase proporciona el
@@ -787,15 +824,13 @@ principios SOLID.
 En el libro de Fowler se realiza un listado de estos indicadores de
 mal diseño (_bad code smells_) y una explicación de qué
 refactorizaciones podrían ser más adecuadas para corregir el mal
-diseño, en el caso en que lo hubiera. 
-
-En el libro de Fowler se listan 24 indicadores y, para cada uno de
-ellos, se proporciona una explicación y una lista de las
-refactorizaciones más apropiadas para corregir el diseño.
+diseño, en el caso en que lo hubiera.  Se listan 24 indicadores y,
+para cada uno de ellos, se proporciona una explicación y una lista de
+las refactorizaciones más apropiadas para corregir el diseño.
 
 Como ejemplo, vamos a ver tres de los más comunes.
 
-#### Mysterious Name ####
+#### Mysterious Name (Nombre misterioso)####
 
 Cuando leemos el código deberíamos entender claramente todos los
 nombres que aparecen: funciones, clases, métodos, variables. Todos los
@@ -814,7 +849,7 @@ este indicador son:
 - Rename Variable (Renombrar variable)
 - Rename Field (Renombrar campo)
 
-#### Duplicate Code ####
+#### Duplicate Code (Código duplicado) ####
 
 Otro de los problemas de diseño más habituales es el del código
 repetido. En programación existe el dicho [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) (_Don't Repeat
@@ -833,7 +868,7 @@ Frente al código duplicado podemos usar las refactorizaciones:
 - Pull Up Method (Subir método) que sube a la clase padre métodos
   repetidos de subclases.
 
-#### Long Function ####
+#### Long Function (Función larga) ####
 
 Desde los primeros tiempo de la programación la gente se ha dado
 cuenta de que cuanto más larga es una función, más difícil es de
@@ -1258,35 +1293,6 @@ método `getCharge()` tiene una complejidad temporal de `O(1)` y no
 afecta para nada a la eficiencia del programa llamarlo dos veces en
 lugar de una (aunque estemos dentro de un bucle).
 
-<table><tr><td>
-
-**¿Código optimizado o código comprensible?**
-
-Muchas veces nos vemos tentados a hacer el código menos entendible en
-aras de una supuesta optimización. Existen programadores a los que les
-gusta hacer continuamente estas optimizaciones y conseguir arañar
-milisegundos de eficiencia. El problema es que el código resultante
-muchas veces es menos comprensible y modificable que el original. Si
-en algún momento hay que modificar ese código optimizado, tendremos
-primero que perder el tiempo para entender qué era lo que hacía y
-después tendremos casi seguramente que deshacer la optimización para
-introducir la modificación.
-
-Muchas supuestas optimizaciones que se realizan en el código resultan
-no siendo tales, porque se hace un trabajo redundante al que realiza
-el compilador o incluso se dificulta su funcionamiento. Los
-compiladores modernos son muy avanzados y el código que generan es un
-código altamente optimizado. No hagamos un trabajo que ya está
-haciendo el compilador.
-
-Mi consejo es que, en general, nunca debemos hacer el programa menos
-comprensible por el hecho de intentar hacerlo más eficiente. Sólo
-cuando hagamos un análisis de rendimiento y detectemos los verdaderos
-cuellos de botella del programa es cuando tendremos que centrarnos en
-optimizar su rendimiento. Pero sólo de aquel código responsable del
-cuello de botella.
-
-</table></tr></td>
 
 
 #### Paso 6: Extract + Move Method ####
