@@ -898,6 +898,16 @@ Las refactorizaciones que se utilizarán son:
 Veamos por último a presentar un ejemplo completo de refactorización
 de código, el que Fowler presenta en la primera edición de _Refactoring_.
 
+El código está disponible en GitHub en el respositorio
+[domingogallardo/refactoring](https://github.com/domingogallardo/refactoring). Os
+recomiendo que lo descargues y que revises (o, mejor aún, realices)
+toda la refactorización. Tiene un commit por cada paso de
+refactorización. Recuerda que puedes ir a un commit concreto haciendo
+
+```
+git checkout numero-de-commit
+```
+
 ### Versión inicial ###
 
 El ejemplo está un algo desfasado, porque tiene que ver con un negocio
