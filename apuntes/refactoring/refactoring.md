@@ -830,7 +830,7 @@ las refactorizaciones más apropiadas para corregir el diseño.
 
 Como ejemplo, vamos a ver tres de los más comunes.
 
-#### Mysterious Name (Nombre misterioso)####
+#### Mysterious Name (Nombre misterioso) ####
 
 Cuando leemos el código deberíamos entender claramente todos los
 nombres que aparecen: funciones, clases, métodos, variables. Todos los
