@@ -899,7 +899,7 @@ Veamos por último a presentar un ejemplo completo de refactorización
 de código, el que Fowler presenta en la primera edición de _Refactoring_.
 
 El código está disponible en GitHub en el respositorio
-[domingogallardo/refactoring](https://github.com/domingogallardo/refactoring). Os
+[domingogallardo/refactoring](https://github.com/domingogallardo/refactoring). Te
 recomiendo que lo descargues y que revises (o, mejor aún, realices)
 toda la refactorización. Tiene un commit por cada paso de
 refactorización. Recuerda que puedes ir a un commit concreto haciendo
@@ -907,6 +907,10 @@ refactorización. Recuerda que puedes ir a un commit concreto haciendo
 ```
 git checkout numero-de-commit
 ```
+
+Puedes revisar también la [lista de
+commits](https://github.com/domingogallardo/refactoring/commits/main)
+en el propio repositorio. 
 
 ### Versión inicial ###
 
