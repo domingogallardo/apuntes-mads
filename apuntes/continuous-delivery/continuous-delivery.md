@@ -132,35 +132,151 @@ interesante adelantarla aquí. En la imagen se puede ver:
   de package (por ejemplo, realizada con Maven) generaría un fichero
   WAR que podríamos distribuir. También, si utilizamos Docker, en esta
   fase generaremos una máquina Docker que podremos distribuir.
-- **Despliegue** en distintos [entornos](https://en.wikipedia.org/wiki/Deployment_environment) de prueba y lanzamiento de pruebas
-  en los distintos entornos.
+- **Despliegue** en distintos
+  [entornos](https://en.wikipedia.org/wiki/Deployment_environment) de
+  prueba y lanzamiento de pruebas en los distintos entornos. Cada
+  entorno tiene su propia configuración, definida por variables de
+  entorno o parámetros de los comandos de puesta en marcha.
 - Despliegue en entorno de **_staging_** (réplica muy similar al entorno de
   producción).
 - Despliegue en entorno de **producción**.
 
-Cada entorno tiene su propia configuración, definida por variables de
-entorno o parámetros de los comandos de puesta en marcha.
+En el enfoque de entrega continua el proceso anterior está
+completamente automatizado y la puesta en producción se puede modular
+y realizar en el momento que nos interese pulsando únicamente un botón
+en cualquier momento. 
+
+Recordemos que la forma más tradicional de enfrentar el problema del
+lanzamiento es separar una rama de release de la rama de desarrollo.
+
+<img src="imagenes/release-branch.png" width="600px"/>
+
+Por ejemplo, en la imagen anterior se muestra la rama de release que
+se define en el flujo de trabajo GitFlow que hemos visto en el tema
+pasado. 
+
+Al separar la rama de release podemos seguir introduciendo cambios en
+la rama de desarrollo sin afectar para nada al release. En la rama de
+release se realiza toda la tubería de despliegue y se prueba en todos
+los entornos. Se introducen correcciones de pequeños bugs encontrados
+y se también se puede incluir algún commit escogido de la rama de
+desarrollo haciendo un `cherry-pick`. Finalmente, la última versión
+comprobada se pasa a producción y mezcla con la rama de releases y con
+la de desarrollo (en GitFlow).
+
+En el enfoque de lanzamiento continuo no existen ramas de release,
+sino que en cualquier commit de la rama principal es candidato a ser
+puesto en producción. 
+
+<img src="imagenes/continuous-delivery.png" width="600px"/>
+
 
 ## Integración continua ##
 
-where members of a team integrate their work
-frequently, usually each person integrates at least daily - leading to
-multiple integrations per day. Each integration is verified by an
-automated build (including test) to detect integration errors as
-quickly as possible. 
+La Integración continua es una práctica en la que los miembros del
+equipo integran su trabajo frecuentemente en el proyecto. Se trata de
+una práctica de XP en la que se recomienda que cada miembro integre
+sus cambios diariamente. Esto lleva a múltiples integraciones cada
+día. Cada integración es verificada por una compilación automática
+(_automated build_) en la que se lanzan todos los tests y se detectan
+errores lo más rápidamente posible.
 
+Esta práctica obliga a que todos los cambios realizados por los
+desarrolladores sean puestos en común continuamente, lo que promueve
+la compartición de conocimiento entre todos los miembros del
+equipo. Cuando una persona va a integrar sus cambios primero debe
+comprobar que éstos son compatibles con los cambios que ha habido en
+el proyecto. Como se integra diariamente, éstos no serán demasiados y
+si hay algún error será fácil de solucionar.
 
-La integración continua (_Continuous Integration_) consiste en
+Sin embargo, si se desarrolla una versión separada que tarda mucho en
+integrarse será muy posible que cuando se realice la integración
+surjan muchos problemas de más difícil solución.
 
+### Trunk based vs. feature branches ###
 
-- Una práctica de XP
-- Todos los desarrolladores deben de hacer commits en la línea de
-  desarrollo principal al menos una vez al día. Cada commit es
-  verificado y construido.
-- Esta práctica obliga a incrementos pequeños, a que todo el equipo
-  está obligado a conocer los cambios.
-  
-Testing automático.
+Uno de los debates frecuentes relacionados con los flujos de trabajo
+de Git es si es más conveniente un flujo de trabajo _trunk based_
+(basado en la rama principal) o uno con _feature branches_ (ramas de
+características).
+
+<img src="imagenes/trunk-feature.png" width="500px"/>
+
+La imagen anterior está también sacada de la charla de Eduardo
+Ferro. En ella se muestran los dos flujos de trabajo y se muestran
+parejas de desarrolladores porque están aplicando también _pair
+programming_.
+
+En el **flujo de desarrollo _trunk based_** todos los desarrolladores
+publican sus commits continuamente (al menos una vez al día) sobre la
+rama principal del proyecto. Esto obliga a mantenerse continuamente al
+día sobre los cambios que otros están introduciendo y a tener cuidado
+de que nuestros cambios vayan en la misma dirección.
+
+Entre las ventajas de esta técnica se encuentran:
+
+- La integración de un nuevo commit es fácil porque la rama principal
+  ha cambiado poco desde el commit anterior que integramos. No ha
+  habido demasiado tiempo para que el proyecto diverja mucho.
+- La transparencia en los cambios hace que se detecten antes los
+  error
+- El conocimiento del equipo evoluciona conjuntamente. Todo el mundo
+  tiene información actualizada a diario de los cambios que se van
+  introduciendo en el proyecto.
+- Obliga a dividir los cambios grandes en cambios pequeños que se van
+  integrando poco a poco. Esto obliga a hacer un mayor esfuerzo de
+  diseño y utilizar mejores arquitecturas de software.
+
+Entre los inconvenientes podemos destacar:
+
+- Interrupciones más frecuentes en el flujo de trabajo del equipo
+  debido a problemas introducidos por malos commits.
+- No se pueden hacer pull requests en los que se haga una revisión de
+  código.
+- Necesidad más frecuente de _reverts_ que corrigen equivocaciones.
+- Obliga al equipo a una gran disciplina y a una gran madurez. No se
+  deben buscar culpables por los errores introducidos. Los errores
+  nos hacen aprender.
+
+El **flujo de desarrollo de ramas de características** es el que estamos
+realizando en prácticas. Se basa en separar ramas de características
+de la rama principal. En cada rama de característica se desarrolla una
+característica y se integra en la rama principal cuando esté
+terminada. Esta integración se puede hacer usando un pull request.
+
+Ventajas:
+
+- Se integran en la rama principal cambios completos.
+- Durante el desarrollo de la característica puedes aislarte del resto
+  del desarrollo del proyecto y centrarte únicamente en la
+  característica que estás desarrollando.
+- Los fallos son locales a la rama. Un fallo no afecta al resto del
+  equipo. Puedes tomarte un tiempo en arreglar el fallo sin que el
+  resto del equipo se quede bloqueado.
+- Posibilidad de usar pull requests y realizar revisiones de código.
+
+Inconvenientes:
+
+- Si las ramas tienen una duración muy larga el proyecto puede haberse
+  modificado mucho cuando vayamos a hacer la integración, haciéndola
+  bastante complicada.
+- El conocimiento compartido sobre el código del proyecto es mucho
+  menor y se limita a los posibles conflictos que podemos tener en la
+  rama que hemos desarrollado.
+- El primero que integra su rama no tiene problemas, los problemas los
+  tienen las siguientes integraciones. Esto crea un efecto perverso en
+  el que intentamos ser los primeros posiblemente a costa de menos
+  calidad en el código.
+
+Posiblemente, la mejor opción sea comenzar con ramas de
+características e ir haciéndolas cada vez más cortas, de forma que se
+integren cada dos o tres días como máximo. Al igual que en el enfoque
+de _trunk based_ podrían no ser características completas, sino
+pequeños incremento. Por ejemplo, como hacemos en prácticas, una rama
+podría contener la parte de backend de la característica y después
+haríamos la de frontend. Y cuando el equipo se acostumbre a hacer ramas
+cada vez más pequeñas, podríamos plantearnos la opción de pasar a un
+modelo basado en trunk.
 
 ## Despliegue continuo ##
 
@@ -533,3 +649,9 @@ contenedores.
 ### Canary releases ###
 
 
+
+## Referencias ##
+
+- Charla de Eduardo Ferro (2020): [_Continuous Delivery: Germinando una
+  cultura ágil moderna_](https://youtu.be/hbggtXmQcf8?t=444). 
+- Martin Fowler (2006): [_Continuous Integration_](https://martinfowler.com/articles/continuousIntegration.html)
