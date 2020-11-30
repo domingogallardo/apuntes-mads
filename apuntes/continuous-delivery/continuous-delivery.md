@@ -445,7 +445,7 @@ ahora.
       
 ### Docker ###
 
-<img src="imagenes/docker.png" width="600px/>
+<img src="imagenes/docker.png" width="600px"/>
 
 Docker proporciona una plataforma basada en contenedores
 (_containers_) que permite construir una única vez un artefacto
