@@ -213,6 +213,14 @@ rama principal del proyecto. Esto obliga a mantenerse continuamente al
 día sobre los cambios que otros están introduciendo y a tener cuidado
 de que nuestros cambios vayan en la misma dirección.
 
+El desarrollador actualiza su repositorio local y comienza a programar
+un pequeño incremento (código y tests). Cuando termina lanza todos los
+tests para asegurarse de que no se ha roto nada. Antes de publicar los
+cambios, vuelve a actualizar el repositorio local con los nuevos
+cambios que se han añadido a la rama principal y vuelve a lanzar los
+tests. Si todo funciona bien, publica los cambios en el repositorio
+compartido.
+
 Entre las ventajas de esta técnica se encuentran:
 
 - La integración de un nuevo commit es fácil porque la rama principal
@@ -278,16 +286,211 @@ haríamos la de frontend. Y cuando el equipo se acostumbre a hacer ramas
 cada vez más pequeñas, podríamos plantearnos la opción de pasar a un
 modelo basado en trunk.
 
+### Herramientas de integración continua ###
+
+Una de las características fundamentales de la integración continua es
+que cada vez que se integra un commit en la rama principal se debe
+realizar una construcción automática del proyecto, lanzándose todos
+los tests en el entorno de integración continua y construyéndose el
+binario candidato a desplegar en producción.
+
+La forma de realizar esto es mediante las denominadas herramientas de
+integración continua.
+
+<img src="imagenes/ci-tools.png" width="500px"/>
+
+Podemos elegir como herramientas de integración continua una
+herramienta que instalamos en nuestros propios servidores de
+integración (_CI server_) o construcción continua (_continuous build
+server_) como [Jenkins](https://www.jenkins.io) o también en un
+servicio en la nube como [GitHub
+Actions](https://github.com/features/actions).
+
+Cualquiera de estas herramientas permiten automatizar el lanzamiento
+de tests y la compilación automática de la aplicación y la generación
+de una aplicación distribuible. Esta aplicación puede ser un binario,
+un JAR o WAR, una máquina Docker, etc. que puede ser desplegada en
+distintos entornos, incluido el de producción.
+
+<img src="imagenes/integration-server.png" width="700px"/>
+
+El servicio de integración continua genera también notificaciones
+automáticas a todos los miembros del equipo indicando el estado de la
+compilación. También suele proporcionar un panel de control con la
+indicación del estado de cada build.
+
+<img src="imagenes/jenkins-panel.png" width="700px"/>
+
+
+### Generación del ejecutable ###
+
+El resultado de la compilación automática realizada por el servidor de
+integración continua debe ser un artefacto desplegable en los
+distintos entornos en los que vamos a probar la aplicación. La
+aplicación sólo se debe compilar una única vez y el resultado debe
+almacenarse en un sitio accesible por cualquier proceso y miembro del
+equipo.
+
+Es fundamental que las herramientas usadas para construir la
+aplicación puedan ser usadas desde línea de comando. De esta forma es
+mucho más sencillo adaptar y configurar distintos tipos de scripts de
+compilación (_build scripts_). Entre las herramientas más usadas
+destacamos las siguientes:
+
+- Make (C, Unix)
+- Rake (Ruby) 
+- Maven (Java)
+- Gradle (Java, Scala, etc.)
+- sbt (Scala, Play Framework)
+
+Nosotros en las prácticas estamos usando Maven, al ser Spring Boot una
+aplicación Java.
+
+Igual que hay distintas herramientas de compilación para los
+diferentes lenguajes de programación, existen diferentes formatos en
+los que se guardan los artefactos binarios resultantes de la
+compilación. <img src="imagenes/artefacto-jar.png" width="300px"
+align="left"/> Por ejemplo, el binario resultante de una aplicación C es
+un fichero compilado que se ejecutará en el sistema operativo para el
+que haya sido compilada la aplicación, mientras que el resultante de
+una aplicación Java es un fichero JAR que podremos desplegar en
+cualquier máquina en la que tengamos instalado un JRE (_Java Runtime
+Environment_).
+
+Además tenemos el problema añadido de generación de distintos binarios
+para diferentes sistemas operativos. Por ejemplo, si estamos
+desarrollando una aplicación de escritorio que va a funcionar en
+Windows, Linux y Mac deberemos generar los binarios correspondientes a
+esas distintas plataformas y después testearlos de forma automática en
+distintos ordenadores cada uno con su sistema operativo
+específico.
+
+En el caso concreto de Spring Boot, que estamos utilizando en
+prácticas, el resultado de la compilación es un fichero JAR que puede
+ser desplegado en múltiples entornos. La guía de Spring Boot
+[_Deploying Spring Boot
+Applications_](https://docs.spring.io/spring-boot/docs/current/reference/html/deployment.html#deployment)
+proporciona detalles de cómo es posible desplegar el JAR resultante de
+compilar la aplicación Spring Boot en un servidor o en múltiples
+servicios en la nube como AWS, Heroku o Google Cloud.
+
+En la actualidad se está haciendo cada vez más popular la utilización
+de imágenes [Docker](https://www.docker.com) como artefacto binario a
+distribuir y ejecutar. <img src="imagenes/docker-image.png"
+width="300px" align="right"/> Entre las ventajas de este enfoque se
+encuentran el ser multiplaforma (para ejecutarlas basta con tener
+instalado el _Docker Engine_) y que los contenedores (servicios en
+ejecución) se pueden configurar y combinar o ejecutar en clusters
+usando herramientas como [Kubernetes](https://kubernetes.io). Más
+adelante veremos el funcionamiento de Docker con un poco más de
+detalle y veremos cómo convertir una aplicación Spring Boot en una
+imagen Docker.
+
+Es una buena práctica darle a cada artefacto binario compilado un
+nombre distinto en el que aparezca el número de versión. En el caso de
+la integración continua, normalmente se le da al binario un nombre en
+el que aparece la fecha e incluso la hora de la compilación. De esta
+forma, las distintas compilaciones pueden ser identificadas de forma
+única. 
+
+<img src="imagenes/nombre-artefacto.png" width="600px"/>
+
+Por ejemplo, la imagen anterior muestra el nombre de una compilación
+reciente de Swift. Se trata de la versión `5.3-DEVELOPMENT-SNAPSHOT`
+compilada el 11 de noviembre de 2020 para un sistema operativo `Centos8`.
+
+En el caso en que nuestra aplicación dependa de paquetes externos es
+conveniente descargarlos y almacenarlos en un sitio centralizado de
+forma que no tengan que descargarse de Internet cada vez que se
+realiza una nueva compilación. Para ello es conveniente configurar
+correctamente las cachés del sistema de build que estemos utilizando.
+
+La aplicación desplegable debe consistir en un único artefacto con el
+nombre correcto que contenga todo lo necesario para ejecutarse en
+distintos entornos de prueba y pueda ser puesto en producción. El
+artefacto debe almacenarse en un lugar centralizado, accesible desde
+los distintos entornos de forma automática. Por ejemplo, podemos usar
+un servidor web local y dejar el fichero en una URL concreta.
+
+### Principios y prácticas de integración continua ###
+
+A continuación presentamos en forma de ítems un resumen de los
+elementos importantes de la integración continua que hemos visto hasta
+ahora.
+
+- Desarrollo de código
+    - El sistema debe siempre poder ser construido (build) y probado
+    con éxito. 
+    - Todo el mundo hace merge de los cambios con frecuencia.
+    - Después de cada commit, el sistema se integra inmediata y automáticamente.
+    - Se desarrolla el sistema en pequeños incrementos.
+- Testing
+    - Los desarrolladores prueban su código en sus espacios de trabajo
+    privados. 
+    - Después mezclan los cambios en el repositorio.
+- Servidor de integración continua (CI server):
+    - Monitoriza el repositorio y comprueba los cambios cuando
+    ocurren.
+    - Construye el sistema y ejecuta las pruebas unitarias y de
+    integración.
+    - Informa al equipo de la construcción con éxito o de los fallos.
+- Errores en los build
+    - El equipo arregla el problema lo antes posible.
+    - Continuar para integrar y probar continuamente durante todo el
+      proyecto. 
+- El último ejecutable compilado debe estar fácilmente disponible
+    - El resultado de la compilación debe ser un artefacto ejecutable
+      disponible para desplegar en distintos entornos, incluso en
+      producción.
+      
 ## Despliegue continuo ##
 
-El despliegue continuo (_Continuous Deployment_) consiste en 
 
-### Despliegue ###
+
+To do Continuous Integration you need multiple environments, one to
+run commit tests, one or more to run secondary tests. Since you are
+moving executables between these environments multiple times a day,
+you'll want to do this automatically. So it's important to have
+scripts that will allow you to deploy the application into any
+environment easily. 
+
+A natural consequence of this is that you should also have scripts
+that allow you to deploy into production with similar ease. You may
+not be deploying into production every day (although I've run into
+projects that do), but automatic deployment helps both speed up the
+process and reduce errors. It's also a cheap option since it just uses
+the same capabilities that you use to deploy into test environments. 
+
+
+El despliegue continuo (_Continuous Deployment_) consiste en 
 
 - Automatizados
 - Sin pérdida de servicio, en horario de trabajo
 - Construcción del paquete distribuible.
 - Sistemas de archivo de binarios.
+
+### Entornos de despliegue ###
+
+Podemos diferenciar diferentes tipos de entornos (ordenadores) en los
+que se despliega y prueba el build de la aplicación. En general,
+ordenados de menor a mayor parecido a producción, podemos diferenciar.
+
+- **Local**: ordenador del desarrollador. Se ejecutan tests unitarios
+de la característica que se está desarrollando. 
+- **Desarrollo/Trunk/Master**: ordenador de integración continua conectado
+a la rama de desarrollo en el que se ejecutan todos los tests
+unitarios continuamente. 
+- **Integración**: Entorno en el que se sustituyen los mocks y bases de
+datos de memoria por servicios reales, aunque con copias parciales de
+los datos de producción.
+- **Test/QA**: Entornos en los que se realizan pruebas funcionales y de
+interfaz de usuario. Pueden ser manuales.
+- **Stage/Preproducción**: Entorno idéntico al de producción en el que se
+hace la última validación de la nueva versión a desplegar a
+producción. Copia de la base de datos de producción y con servidores
+similares a los de producción, para poder comprobar rendimiento.
+- **Producción**: Entorno que usan los clientes reales de la aplicación.
+
 
 ### Docker ###
 
