@@ -443,56 +443,53 @@ ahora.
       disponible para desplegar en distintos entornos, incluso en
       producción.
       
-## Despliegue continuo ##
-
-
-
-To do Continuous Integration you need multiple environments, one to
-run commit tests, one or more to run secondary tests. Since you are
-moving executables between these environments multiple times a day,
-you'll want to do this automatically. So it's important to have
-scripts that will allow you to deploy the application into any
-environment easily. 
-
-A natural consequence of this is that you should also have scripts
-that allow you to deploy into production with similar ease. You may
-not be deploying into production every day (although I've run into
-projects that do), but automatic deployment helps both speed up the
-process and reduce errors. It's also a cheap option since it just uses
-the same capabilities that you use to deploy into test environments. 
-
-
-El despliegue continuo (_Continuous Deployment_) consiste en 
-
-- Automatizados
-- Sin pérdida de servicio, en horario de trabajo
-- Construcción del paquete distribuible.
-- Sistemas de archivo de binarios.
-
-### Entornos de despliegue ###
-
-Podemos diferenciar diferentes tipos de entornos (ordenadores) en los
-que se despliega y prueba el build de la aplicación. En general,
-ordenados de menor a mayor parecido a producción, podemos diferenciar.
-
-- **Local**: ordenador del desarrollador. Se ejecutan tests unitarios
-de la característica que se está desarrollando. 
-- **Desarrollo/Trunk/Master**: ordenador de integración continua conectado
-a la rama de desarrollo en el que se ejecutan todos los tests
-unitarios continuamente. 
-- **Integración**: Entorno en el que se sustituyen los mocks y bases de
-datos de memoria por servicios reales, aunque con copias parciales de
-los datos de producción.
-- **Test/QA**: Entornos en los que se realizan pruebas funcionales y de
-interfaz de usuario. Pueden ser manuales.
-- **Stage/Preproducción**: Entorno idéntico al de producción en el que se
-hace la última validación de la nueva versión a desplegar a
-producción. Copia de la base de datos de producción y con servidores
-similares a los de producción, para poder comprobar rendimiento.
-- **Producción**: Entorno que usan los clientes reales de la aplicación.
-
-
 ### Docker ###
+
+<img src="imagenes/docker.png" width="600px/>
+
+Docker proporciona una plataforma basada en contenedores
+(_containers_) que permite construir una única vez un artefacto
+ejectuable (imagen Docker) y distribuirlo y ejecutarlo en distintos
+entornos (Linux, Mac, Windows) que tengan instalados el _Docker
+engine_. La [documentación de Docker](https://docs.docker.com) es muy
+buena y recomendamos usarla para conocer en profundidad la herramienta.
+
+<img src="imagenes/docker-image-container.png" width="600px"/>
+
+Para construir una imagen Docker lo único que hace falta es un fichero
+denominado `Dockerfile` en el que se proporcionan una serie de pasos
+de construcción. Veremos más adelante un ejemplo. El artefacto
+construido se denomina _imagen Docker_ y se puede publicar en el
+servicio de Docker [dockerHub](https://hub.docker.com) o en un
+servidor local.
+
+Una vez construida la imagen, podemos ejecutarla, poniendo en marcha
+un contenedor. Desde el motor Docker, usando comandos, podemos poner
+en marcha un contenedor, suspenderlo, configurar volúmenes de datos
+con los que se conecta y, en general, realizar operaciones similares a
+las que realizaríamos con un servicio propio del sistema
+operativo. Pero con la ventaja de que el contenedor está totalmente
+separado del sistema operativo anfitrión y su ejecución no puede
+modificar nada del mismo.
+
+<img src="imagenes/container-vs-virtual-machine.png" width="500px"/>
+
+Un contenedor es similar a una máquina virtual, pero usando los
+recursos (servicios de bajo nivel, procesador, etc.) del propio
+sistema operativo. Al no tener que usar la virtualización, la
+tecnología de contenedores es muy eficiente. Los contenedores son
+mucho más ligeros que las máquinas virtuales. Se pueden poner en
+marcha y suspender en segundos y ocupan mucha menos memoria en
+ejecución.
+
+Otra de las ventajas de Docker es que en un mismo anfitrión se pueden
+poner en marcha y conectar distintos contenedores entre si, usando
+herramientas como
+[docker-compose](https://docs.docker.com/compose/). Incluso podemos
+desplegar y gestionar los contenedores en entornos de clustering
+usando herramientas como [Kubernetes](https://kubernetes.io).
+
+
 
 ### Demostración de Docker ###
 
@@ -829,6 +826,58 @@ contenedores.
 
 
 
+
+
+
+
+
+## Despliegue continuo ##
+
+
+
+To do Continuous Integration you need multiple environments, one to
+run commit tests, one or more to run secondary tests. Since you are
+moving executables between these environments multiple times a day,
+you'll want to do this automatically. So it's important to have
+scripts that will allow you to deploy the application into any
+environment easily. 
+
+A natural consequence of this is that you should also have scripts
+that allow you to deploy into production with similar ease. You may
+not be deploying into production every day (although I've run into
+projects that do), but automatic deployment helps both speed up the
+process and reduce errors. It's also a cheap option since it just uses
+the same capabilities that you use to deploy into test environments. 
+
+
+El despliegue continuo (_Continuous Deployment_) consiste en 
+
+- Automatizados
+- Sin pérdida de servicio, en horario de trabajo
+- Construcción del paquete distribuible.
+- Sistemas de archivo de binarios.
+
+### Entornos de despliegue ###
+
+Podemos diferenciar diferentes tipos de entornos (ordenadores) en los
+que se despliega y prueba el build de la aplicación. En general,
+ordenados de menor a mayor parecido a producción, podemos diferenciar.
+
+- **Local**: ordenador del desarrollador. Se ejecutan tests unitarios
+de la característica que se está desarrollando. 
+- **Desarrollo/Trunk/Master**: ordenador de integración continua conectado
+a la rama de desarrollo en el que se ejecutan todos los tests
+unitarios continuamente. 
+- **Integración**: Entorno en el que se sustituyen los mocks y bases de
+datos de memoria por servicios reales, aunque con copias parciales de
+los datos de producción.
+- **Test/QA**: Entornos en los que se realizan pruebas funcionales y de
+interfaz de usuario. Pueden ser manuales.
+- **Stage/Preproducción**: Entorno idéntico al de producción en el que se
+hace la última validación de la nueva versión a desplegar a
+producción. Copia de la base de datos de producción y con servidores
+similares a los de producción, para poder comprobar rendimiento.
+- **Producción**: Entorno que usan los clientes reales de la aplicación.
 
 
 ### Entornos ###
