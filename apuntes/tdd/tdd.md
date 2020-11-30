@@ -777,7 +777,7 @@ Test:
         assertEquals(new Euro(10), cinco.multiplicadoPor(2));
         assertEquals(new Euro(15), cinco.multiplicadoPor(3));
     }
-    ```
+```
 
 Para pasar el test copiamos y modificamos el código de `Dolar`.
 
