@@ -451,8 +451,16 @@ Docker proporciona una plataforma basada en contenedores
 (_containers_) que permite construir una única vez un artefacto
 ejectuable (imagen Docker) y distribuirlo y ejecutarlo en distintos
 entornos (Linux, Mac, Windows) que tengan instalados el _Docker
-engine_. La [documentación de Docker](https://docs.docker.com) es muy
-buena y recomendamos usarla para conocer en profundidad la herramienta.
+engine_. 
+
+La [documentación de Docker](https://docs.docker.com) es muy
+buena y recomendamos usarla para conocer en profundidad la
+herramienta. Podéis empezar por las siguientes páginas:
+
+- [Docker Overview](https://docs.docker.com/get-started/overview/)
+- [Get Started with Docker](https://docs.docker.com/get-started/)
+
+#### Imágenes y contenedores ####
 
 <img src="imagenes/docker-image-container.png" width="600px"/>
 
@@ -489,12 +497,101 @@ herramientas como
 desplegar y gestionar los contenedores en entornos de clustering
 usando herramientas como [Kubernetes](https://kubernetes.io).
 
+#### Fichero Dockerfile ####
 
+El fichero `Dockerfile` es el fichero de instrucciones en el que se
+especifica cómo construir una imagen Docker.
 
-### Demostración de Docker ###
+Por ejemplo, veamos la imagen `docker/whalesay`, que ejecuta un
+comando que muestra en la salida estándar un dibujo (hecho con ASCII)
+de una ballena (icono de Docker) diciendo un mensaje que pasamos por
+línea de comando.
 
-Comprobamos la instalación de docker:
+El siguiente código muestra cómo lanzar la imagen y qué aparece en la consola.
 
+```
+$ docker run docker/whalesay cowsay Hello world
+ _____________ 
+< Hello world >
+ ------------- 
+    \
+     \
+      \     
+                    ##        .            
+              ## ## ##       ==            
+           ## ## ## ##      ===            
+       /""""""""""""""""___/ ===        
+  ~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~   
+       \______ o          __/            
+        \    \        __/             
+          \____\______/   
+```
+
+El fichero `Dockerfile` de esta imagen es el siguiente:
+
+```Dockerfile
+FROM ubuntu:14.04
+
+# install cowsay, and move the "default.cow" out of 
+# the way so we can overwrite it with “docker.cow"
+
+RUN apt-get update && apt-get install -y cowsay \
+    —no-install-recommends && rm -rf /var/lib/apt/lists/* \
+    && mv /usr/share/cowsay/cows/default.cow \
+    /usr/share/cowsay/cows/orig-default.cow
+
+# "cowsay" installs to /usr/games
+ENV PATH $PATH:/usr/games
+
+COPY docker.cow /usr/share/cowsay/cows/
+RUN ln -sv /usr/share/cowsay/cows/docker.cow \
+    /usr/share/cowsay/cows/default.cow
+
+CMD ["cowsay"]
+```
+
+El primer comando `FROM` indica cuál es la imagen base que se va a
+utilizar para construir la nueva imagen.
+
+Los siguientes comandos se ejecutan sobre la imagen base, instalando
+el comando de Linux `cowsay` y modificando el fichero por defecto,
+para que en lugar de pintar una vaca pinte una ballena (el fichero
+`docker.cow`, que debe estar en el ordenador en el que se construye la
+imagen y se copia en la imagen con el comando `COPY`).
+
+El último comando `CMD` indica cuál es el comando por defecto que se
+va ejecutar al lanzar el contenedor.
+
+#### Construcción, publicación y ejecución de imágenes ####
+
+Para construir una imagen basta con usar el comando `docker build`:
+
+```
+$ docker build -t domingogallardo/prueba .
+```
+
+En el comando se define el nombre de la imagen
+(`domingogallardo/prueba`) y el directorio local en el que se va
+almacenar la imagen (el directorio actual).
+
+En el directorio actual debe existir un fichero `Dockerfile` que
+indica los pasos a seguir para construir la imagen y los ficheros
+auxiliares que necesitemos para esa construcción.
+
+Las imágenes se pueden almacenar, compartir y gestionar en un registro
+y son el componente de distribución de Docker.  Docker mantiene un
+servicio de registro de imágenes en <https://hub.docker.com>. Es el
+repositorio del que nos descargamos las imágenes cuando ejecutamos un
+comando `docker run`.
+
+Para ejecutar una imagen debemos usar el comando `docker run` seguido
+de la imagen que queremos lanzar. Docker busca esa imagen en local y,
+si no la encuentra, se la baja del repositorio. Y después crea un
+lanza la imagen en forma de contenedor.
+
+#### Demostración de Docker ####
+
+Una vez instalado Docker en nuestro sistema comprobamos su versión:
 
 ```
 $ docker version
@@ -588,7 +685,7 @@ CONTAINER ID  IMAGE         COMMAND               CREATED        STATUS       PO
 ```
 
 
-#### Construir una imagen propia ####
+Vamos ahora a **construir una imagen propia**.
 
 Creamos un directorio:
 
@@ -597,7 +694,7 @@ $ mkdir midocker
 $ cd midocker
 ```
 
-Editamos el fichero **Dockerfile**
+Editamos el fichero `Dockerfile`
 
 ```
 FROM docker/whalesay:latest
@@ -646,11 +743,9 @@ $ docker run --rm docker-whale
 ```
 
 
-#### Servidor web ####
-
 Es posible también montar en el contenedor un directorio del host. 
 
-Vamos, por ejemplo, a poner en marcha un servidor web y usar un
+Vamos, por ejemplo, a **poner en marcha un servidor web** y usar un
 directorio del host como directorio del sitio web.
 
 
@@ -764,7 +859,7 @@ $ docker stop reverent_wu
 $ docker start reverent_wu
 ```
 
-#### Borrar contenedores e imágenes ####
+Algunos comandos útiles relacionados con contenedores:
 
 - Para borrar un contenedor
 
@@ -797,10 +892,9 @@ $ docker start reverent_wu
     $ docker system prune -a
     ```
 
-#### Volúmenes ####
 
 Docker permite persistir datos fuera del contenedor, en ficheros del
-host. Estos ficheros se denominan _volúmenes_ y sirven para
+host. Estos ficheros se denominan **_volúmenes_** y sirven para
 intercambiar datos entre el contenedor y el host o entre varios
 contenedores.
 
@@ -817,51 +911,49 @@ contenedores.
     ```
 
 
-#### Más información sobre Docker ####
+## Configuración del despliegue ##
 
-- [Docker Overview](https://docs.docker.com/engine/understanding-docker/)
-- [Get Started with Docker](https://docs.docker.com/engine/getstarted/)
+Para hacer integración continua es necesario tener múltiples
+entornos. En el entorno de trabajo del desarrollador se pueden lanzar
+los tests más rápidos y, como hacemos en prácticas, utilizar una
+configuración en la que usemos una base de datos en memoria (como H2)
+que acelere la velocidad de los tests que utilicen base de datos.
 
+Se puede configurar un primer entorno de integración continua para que
+se ejecuten en él tests más lentos y con una configuración más
+parecida a la del entorno de producción. Por ejemplo, se puede
+utilizar una configuración en la que se utilice una base de datos
+similar a la que se usa en producción, poblada datos de prueba. En
+este entorno se deben lanzar los tests rápidos y también tests más
+lentos de integración.
 
+Y después tendremos otros entornos cada vez más similares al entorno
+de producción en los que también se realizarán todos los tests
+automáticos y otros tests manuales necesarios para tener la
+confirmación de que todo está funcionando correctamente.
 
+En todos estos entornos deberemos instalar la misma aplicación
+compilada, y tendremos que modificar en cada caso su configuración. Es
+importante tener la capacidad de automatizar tanto la gestión de
+entornos de despliegue (arrancar las bases de datos correctas,
+configurar puertos, etc.) como la instalación y ejecución de la
+aplicación en el entorno.
 
-
-
-
-
-
-
-## Despliegue continuo ##
-
-
-
-To do Continuous Integration you need multiple environments, one to
-run commit tests, one or more to run secondary tests. Since you are
-moving executables between these environments multiple times a day,
-you'll want to do this automatically. So it's important to have
-scripts that will allow you to deploy the application into any
-environment easily. 
-
-A natural consequence of this is that you should also have scripts
-that allow you to deploy into production with similar ease. You may
-not be deploying into production every day (although I've run into
-projects that do), but automatic deployment helps both speed up the
-process and reduce errors. It's also a cheap option since it just uses
-the same capabilities that you use to deploy into test environments. 
-
-
-El despliegue continuo (_Continuous Deployment_) consiste en 
-
-- Automatizados
-- Sin pérdida de servicio, en horario de trabajo
-- Construcción del paquete distribuible.
-- Sistemas de archivo de binarios.
+Antiguamente los distintos entornos eran máquinas físicas distintas,
+con configuraciones distintas previamente instaladas en cada una de
+ellas. Hoy en día es mucho más común utilizar entornos virtuales
+fácilmente construibles a partir de scripts y código usando
+herramientas de virtualización como Docker, Kubernetes, etc. También
+es habitual la utilización de entornos en la nube (Heroku, GitHub
+Actions, Amazon Web Services, etc.) tanto para prueba como para
+producción.
 
 ### Entornos de despliegue ###
 
-Podemos diferenciar diferentes tipos de entornos (ordenadores) en los
-que se despliega y prueba el build de la aplicación. En general,
-ordenados de menor a mayor parecido a producción, podemos diferenciar.
+Podemos diferenciar diferentes tipos de entornos (configuración de
+servicios y servidores) en los que se despliega y prueba el build de
+la aplicación. En general, ordenados de menor a mayor parecido a
+producción, podemos diferenciar.
 
 - **Local**: ordenador del desarrollador. Se ejecutan tests unitarios
 de la característica que se está desarrollando. 
@@ -879,27 +971,303 @@ producción. Copia de la base de datos de producción y con servidores
 similares a los de producción, para poder comprobar rendimiento.
 - **Producción**: Entorno que usan los clientes reales de la aplicación.
 
+### Configuración de la aplicación  ###
 
-### Entornos ###
+La aplicación debe poder funcionar en distintos entornos sin tener que
+ser recompilada. Para ello es necesario poder configurar su
+funcionamiento definiendo parámetros que podamos modificar previamente
+a su ejecución.
 
-- Entorno de desarrollo, de integración, de staging, 
-- Cómo configurar la aplicación para que funcione con distintos
-  entornos. Poner ejemplos de Spring Boot
+En el caso de Spring Boot, como hemos visto en prácticas, existe un
+fichero de configuración por defecto (`application.properties`) y
+podemos definir ficheros con configuraciones adicionales.
 
-### Producción ###
+Por ejemplo:
 
-- Feedback (logs, métricas, dashboard)
+**Fichero `src/main/resources/application-mysql.properties`**
 
-- Posibilidad de recuperarse ante los fallos
+```
+spring.datasource.url=jdbc:mysql://localhost:3306/mads
+spring.datasource.username=root
+spring.datasource.password=
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+spring.jpa.hibernate.ddl-auto=update
+spring.datasource.initialization-mode=never
+```
+
+Podemos configurar qué perfil es el que se va a cargar con la
+propiedad Java `spring.profiles.active`. Por ejemplo, para cargar el
+perfil anterior podemos lanzar la aplicación con el comando:
+
+```
+./mvnw spring-boot:run -Dspring.profiles.active=mysql
+```
+
+El enfoque anterior obliga a tener predeterminados ciertos perfiles de
+configuración compilados en la propia aplicación. 
+
+Es posible además modificar la configuración predefinida en la propia
+aplicación definiendo un fichero `application.properties` en el mismo
+nivel en el que está el `.jar` que contiene la aplicación. Spring
+sobreescribirá el fichero de propiedades por defecto con este nuevo.
+
+Puedes encontrar más información sobre cómo configurar una aplicación
+Spring Boot en el enlace [Spring Boot: Configuring
+Properties](https://stackabuse.com/spring-boot-configuring-properties/). 
+
+
+## Entrega continua ##
+
+El concepto de Entrega continua (_Continuous Delivery_) es una
+extensión de la Integración continua que se popularizó a raíz del
+libro que publicaron en 2010 Jez Humble y David Farley (ver las referencias).
+
+<img src="imagenes/continuous-delivery-book.png" width="200px"/>
+
+Es un concepto que parte de la integración continua para llegar a una
+automatización completa de la puesta en producción. El objetivo es
+conseguir una puesta en producción (release) del software:
+
+- Poco arriesgada
+- Frecuente
+- Barata
+- Rápida
+- Predecible
+- Reproducible
+
+En palabras de Jez Humble, la entrega continua consiste en:
+
+> “Reduce the cost, time, and risk of delivering incremental changes
+> to users”
+> 
+> Jez Humble (2013), Charla [Adopting Continuous Delivery](https://vimeo.com/68320415)
+
+Otra frase muy importante, que ya hemos comentado alguna vez:
+
+> “How long would it take your organization to deploy a change that
+> involved just one single line of code? Do you do this on a
+> repeatable, reliable basis?” 
+>
+> Mary Poppendieck
+
+Algunas técnicas que se utilizan en la Entrega continua (muchas de ellas ya las hemos visto):
+
+- Pequeños cambios que se despliegan continuamente
+- Todos los builds son candidatos al release 
+- Todo en el control de versiones (se debe poder probar cualquier release)
+- Tuberías de despliegue (deployment pipelines) 
+- Integración continua: automatización de builds, tests, despliegues, entornos
+
+### Tubería de despliegue ###
+
+Tal y como hemos comentado cuando hablábamos de integración continua,
+un elemento central es de la automatización es la tubería de
+despliegue. Una tubería de despliegue es una implementación
+automatizada del proceso de construcción, despliegue, prueba y
+lanzamiento de nuestro sistema.
+
+La utilización de una tubería de despliegue garantiza la visibilidad
+de todo el proceso, lo que garantiza un feedback temprano y un control
+continuo del mismo.
+
+Explicación del libro de Jeff Humble:
+
+> Cada cambio que se realiza sobre la configuración de la aplicación, su
+> código fuente o sus datos, lanza la creación de una nueva instancia de
+> la tubería. Uno de los primeros pasos en la tubería es crear los
+> binarios y los instaladores. El resto de la tubería ejecuta una serie
+> de tests sobre los binarios para probar que pueden ser lanzados. Cada
+> test que pasa el candidato a release nos da más confianza de que
+> funcionará correctamente esta combinación particular de código
+> binario, información de configuración, entorno y datos. Si el
+> candidato a release pasa todos los tests, puede ser lanzado.
+
+En el libro de Humble y Farley se muestra el siguiente
+esquema que representa sus distintos elementos.
+
+<img src="imagenes/tuberia-despliegue.png" width="700px"/>
+
+- En la parte superior se muestra el sistema de control de versiones,
+  en donde se almacena el código del proyecto y los datos de las
+  distintas configuraciones de los entornos y de la aplicación. Las
+  configuraciones de los entornos y de la aplicación se deben guardar
+  en el sistema de control de versiones para gestionar su evolución y
+  modificación de la misma forma que gestionamos la evolución del
+  código.
+- En la parte inferior se muestra el repositorio de artefactos en
+  donde se almacenan los binarios de la aplicación. Puede ser, por
+  ejemplo, Docker Hub en el caso de ser una aplicación dockerizada.
+- En la fase de commit el código se compila y se lanzan los tests
+  unitarios. Se generan los binarios que se almacenan en el
+  repositorio de artefactos.
+- En la fase de aceptación se configuran y despliegan los binarios en
+  un entorno similar al de producción. Se realizan test de
+  aceptación/integración y se valida la aplicación y se deja lista para ser
+  publicada a producción por parte de Operaciones.
+- En la fase de UAT (User Acceptance Testing) se realizan pruebas
+  manuales en un entorno lo más parecido posible al de producción.
+- En la fase capacidad se realizan tests de rendimiento.
+- El binario se despliega en producción si todas las fases anteriores
+  se pasan con éxito.
+ 
+En la siguiente figura se muestra un ejemplo de posible secuencia de
+despliegue:
+
+<img src="imagenes/fases-tuberia.png" width="600px"/>
+
+Son muy útiles los tableros de control de la tubería de despliegue,
+como por ejemplo el que proporciona Jenkins.
+
+<img src="imagenes/pipeline-dashboard.png" width="600px"/>
+
+
+### Pequeños cambios ###
+
+Tal y como hemos comentado en la introducción del tema, una
+práctica fundamental de los equipos que utilizan las técnicas de
+entrega continua es subir a producción continuamente pequeños cambios
+con los que se van introduciendo poco a poco las nuevas
+funcionalidades.
+
+<img src="imagenes/carto-deploy.png" width="400px" align="right"/>
+
+Por ejemplo, en la charla de Juan Ignacio Sánchez [Continuous
+Integration at
+CartoDB](https://www.slideshare.net/juanignaciosl/continuous-integration-at-cartodb-march-16)
+([vídeo](https://www.youtube.com/watch?v=fRB_rlUtxys)) se explica cómo
+es el proceso de integración continua en [Carto](https://carto.com), una importante
+empresa española de gestión de datos geográficos.
+
+Algunas de las métricas que muestra en la charla reflejan claramente
+cuál es el funcionamiento de la integración continua en la empresa. Su
+producto opensource más importante es CartoDB (enlace a su
+[repositorio GitHub](https://github.com/CartoDB/cartodb)). En la época
+de la charla el producto integraba una media de 22 pull requests
+semanales y 15 despliegues en producción.
+
+Si todos los cambios son pequeños, ¿cómo se introducen los cambios
+grandes en el proyecto?. Por ejemplo, nuevas características complejas
+en las que se necesitan combinar distintas funcionalidades
+elementales.
+
+Es posible ir desarrollando, probando y colocando las piezas en el
+código (sin mostrar en la interfaz de usuario) para que el sistema
+evolucione hacia un momento futuro en sea fácil introducir una
+característica totalmente nueva mediante un pequeño cambio. Como dice
+Kent Beck:
+
+> Make the change easy, then make the easy change.
+
+Para ello podemos usar las siguientes estrategias:
+
+- Codificación y prueba de las pequeñas funcionalidades por separado.
+- Buen diseño de código, por ejemplo seleccionar una implementación
+  concreta utilizando interfaces y factorías, pero dejar la estructura
+  lista para introducir futuros cambios.
+- Pequeños cambios en las APIs compatibles con los tests de
+  regresión.
+- Uso de mocks.
+- Interruptores de características.
+
+<img src="imagenes/feature-toggle.png" width="300px" align="left"/>
+
+Esta última técnica es muy interesante. Consiste en definir
+interruptores o flags booleanos en el código que hagan que ciertas
+características se muestren o no en la aplicación dependiendo de si
+los flags están o no activos.
+
+En [este
+artículo](https://martinfowler.com/articles/feature-toggles.html) se
+puede encontrar una explicación en profundidad de múltiples técnicas
+usadas para implementar los interruptores de
+características. Dependiendo de la técnica es posible hasta definir
+interruptores que se puedan modificar en tiempo de ejecución e incluso
+que se puedan mostrar o no la funcionalidad a según qué usuarios
+implementando un sistema de _canary release_. 
+
+### Canary release ###
 
 
 
 
-## Buenas prácticas de la entrega continua ##
-### Posibilidad de deshacer ###
-### Features toggles ###
-### Canary releases ###
+<img src="imagenes/canary-releases.png" width="300px" align="right"/>
 
+La idea del [_canary
+release_](https://martinfowler.com/bliki/CanaryRelease.html) consiste
+en configurar un sistema de despliegue que permita mantener
+simultáneamente en producción dos versiones de la aplicación. En el caso
+de una aplicación web, podríamos configurar un proxy o router
+intermedio que se encargue de encauzar las peticiones de los usuarios
+a una versión de la aplicación o a otra.
+
+Cuando se lanza una característica nueva se puede configurar el proxy
+para que sólo sea probada por una pequeña cantidad de usuarios y
+detectar posibles errores en este despliegue reducido. Cuando se haya
+comprobado con este pequeño grupo que todo funciona correctamente se
+modifica la configuración del proxy para que todos accedan a la nueva
+versión.
+
+La configuración del proxy puede llegar a ser bastante compleja,
+haciendo el filtro de usuarios en función de parámetros que nos
+interesen (localización, tipo de usuario, etc.).
+
+Este sistema también puede utilizarse, junto con el de interruptores
+de características, para realizar [pruebas
+A/B](https://en.wikipedia.org/wiki/A/B_testing) de nuevas
+características.
+
+
+### DevOps ###
+
+<img src="imagenes/devops.png" width="300px" align="right"/>
+
+Tradicionalmente el trabajo de los desarrolladores y el de los
+técnicos de operaciones (responsables de la puesta en producción del
+sistema, monitorización de servidores, etc. ) son contrapuestos.
+
+- **Dev**elopers:
+    - Su trabajo es añadir nuevas características.
+    - Trabajan en entornos locales (“en mi máquina funciona”).
+    - Utilizan herramientas y lenguajes que permiten abstraer y automatizar.
+- **Op**erations: 
+    - Su trabajo es mantener el sitio web seguro, estable y rápido.
+    - Detectar problemas, apagar fuegos.
+
+Los desarrolladores quieren introducir cambios rápidamente en el
+sistema, mientras que a los técnicos de operaciones les gustaría
+mantener el sistema lo más estable posible.
+
+Los profesionales [**DevOps**](https://en.wikipedia.org/wiki/DevOps) representan una nueva filosofía de
+trabajo, que combina elementos propios de los desarrolladores y de
+operaciones, incorporando todas las nuevas técnicas de las que hemos
+estado hablando en este tema y herramientas denominadas
+[_Infrastructure-as-code_](https://en.wikipedia.org/wiki/Infrastructure_as_code)
+como Docker, Kubernetes, etc. en las que podemos definir la
+configuración de entornos y servidores usando código y ficheros
+almacenables en un sistema de control de versiones, en lugar de tener
+que configurar físicamente el hardware.
+
+
+
+
+### Principos y buenas prácticas ###
+
+En la charla mencionada anteriormente sobre prácticas de integración
+continua en Carto Juan Ignacio Sánchez lista 10 buenas prácticas que
+ellos están siguiendo. Muchas ya las hemos visto, pero es interesante
+repasarlas todas juntas, validadas por la experiencia de su éxito en
+una empresa puntera de desarrollo de software. Son las siguientes:
+
+1. Mantener un repositorio de código
+2. Automatizar la compilación
+3. Hacer la compilación auto-testeable (mediante test automáticos)
+4. Todo el mundo realiza commits en la rama principal todos los días
+5. Cada commit en la rama principal debe ser compilado
+6. Mantener la compilación rápida
+7. Testear en un clon del entorno de producción
+8. Hacer fácil de obtener los últimos productos compilados
+9. Todo el mundo puede ver los resultados de las últimas compilaciones
+10. Automatizar el despliegue
 
 
 ## Referencias ##
@@ -907,3 +1275,4 @@ similares a los de producción, para poder comprobar rendimiento.
 - Charla de Eduardo Ferro (2020): [_Continuous Delivery: Germinando una
   cultura ágil moderna_](https://youtu.be/hbggtXmQcf8?t=444). 
 - Martin Fowler (2006): [_Continuous Integration_](https://martinfowler.com/articles/continuousIntegration.html)
+- Jez Humble y David Farley (2010): [_Continuous Delivery](https://learning.oreilly.com/library/view/continuous-delivery-reliable/9780321670250/)
