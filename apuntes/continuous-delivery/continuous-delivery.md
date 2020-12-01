@@ -1275,4 +1275,4 @@ una empresa puntera de desarrollo de software. Son las siguientes:
 - Charla de Eduardo Ferro (2020): [_Continuous Delivery: Germinando una
   cultura ágil moderna_](https://youtu.be/hbggtXmQcf8?t=444). 
 - Martin Fowler (2006): [_Continuous Integration_](https://martinfowler.com/articles/continuousIntegration.html)
-- Jez Humble y David Farley (2010): [_Continuous Delivery](https://learning.oreilly.com/library/view/continuous-delivery-reliable/9780321670250/)
+- Jez Humble y David Farley (2010): [_Continuous Delivery_](https://learning.oreilly.com/library/view/continuous-delivery-reliable/9780321670250/)
