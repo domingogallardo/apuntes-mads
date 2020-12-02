@@ -891,7 +891,6 @@ Las refactorizaciones que se utilizarán son:
 
 - Extract Function (Extraer función)
 - Replace Temp with Query (Reemplazar variable auxiliar con llamada)
-- Replace Function with Command (Reemplazar función con comando)
 
 ## Ejemplo completo ##
 
