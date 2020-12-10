@@ -1071,7 +1071,7 @@ $ java -Dspring.profiles.active=$PROFILE -Ddb_ip=$DB_IP -Ddb_user=$DB_USER \
 
 Puedes encontrar más información sobre cómo externalizar la
 configuración de una aplicación Spring Boot en [su
-documentación(]https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config).
+documentación](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config).
 
 #### Configuración de imágenes Docker ####
 
