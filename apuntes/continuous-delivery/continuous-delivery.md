@@ -998,11 +998,6 @@ Existen diversas formas de definir estas propiedades. Las más usuales son:
 - Mediante variables de entorno cuyos valores establecemos con scripts
   antes de lanzar la aplicación.
 - Mediante argumentos del comando que lanza la aplicación
-- 
-
-El uso de una u otra estrategia depende sobre todo del sistema con el
-que estamos trabajando. Por ejemplo, en Spring Boot lo más habitual es
-utilizar fi
 
 Estas distintas configuraciones deben estar también guardadas en el
 control de versiones, igual que el código de la aplicación, para poder
