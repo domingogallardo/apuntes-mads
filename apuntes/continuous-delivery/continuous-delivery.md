@@ -1061,10 +1061,10 @@ Y podemos cambiar esas propiedades al lanzar la aplicación usando
 variables de entorno:
 
 ```
-$ export PROFILE = production
-$ export DB_IP = 3316
-$ export DB_USER = mads
-$ export DB_PASSWD = mads
+$ export PROFILE=production
+$ export DB_IP=3316
+$ export DB_USER=mads
+$ export DB_PASSWD=mads
 $ java -Dspring.profiles.active=$PROFILE -Ddb_ip=$DB_IP -Ddb_user=$DB_USER \
     -Ddb_passwd=$DB_PASSWD -Dlogging=$LOGGING -jar target/mads-todolist-inicial-0.0.1-SNAPSHOT.jar
 ```
