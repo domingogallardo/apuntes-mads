@@ -976,7 +976,39 @@ similares a los de producción, para poder comprobar rendimiento.
 La aplicación debe poder funcionar en distintos entornos sin tener que
 ser recompilada. Para ello es necesario poder configurar su
 funcionamiento definiendo parámetros que podamos modificar previamente
-a su ejecución.
+a su ejecución sin tener que recompilarla.
+
+Existen multitud de elementos que podemos necesitar configurar
+dependiendo del entorno en que queremos que funcione la
+aplicación. Por ejemplo:
+
+- URL de conexión a la base de datos
+- Usuario y contraseña de conexión a la base de datos
+- Puerto en el que la aplicación va a recibir las peticiones
+- Direcciones de los servicios a los que debe conectarse (por ejemplo,
+  servicio SMTP de correo electrónico)
+
+En cada entorno en los que va a funcionar la aplicación estos
+parámetros van a tener unos valores distintos que hay que pasarle a la
+aplicación cuando se ponga en funcionamiento. 
+
+Existen diversas formas de definir estas propiedades. Las más usuales son:
+
+- Mediante ficheros de configuración de la aplicación.
+- Mediante variables de entorno cuyos valores establecemos con scripts
+  antes de lanzar la aplicación.
+- Mediante argumentos del comando que lanza la aplicación
+- 
+
+El uso de una u otra estrategia depende sobre todo del sistema con el
+que estamos trabajando. Por ejemplo, en Spring Boot lo más habitual es
+utilizar fi
+
+Estas distintas configuraciones deben estar también guardadas en el
+control de versiones, igual que el código de la aplicación, para poder
+también controlar su evolución y sus cambios.
+
+#### Configuración de aplicaciones Spring Boot ####
 
 En el caso de Spring Boot, como hemos visto en prácticas, existe un
 fichero de configuración por defecto (`application.properties`) y
@@ -1011,10 +1043,92 @@ aplicación definiendo un fichero `application.properties` en el mismo
 nivel en el que está el `.jar` que contiene la aplicación. Spring
 sobreescribirá el fichero de propiedades por defecto con este nuevo.
 
-Puedes encontrar más información sobre cómo configurar una aplicación
-Spring Boot en el enlace [Spring Boot: Configuring
-Properties](https://stackabuse.com/spring-boot-configuring-properties/). 
+También es posible definir propiedades en el fichero de configuración,
+que después pueden ser especificadas en el comando java que lanza la
+aplicación.
 
+Por ejemplo, definimos unos valores por defecto para unas propiedades
+como `db_ip`, `db_user` y `db_passwd`:
+
+```
+db_ip=localhost:3306
+db_user=root
+db_passwd=
+spring.datasource.url=jdbc:mysql://${db_ip}/mads
+spring.datasource.username=${db_user}
+spring.datasource.password=${db_passwd}
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+spring.jpa.hibernate.ddl-auto=update
+spring.datasource.initialization-mode=never
+```
+
+Y podemos cambiar esas propiedades al lanzar la aplicación usando
+variables de entorno:
+
+```
+$ export PROFILE = production
+$ export DB_IP = 3316
+$ export DB_USER = mads
+$ export DB_PASSWD = mads
+$ java -Dspring.profiles.active=$PROFILE -Ddb_ip=$DB_IP -Ddb_user=$DB_USER \
+    -Ddb_passwd=$DB_PASSWD -Dlogging=$LOGGING -jar target/mads-todolist-inicial-0.0.1-SNAPSHOT.jar
+```
+
+Puedes encontrar más información sobre cómo externalizar la
+configuración de una aplicación Spring Boot en [su
+documentación(]https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config).
+
+#### Configuración de imágenes Docker ####
+
+Docker también tiene muchas estrategias que permiten configurar la
+ejecución de una imagen. Una de las más utilizadas es hacer que la
+imagen utilice variables de entorno que pueden ser modificadas en
+al lanzar el contenedor. Para ello debemos definir en la imagen estas
+variables con el comando `ENV`, pudiendo dar valores por defecto.
+
+Por ejemplo, podemos definir el siguiente `Dockerfile`:
+
+```
+FROM alpine
+ENV saludo="Hola, mundo!"
+CMD echo $saludo
+```
+
+Creamos la imagen:
+
+```
+$ docker build -t saludo .
+```
+
+Si lanzamos la imagen muestra el saludo por defecto:
+
+```
+$ docker run saludo
+Hola, mundo!
+```
+
+Y podemos configurar el saludo de varias formas. Por ejemplo,
+indicando el valor del parámetro al hacer `run`:
+
+```
+$ docker run -e "saludo=¿Qué tal estás?" saludo
+¿Qué tal estás?
+```
+
+O guardando el valor del parámetro en un fichero de propiedades que
+pasamos al ejecutar la imagen. Por ejemplo, en el fichero
+`propiedades.txt` escribimos lo siguiente:
+
+```
+saludo=¿Qué passsa, colega?
+```
+
+Y ejecutamos la imagen de la siguiente forma:
+
+```
+$ docker run --env-file=propiedades.txt saludo
+¿Qué passsa, colega?
+```
 
 ## Entrega continua ##
 
