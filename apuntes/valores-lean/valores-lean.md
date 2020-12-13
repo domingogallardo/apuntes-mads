@@ -1,16 +1,23 @@
-# Valores _lean_ #
+# Desarrollo de software _lean_ #
 
 Además del manifiesto ágil, muchos autores hablan de la filosofía
 _lean_ como otro de los elementos fundacionales de las metodologías
-ágiles.
+ágiles. En esta sesión realizaremos una introducción al pensamiento
+_lean_, repasando sus orígenes, conociendo sus ideas fundamentales y
+terminando con la aplicación de estas ideas al desarrollo de software.
 
-Vamos a hacer en esta sesión una introducción rápida al pensamiento
-_lean_, repasando sus orígenes y conociendo sus ideas
-fundamentales. Terminaremos con una reflexión sobre si es posible
-aplicar estas ideas al desarrollo de software. La filosofía lean se
-aplica habitualmente a procesos de fabricación. ¿En qué medida se
-puede aplicar al desarrollo de software? ¿Se puede considerar el
-desarrollo de software un proceso de fabricación?
+La filosofía lean se aplica habitualmente a procesos de
+fabricación. ¿En qué medida se puede aplicar al desarrollo de
+software? ¿Se puede considerar el desarrollo de software un proceso de
+fabricación? Veremos que sí que hay elementos parecidos y que muchas
+de las buenas prácticas de lean se pueden aplicar también al
+desarrollo de software.
+
+Igual que las ideas del Manifiesto ágil son fundamentales para
+entender qué hay detrás de metodologías como Scrum o XP, las ideas y
+valores de la filosofía _lean_ son esenciales para entender el
+fundamento de las prácticas Kanban.
+
 
 ## Orígenes de los sistemas de fabricación lean ##
 
@@ -465,7 +472,261 @@ inventario](https://michaelfeathers.typepad.com/michael_feathers_blog/2011/05/th
 debería minimizar la cantidad de código existente en el proyecto (en
 línea también con la idea de XP de buscar la simplicidad).
 
+## Principios de lean aplicables al desarrollo de software ##
+
+Definidos por Mary Poppendieck ("Lean Software Development: An Agile Toolkit", 2003 y “Implementing Lean Software Development”, 2006)
+
+1. Eliminar los desperdicios (Eliminate Waste)
+2. Fomentar la calidad (Build Quality In) 
+3. Crear conocimiento (Create Knowledge)
+4. Decidir lo más tarde posible (Defer Commitment)
+5. Entregar rápido (Deliver Fast)
+6. Respetar a la gente, potenciar el equipo (Respect People, empower the team)
+7. Optimizar el conjunto (Optimize the Whole)
+
+### 1. Eliminar los desperdicios (Eliminate Waste) ###
+
+- Desperdicio: cualquier cosa que no se utiliza y que no añade valor al producto final:
+    - Añadir valor: cualquier actividad que incrementa la funcionalidad el producto o servicio
+    - Algo por lo que el cliente está dispuesto a pagar
+- Producir sólo lo necesario y en el momento en el que se necesita
+    - Si algo no se utiliza, no podemos darnos cuenta de sus fallos
+- Desperdicios en el proceso de desarrollo del software (thing right):
+    - Demasiados requisitos para un release
+    - Demasiada arquitectura para las necesidades actuales
+    - Demasiado código para poder ser probado adecuadamente
+- Desperdicios en el proceso de creación de producto (right thing):
+    - Demasiadas funcionalidades para el usuario final
+    - Tener que re-aprender por falta de comunicación: desperdicio de
+      tiempo y energía. Cuando alguien en el equipo aprende algo nuevo
+      sobre el producto, ese conocimiento se debe extender a todo el
+      equipo rápidamente. 
+
+Mary Poppendieck propone 7 tipos de waste en el desarrollo del software:
+
+- **Trabajo parcialmente hecho**: Mientras que el software está parcialmente
+hecho no puede proporcionar feedback de si es útil o no. El trabajo
+parcialmente hecho siempre retrasa el resto del trabajo.
+
+    Posibles manifestaciones de trabajo parcialmente hecho: documentación
+    excesiva no codificada, código no sincronizado en el repositorio,
+    código no testeado, código no desplegado. 
+
+- **Características de más**: Características que no se usan,
+  excesivamente complejas o que quedan obsoletas en nuevas versiones.
+
+- **Reaprendizaje**: Problemas en la comunicación obliga a varias
+  personas a reaprender conceptos del dominio del producto, mala
+  planificación de las entrevistas con los expertos del dominio,
+  herramientas/frameworks de desarrollo demasiado heterogéneos
+
+- **Delegación**: Las delegaciones de tareas y trabajos conllevan
+  tiempo necesario para explicaciones y son propensas a errores por
+  problemas de comunicación.
+
+- **Retrasos**: Muchos posibles retrasos en el proceso de
+  desarrollo. Retraso en la redacción de la historia de usuario o en
+  los mockups del diseño. Retraso en que las nuevas features se pongan
+  en producción por problemas burocráticos. Retrasos en las pruebas de
+  QA por sobrecarga de trabajo.
+
+- **Multi-tarea**: Los cambios de tarea obligan a cambios de contexto
+  (que gastan tiempo) y dejan tareas sin terminar.
+
+- **Defectos**: Defectos técnicos que se van acumulando, errores en la
+  comprensión de features que producen un producto de poco valor.
+
+
+### 2. Fomentar la calidad (Build Quality In) ###
+
+- Construye software que intuitivamente tenga sentido para los
+  usuarios, y que forme un todo coherente. 
+- Muchas veces los clientes y los usuarios son distintos. El software
+  debe satisfacer a los clientes porque satisface a sus usuarios.
+- Minimiza la deuda técnica (technical debt)
+    - Deuda técnica del software: problemas de diseño o implementación
+      que terminarán apareciendo en forma de bugs o dificultades de
+      ampliación y mantenimiento. “Parches” que se añaden al software
+      para salir del paso rápidamente, en lugar de pensar en una
+      solución más general.
+    - Refactoriza el software siempre que tengas oportunidad.
+    - Proceso de revisión de código (code review)
+- Software sin defectos: énfasis en pruebas.
+- Software que funciona:
+    - Los clientes usan las características (features) del software
+    - Software consistente con integridad conceptual (conceptual
+      integrity): las características deben trabajar juntas para
+      formar un producto único, integrado y fácil de usar. 
+
+### 3. Crear conocimiento (Create Knowledge) ###
+
+- Dos tipos de conocimiento: 
+    - Conocimiento sobre el producto que estamos desarrollando
+    - Conocimiento sobre el proceso y la forma en la que desarrollamos productos
+- Utiliza el feedback proporcionado por los proyectos para mejorar cómo construyes el software.
+    - Representación gráfica de la evolución del desarrollo: las mediciones y los diagramas nos pueden dar pistas de posibles cuellos de botella, qué tipos de características son más complicadas.
+    - Cosas que se pueden mejorar: metodología, arquitectura, tecnología.
+    - Distintos tipos de representaciones gráficas nos permiten medir el proceso de  desarrollo.
+
+Para hacer un diagrama de flujo acumulado (cummulative flow diagram)
+de una fase del desarrollo (columna del tablero Kanban o fase del mapa
+de flujo de valor) vamos contando semana a semana cuantos ítems se
+terminan en esa fase de desarrollo, y anotamos el incremento en el
+diagrama.
+
+IMAGEN
+
+De esta forma podemos, por ejemplo, hacer el diagrama de flujo
+acumulado de las historias de usuario terminadas. Este diagrama nos
+sirve para estimar una velocidad de desarrollo, lo que nos permite a
+su vez estimar número de historias terminadas en una determinada
+fecha. Suponemos ítems de tamaño similar. Si hay variabilidad en el
+tamaño de los ítems podemos estimar el tamaño de los ítems en puntos
+de historia (story points) y hacer un diagrama en el que el eje
+vertical sean los story points en lugar del número de ítems.
+
+IMAGEN
+
+Se puede hacer un diagrama conjunto de flujo acumulado de las
+distintas fases del desarrollo, para tener una visión de conjunto de
+todo el proceso de desarrollo. Para ello dibujamos varias líneas, cada
+una de un color, correspondientes a las distintas fases (ver ejemplo
+en la diapositiva o en el artículo de Pawel Brodzinski).
+
+Otro concepto importante es el cycle time o lead time, el tiempo medio
+en que una funcionalidad tarda en terminarse. Podemos representar las
+distintas funcionalidades terminadas en una gráfica, en el orden en el
+que se van terminando, y hacer un diagrama del tiempo transcurrido por
+cada una de ellas. De esta forma podemos ir obteniendo un conocimiento
+que nos servirá para estimar mejor las siguientes historias.
+
+
+
+### 4. Decidir lo más tarde posible (Defer Commitment) ###
+
+- Toma las decisiones importantes sobre tu proyecto cuando tengas la
+  mayor cantidad de información posible, en el último momento
+  responsable.
+- Diferencia entre compromisos y opciones. Intenta que la arquitectura
+  y el desarrollo del proyecto permita maximizar las opciones.
+- Se puede aplicar muy bien al desarrollo incremental: empezamos con
+  un núcleo de desarrollo mínimo y se van añadiendo características no
+  demasiado dependientes unas de otras. Hay que intentar que sea fácil
+  activar y desactivar las características y que no haya demasiada
+  interdependencias entre ellas.
+- Pruebas A/B para comprobar una característica: los usuarios utilizan
+  dos versiones del producto, una con la característica activada y
+  otra desactivada. Se realizan estudios estadísticos para comprobar
+  qué versión del producto proporciona más valor.
+- Hay otra forma radical de tener más opciones: darte la posibilidad
+  de deshacer decisiones. Ver el post de Kent Beck - [Taming Complexity
+  with Reversibility](https://m.facebook.com/notes/kent-beck/taming-complexity-with-reversibility/1000330413333156).
+
+- Cuando estamos comenzando a desarrollar las primeras funcionalidades
+  del sistema, deberíamos evitar tomar decisiones sobre elementos
+  críticos del diseño que no tengamos claros y que sean difíciles de
+  cambiar en el futuro. En su lugar, debemos probar más de una
+  alternativa y dejar abierta la posibilidad de cambio para el
+  futuro. Estas alternativas deben incluir todas las capas del
+  desarrollo: de la interfaz de usuario al backend. Serán ejemplos
+  mínimos del sistema que se irán ampliando en cada iteración. Es lo
+  que se denomina una trazer bullet (bala trazadora): una pequeña
+  funcionalidad o ejemplo que afecta a todas las capas del desarrollo
+  y que permite comprobar el funcionamiento de todos los elementos del
+  sistema.
+
+- En lugar de un plan fijo con fechas marcadas para entregar cada
+  funcionalidad, el compromiso de un equipo ágil es entregar valor en
+  forma de incremento cada 3 semanas (una buena analogía es una
+  publicación periódica, como una revista semanal o mensual, cada
+  semana o cada mes debe haber un nuevo ejemplar en los quioscos). 
+
+- Una idea importante es la denominada option thinking: podemos
+  mantener distintas opciones abiertas y tomar la decisión de qué
+  entregar lo más tarde posible. Esta idea es muy importante tanto en
+  el diseño y el desarrollo del software, como en la selección de
+  funcionalidades del backlog. Por ejemplo, en el caso del diseño,
+  podríamos hacer un diseño que nos permita refactorizar fácilmente
+  entre más de una implementación alternativa. En el caso de selección
+  de funcionalidades por el product owner hay que considerar el
+  backlog del sprint como opciones, no como compromisos. El PO puede
+  modificar, añadir o eliminar ítems del sprint actual, asegurándose
+  siempre que al final del sprint se entregará un incremento que
+  aporte valor adicional.
+
+- En el post de Kent Beck Taming Complexity with Reversibility, se
+  reflexiona sobre la ventaja de poder deshacer decisiones tomadas e
+  incorporadas al producto, en el contexto de Facebook. En la mayoría
+  de las ocasiones no estamos en situaciones irreversibles y podemos
+  tomar decisiones que después tengamos que cambiar. Usemos la
+  flexibilidad del software para desarrollar y desplegar pensando que
+  podemos tener que deshacer lo que ya hemos hecho:
+
+    - Sistema de control de versiones que permita recuperar versiones
+    pasadas puestas en producción.
+    - Sistema de revisión de código que permita deshacer la
+    integración de funcionalidades. 
+    - Sistema flexible de puesta en producción que permita deshacer el
+      último cambio si las métricas caen después de haber sido probado
+      por millones de personas
+
+
+### 5. Entregar rápido (Deliver Fast) ###
+
+- Comprende el coste de los retrasos, y minimízalos utilizando
+sistemas pull con ciclos cortos.
+- Las entregas y desarrollos rápidos pueden permitir proporcionar más
+  características (o prototipos de las mismas) para que los clientes y
+  PO puedan decidir con más información. 
+- Utiliza la técnica del mapa de la cadena de valor (value stream
+  mapping) y la característica mínima promocionable (minimal
+  marketable feature). El value stream mapping nos permite estudiar y
+  mejorar el proceso de desarrollo y detectar los desperdicios. 
+- La cadena de valor nos permite definir las columnas del tablero
+  kanban y comprobar cómo se mueven las tareas sobre ese tablero
+    - Distintos tableros para representar distintos niveles: una
+      característica se divide en varias tareas.
+- Utiliza las técnicas de entregas contínuas (continuous delivery).
+
+### 6. Respetar a la gente, potenciar el equipo (Respect People, empower the team) ###
+
+- Un equipo es un conjunto de personas comprometidas en conseguir un
+  objetivo común.
+- Establece un entorno de trabajo centrado y efectivo, y construye un
+  equipo de personas con energía, que realizan un trabajo sostenible.
+- No a los “héroes” que le echan un montón de horas y que sacan el
+  trabajo adelante ellos solos. Eso no es potenciar el equipo.
+- Respetar a los compañeros.
+
+### 7. Optimizar el conjunto (Optimize the Whole) ###
+
+- Todo el equipo debe tener claro el objetivo final del proyecto y
+  cómo el software que estamos desarrollando va a añadir valor al
+  usuario final.
+- Una técnica útil es la técnica de los 5 por qués (5 whys): cuando
+  quieras investigar la causa final de algo debes contestar a 5 por
+  qués. El proceso de reflexión te permitirá ver cosas que mejorar. Un
+  ejemplo:
+    - ¿Por qué se producen tantos errores en el proceso de matrícula?
+      Porque mucha gente pulsa el botón atrás del navegador y nuestro
+      programa no lo soporta.
+    - ¿Por qué la gente pulsa el botón de atrás? Porque quiere
+      modificar alguna asignatura y no puede hacerlo de otra forma.
+    - ¿Por qué no puede se puede modificar la matrícula de una
+      asignatura? Porque ya ha confirmado esa asignatura, ya se le ha
+      asignado un turno y no se puede “desmatricular” de ese turno.
+    - ¿Por qué no se puede desmatricular de un turno? Porque no hay
+      ninguna funcionalidad para que un estudiante pueda escoger el
+      turno que le interese.
+    - ¿Por qué no se ha añadido esa funcionalidad? Porque no se nos había ocurrido. ¡¡Pues hay que modificar el backlog!!
+- Contratos basados en la confianza. Por ejemplo, el cliente paga por
+características entregadas, hay un tope de gasto para el proyecto
+completo y la posibilidad de futuros contratos para ampliaciones de la
+aplicación.
+
 ## Referencias ##
 
 - Taiichi Ohno (1988) [_Toyota Production System_](https://learning.oreilly.com/library/view/toyota-production-system/9781000056488/)
 - Andrew Stellman; Jennifer Greene (2014) [_Learning Agile_, cap. 8](https://learning.oreilly.com/library/view/learning-agile/9781449363819/ch08.html#lean_comma_eliminating_waste_comma_and)
+- Mary Poppendieck, Implementing Lean Software Development, cap. 1 y 2
+- Mary Poppendieck, (2001) [Lean Programming](http://www.leanessays.com/2010/11/lean-programming.html)
