@@ -30,21 +30,22 @@ procesos lean.
 
 ### Taylorismo y Fordismo ###
 
-A finales del siglo XIX y principios del XX Frederick Taylor analizó
+A finales del siglo XIX y principios del XX Frederick Taylor estudió
 los procesos de fabricación de las industrias, principalmente el
 acero, y popularizó la idea de que estos procesos debían analizarse y
-optimizarse al máximo. Se debe analizar todos los elementos del
-proceso: qué tiempo pasa el trabajador moviéndose de un sitio a otro,
-cómo hacer más eficiente el movimiento de las partes de un sitio a
+optimizarse al máximo. Se debían analizar todos los elementos del
+proceso: qué tiempo pasaba el trabajador moviéndose de un sitio a otro,
+cómo hacer más eficiente el movimiento de los productos de un sitio a
 otro, como optimizar los movimientos necesarios para hacer un
-ensamblaje, etc. 
+ensamblaje, etc.
 
-El objetivo final es diseñar un proceso óptimo totalmente detallado,
-rígido y repetitivo, del que se elimina en a medida de lo posible
+El objetivo final era diseñar un proceso óptimo totalmente detallado,
+rígido y repetitivo, del que se eliminaba en a medida de lo posible
 cualquier fuente de variabilidad y que pueda ser realizado por
 trabajadores sin demasiada formación. Por ello las personas que
-trabajan en el proceso se convierten en unas máquinas más, ejecutando
-acciones repetitivas y perdiendo toda creatividad e individualidad.
+trabajaban en el proceso se convertían en unas máquinas más,
+ejecutando acciones repetitivas y perdiendo toda creatividad e
+individualidad.
 
 <img src="imagenes/henry-ford.png" width="100px" align="left"/>
 
@@ -111,15 +112,15 @@ origen en los problemas de Japón:
 - Alto desempleo y gran cantidad de mano de obra, que hacía
   innecesaria la optimización de los procesos de fabricación.
   
-De forma que el proceso de fabricación se adelgaza (_lean_),
-construyéndose fábricas más pequeñas en las que los únicos materiales
-que se almacenan son los que se están utilizando en el momento. Al
-mantenerse bajos los niveles de inventario sólo se gasta lo necesario
-para fabricar los pedidos bajo demanda.
+Debido a estas restricciones, los procesos de fabricación en Japón se
+adelgazan (_lean_), construyéndose fábricas más pequeñas en las que
+los únicos materiales que se almacenan son los que se están utilizando
+en el momento. Al mantenerse bajos los niveles de inventario sólo se
+gasta lo necesario para fabricar los pedidos bajo demanda.
 
-El sistema tuvo su origen en las ideas del ingeniero de Toyota Taiichi
-Ohno que fueron recogidas por Kiichiro Toyoda, director de Toyota en
-los años 50s. 
+Estas tendencias son recogidas y puestas en forma de sistema de
+producción por el ingeniero de Toyota Taiichi Ohno y explotadas al
+máximo por por Kiichiro Toyoda, director de Toyota en los años 50s.
 
 El objetivo de Ohno no era conseguir producción en masa. Su ideal era
 fabricar y entregar un producto inmediatamente después de que el
@@ -155,7 +156,6 @@ System](http://en.wikipedia.org/wiki/Toyota_Production_System).
 > Toyota (_Toyota Production System_)[https://global.toyota/en/company/vision-and-philosophy/production-system/]
 >
 
-
 TPS está basado en dos principios básicos:
 
 - Just-in-time: Sólo hacer lo que se necesita, sólo cuando se
@@ -183,9 +183,10 @@ venderse en cantidades suficientes como para que las empresas más
 tradicionales empezaran a sentirse amenazadas. 
 
 En los años 90 se publica el libro _The Machine That Changed the
-World_ que introduce por primera vez el término _lean_ y que
-populariza para siempre la filosofía de Toyota. El libro estaba basado
-en un estudio de 5 años del MIT sobre la industria automovilística japonesa.
+World_ que introduce por primera vez el término _lean_ (flaco,
+austero) y que populariza para siempre la filosofía de Toyota. El
+libro estaba basado en un estudio de 5 años del MIT sobre la industria
+automovilística japonesa.
 
 En los años 2000 Japón se convirtió en el primer país en número de
 vehículos producidos, superando a la industria americana y europea.
@@ -194,184 +195,233 @@ vehículos producidos, superando a la industria americana y europea.
 
 <img src="imagenes/lean-books.png" width="300px" align="right"/>
 
-- Estas ideas dan origen a los denominados sistemas de fabricación
-  lean (lean = austero, flaco) 
-    - El proceso siempre puede ser mejorado y los trabajadores son los
-      que mejor pueden proponer estas mejores.
-    - Método científico: los trabajadores aprenden a crear hipótesis,
-      probarlas, analizar los resultados y, si los datos confirman la
-      hipótesis, hacer el cambio permanente. 
+A partir de los años 2000 se ha popularizado el término _lean_,
+publicándose cientos de libros y aplicándose a múltiples conceptos
+como organización, educación, medicina, desarrollo de software o
+creación de _startups_.
 
-    - Identificar los distintos pasos del proceso de producción (el
-      value stream) cadena de valor del proceso. 
+Algunas de las ideas más importantes en el campo de la empresa y de
+los sistemas de producción son las siguientes.
 
-    - Una idea central es la continua búsqueda y eliminación de los
-      desperdicios (waste) generados por el proceso. Simplificar. 
+- El proceso siempre puede ser mejorado y los trabajadores son los
+  que mejor pueden proponer estas mejores.
 
-    - Cuando se eliminan los desperdicios la calidad mejora, y el
-      tiempo de producción y los costes se reducen y la producción se
-      vuelve fluida (flow). 
+- Método científico: los trabajadores aprenden a crear hipótesis,
+  probarlas, analizar los resultados y, si los datos confirman la
+  hipótesis, hacer el cambio permanente.
 
-    - Consecuencias: alta disciplina y alta respuesta al cambio. 
+- Identificar los distintos pasos del proceso de producción (el value
+  stream) cadena de valor del proceso.
 
-    - Es una mentalidad (mindset), no un conjunto prescrito de
-      reglas. 
+- Una idea central es la continua búsqueda y eliminación de los
+  desperdicios (waste) generados por el proceso. Simplificar.
 
-- El término lean se ha popularizado: lean startups, lean thinking 
+- Cuando se eliminan los desperdicios la calidad mejora, y el tiempo
+  de producción y los costes se reducen y la producción se vuelve
+  fluida (flow).
+
+- No precipitarse en la toma de decisiones. Mantener abiertas
+  distintas opciones y realizar la decisión cuando se tenga el máximo
+  de información posible.
+
+- Consecuencias: alta disciplina y alta respuesta al cambio.
+
+- Lean es una mentalidad (mindset), no un conjunto prescrito de
+  reglas.
 
 ### Value Stream Map ###
 
+Una de las técnicas lean para analizar el proceso y detectar
+desperdicios es el denominado _value stream map_ (mapa del flujo de
+valor). Consiste en analizar en un diagrama horizontal todos los
+tiempos que se han utilizado para añadir algún valor al elemento que
+estamos construyendo así como los tiempo de espera, en los que el
+procesamiento ha estado parado.
+
+Esta técnica se puede aplicar al desarrollo de software, analizando
+todas las fases por las que pasa una funcionalidad, característica,
+historia de usuario, tarea, etc. desde que se decide desarrollar hasta
+que se sube a producción. 
+
 <img src="imagenes/value-stream.png" width="700px"/>
 
-- Avanzamos un ejemplo de aplicación de una de estas técnicas al
-  desarrollo de software. El **value stream map** (**mapa de flujo de
-  valor**) consiste en analizar todas las fases por las que pasa una
-  funcionalidad, característica, historia de usuario, tarea,
-  etc. desde que se decide desarrollar hasta que se sube a
-  producción. Dibujar una caja por cada uno de los pasos y estudiar el
-  tiempo de trabajo y tiempo de espera en cada una de las fases. Es
-  recomendable hacerlo con características reales, una vez terminadas.
+En la figura anterior se muestra cómo se dibuja una caja por cada uno
+de los pasos y se estudia el tiempo de trabajo y tiempo de espera en
+cada una de las fases. 
 
-- En el ejemplo anterior las fases serían: (1) crear el documento de requerimiento, (2)
-  dividir en tareas y estimar, (3) documento de planificación, (4)
-  revisión del plan y obtener visto bueno, (5) desarrollar software,
-  (6) pruebas del software, (7) validación del alcance, (8) despliegue.
+Este análisis se debería realizar con características reales, una vez
+terminada su implementación y entregadas al cliente.
 
-- Cada empresa, dependiendo de la metodología de desarrollo que use,
-  tiene un mapa de flujo de valor distinto. Es una herramienta
-  importante para diseñar los tableros kanban.
-  
-- El enfoque _lean_ consiste en identificar y eliminar _waste_ en el
-  _value stream_. Debemos identificar tres tipos de actividades:
-  actividades que claramente crean valor; actividades que no crean
-  valor para el cliente pero que son necesarias en la actualidad para
-  fabricar el producto; y actividades que no crean valor para el
-  cliente, son innecesarias y, por lo tanto, deberían ser eliminadas
-  inmediatamente (_waste_).
+En el ejemplo anterior las fases serían: (1) crear el documento de
+requerimiento, (2) dividir en tareas y estimar, (3) documento de
+planificación, (4) revisión del plan y obtener visto bueno, (5)
+desarrollar software, (6) pruebas del software, (7) validación del
+alcance, (8) despliegue.
 
-- Un problema importante en el caso del software es la identificación
-  de las tareas que van a pasar por el _value stream_. ¿Qué unidades
-  son las que hay que analizar? ¿Historias de usuario? ¿Tareas
-  técnicas más pequeñas en las que se descomponen las historias de
-  usuario?. La recomendación es que sean elementos que no tengan mucha
-  variabilidad de tamaño. Un concepto que se suele usar es el de
-  **minimal marketable feature** (MMF): el "trozo" más pequeño de
-  funcionalidad del producto que los clientes (o el _product owner_)
-  puede priorizar. Suelen tomar forma de una historia de usuario, un
-  requerimiento o una petición de funcionalidad. En el caso de Scrum,
-  son los ítems del backlog.
+Si aplicamos el método a nuestro propio proceso de desarrollo de
+software podremos analizarlo de forma detallada y estudiar los pasos
+concretos que realizamos. Cada empresa, dependiendo de la metodología
+de desarrollo que use, tiene un mapa de flujo de valor distinto. 
 
+El enfoque lean consiste en identificar y eliminar _waste_ en el
+_value stream_. Debemos identificar tres tipos de actividades:
+actividades que claramente crean valor; actividades que no crean valor
+para el cliente pero que son necesarias en la actualidad para fabricar
+el producto; y actividades que no crean valor para el cliente, son
+innecesarias y, por lo tanto, deberían ser eliminadas inmediatamente
+(_waste_).
+
+Un problema importante en el caso del software es la identificación de
+las tareas que van a pasar por el _value stream_. ¿Qué unidades son
+las que hay que analizar? ¿Historias de usuario? ¿Tareas técnicas más
+pequeñas en las que se descomponen las historias de usuario?. La
+recomendación es que sean elementos que no tengan mucha variabilidad
+de tamaño. Un concepto que se suele usar es el de _minimal marketable
+feature_ (MMF): el "trozo" más pequeño de funcionalidad del producto
+que los clientes (o el _product owner_) puede priorizar. Suelen tomar
+forma de una historia de usuario, un requerimiento o una petición de
+funcionalidad. En el caso de Scrum, son los ítems del backlog.
+
+Cuando veamos la metodología Kanban, veremos que esta es una
+herramienta importante para diseñar el tablero kanban que utilizaremos
+en nuestro proceso.
 
 ### Buscar y eliminar desperdicios ###
 
-- Todo aquellos elementos que no añaden valor al producto. Si
-  minimizamos los desperdicios maximizaremos la cantidad de trabajo
-  útil, que realmente da valor. 
+Eliminado desperdicios en el proceso de fabricación podemos hacer que
+éste sea más ligero, más flexible, fácil de modificar y que el
+producto llegue antes al cliente final.
 
-- Ejemplos de desperdicios en procesos de fabricación y servicios: 
-    - Espera: personas o hitos del proceso esperando que termine otro
-      proceso o que llegue cierta información 
-    - Movimiento: movimiento físico o mental que no añade valor
-    - Inventario: almacenar servicios y componentes extra que el
-      cliente no ha pedido 
-    - Defectos: errores que hay que corregir 
-    - Sobre-procesamiento: excesiva documentación, informes excesivos,
-      partes no necesarias
+Son desperdicios todos aquellos elementos que no añaden valor al
+producto. Si minimizamos los desperdicios maximizaremos la cantidad de
+trabajo útil, que realmente da valor.
+
+Ejemplos de desperdicios en procesos de fabricación y servicios: 
+
+- Espera: personas o hitos del proceso esperando que termine otro
+  proceso o que llegue cierta información 
+- Movimiento: movimiento físico o mental que no añade valor
+- Inventario: almacenar servicios y componentes extra que el
+  cliente no ha pedido 
+- Defectos: errores que hay que corregir 
+- Sobre-procesamiento: excesiva documentación, informes excesivos,
+  partes no necesarias
       
-
-- Toyota también usó el concepto de desperdicio no sólo para
-  fabricación, sino también en el desarrollo del producto. Cuando se
-  comienza un proceso de desarrollo, el objetivo es completarlo tan
-  rápidamente como sea posible, porque todo el trabajo que va en
-  desarrollo no está añadiendo valor hasta que el coche sale de la
-  línea de producción. En cierto sentido, los proyectos de desarrollo
-  en marcha son idénticos al inventario. Los diseños y los prototipos
-  no son útiles a los clientes, reciben valor sólo cuando se entrega
-  el nuevo producto. 
-
-
+En el sistema de producción de Toyota también se usa el concepto de
+desperdicio no sólo para fabricación, sino también en el desarrollo
+del producto. Cuando se comienza un proceso de desarrollo, el objetivo
+es completarlo tan rápidamente como sea posible, porque todo el
+trabajo que va en desarrollo no está añadiendo valor hasta que el
+coche sale de la línea de producción. En cierto sentido, los proyectos
+de desarrollo en marcha son idénticos al inventario. Los diseños y los
+prototipos no son útiles a los clientes, reciben valor sólo cuando se
+entrega el nuevo producto.
 
 ### Sistemas de fabricación _pull_ ###
 
 <img src="imagenes/sistema-pull.png" width="400px"/>
 
-- Uno de los pilares de la fabricación lean.
-- El proceso de fabricación se divide en un conjunto de  pasos
-  (celdas) que necesitan recursos y consumen los  resultados de
-  procesos anteriores (upstream).
-- Sistema push: se planifica a priori la cantidad de trabajo  a
-  comenzar. Cuando un proceso upstream produce un  componente se
-  empuja (push) a la siguiente celda para  que continue
-  procesándolo. Muchas veces se provoca  sobrecarga en las celdas.
-- Sistema pull: el origen del flujo de trabajo está al final de la
-  cadena, al entregar el producto final a los clientes. Cada celda
-  tiene un número máximo de productos (WIP), cuando se consume uno se
-  envía una señal (pull signal) a la celda anterior de que se necesita
-  recibir un nuevo componente.
-- El flujo de trabajo se regula tirando (pull) de los materiales a
-  transformar con una cadencia constante.
-- Un sistema pull regula el flujo de los recursos mediante un proceso
-  de fabricación reemplazando solo lo que ha sido consumido y lo que
-  es inmediatamente entregable.
-  
-- WIP: **Work In Process**, es un término lean que indica el número de
-  ítems que están siendo procesados en una determinada celda o fase
-  del proceso. En Kanban veremos que para cada una de las fases del
-  proceso se define un límite en el WIP, que obliga a no aceptar más
-  ítems una vez que se ha llegado al WIP. Cuando algún ítem termine el
-  proceso y pase a la fase siguiente, se vuelve a coger un ítem
-  nuevo. Pero nunca estaremos procesando más ítems que los definidos
-  por el WIP.
+Otro de los pilares de la fabricación lean son los sistemas de
+fabricación _pull_.
 
-- El flujo de trabajo pull, junto con el WIP, garantiza que no se
-  produce sobre inventario y permite **detectar** fácilmente **cuellos
-  de botella** en el proceso, procesos que consumen demasiado tiempo y
-  que obligan a esperas e impiden una cadencia fluida (flujo,
-  **flow**). Una fase que tarda demasiado en procesar los ítems hace
-  que las fases previas se queden paradas, esperando, porque no pueden
-  sobrepasar su WIP. En un sistema push esas fases seguirían
-  procesando ítems, que se acumularían.
+En un proceso de fabricación se pueden identificar pasos (celdas) que
+necesitan recursos y consumen los  resultados de procesos anteriores
+(upstream).
 
-- El flujo pull y el mapa de flujo de valor permiten **analizar y
-  reflexionar** sobre el proceso de producción.
+Un sistema se denomina _push_ (empujar) cuando se planifica a priori
+la cantidad de trabajo a realizar, comenzando por la parte inicial del
+proceso. Los componentes se van empujando a las siguientes celdas
+cuando termina el procesamiento en cada una de ellas. Este es el
+enfoque de los métodos de fabricación tradicionales.
 
-- Una visualización en
-  [YouTube](https://www.youtube.com/watch?v=ZIv2e61SH1A) de los
-  sitemas pull.
+El problema principal de los sistemas push es que muchas veces se
+produce una sobrecarga en los productos a procesar por las celdas,
+acumulándose éstos en alguna parte del proceso (o al final, si el
+cliente no los compra y los retira).
 
-- Una de las características es el desarrollo rápido y concurrente y
-  la habilidad de realizar cambios tarde en el ciclo de desarrollo. No
-  hay que hacer decisiones irreversibles en primer lugar, hay que
-  retrasar las decisiones tanto como sea posible, manteniendo abiertas
-  distintas opciones, y cuando se realicen, hacerlas con la mejor
-  información posible.
-  
+Frente al sistema push, los sistemas de fabricación lean proponen un
+enfoque _pull_, en el que el origen del flujo de trabajo está al final
+de la cadena, en una petición de entrega de un producto a un
+cliente. Esta petición provoca el ensamblaje y entrega del producto
+final en las celdas finales y la transmisión de una señal (_pull
+signal_) a la celda anterior de que se necesita recibir un nuevo
+componente, para mantener el número de productos de la celda.
+
+De esta forma, se regula el flujo de los recursos mediante un proceso
+en el que se reemplaza sólo lo que ha sido consumido y lo que es
+inmediatamente entregable.
+
+Podemos ver una visualización simplificada de este tipo de procesos en
+[este enlace de YouTube](https://www.youtube.com/watch?v=ZIv2e61SH1A).
+
+En la visualización anterior se realiza la simplificación de que una
+celda procesa únicamente un elemento. Sin embargo lo habitual es que
+en una celda se está trabajando simultáneamente en varios elementos.
+El número de productos procesándose en una celda se denomina WIP
+(_Work In Progress_). Para cada celda hay que definir cuál es el
+máximo WIP, el máximo número de productos que se pueden procesar
+simultáneamente. El objetivo del sistema pull es conseguir que las
+celdas procesen el mayor número de elementos, pero siempre sin
+sobrepasar el límite de WIP.
+
+Para ello, cuando se termina de procesar un elemento se pasa a la
+siguiente celda sólo si en ella el número de elementos que se está
+procesando es menor que ese límite de WIP. Y cuando se pasa el
+elemento procesado crea un "vacío" (un WIP menor del límite de WIP) en
+la celda que se llena cogiendo un elemento a procesar de la celda
+anterior. De esta forma el flujo de trabajo se regula tirando (pull)
+de los materiales a transformar existentes en celdas superiores.
+
+Veremos que el concepto de WIP y límite de WIP es fundamental en
+Kanban, porque define el número máximo de ítems de trabajo que vamos a
+poder tener en cada fase del proceso.
 
 
+El flujo pull y el mapa de flujo de valor permiten analizar el proceso
+de producción y reflexionar sobre su dinámica. Por ejemplo, el flujo
+de trabajo pull, junto con el WIP, garantiza que no se produce sobre
+inventario y permite detecta fácilmente cuellos de botella en el
+proceso, procesos que consumen demasiado tiempo y que obligan a
+esperas e impiden una cadencia fluida (flujo, _flow_). Si una celda
+o fase del proceso tarda demasiado en procesar los ítems hace que las
+fases previas se queden paradas, esperando, porque no pueden
+sobrepasar su WIP. En un sistema push esas fases seguirían procesando
+ítems, que se acumularían.
+
+El objetivo final de un sistema pull es optimizar el flujo de entrega,
+conseguir que el tiempo de ciclo (el tiempo que tarda en llegar un
+pedido al cliente que lo ha originado) sea el mínimo posible. Además
+se pretende conseguir que ese tiempo sea lo más constante posible para
+todas las peticiones. De esta forma se consigue una cadencia de
+entrega lo más constante y pequeña posible acomodada a la cadencia de
+peticiones de los clientes.
 
 ### Kanban ###
 
 <img src="imagenes/informacion-visual.png" width="400px"/>
 
-- Una de las herramientas más  importantes para organizar el
-  proceso de producción son las kanban (del  japonés, kan=visual y ban
-  = tablero o tarjeta), señales visuales que  implementan el sistema
-  pull.
+El sistema de producción de Toyota uso abundantes elementos visuales
+para el control del proceso. Por ejemplo, se usan herramientas
+sencillas como contenedores retornables, tarjetas o zonas vacías
+señaladas en las que dejar los productos que van desde los centros de
+producción hacia los centros de consumo o transformación.
 
-- Enfoque visual para el control de  la producción, usando
-  herramientas  sencillas como contenedores retornables,  tarjetas o
-  incluso espacios vacíos para “tirar” de los productos desde  los
-  centros de producción hacia los centros de consumo o transformación.
+Una de las herramientas más importantes para organizar el proceso de
+producción son las kanban (del japonés 看板, 看kan=ver y 板
+ban=tablero o tarjeta), señales visuales que implementan el sistema
+pull.
 
-- Una kanban es una señal o ayuda visual que indica que un centro de
-  trabajo ha finalizado un proceso, necesita trabajo o necesita más
-  materiales.
+Una kanban es una señal o ayuda visual que indica que un centro de
+trabajo ha finalizado un proceso, necesita trabajo o necesita más
+materiales.
 
-- Los tableros kanban permiten que los centros de trabajo hagan un
-  seguimiento de las necesidades de los clientes o de los proveedores
-  y que respondan rápida y adecuadamente.
+Los tableros kanban permiten que los centros de trabajo hagan un
+seguimiento de las necesidades de los clientes o de los proveedores
+y que respondan rápida y adecuadamente.
 
-- Ejemplos de tableros Kanban en el desarrollo de software:
+Veremos en un tema siguiente cómo se pueden utilizar los tableros
+kanban para el desarrollo de software. La siguiente imagen muestra
+diversos ejemplos de tableros kanban en equipos de desarrollo:
 
 <img src="imagenes/tableros-kanban.png" width="700px"/>
 
@@ -474,7 +524,8 @@ línea también con la idea de XP de buscar la simplicidad).
 
 ## Principios de lean aplicables al desarrollo de software ##
 
-Definidos por Mary Poppendieck ("Lean Software Development: An Agile Toolkit", 2003 y “Implementing Lean Software Development”, 2006)
+Definidos por Mary Poppendieck ("Lean Software Development: An Agile
+Toolkit", 2003 y “Implementing Lean Software Development”, 2006)
 
 1. Eliminar los desperdicios (Eliminate Waste)
 2. Fomentar la calidad (Build Quality In) 
@@ -563,8 +614,12 @@ parcialmente hecho siempre retrasa el resto del trabajo.
 - Dos tipos de conocimiento: 
     - Conocimiento sobre el producto que estamos desarrollando
     - Conocimiento sobre el proceso y la forma en la que desarrollamos productos
-- Utiliza el feedback proporcionado por los proyectos para mejorar cómo construyes el software.
-    - Representación gráfica de la evolución del desarrollo: las mediciones y los diagramas nos pueden dar pistas de posibles cuellos de botella, qué tipos de características son más complicadas.
+- Utiliza el feedback proporcionado por los proyectos para mejorar
+  cómo construyes el software.
+    - Representación gráfica de la evolución del desarrollo: las
+      mediciones y los diagramas nos pueden dar pistas de posibles
+      cuellos de botella, qué tipos de características son más
+      complicadas.
     - Cosas que se pueden mejorar: metodología, arquitectura, tecnología.
     - Distintos tipos de representaciones gráficas nos permiten medir el proceso de  desarrollo.
 
@@ -630,18 +685,18 @@ que nos servirá para estimar mejor las siguientes historias.
   futuro. Estas alternativas deben incluir todas las capas del
   desarrollo: de la interfaz de usuario al backend. Serán ejemplos
   mínimos del sistema que se irán ampliando en cada iteración. Es lo
-  que se denomina una trazer bullet (bala trazadora): una pequeña
+  que se denomina una _trazer bullet_ (bala trazadora): una pequeña
   funcionalidad o ejemplo que afecta a todas las capas del desarrollo
   y que permite comprobar el funcionamiento de todos los elementos del
   sistema.
 
 - En lugar de un plan fijo con fechas marcadas para entregar cada
   funcionalidad, el compromiso de un equipo ágil es entregar valor en
-  forma de incremento cada 3 semanas (una buena analogía es una
+  forma de incremento cada 2 semanas (una buena analogía es una
   publicación periódica, como una revista semanal o mensual, cada
-  semana o cada mes debe haber un nuevo ejemplar en los quioscos). 
+  semana o cada mes debe haber un nuevo ejemplar en los quioscos).
 
-- Una idea importante es la denominada option thinking: podemos
+- Una idea importante es la denominada _option thinking_: podemos
   mantener distintas opciones abiertas y tomar la decisión de qué
   entregar lo más tarde posible. Esta idea es muy importante tanto en
   el diseño y el desarrollo del software, como en la selección de
@@ -669,7 +724,6 @@ que nos servirá para estimar mejor las siguientes historias.
     - Sistema flexible de puesta en producción que permita deshacer el
       último cambio si las métricas caen después de haber sido probado
       por millones de personas
-
 
 ### 5. Entregar rápido (Deliver Fast) ###
 
