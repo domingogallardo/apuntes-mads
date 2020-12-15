@@ -516,16 +516,16 @@ software? ¿Qué se puede considerar inventario? En el artículo
 anteriormente mencionado de Joel Spolsky se mencionan tres tipos de
 inventario que podemos encontrar y que debemos minimizar:
 
-- Backlog de features: el 90% de las _features_ en el backlog no
+- **Backlog de features**: el 90% de las _features_ en el backlog no
   llega a implementarse. Podemos minimizarlo limitando el backlog a 1 o 2
   meses. Una vez que esté lleno no se introducirán nuevos ítems si no
   se quita alguno.
-- Base de datos de bugs: algunas empresas mantienen bases de datos
+- **Base de datos de bugs**: algunas empresas mantienen bases de datos
   con cientos de bugs que nunca llegan a corregirse. Podemos
   minimizarlo implementando un sistema de triaje que indique si un bug debe
   corregirse o marcarse como cerrado. No hay que preocuparse en
   equivocarse, los bugs importantes reaparecerán.
-- Features no desplegada: características implementadas pero no
+- **Features no desplegada**: características implementadas pero no
   puestas en producción por ser el proceso de despliegue muy
   lento. Para minimizar el número debemos mejorar el proceso de
   despliegue y utilizar entrega continua.
