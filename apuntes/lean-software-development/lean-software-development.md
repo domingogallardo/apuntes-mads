@@ -551,23 +551,23 @@ al desarrollo de software.
 En estos libros formuló y explicó una serie de principios sacados de
 lean que se podían aplicar al desarrollo de software:
 
-1. Eliminar los desperdicios (Eliminate Waste): ¿qué parte del
+1. **Eliminar los desperdicios** (Eliminate Waste): ¿qué parte del
    trabajo no está relacionado directamente con crear valor para el
    usuario final? Debes encontrar los desperdicios y eliminarlos.
-2. Fomentar la calidad (Build Quality In): debes fomentar tanto la
+2. **Fomentar la calidad** (Build Quality In): debes fomentar tanto la
    calidad interna del software como la calidad final apreciada por el
    usuario.
-3. Crear conocimiento (Create Knowledge): debes utilizar el feedback
+3. **Crear conocimiento** (Create Knowledge): debes utilizar el feedback
    obtenido por las entregas para mejorar tu software.
-4. Decidir lo más tarde posible (Defer Commitment): debes tomar las
+4. **Decidir lo más tarde posible** (Defer Commitment): debes tomar las
    decisiones importantes para el proyecto cuando tengas la mayor
    cantidad posible de información, en el último momento responsable.
-5. Entregar rápido (Deliver Fast): debes comprender el coste de los
+5. **Entregar rápido** (Deliver Fast): debes comprender el coste de los
    retrasos, usando un proceso pull.
-6. Respetar a la gente, potenciar el equipo (Respect People, empower
+6. **Respetar a la gente**, potenciar el equipo (Respect People, empower
    the team): debes crear un entorno de trabajo centrado y efectivo y
    construir un equipo de gente implicada.
-7. Optimizar el conjunto (Optimize the Whole): debes entender el
+7. **Optimizar el conjunto** (Optimize the Whole): debes entender el
    proceso de desarrollo y tomar todas las mediciones posibles para
    tener una idea clara de sus elementos y dinámicas.
 
