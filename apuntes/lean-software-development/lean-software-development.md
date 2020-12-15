@@ -153,7 +153,7 @@ System](http://en.wikipedia.org/wiki/Toyota_Production_System).
 > expenditures of material, effort and time that do not generate value
 > for customers.
 >
-> Toyota (_Toyota Production System_)[https://global.toyota/en/company/vision-and-philosophy/production-system/]
+> Toyota [_Toyota Production System_](https://global.toyota/en/company/vision-and-philosophy/production-system/)
 >
 
 TPS está basado en dos principios básicos:
