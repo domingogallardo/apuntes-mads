@@ -271,16 +271,6 @@ el producto; y actividades que no crean valor para el cliente, son
 innecesarias y, por lo tanto, deberían ser eliminadas inmediatamente
 (_waste_).
 
-Un problema importante en el caso del software es la identificación de
-las tareas que van a pasar por el _value stream_. ¿Qué unidades son
-las que hay que analizar? ¿Historias de usuario? ¿Tareas técnicas más
-pequeñas en las que se descomponen las historias de usuario?. La
-recomendación es que sean elementos que no tengan mucha variabilidad
-de tamaño. Un concepto que se suele usar es el de _minimal marketable
-feature_ (MMF): el "trozo" más pequeño de funcionalidad del producto
-que los clientes (o el _product owner_) puede priorizar. Suelen tomar
-forma de una historia de usuario, un requerimiento o una petición de
-funcionalidad. En el caso de Scrum, son los ítems del backlog.
 
 Cuando veamos la metodología Kanban, veremos que esta es una
 herramienta importante para diseñar el tablero kanban que utilizaremos
@@ -298,13 +288,13 @@ trabajo útil, que realmente da valor.
 
 Ejemplos de desperdicios en procesos de fabricación y servicios: 
 
-- Espera: personas o hitos del proceso esperando que termine otro
+- **Espera**: personas o hitos del proceso esperando que termine otro
   proceso o que llegue cierta información. 
-- Movimiento: movimiento físico o mental que no añade valor.
-- Inventario: almacenar servicios y componentes extra que el
+- **Movimiento**: movimiento físico o mental que no añade valor.
+- **Inventario**: almacenar servicios y componentes extra que el
   cliente no ha pedido.
-- Defectos: errores que hay que corregir.
-- Sobre-procesamiento: excesiva documentación, informes excesivos,
+- **Defectos**: errores que hay que corregir.
+- **Sobre-procesamiento**: excesiva documentación, informes excesivos,
   partes no necesarias.
 
 En el sistema de producción de Toyota también se usa el concepto de
@@ -462,6 +452,7 @@ conjunto de funcionalidades.
 características. 
 - Proceso: cada característica debe ser analizada, desarrollada, probada, añadida y entregada. 
 
+
 En este proceso tenemos dos ejes de calidad: elegir qué característica
 (right product) y desarrollar correctamente la característica
 (product right).
@@ -490,6 +481,24 @@ Entre los procesos que menciona se encuentran:
 
 Estos procesos se pueden representar en la columnas de un tablero
 kanban, como veremos en el próximo tema.
+
+Un problema importante en el caso del software es la identificación de
+los ítems que van pasando de un proceso a otro. ¿Qué unidades son las
+que hay que analizar? ¿Historias de usuario? ¿Tareas técnicas más
+pequeñas en las que se descomponen las historias de
+usuario?. Dependerá de la experiencia del equipo. Es habitual ir
+probando distintas estrategias e ir analizando cómo funcionan en el
+proceso de desarrollo. Si cogemos ítems demasiado grandes el tablero
+apenas cambia durante toda la semana. Si cogemos ítems demasiado
+pequeños tenemos que estar actualizándolo cada pocos minutos. La
+recomendación es que sean elementos que no tengan mucha variabilidad
+de tamaño y que generen un flujo de cambio asumible en el tablero.
+
+Un concepto interesante es el de _minimal marketable feature_ (MMF):
+el "trozo" más pequeño de funcionalidad del producto que los clientes
+(o el _product owner_) puede priorizar. Suelen tomar forma de una
+historia de usuario, un requerimiento o una petición de
+funcionalidad. En el caso de Scrum, son los ítems del backlog.
 
 <img src="imagenes/tablero-kanban-basico.png" width="400px"/>
 
