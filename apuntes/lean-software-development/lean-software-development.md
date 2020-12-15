@@ -191,7 +191,7 @@ automovilística japonesa.
 En los años 2000 Japón se convirtió en el primer país en número de
 vehículos producidos, superando a la industria americana y europea.
 
-## Algunas características de los sistemas de fabricación lean ##
+## Características y técnicas de los sistemas de fabricación lean ##
 
 <img src="imagenes/lean-books.png" width="300px" align="right"/>
 
