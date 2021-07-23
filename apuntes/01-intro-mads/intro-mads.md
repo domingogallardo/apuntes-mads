@@ -201,18 +201,25 @@ El trabajo deberá ser original. Se utilizará una herramienta de
 detección de plagio para detectar la copia de párrafos sin atribuir la
 cita.
 
-### Prácticas (60%) ###
+### Prácticas (40%) ###
 
-Se realizarán cuatro prácticas a lo largo de la asignatura. Las dos
-primeras serán **individuales** y ponderarán un 20% y las otras dos serán en
-**equipo de 3 personas** y ponderarán otro 20%.
+Las prácticas ponderarán un 40% en la nota final de la asignatura.
 
-1. (13%) (Individual) Introducción a Spring Boot desarrollando la
-   versión inicial de la aplicación ToDoList.
-2. (7%) (Individual) Integración continua y TDD en Spring Boot.
-3. (7%) (Equipo) Integración continua con GitFlow y despliegue. 
-4. (13%) (Equipo) Desarrollo de una iteración usando integración
+Se realizarán cinco prácticas a lo largo de la asignatura. Las tres
+primeras serán **individuales** y ponderarán la mitad de la nota de
+prácticas y las otras dos serán en **equipo de 3 personas** y
+ponderarán la otra mitad.
+
+Las 5 prácticas y su ponderación en la nota final de prácticas son las siguientes:
+
+1. (5%) (Individual) Introducción a Spring Boot.
+2. (25%) (Individual) Versión inicial de la aplicación ToDoList.
+3. (15%) (Individual) Integración continua y TDD en Spring Boot.
+4. (15%) (Equipo) Integración continua con GitFlow y despliegue. 
+5. (30%) (Equipo) Desarrollo de una iteración usando integración
    continua, Kanban y prácticas ágiles. 
+
+### Examen de prácticas (20%) ###
 
 También se hará un examen práctico individual sobre las tecnologías y
 metodologías utilizadas en las prácticas. Tendrá una ponderación de un
