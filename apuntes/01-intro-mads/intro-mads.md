@@ -206,17 +206,16 @@ cita.
 Las prácticas ponderarán un 40% en la nota final de la asignatura.
 
 Se realizarán cinco prácticas a lo largo de la asignatura. Las tres
-primeras serán **individuales** y ponderarán la mitad de la nota de
-prácticas y las otras dos serán en **equipo de 3 personas** y
-ponderarán la otra mitad.
+primeras serán **individuales** y las otras dos serán en **equipo de 3
+personas**. 
 
 Las 5 prácticas y su ponderación en la nota final de prácticas son las siguientes:
 
-1. (5%) (Individual) Introducción a Spring Boot.
+1. (10%) (Individual) Introducción a Spring Boot.
 2. (25%) (Individual) Versión inicial de la aplicación ToDoList.
-3. (15%) (Individual) Integración continua y TDD en Spring Boot.
+3. (25%) (Individual) Integración continua y TDD en Spring Boot.
 4. (15%) (Equipo) Integración continua con GitFlow y despliegue. 
-5. (30%) (Equipo) Desarrollo de una iteración usando integración
+5. (25%) (Equipo) Desarrollo de una iteración usando integración
    continua, Kanban y prácticas ágiles. 
 
 ### Examen de prácticas (20%) ###
