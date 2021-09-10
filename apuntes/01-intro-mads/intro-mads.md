@@ -162,11 +162,18 @@ materiales (diapositivas, vídeos, libros, artículos) en la asignatura.
 
 Muy recomendable su
 [blog](http://blog.crisp.se/author/henrikkniberg). Su Twitter es
-[@henrikkniberg](https://mobile.twitter.com/henrikkniberg). 
+[@henrikkniberg](https://mobile.twitter.com/henrikkniberg). Actualmente
+se ha apartado un poco del mundillo ágil y es desarrollador en Mojang,
+trabajando en las nuevas versiones de Minecraft.
 
 </td></tr></table>
 
 ## Planificación y evaluación ##
+
+<img src="imagenes/cronograma.png" width="700px"/>
+
+En la figura anterior se puede ver un resumen con el cronograma del
+desarrollo de la asignatura.
 
 La evaluación de la asignatura se divide en un 40% correspondiente a
 teoría y un 60% a prácticas.
@@ -175,22 +182,24 @@ teoría y un 60% a prácticas.
 
 Los contenidos de la asignatura se dividen en 4 grandes bloques:
 
-1. Valores y principios ágiles para el desarrollo del software 
-2. XP  (eXtreme Programming)
-3. Integración y entrega continua
-4. Metodologías lean y Kanban
+1. Valores y principios ágiles para el desarrollo del software
+   (sesiones 1, 2, 3 y 4)
+2. XP (eXtreme Programming) (sesiones 5, 6, 7 y 9)
+3. Integración y entrega continua (sesiones 8 y 10)
+4. Metodologías lean y Kanban (sesiones 11 y 12)
 
 La evaluación de los contenidos de teoría se hará de forma continua,
 mediante **3 exámenes de tipo test** que ponderarán un 10% cada uno y un
 **trabajo individual** de redacción sobre alguno de los temas de la
 asignatura que ponderará otro 10%.
 
-Para el trabajo individual deberás proponer un título sobre en tema
-relacionado con la asignatura y el profesor dará el visto bueno. En el
-trabajo deberás realizar una pequeña investigación bibliográfica en
-artículos, blogs, libros, etc. sobre el tema propuesto y escribir un
-ensayo con una extensión de alrededor de 3.000 palabras. En el trabajo
-deberás incluir:
+Para el trabajo individual deberás realizar escoger un tema
+relacionado con la asignatura de una lista que el profesor pondrá a
+vuestra disposición o proponer tú un tema que con el visto bueno del
+profesor. En el trabajo deberás realizar una pequeña investigación
+bibliográfica en artículos, blogs, libros, etc. sobre el tema
+propuesto y escribir un ensayo con una extensión de alrededor de 3.000
+palabras. En el trabajo deberás incluir:
 
 - Introducción
 - Desarrollo
@@ -228,29 +237,19 @@ metodologías utilizadas en las prácticas. Tendrá una ponderación de un
 
 Las fechas de los exámenes serán las siguientes:
 
-- Examen 1 de teoría (10%): miércoles 21 de octubre de 11:00 a 11:15
-  h. (15 minutos) sobre la teoría vista desde la semana 1 hasta la
-  semana anterior incluida.
-- Examen 2 de teoría (10%): miércoles 2 de diciembre de 11:00 a 11:15
-  h. (15 minutos) sobre la teoría vista desde el examen 1 hasta la
-  semana anterior incluida.
+- Examen 1 de teoría (10%): miércoles 13 de octubre a las 11:00 sobre las sesiones 1 a 4.
+- Examen 2 de teoría (10%): miércoles 17 de noviembre a las 11:00
+  sobre las sesiones 5 a 8.
 - Examen 3 de teoría (10%): En enero, en la fecha y hora en la que se realice
-  el examen final de la asignatura. También tendrá una duración de 15
-  minutos.
-- Examen de prácticas (20%): miércoles 25 de noviembre, de 11:00 a
-  13:00 h. (2 horas) en el horario de teoría.
+  el examen final de la asignatura, sobre las sesiones 9 a 12.
+- Examen de prácticas (20%): miércoles 17 de noviembre, en las horas
+  de prácticas.
 
-Todos los exámenes serán on-line, aunque se podrán realizar desde
-clase para los que tengan docencia presencial ese día. Serán exámenes
-de tipo "libro abierto", en el que se podrán consultar apuntes y estar
-conectados a Internet.
-
-Los exámenes de teoría serán de tipo test y se usará la herramienta de
-cuestionarios de Moodle. En el examen de prácticas se deberá trabajar
-con un repositorio GitHub con una aplicación Spring Boot y realizar una
-serie de modificaciones sobre ella utilizando la metodología de
-trabajo vista en clase de prácticas (commits frecuentes, issues, pull
-requests, versiones, etc.).
+Los exámenes de teoría serán de preguntas de tipo test. En el examen
+de prácticas se deberá trabajar con un repositorio GitHub con una
+aplicación Spring Boot y realizar una serie de modificaciones sobre
+ella utilizando la metodología de trabajo vista en clase de prácticas
+(commits frecuentes, issues, pull requests, versiones, etc.).
 
 ## Bloque 1: Valores y principios ágiles ##
 
@@ -288,15 +287,13 @@ transformación ágil. Muchas empresas están aplicando con éxito estas
 técnicas para conseguir iteraciones rápidas y productos más útiles
 para sus clientes.
 
-El bloque tendrá una **duración de 3 semanas** y veremos en él temas
+El bloque tendrá una **duración de 4 sesiones** y veremos en él temas
 relacionados con los valores y principios ágiles 
 
 - Desarrollo del software, características y modelos, aceptación del cambio.
 - Manifiesto ágil, repercusión del manifiesto en las metodologías
   de desarrollo, orígenes y fundamentos de las metodologías
   ágiles.
-- Introducción a las metodologías lean.
-
 
 ## Bloque 2: XP (eXtreme Programming) ##
 
@@ -334,15 +331,14 @@ diseñar el software de forma que se facilite el cambio y para aislar
 las funcionalidades existentes de forma que las nuevas funcionalidades
 no entren en conflicto con las ya existentes.
 
-El bloque tendrá una **duración de 4 semanas** y veremos en él los
+El bloque tendrá una **duración de 4 sesiones** y veremos en él los
 aspectos fundamentales de XP. Veremos en profundidad TDD, haciendo
 una demostración de este tipo de metodología de desarrollo. Hablaremos
-también de _Clean Code_, _Domain Driven Design_ y refactorización.
+también de diseño SOLID y de refactorización.
 
 - Valores y prácticas XP.
 - TDD, Desarrollo Dirigido por los Tests.
-- Cambio, código y comunicación: Clean Code, Domain Driven Design,
-  Refactorización.
+- Cambio, código y comunicación: diseño SOLID y refactorización.
 
 <table markdown="1">
 <tr><td style="background-color: #e0e0e0">
@@ -386,7 +382,7 @@ permiten trabajar con múltiples versiones del producto de forma segura
 y automatizar la ejecución de los tests y la construcción y despliegue
 de los ejecutables.
 
-Este bloque tendrá una **duración de 4 semanas** y en él estudiaremos en
+Este bloque tendrá una **duración de 2 sesiones** y en él estudiaremos en
 profundidad Git y la plataforma GitHub con todas las funcionalidades
 que proporciona para realizar una integración continua de nuestro
 proyecto software: pull requests, revisión de código, scripts de
@@ -416,13 +412,12 @@ Un elemento fundamental en la metodología Kanban es el uso de
 tableros en los que visualizar el estado de todas las tareas que está
 realizando el equipo.
 
-El bloque tendrá una **duración de 3 semanas** y veremos los siguientes apartados:
+El bloque tendrá una **duración de 2 sesiones** y veremos los siguientes apartados:
 
 - Fabricación lean, empresa lean, desarrollo de software lean.
 - Fundamentos de Kanban: visualización, ítems de trabajo, trabajo
   en progreso, flujo, mejora continua, límite en el WIP.
 - Kanban vs. Scrum.
-- Cultura ágil, metodologías ágiles en la empresa.
 
 ## Prácticas ##
 
@@ -442,14 +437,15 @@ El bloque tendrá una **duración de 3 semanas** y veremos los siguientes aparta
 
 ### Prácticas que desarrollaremos ###
 
-- Práctica 1 (5 semanas): **Primera aplicación** y **TodoList** en
-  Spring Boot. Spring Boot, Git, GitHub. Metodología de trabajo Git y
-  GitHub. 
-- Práctica 2 (3 semanas): **Integración continua**. Tests en Spring Boot y
+- Práctica 1 (1 semana): **Primera aplicación** de introducción a
+  Spring Boot.
+- Práctica 2 (4 semanas): Aplicación **TodoList** en Spring
+  Boot. Spring Boot, Git, GitHub. Metodología de trabajo Git y GitHub.
+- Práctica 3 (3 semanas): **Integración continua**. Tests en Spring Boot y
   TDD. Integración continua con GitHub y Docker. 
-- Práctica 3 (3 semanas): **Configuración del trabajo en equipo**. Flujo de trabajo Git y
+- Práctica 4 (2 semanas): **Configuración del trabajo en equipo**. Flujo de trabajo Git y
   GitHub modificado para el trabajo en equipo. Uso de pull requests. 
-- Práctica 4 (4 semanas): **Iteración de desarrollo**. Seleccionaremos
+- Práctica 5 (4 semanas): **Iteración de desarrollo**. Seleccionaremos
   las historias de usuario y las desarrollaremos durante una iteración de desarrollo,
   practicando las metodologías vistas en la asignatura. Mejoraremos
   también el tablero de GitHub para acercarlo más a un tablero de
