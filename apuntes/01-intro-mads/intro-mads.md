@@ -16,7 +16,7 @@ Software**.
 - **Créditos ECTS**: 6 créditos ECTS, que se corresponden con 15
   semanas de trabajo y 10 horas por semana, incluyendo clases y
   trabajo en casa (150 horas de dedicación en total).
-- [**Ficha UA** de la asignatura](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wcodest=C203&wcodasi=34037&wlengua=es&scaca=2020-21).
+- [**Ficha UA** de la asignatura](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wcodest=C203&wcodasi=34037&wlengua=es&scaca=2021-22).
 
 El profesor de la asignatura es [Domingo
 Gallardo](http://www.dccia.ua.es/~domingo/). Puedes consultarle
@@ -38,7 +38,7 @@ navegar por secciones.
 
 Utilizaremos Moodle como plataforma docente. Puedes encontrar la
 página de la asignatura en [este
-enlace](https://moodle2020-21.ua.es/moodle/course/view.php?id=445). Publicaremos
+enlace](https://moodle2021-22.ua.es/moodle/course/view.php?id=1475). Publicaremos
 semana a semana los enlaces a los materiales en GitHub. También se
 realizarán en la plataforma las entregas finales de las prácticas (que
 se deberán ir subiendo también a GitHub). Y utilizaremos el foro para
@@ -471,7 +471,7 @@ UA](http://gaudi.ua.es/uhtbin/cgisirsi/x/0/x/38/1/X/BLASTOFF).
 ### Agile en general y Scrum ###
 
 - Green Stellman: [_Learning Agile_](https://learning.oreilly.com/library/view/learning-agile/9781449363819/)
-- James Shore: [_The Art of Agile Development](https://learning.oreilly.com/library/view/the-art-of/9780596527679/)
+- James Shore: [_The Art of Agile Development_](https://learning.oreilly.com/library/view/the-art-of/9780596527679/)
 - Jonathan Rasmusson: [_The Agile Samurai_](https://learning.oreilly.com/library/view/the-agile-samurai/9781680500066/)
 - Mike Cohn: [_Succeeding with Agile_](https://learning.oreilly.com/library/view/succeeding-with-agile/9780321660534/)
 - Mike Cohn: [_Agile Estimating and Planning_](https://learning.oreilly.com/library/view/agile-estimating-and/9780137126347/)
