@@ -170,7 +170,7 @@ trabajando en las nuevas versiones de Minecraft.
 
 ## Planificación y evaluación ##
 
-<img src="imagenes/cronograma.png" width="700px"/>
+<img src="imagenes/cronograma.png" width="800px"/>
 
 En la figura anterior se puede ver un resumen con el cronograma del
 desarrollo de la asignatura.
