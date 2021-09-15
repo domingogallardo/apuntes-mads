@@ -2,8 +2,7 @@
 
 Materiales del curso 2020-21 de la asignatura
 [Metodologías Ágiles de Desarrollo de
-Software](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=es&wcodasi=34037&scaca=2020-21)
-de la Universidad de Alicante.
+Software](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=es&wcodasi=34037&scaca=2020-21) de la Universidad de Alicante.
 
 La asignatura se imparte en 15 semanas de clases. Cada semana tiene
 una clase de teoría y una de prácticas, ambas con una duración de 2
