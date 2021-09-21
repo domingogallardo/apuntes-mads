@@ -447,14 +447,15 @@ de usuarios.
 
 La posibilidad de cambio ha sido abrazada desde el principio por
 metodologías como XP y hoy en día cada vez más herramientas asumen
-característica y proporcionan funcionalidades orientadas a gestionar
-correctamente la evolución del software. Por ejemplo, los sistemas de
-controlo de versiones como Git permiten desarrollar software en
-equipo usando _commits_, ramas, versiones, solicitud de incorporación
-de cambios (_pull requests_), etc. O los IDEs tienen herramientas que
-permiten analizar qué sucede si cambiamos una declaración de una
-variable o una definición de una función: podemos consultar todos los
-sitios donde se usa esa función y sus conexiones con otros módulos.
+esta característica y proporcionan funcionalidades orientadas a
+gestionar correctamente la evolución del software. Por ejemplo, los
+sistemas de controlo de versiones como Git permiten desarrollar
+software en equipo usando _commits_, ramas, versiones, solicitud de
+incorporación de cambios (_pull requests_), etc. O los IDEs tienen
+herramientas que permiten analizar qué sucede si cambiamos una
+declaración de una variable o una definición de una función: podemos
+consultar todos los sitios donde se usa esa función y sus conexiones
+con otros módulos.
 
 Esta posibilidad de cambiar fácilmente una línea de código de un
 sistema software no nos debe llevar a engaño. El software es muy fácil
