@@ -490,9 +490,9 @@ lo hacen que cada vez menos flexible y más rígido.
 
 Una de nuestras obligaciones como desarrolladores ágiles es conseguir
 que el sistema que estamos desarrollando no se vuelva excesivamente
-rígido y pueda ser modificado sin demasiados problemas aunque estemos
+rígido y pueda ser modificado sin demasiados problemas, aunque estemos
 en fases avanzadas del desarrollo. Veremos que la refactorización y el
-diseño SOLID es fundamental para ello.
+diseño SOLID son técnicas fundamentales para ello.
 
 ## El desarrollo de software no es una ingeniería tradicional ##
 
