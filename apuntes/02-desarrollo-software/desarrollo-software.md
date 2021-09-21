@@ -468,8 +468,8 @@ etc.
 En su charla de 2020 [Continued Learning: The Beauty of
 Maintenance](https://youtu.be/3gib0hKYjB0), Kent Beck repasa las
 características fundamentales que influyen en que el cambio de un
-sistema software sea más o menos fácil: el acoplamiento (_coupling_)
-de sus elementos.
+sistema software sea más o menos fácil. Una de las más importante es
+el acoplamiento (_coupling_) de sus elementos.
 
 Hablaremos más de esto cuando hablemos de SOLID, pero vamos con un
 avance. Dos elementos están acoplados con respecto a un cambio cuando
@@ -479,14 +479,20 @@ sitio provoca una cascada sucesiva de cambios, que a su vez provocan
 otros cambios, y así hasta que se para la ola.
 
 Esta es la causa de que sea más sencillo introducir cambios al
-principio en un sistema software. Tiene pocos elementos, y están poco
-acoplados. Conforme el sistema va creciendo, si no tenemos cuidado y
-vamos refactorizándolo (lo veremos más adelante) se van introduciendo
-más elementos y se van acoplando cada vez más. 
+principio del desarrollo. El sistema software tiene pocos elementos, y
+están poco acoplados. Conforme el sistema va creciendo, si no tenemos
+cuidado y vamos refactorizándolo (lo veremos más adelante) se van
+introduciendo más elementos y se van acoplando cada vez más.
 
 Esto es uno de los aspectos de lo que se denomina **deuda técnica**:
 problemas de diseño que vamos introduciendo en nuestro software y que
 lo hacen que cada vez menos flexible y más rígido.
+
+Una de nuestras obligaciones como desarrolladores ágiles es conseguir
+que el sistema que estamos desarrollando no se vuelva excesivamente
+rígido y pueda ser modificado sin demasiados problemas aunque estemos
+en fases avanzadas del desarrollo. Veremos que la refactorización y el
+diseño SOLID es fundamental para ello.
 
 ## El desarrollo de software no es una ingeniería tradicional ##
 
