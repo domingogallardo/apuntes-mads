@@ -81,11 +81,9 @@ iluminado toda la habitación).
 La metáfora anterior puede o no ser correcta. Lo importante es que al
 formularla hemos tenido una representación de algo desconocido (el
 proceso de investigar) basada en algo conocido (explorar una
-habitación oscura con una linterna). Y esa es muy importante, porque
-nos representación nos lleva a tomar acciones y decisiones reales que
-podrían haber sido distintas si hubiéramos usado otra metáfora
-(explorar distintos aspectos del problema a resolver, en lugar de
-centrarnos en un aspecto concreto y profundizar en él).
+habitación oscura con una linterna). Y esa representación es muy
+importante, porque nos lleva a tomar acciones y decisiones reales que
+podrían haber sido distintas si hubiéramos usado otra metáfora.
 
 ### Metáforas en la cultura de las organizaciones ###
 
@@ -327,9 +325,11 @@ podamos introducir más fácilmente nuevos cambios en el futuro. Es lo
 que denominamos refactorizar.
 
 Una cosa poco reconocida en la arquitectura son las modificaciones
-continuas que se producen en los edificios. Un hilo muy interesante de
-Geoffrey Litt reseña el famoso libro ["How buildings
-learn"](https://twitter.com/geoffreylitt/status/1272542423001022467)
+continuas que se producen en los edificios. Un [hilo de
+Twitter](https://twitter.com/geoffreylitt/status/1272542423001022467)
+muy interesante de Geoffrey Litt reseña el famoso libro ["How
+buildings
+learn"](https://www.amazon.es/How-Buildings-Learn-Happens-Theyre/dp/0140139966)
 de Stewart Brand. Los paralelismos entre el software y la evolución de
 los edificios son notables. La diferencia está en la escala
 temporal. Vemos a la derecha la evolución de una mansión construida en
@@ -405,7 +405,7 @@ modificaciones y adaptaciones. Tampoco se distingue en el juego las
 diferencias entre las partes estructurales de la solución y las partes
 más orientadas a obtener una conducta específica en esa solución.
 
-#### Ninguna metáfora es completa ####
+### Ninguna metáfora es completa: el software es único ###
 
 Cada metáfora resalta unas características del desarrollo de software
 y ninguna recoge completamente todas ellas. Por eso es importante
@@ -432,14 +432,20 @@ humanos. Y, por último, también es publicable en sistemas como GitHub,
 en donde podemos leer y estudiar la organización y las líneas de
 código del sistema.
 
+En resumen, podríamos decir que el desarrollo de software es la
+actividad humana más compleja existente. Más que pilotar un avión,
+hacer un diagnóstico médico o diseñar un edificio. Por eso tiene esa
+gran cantidad de metáforas asociadas. Y seguro que seguirán
+planteándose nuevas.
+
+#### Abrazar el cambio ####
+
 La característica de que el software es fácil de cambiar es positiva
 porque permite un modelo de desarrollo único basado en iteraciones
 cortas, evoluciones y adaptación de cambios cuando se reciben _feedback_
-de usuarios. Pero la facilidad de modificación también tiene elementos
-negativos: _bugs_ introducidos a posteriori, confusiones debidas a
-problemas de comunicación, etc.
+de usuarios. 
 
-La posibilidad de cambio fue abrazada desde el principio por
+La posibilidad de cambio ha sido abrazada desde el principio por
 metodologías como XP y hoy en día cada vez más herramientas asumen
 característica y proporcionan funcionalidades orientadas a gestionar
 correctamente la evolución del software. Por ejemplo, los sistemas de
@@ -450,11 +456,36 @@ permiten analizar qué sucede si cambiamos una declaración de una
 variable o una definición de una función: podemos consultar todos los
 sitios donde se usa esa función y sus conexiones con otros módulos.
 
-En resumen, podríamos decir que el desarrollo de software es la
-actividad humana más compleja existente. Más que pilotar un avión,
-hacer un diagnóstico médico o diseñar un edificio. Por eso tiene esa
-gran cantidad de metáforas asociadas. Y seguro que seguirán
-planteándose nuevas.
+Esta posibilidad de cambiar fácilmente una línea de código de un
+sistema software no nos debe llevar a engaño. El software es muy fácil
+de cambiar, pero ese cambio en muchas ocasiones puede conllevar
+problemas y errores. Puede ser que con los cambios introduzcamos
+regresiones (cosas que antes funcionaban dejan de funcionar después de
+un cambio), _bugs_, confusiones debidas a problemas de comunicación,
+etc.
+
+En su charla de 2020 [Continued Learning: The Beauty of
+Maintenance](https://youtu.be/3gib0hKYjB0), Kent Beck repasa las
+características fundamentales que influyen en que el cambio de un
+sistema software sea más o menos fácil: el acoplamiento (_coupling_)
+de sus elementos.
+
+Hablaremos más de esto cuando hablemos de SOLID, pero vamos con un
+avance. Dos elementos están acoplados con respecto a un cambio cuando
+el cambio en uno de ellos obliga al cambio del otro. El problema de un
+sistema con muchos elementos acoplados es que un pequeño cambio en un
+sitio provoca una cascada sucesiva de cambios, que a su vez provocan
+otros cambios, y así hasta que se para la ola.
+
+Esta es la causa de que sea más sencillo introducir cambios al
+principio en un sistema software. Tiene pocos elementos, y están poco
+acoplados. Conforme el sistema va creciendo, si no tenemos cuidado y
+vamos refactorizándolo (lo veremos más adelante) se van introduciendo
+más elementos y se van acoplando cada vez más. 
+
+Esto es uno de los aspectos de lo que se denomina **deuda técnica**:
+problemas de diseño que vamos introduciendo en nuestro software y que
+lo hacen que cada vez menos flexible y más rígido.
 
 ## El desarrollo de software no es una ingeniería tradicional ##
 
