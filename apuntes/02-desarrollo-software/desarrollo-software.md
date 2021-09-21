@@ -449,7 +449,7 @@ La posibilidad de cambio ha sido abrazada desde el principio por
 metodologías como XP y hoy en día cada vez más herramientas asumen
 esta característica y proporcionan funcionalidades orientadas a
 gestionar correctamente la evolución del software. Por ejemplo, los
-sistemas de controlo de versiones como Git permiten desarrollar
+sistemas de control de versiones como Git permiten desarrollar
 software en equipo usando _commits_, ramas, versiones, solicitud de
 incorporación de cambios (_pull requests_), etc. O los IDEs tienen
 herramientas que permiten analizar qué sucede si cambiamos una
