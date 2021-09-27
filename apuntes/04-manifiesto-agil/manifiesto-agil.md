@@ -416,7 +416,7 @@ casi infinitas, ya que variarán según el equipo de desarrollo. Pero,
 en cualquier caso, deben evaluarse en función de si sirven o no para
 mejorar los objetivos definidos por los principios.
 
-<img src="imagenes/objetivos.png" width="600px" 
+<img src="imagenes/objetivos.png" width="600px" />
 
 Es fundamental conocer los valores y principios subyacentes a las
 prácticas para no caer en la repetición vacía de las mismas y en
