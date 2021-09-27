@@ -386,8 +386,6 @@ Nuestro objetivo es el rendimiento, a través de la lente del humanismo.
 
 </tr></td></table>
 
-<img src="imagenes/puente-principios-practicas.png" width="400px" align="right">
-
 Los **principios** son ideas que se derivan de los valores, menos
 abastractas, pero no tan concretas como las prácticas. Por ejemplo, en
 el caso de la "colaboración con el cliente" podríamos definir el
@@ -402,9 +400,23 @@ concreto como una práctica. Por ejemplo, no estamos definiendo la
 periodicidad, ni la forma de las entregas, ni las acciones que puede
 hacer el cliente cuando recibe el software. 
 
+<img src="imagenes/puente-principios-practicas.png" width="400px" align="right">
+
 Kent Beck ilustra la utilidad de los principios con la ilustración que
 vemos a la derecha. Los principios son como un puente que permiten
 movernos desde los valores hasta las prácticas.
+
+La siguiente figura cómo se pueden definir los valores, principios y
+prácticas en un una pirámide de objetivos. En la parte superior, se
+encuentran los valores, que son un número pequeño de objetivos
+generales (4 en el manifiesto ágil) que justifican los objetivos
+más específicos y numerosos en el siguiente nivel (principios, 12 en
+el manifiesto ágil). Por último, el número de posibles prácticas son
+casi infinitas, ya que variarán según el equipo de desarrollo. Pero,
+en cualquier caso, deben evaluarse en función de si sirven o no para
+mejorar los objetivos definidos por los principios.
+
+<img src="imagenes/objetivos.png" width="600px" 
 
 Es fundamental conocer los valores y principios subyacentes a las
 prácticas para no caer en la repetición vacía de las mismas y en
