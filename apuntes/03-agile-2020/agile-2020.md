@@ -12,7 +12,7 @@ igual a Scrum.
 <img src="imagenes/state-of-agile-report.png" width="150" align="right"></img>
 
 El informe [_State of Agile_](https://stateofagile.com/) se realiza
-anualmente desde hace 14 años por la consultora
+anualmente desde hace 15 años por la consultora
 [digital.ai](https://digital.ai). En los informes se recogen los
 resultados de encuestas contestadas por profesionales de empresas
 tecnológicas sobre la aplicación de metodologías ágiles en su
@@ -27,9 +27,10 @@ favorable a la aplicación de estas metodologías. Aún así, el informe
 es muy interesante porque nos proporciona muchos detalles sobre cómo
 se ponen en práctica estas metodologías en las empresas.
 
-El último informe, el número 14 correspondiente a 2020, recoge la
+Vamos a analizar el informe del año 2020, el número 14, con
 información de una encuesta realizada a más de 40.000 personas de
-empresas de todo el mundo y de todos los tamaños. 
+empresas de todo el mundo y de todos los tamaños. El informe del año
+actual, 2021, no presenta demasiados cambios con respecto al anterior.
 
 ### Tamaño de las empresas ###
 
