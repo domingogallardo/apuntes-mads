@@ -404,7 +404,9 @@ hacer el cliente cuando recibe el software.
 
 Kent Beck ilustra la utilidad de los principios con la ilustración que
 vemos a la derecha. Los principios son como un puente que permiten
-movernos desde los valores hasta las prácticas.
+movernos desde los valores hasta las prácticas. Los principios son más
+sólidos (concretos) que los valores, que son demasiado abstractos como
+para poder ser puestos en marcha directamente por las prácticas.
 
 <img src="imagenes/objetivos.png" width="500px" align="left"/>
 
