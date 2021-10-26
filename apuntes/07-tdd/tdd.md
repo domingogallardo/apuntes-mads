@@ -316,7 +316,7 @@ Como resultado de esta reflexión continua mantendremos una lista de
 cosas por hacer, que nos ayudará a mantenernos concentrados, y decidir
 qué hacer cuando hayamos terminado cada uno de los tests. 
 
-Pondremos en negrita lo siguiente a hacer y tacharemos lo que hayamos
+Pondremos en negrita lo siguiente a hacer y eliminamos lo que hayamos
 terminado. Cuando pensemos en que necesitamos escribir otro test, lo
 añadiremos a la lista.
 
@@ -443,16 +443,13 @@ public class Dolar {
 
 ### Pensamos ###
 
-Con esto hemos cumplido el objetivo y lo tachamos de la lista:
+Con esto hemos cumplido el objetivo y lo eliminamos de la lista. Ahora
+podemos ya podemos centrarnos en el test de la multiplicación.
 
 | Cosas por hacer  |
 |------------------|
 | 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
 | **5 USD * 2 = 10 USD** |
-| ~~Crear una moneda con 5 dólares~~ |
-
-Ahora podemos ya podemos centrarnos en el test de la
-multiplicación. 
 
 ### Test multiplicación en dólares ###
 
@@ -494,13 +491,6 @@ public class Dolar {
 
 Con eso ya hemos pasado el test de la multiplicación.
 
-| Cosas por hacer  |
-|------------------|
-| 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
-| ~~5 USD * 2 = 10 USD~~ |
-| ~~Crear una moneda con 5 dólares~~ |
-
-
 ### Pensamos ###
 
 Analizando el diseño del código y de los tests, nos damos cuenta de
@@ -516,8 +506,6 @@ Las anotamos en la lista:
 | Cosas por hacer  |
 |------------------|
 | 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
-| ~~5 USD * 2 = 10 USD~~ |
-| ~~Crear una moneda con 5 dólares~~ |
 | Hacer "cantidad" privado |
 | Efectos laterales en Dolar? |
 | Usar punto flotante - redondeo? |
@@ -529,8 +517,6 @@ debería tener un valor de `10`.
 | Cosas por hacer  |
 |------------------|
 | 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
-| ~~5 USD * 2 = 10 USD~~ |
-| ~~Crear una moneda con 5 dólares~~ |
 | Hacer "cantidad" privado |
 | **Efectos laterales en Dolar?** |
 | Usar punto flotante - redondeo? |
@@ -566,17 +552,8 @@ public class Dolar {
 }
 ```
 
-Una cosa menos por hacer:
-
-| Cosas por hacer  |
-|------------------|
-| 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
-| ~~5 USD * 2 = 10 USD~~ |
-| ~~Crear una moneda con 5 dólares~~ |
-| Hacer "cantidad" privado |
-| ~~Efectos laterales en Dolar?~~ |
-| Usar punto flotante - redondeo? |
-
+Con esto se pasa el test y se consiguen eliminar los efectos laterales
+en `Dolar`.
 
 ### Pensamos ###
 
@@ -588,10 +565,7 @@ Empezamos por `equals`.
 | Cosas por hacer  |
 |------------------|
 | 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
-| ~~5 USD * 2 = 10 USD~~ |
-| ~~Crear una moneda con 5 dólares~~ |
 | Hacer "cantidad" privado |
-| ~~Efectos laterales en Dolar?~~ |
 | Usar punto flotante - redondeo? |
 | **equals()** | 
 | hashCode() |
@@ -672,24 +646,20 @@ El test ya pasa. Perfecto, seguimos avanzando.
 ¿Qué pasa si comparamos con `null` o con otro objeto? Lo añadimos a la
 lista de cosas por hacer y lo dejamos para después.
 
-| Cosas por hacer  |
-|------------------|
-| 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
-| ~~5 USD * 2 = 10 USD~~ |
-| ~~Crear una moneda con 5 dólares~~ |
-| Hacer "cantidad" privado |
-| ~~Efectos laterales en Dolar?~~ |
-| Usar punto flotante - redondeo? |
-| ~~equals()~~ | 
-| hashCode() |
-| Equal null |
-| Equal object |
-
-
 Miramos el código y nos damos cuenta de que ahora que tenemos
 implementada la igualdad, podemos refactorizar el test de la
 multiplicación para usar esta implementación. No tenemos que acceder a
 `cantidad`. De esta forma podremos hacer el atributo privado.
+
+| Cosas por hacer  |
+|------------------|
+| 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
+| **Hacer "cantidad" privado** |
+| Usar punto flotante - redondeo? |
+| hashCode() |
+| Equal null |
+| Equal object |
+
 
 ### Refactorización tests para usar equals ###
 
@@ -727,20 +697,7 @@ Código:
 +    private int cantidad;
 ```
 
-Una cosa menos en la lista:
-
-| Cosas por hacer  |
-|------------------|
-| 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
-| ~~5 USD * 2 = 10 USD~~ |
-| ~~Crear una moneda con 5 dólares~~ |
-| ~~Hacer "cantidad" privado~~ |
-| ~~Efectos laterales en Dolar?~~ |
-| Usar punto flotante - redondeo? |
-| ~~equals()~~ | 
-| hashCode() |
-| Equal null |
-| Equal object |
+Una cosa menos en la lista.
 
 
 ### Pensamos ###
@@ -753,16 +710,11 @@ obliga a crear la clase `Euro`.
 | Cosas por hacer  |
 |------------------|
 | 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
-| ~~5 USD * 2 = 10 USD~~ |
-| ~~Crear una moneda con 5 dólares~~ |
-| ~~Hacer "cantidad" privado~~ |
-| ~~Efectos laterales en Dolar?~~ |
 | Usar punto flotante - redondeo? |
-| ~~equals()~~ | 
 | hashCode() |
 | Equal null |
 | Equal object |
-| ** 5 EUR * 2 = 10 EUR** |
+| **5 EUR * 2 = 10 EUR** |
 
 ### Test multiplicación en euros ###
 
@@ -804,20 +756,6 @@ public class Euro {
 
 Hemos dado una solución rápida y pequeña. 
 
-| Cosas por hacer  |
-|------------------|
-| 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
-| ~~5 USD * 2 = 10 USD~~ |
-| ~~Crear una moneda con 5 dólares~~ |
-| ~~Hacer "cantidad" privado~~ |
-| ~~Efectos laterales en Dolar?~~ |
-| Usar punto flotante - redondeo? |
-| ~~equals()~~ | 
-| hashCode() |
-| Equal null |
-| Equal object |
-| ~~5 EUR * 2 = 10 EUR~~ |
-
 
 ### Pensamos ###
 
@@ -830,16 +768,10 @@ Vamos a comenzar creando una clase común que elimine la duplicación de `equals
 | Cosas por hacer  |
 |------------------|
 | 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
-| ~~5 USD * 2 = 10 USD~~ |
-| ~~Crear una moneda con 5 dólares~~ |
-| ~~Hacer "cantidad" privado~~ |
-| ~~Efectos laterales en Dolar?~~ |
 | Usar punto flotante - redondeo? |
-| ~~equals()~~ | 
 | hashCode() |
 | Equal null |
 | Equal object |
-| ~~5 EUR * 2 = 10 EUR~~ |
 | **Duplicación Dolar Euro** |
 | **equals duplicado** |
 | multiplicadoPor duplicado |
@@ -968,25 +900,6 @@ public class Euro extends Moneda {
 }
 ```
 
-
-| Cosas por hacer  |
-|------------------|
-| 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
-| ~~5 USD * 2 = 10 USD~~ |
-| ~~Crear una moneda con 5 dólares~~ |
-| ~~Hacer "cantidad" privado~~ |
-| ~~Efectos laterales en Dolar?~~ |
-| Usar punto flotante - redondeo? |
-| ~~equals()~~ | 
-| hashCode() |
-| Equal null |
-| Equal object |
-| ~~5 EUR * 2 = 10 EUR~~ |
-| **Duplicación Dolar Euro** |
-| ~~equals duplicado~~ |
-| multiplicadoPor duplicado |
-
-
 ### Pensamos ###
 
 Ya que estamos con `equals` tenemos que asegurarnos que la comparación
@@ -995,18 +908,11 @@ entre euros y dólares es `false`:
 | Cosas por hacer  |
 |------------------|
 | 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
-| ~~5 USD * 2 = 10 USD~~ |
-| ~~Crear una moneda con 5 dólares~~ |
-| ~~Hacer "cantidad" privado~~ |
-| ~~Efectos laterales en Dolar?~~ |
 | Usar punto flotante - redondeo? |
-| ~~equals()~~ | 
 | hashCode() |
 | Equal null |
 | Equal object |
-| ~~5 EUR * 2 = 10 EUR~~ |
 | **Duplicación Dolar Euro** |
-| ~~equals duplicado~~ |
 | multiplicadoPor duplicado |
 | **Comparar euros con dólares** |
 
@@ -1037,25 +943,6 @@ El test falla. Modificamos el código para que pase el test:
 }
 ```
 
-| Cosas por hacer  |
-|------------------|
-| 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
-| ~~5 USD * 2 = 10 USD~~ |
-| ~~Crear una moneda con 5 dólares~~ |
-| ~~Hacer "cantidad" privado~~ |
-| ~~Efectos laterales en Dolar?~~ |
-| Usar punto flotante - redondeo? |
-| ~~equals()~~ | 
-| hashCode() |
-| Equal null |
-| Equal object |
-| ~~5 EUR * 2 = 10 EUR~~ |
-| **Duplicación Dolar Euro** |
-| ~~equals duplicado~~ |
-| multiplicadoPor duplicado |
-| ~~Comparar euros con dólares~~|
-
-
 ### Pensamos ###
 
 La solución anterior es un poco sucia, porque utilizamos las clases de
@@ -1070,20 +957,12 @@ Para ello nos fijamos como objetivo eliminar la duplicación del método
 | Cosas por hacer  |
 |------------------|
 | 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
-| ~~5 USD * 2 = 10 USD~~ |
-| ~~Crear una moneda con 5 dólares~~ |
-| ~~Hacer "cantidad" privado~~ |
-| ~~Efectos laterales en Dolar?~~ |
 | Usar punto flotante - redondeo? |
-| ~~equals()~~ | 
 | hashCode() |
 | Equal null |
 | Equal object |
-| ~~5 EUR * 2 = 10 EUR~~ |
 | **Duplicación Dolar Euro** |
-| ~~equals duplicado~~ |
 | **multiplicadoPor duplicado** |
-| ~~Comparar euros con dólares~~|
 | Denominación moneda? |
 
 Como este cambio no se puede hacer con un pequeño paso, aplicamos
@@ -1245,22 +1124,13 @@ de la moneda.
 | Cosas por hacer  |
 |------------------|
 | 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
-| ~~5 USD * 2 = 10 USD~~ |
-| ~~Crear una moneda con 5 dólares~~ |
-| ~~Hacer "cantidad" privado~~ |
-| ~~Efectos laterales en Dolar?~~ |
 | Usar punto flotante - redondeo? |
-| ~~equals()~~ | 
 | hashCode() |
 | Equal null |
 | Equal object |
-| ~~5 EUR * 2 = 10 EUR~~ |
 | **Duplicación Dolar Euro** |
-| ~~equals duplicado~~ |
 | **multiplicadoPor duplicado** |
-| ~~Comparar euros con dólares~~|
 | **Denominación moneda?** |
-
 
 ### Test denominación monedas ###
 
@@ -1441,27 +1311,18 @@ Lanzamos los tests, comprobamos que funcionan y con esto hemos
 conseguido el objetivo que estábamos buscando.
 
 
+### Refactorización para eliminar duplicidad de multiplicadoPor ###
+
 | Cosas por hacer  |
 |------------------|
 | 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
-| ~~5 USD * 2 = 10 USD~~ |
-| ~~Crear una moneda con 5 dólares~~ |
-| ~~Hacer "cantidad" privado~~ |
-| ~~Efectos laterales en Dolar?~~ |
 | Usar punto flotante - redondeo? |
-| ~~equals()~~ | 
 | hashCode() |
 | Equal null |
 | Equal object |
-| ~~5 EUR * 2 = 10 EUR~~ |
 | **Duplicación Dolar Euro** |
-| ~~equals duplicado~~ |
 | **multiplicadoPor duplicado** |
-| ~~Comparar euros con dólares~~|
-| ~~Denominación moneda?~~ |
 
-
-### Refactorización para eliminar duplicidad de multiplicadoPor ###
 
 Ahora ya estamos muy cerca de poder eliminar la duplicidad del código
 de `multiplicadoPor`. Y también de eliminar la duplicidad entre las
@@ -1523,26 +1384,17 @@ Y los tests vuelven a pasar correctamente. Hemos conseguido
 unificar el método `multiplicadoPor`.
 
 
+### Refactorización para eliminar las clases Dolar y Euro ###
+
 | Cosas por hacer  |
 |------------------|
 | 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
-| ~~5 USD * 2 = 10 USD~~ |
-| ~~Crear una moneda con 5 dólares~~ |
-| ~~Hacer "cantidad" privado~~ |
-| ~~Efectos laterales en Dolar?~~ |
 | Usar punto flotante - redondeo? |
-| ~~equals()~~ | 
 | hashCode() |
 | Equal null |
 | Equal object |
-| ~~5 EUR * 2 = 10 EUR~~ |
 | **Duplicación Dolar Euro** |
-| ~~equals duplicado~~ |
-| ~~multiplicadoPor duplicado~~ |
-| ~~Comparar euros con dólares~~|
-| ~~Denominación moneda?~~ |
 
-### Refactorización para eliminar las clases Dolar y Euro ###
 
 Por último, vamos a hacer una refactorización para eliminar las clases
 `Dolar` y `Euro`. Veremos que, con todas las refactorizaciones
@@ -1592,21 +1444,10 @@ Y con esto hemos terminado la unificación de `Dolar` y `Euro`.
 | Cosas por hacer  |
 |------------------|
 | 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
-| ~~5 USD * 2 = 10 USD~~ |
-| ~~Crear una moneda con 5 dólares~~ |
-| ~~Hacer "cantidad" privado~~ |
-| ~~Efectos laterales en Dolar?~~ |
 | Usar punto flotante - redondeo? |
-| ~~equals()~~ | 
 | hashCode() |
 | Equal null |
 | Equal object |
-| ~~5 EUR * 2 = 10 EUR~~ |
-| ~~Duplicación Dolar Euro~~ |
-| ~~equals duplicado~~ |
-| ~~multiplicadoPor duplicado~~ |
-| ~~Comparar euros con dólares~~|
-| ~~Denominación moneda?~~ |
 
 Quedan todavía bastantes cosas por hacer. La mas importante la primera
 funcionalidad de sumar cantidades de distintas monedas. Pero no nos da
