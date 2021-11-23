@@ -937,6 +937,22 @@ El programa tiene tres clases principales:
 - `Customer`: clase que representa el cliente, con la lista de
   alquileres que ha realizado y el cálculo de la cuenta.
   
+En concreto, las reglas de negocio en las que se basa el cálculo del
+total de dinero a pagar por el alquiler son las siguientes:
+
+1. Las películas normales cuestan 2€ y tienen un plazo de devolución
+   máximo de 2 días.
+2. Las películas para niños cuestan 1,5€ y tienen un plazo de
+   devolución máximo de 3 días.
+3. Por cada día extra fuera de plazo se aplica una penalización de
+   1,5€.
+4. Las novedades cuestan 3€ por cada día.
+
+En cuanto a los puntos de bonificación que se obtienen:
+
+1. Se obtiene un punto de bonificación por cada película alquilada.
+2. Si se alquila una novedad más de 1 día se obtiene un punto extra de bonificación.
+
 
 **Clase Movie**
 
