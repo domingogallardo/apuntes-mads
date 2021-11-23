@@ -1119,7 +1119,7 @@ el resultado es el mismo.
 ### Refactorización para imprimir la cuenta en HTML ###
 
 Supongamos que el cliente para el que hemos hecho el programa nos pide
-que el resultado de la cuenta no sea en texto plano sino que sea en
+que el resultado de la cuenta, además de en texto plano, sea también en
 HTML.
 
 Podríamos copiar y pegar el código del método `statement()`, en un
