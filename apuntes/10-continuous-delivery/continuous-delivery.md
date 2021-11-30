@@ -1009,16 +1009,16 @@ En el caso de Spring Boot, como hemos visto en prácticas, existe un
 fichero de configuración por defecto (`application.properties`) y
 podemos definir ficheros con configuraciones adicionales.
 
-Por ejemplo:
+Por ejemplo, se puede definir un fichero de configuración adicional
+para usar una base de datos Postgres:
 
-**Fichero `src/main/resources/application-mysql.properties`**
+**Fichero `src/main/resources/application-postgres.properties`**
 
 ```
-spring.datasource.url=jdbc:mysql://localhost:3306/mads
-spring.datasource.username=root
-spring.datasource.password=
-spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDialect
-spring.jpa.hibernate.ddl-auto=update
+spring.datasource.url=jdbc:postgresql://localhost:5432/mads
+spring.datasource.username=mads
+spring.datasource.password=mads
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQL9Dialect
 spring.datasource.initialization-mode=never
 ```
 
@@ -1027,7 +1027,15 @@ propiedad Java `spring.profiles.active`. Por ejemplo, para cargar el
 perfil anterior podemos lanzar la aplicación con el comando:
 
 ```
-./mvnw spring-boot:run -Dspring.profiles.active=mysql
+./mvnw spring-boot:run -D profiles=postgres
+```
+
+También podemos arrancar la aplicación con el perfil de postgres
+lanzando directamente el fichero JAR de la siguiente forma:
+    
+```
+$ ./mvnw package
+$ java -Dspring.profiles.active=postgres -jar target/*.jar 
 ```
 
 El enfoque anterior obliga a tener predeterminados ciertos perfiles de
@@ -1043,30 +1051,29 @@ que después pueden ser especificadas en el comando java que lanza la
 aplicación.
 
 Por ejemplo, definimos unos valores por defecto para unas propiedades
-como `db_ip`, `db_user` y `db_passwd`:
+como `POSTGRES_HOST`, `POSTGRES_PORT`, `DB_USER` o `DB_PASSWD`:
 
 ```
-db_ip=localhost:3306
-db_user=root
-db_passwd=
-spring.datasource.url=jdbc:mysql://${db_ip}/mads
-spring.datasource.username=${db_user}
-spring.datasource.password=${db_passwd}
-spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDialect
-spring.jpa.hibernate.ddl-auto=update
+POSTGRES_HOST=localhost
+POSTGRES_PORT=5432
+DB_USER=mads
+DB_PASSWD=mads
+spring.datasource.url=jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/mads
+spring.datasource.username=${DB_USER}
+spring.datasource.password=${DB_PASSWD}
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQL9Dialect
 spring.datasource.initialization-mode=never
 ```
 
-Y podemos cambiar esas propiedades al lanzar la aplicación usando
-variables de entorno:
+Y podemos cambiar esas propiedades al lanzar la aplicación. Incluso
+podemos usar variables de entorno:
 
 ```
-$ export PROFILE=production
-$ export DB_IP=3316
+$ export PROFILE=postgres
 $ export DB_USER=mads
 $ export DB_PASSWD=mads
-$ java -Dspring.profiles.active=$PROFILE -Ddb_ip=$DB_IP -Ddb_user=$DB_USER \
-    -Ddb_passwd=$DB_PASSWD -Dlogging=$LOGGING -jar target/mads-todolist-inicial-0.0.1-SNAPSHOT.jar
+$ java -Dspring.profiles.active=$PROFILE -DDB_USER=$DB_USER \
+    -DDB_PASSWD=$DB_PASSWD -jar target/mads-todolist-inicial-0.0.1-SNAPSHOT.jar
 ```
 
 Puedes encontrar más información sobre cómo externalizar la
@@ -1124,6 +1131,149 @@ Y ejecutamos la imagen de la siguiente forma:
 $ docker run --env-file=propiedades.txt saludo
 ¿Qué passsa, colega?
 ```
+
+#### Configuración de una imagen Docker spring-boot  ####
+
+En el caso de las prácticas de la asignatura, tenemos una imagen
+Docker que contiene una aplicación spring boot compilada. Es muy útil
+poder configurar la ejecución de esta imagen Docker, de forma que
+podamos usar la misma imagen compilada en los distintos entornos en
+los que probar la aplicación y en producción.
+
+Para poder configurar esta imagen lo que hacemos es usar la técnica
+vista anteriormente para definir perfiles y propiedades en la
+aplicación spring boot. Por ejemplo, podemos definir varios perfiles y
+configurarlos con variables que podemos modificar.
+
+Por ejemplo, el siguiente es el perfil de ejecución usando la base de
+datos Postgres en modo desarrollo.
+
+Fichero **`application-postgres.properties`**:
+
+```
+POSTGRES_HOST=localhost
+POSTGRES_PORT=5432
+DB_USER=mads
+DB_PASSWD=mads
+spring.datasource.url=jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/mads
+spring.datasource.username=${DB_USER}
+spring.datasource.password=${DB_PASSWD}
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQL9Dialect
+spring.datasource.initialization-mode=never
+```
+
+Y el siguiente es el perfil de ejecución usando la base de datos
+Postgres en modo producción:
+
+Fichero **`application-postgres-prod.properties`**:
+
+```
+POSTGRES_HOST=localhost
+POSTGRES_PORT=5432
+DB_USER=mads
+DB_PASSWD=mads
+spring.datasource.url=jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/mads
+spring.datasource.username=${DB_USER}
+spring.datasource.password=${DB_PASSWD}
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQL9Dialect
+spring.datasource.initialization-mode=never
+spring.jpa.hibernate.ddl-auto=validate
+```
+
+Una vez definida esta posibilidad de configuración de la aplicación
+debemos poder definir el perfil y las variables desde el entorno en el
+que lancemos la imagen Docker.
+
+Una forma de hacerlo (la que usamos en las prácticas) es pasar
+parámetros desde el comando que lanza la imagen docker al comando que
+lanza la aplicación. Para ello, usamos el siguiente `Dockerfile` en el
+que el comando que lanza la aplicación se ejecuta con parámetros que
+pasaremos en el `docker run`.
+
+Fichero **`Dockerfile`**:
+
+```
+FROM openjdk:8-jdk-alpine
+COPY target/*.jar app.jar
+ENTRYPOINT ["sh","-c","java -jar /app.jar ${0} ${@}"]
+```
+
+Y en el `docker run` podemos especificar los parámetros que nos
+interesen para lanzar la aplicación:
+
+```
+$ docker run --rm domingogallardo/mads-todolist:latest --spring.profiles.active=postgres-prod --POSTGRES_HOST=postgres
+```
+
+Los parámetros que se le pasa a la aplicación se definen uno a uno
+tras dos guiones. En el caso anterior, por ejemplo, se lanzará la
+aplicación spring boot usando el perfil `application-postgres-prod`
+con la variable `POSTGRES_HOST` con el valor `postgres` y el resto de
+variables con los valores por defecto.
+
+La combinación de perfiles y variables y la posibilidad de usarlos
+desde el comando que lanza la imagen docker hace muy flexible la
+ejecución de la imagen y permite usar la misma imagen para distintos
+entornos en los que queramos ejecutarla.
+
+
+## Gestión de la base de datos de producción ##
+
+Uno de los elementos fundamentales de una aplicación es la base de
+datos de producción, donde se encuentran todos los datos que los
+usuarios han ido añadiendo a lo largo del uso de la misma.
+
+Hay que prestar una atención especial a esta base de datos y definir
+políticas de respaldo y de control de cambios para evitar que se
+produzca cualquier pérdida de información.
+
+Cada nueva versión de la aplicación va a trabajar con un esquema de
+datos modificado, en el que se habrán añadido nuevas entidades/tablas,
+atributos/columnas y relaciones. Para que la aplicación funcione
+correctamente la base de datos de producción deberá modificarse para
+introducir esos nuevos elementos. Y habrá que hacerlo sin comprometer
+la integridad de los datos existentes.
+
+Esto último se denomina una _migración_ de la base de datos y
+representa un elemento fundamental del mantenimiento en producción de
+una aplicación, sobre todo cuando estamos trabajando de una forma ágil
+e incremental.
+
+El mantenimiento de la base de datos de producción y la gestión de sus
+cambios es un tema avanzado muy importante, pero que no podemos
+abordar en la asignatura por falta de tiempo. En este apartado haremos
+una introducción rápida que os recomendamos ampliar con el artículo
+[Evolutionary Database
+Design](https://martinfowler.com/articles/evodb.html).
+
+También es recomendable la utilización de herramientas como
+[Flyway](https://www.baeldung.com/database-migrations-with-flyway) o
+[Liquibase](https://www.liquibase.org/get-started/quickstart) que
+permiten automatizar estos procesos.
+
+Algunas recomendaciones para las migraciones y el trabajo con bases de
+datos en un entorno de entrega continua:
+
+- Uno de los elementos fundamentales es la reversibilidad. Cualquier
+  migración debe identificarse con un script y debe poder ser
+  reversible, de forma que podamos volver al estado anterior en el que
+  se encontraba la base de datos.
+- Mantener un registro histórico con todas las migraciones realizadas
+  a la base de datos (por ejemplo, ver la figura siguiente).
+- Mantener una política estricta de copias de seguridad de las bases
+  de datos de producción.
+- Cada desarrollador tiene su propia base de datos para desarrollo y
+  prueba, y puede tener un esquema distinto al de la base de datos de
+  producción.
+- Automatizar la creación de esquemas de bases de datos usando
+  scripts (esto se facilita si usamos un framework que mapea
+  automáticamente bases de datos y entidades como Spring Boot con JPA/Hibernate).
+
+
+Un ejemplo de registro de cambios en una base de datos:
+
+<img src="imagenes/changelog_screen.png" width="600px"/>
+
 
 ## Entrega continua ##
 
