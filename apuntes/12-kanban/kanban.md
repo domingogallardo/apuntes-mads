@@ -2,12 +2,80 @@
 
 ## Introducción a Kanban ##
 
-Aunque todos los valores y prácticas asociadas a Kanban tienen su
-origen en los métodos lean vistos en el tema pasado, se suele
-considerar que la popularización de esta metodología y del uso de
-tableros para representar la evolución de ítems de trabajo tiene su
-origen en los trabajos de David J. Anderson y en la publicación de su
-libro _Kanban_ en 2010.
+
+### Métodos de fabricación Lean ###
+
+Lo valores y prácticas asociadas a Kanban tienen su origen en los
+métodos de [fabricación
+lean](https://en.wikipedia.org/wiki/Lean_manufacturing) introducidos
+por la industria del automóvil japonesa (el sistema de producción de
+Toyota sobre todo) a finales de los años 60 y popularizados en todo el
+mundo en la década de los 70.
+
+El [sistema de producción de
+Toyota](https://en.wikipedia.org/wiki/Toyota_Production_System) (TPS)
+está basado en dos principios básicos:
+
+- Just-in-time: Sólo hacer lo que se necesita, sólo cuando se
+necesita y sólo en la cantidad que se necesita. 
+    - Evitar gastos de inventario.
+    - Ciclos de producción cortos.
+    - Herramientas para visualizar el proceso.
+
+- Jidoka (自働化): Juego de palabras en japonés en el que se
+incorpora el ideograma "persona" (人) a la izquierda del ideograma
+central de la palabra automatización (自動化), queriendo decir
+"automatización con intervención humana".
+    - Cultura de “parar la cadena” en el momento en que se detecta el
+      mínimo error y de preguntarse por la raíz última del error.
+    - Cultura de mejora continua en todos los niveles: desde los
+      trabajadores de la cadena hasta los directivos y las empresas
+      colaboradoras. 
+    - Pensar en el conjunto. Equipos multi-funcionales.
+
+### El desarrollo de software como un proceso de fabricación ###
+
+Hemos visto que los métodos lean se aplican a procesos de
+fabricación. Si queremos aplicarlos al desarrollo de software debemos
+empezar por preguntarnos si es posible ver este desarrollo desde la
+perspectiva de un proceso de fabricación.
+
+Al principio de la asignatura estuvimos hablando de las metáforas que
+se pueden aplicar al desarrollo de software. Y vimos que el software
+es un producto muy distinto a los productos tradicionales: una
+aplicación no es una bicicleta, ni un televisor, ni un edificio. Tanto
+su desarrollo como su funcionamiento es singular. Aun así, es
+interesante intentar aplicar la metáfora del proceso de fabricación al
+desarrollo de software. Esta nueva metáfora nos permitiría resaltar
+determinados aspectos del desarrollo e intentar mejorarlos usando
+lean.
+
+<img src="imagenes/proceso-fabricacion.png" width="500px" align="right"/>
+
+En un proceso de fabricación tenemos un conjunto de entradas que se
+convierten en unas salidas mediante un proceso.
+
+- Entradas: materias primas y componentes
+- Salida: producto terminado (automóvil, teléfono móvil, televisor, etc.)
+- Proceso: diferentes máquinas y pasos en la cadena de montaje
+
+¿Podemos ver elementos similares (entradas, salida, proceso) en el
+desarrollo de software? Sí, si lo vemos como un proceso iterativo que
+toma el software que ya está funcionando al que le queremos añadir un
+conjunto de funcionalidades.
+
+- Entradas: software funcionando e ideas de nuevas características
+(features) en forma de casos de uso, historias de usuario, etc. 
+- Salida: software funcionando al que se le ha añadido las nuevas
+características. 
+- Proceso: cada característica debe ser analizada, desarrollada, probada, añadida y entregada. 
+
+### Libro de David J. Anderson ###
+
+Se suele considerar que la popularización de esta metodología y del
+uso de tableros para representar la evolución de ítems de trabajo
+tiene su origen en los trabajos de David J. Anderson y en la
+publicación de su libro _Kanban_ en 2010.
 
 <img src="imagenes/Kanban.003.png" width="500px"/>
 
@@ -228,11 +296,12 @@ herramientas más importantes que se usa en los tableros Kanban.
 <img src="imagenes/Kanban.050.png" width="500px"/>
 
 El hecho de definir un límite de WIP sirve implícitamente para
-implementar un sistema pull. De esta forma, un sistema Kanban con el
-límite WIP bien ajustado va a tener todas las ventajas de los sistemas
-pull que vimos en el tema pasado:
+implementar un sistema de trabajo que puede optimizarse de forma
+dinámica. 
 
-- Eliminación del stock
+La optimización del WIP consigue un sistema de _tickets_ (peticiones) en las que:
+
+- Se elimina el stock (entendido como peticiones que quedan en espera)
 - Optimización del flujo
 - Adaptación rápida a los cambios
 - Optimización de la capacidad del equipo
