@@ -16,18 +16,19 @@ Software**.
 - **Créditos ECTS**: 6 créditos ECTS, que se corresponden con 15
   semanas de trabajo y 10 horas por semana, incluyendo clases y
   trabajo en casa (150 horas de dedicación en total).
-- [**Ficha UA** de la asignatura](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wcodest=C203&wcodasi=34037&wlengua=es&scaca=2021-22).
+- [**Ficha UA** de la asignatura](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wcodest=C203&wcodasi=34037&wlengua=es&scaca=2022-23).
 
 El profesor de la asignatura es [Domingo
-Gallardo](http://www.dccia.ua.es/~domingo/). Puedes consultarle
+Gallardo](https://cvnet.cpd.ua.es/curriculum-breve/es/gallardo-lopez-domingo/9075). Puedes consultarle
 enviándole una tutoría por UACloud o un correo electrónico a
 _domingo.gallardo@ua.es_. También puedes encontrarlo en Twitter con
-el usuario [@domingogallardo](https://twitter.com/domingogallardo).
+el usuario [@domingogallardo](https://twitter.com/domingogallardo) y
+en [GitHub](https://github.com/domingogallardo).
 
 ## Materiales docentes ##
 
 Todos los materiales de teoría de la asignatura están escritos
-en Markdown y publicados en el repositorio de GitHub [domingogallardo/mads-ua](https://github.com/domingogallardo/mads-ua).
+en Markdown y publicados en el repositorio de GitHub [domingogallardo/mads-ua](https://github.com/domingogallardo/apuntes-mads).
 
 Los apuntes de las prácticas también están realizados en Markdown,
 subidos al repositorio [domingogallardo/practicas-mads](https://github.com/domingogallardo/practicas-mads),
@@ -38,7 +39,7 @@ navegar por secciones.
 
 Utilizaremos Moodle como plataforma docente. Puedes encontrar la
 página de la asignatura en [este
-enlace](https://moodle2021-22.ua.es/moodle/course/view.php?id=1475). Publicaremos
+enlace](https://moodle2022-23.ua.es/moodle/course/view.php?id=66). Publicaremos
 semana a semana los enlaces a los materiales en GitHub. También se
 realizarán en la plataforma las entregas finales de las prácticas (que
 se deberán ir subiendo también a GitHub). Y utilizaremos el foro para
@@ -164,7 +165,7 @@ Muy recomendable su
 [blog](http://blog.crisp.se/author/henrikkniberg). Su Twitter es
 [@henrikkniberg](https://mobile.twitter.com/henrikkniberg). Actualmente
 se ha apartado un poco del mundillo ágil y es desarrollador en Mojang,
-trabajando en las nuevas versiones de Minecraft.
+trabajando en las nuevas versiones de Minecraft. 
 
 </td></tr></table>
 
@@ -280,13 +281,6 @@ estándar (el _daily scrum_, el _sprint planning_, etc.) sin entender
 los valores y principios subyacentes nos convertiremos en _scrum
 zombies_.
 
-Las metodologías _lean_ son también una de las bases más importantes
-del cambio hacia una nueva filosofía y forma de trabajar. Son también
-una oportunidad de implicar a _managers_ y directivos en la
-transformación ágil. Muchas empresas están aplicando con éxito estas
-técnicas para conseguir iteraciones rápidas y productos más útiles
-para sus clientes.
-
 El bloque tendrá una **duración de 4 sesiones** y veremos en él temas
 relacionados con los valores y principios ágiles 
 
@@ -401,16 +395,22 @@ podrá ser desplegado y ejecutado en cualquier lugar.
 
 <img src="imagenes/kanban.png" width="200px" align="right"/>
 
-Después de ver en el bloque 1 una introducción a las metodologías
-lean, en este último bloque las estudiaremos en profundidad. Veremos
-cómo aplicarlas al desarrollo de software y nos centraremos en la
-metodología Kanban, centrada en la visualización y optimización del
-flujo de trabajo y en la detección de cuellos de botella en el las
-distintas fases del desarrollo.
+Las metodologías _lean_ son también una de las bases más importantes
+del cambio hacia una nueva filosofía y forma de trabajar. Son también
+una oportunidad de implicar a _managers_ y directivos en la
+transformación ágil. Muchas empresas están aplicando con éxito estas
+técnicas para conseguir iteraciones rápidas y productos más útiles
+para sus clientes.
 
-Un elemento fundamental en la metodología Kanban es el uso de
-tableros en los que visualizar el estado de todas las tareas que está
-realizando el equipo.
+Veremos una introducción a estas metodologías, cómo aplicarlas al
+desarrollo de software y nos centraremos en la metodología Kanban.
+
+Los objetivos principales de Kanban son la visualización y
+optimización del flujo de trabajo y en la detección de cuellos de
+botella en el las distintas fases del desarrollo. Un elemento
+fundamental de la metodología es el uso de tableros en los que
+visualizar el estado de todas las tareas que está realizando el
+equipo.
 
 El bloque tendrá una **duración de 2 sesiones** y veremos los siguientes apartados:
 
@@ -462,7 +462,7 @@ los libros en la Playlist de O'Reilly [Metodologías
 La mayoría también está disponible en formato físico en la biblioteca
 de la UA. Puedes consultar su ubicación y disponibilidad en el
 [catálogo de la
-UA](http://gaudi.ua.es/uhtbin/cgisirsi/x/0/x/38/1/X/BLASTOFF).
+UA](https://cat.biblioteca.ua.es/discovery/search?vid=34CVA_UA:VU1&amp;lang=es)
 
 ### Agile en general y Scrum ###
 
@@ -487,7 +487,7 @@ UA](http://gaudi.ua.es/uhtbin/cgisirsi/x/0/x/38/1/X/BLASTOFF).
 - David Thomas; Andrew Hunt: [_The Pragmatic Programmer: your journey to
   mastery, 20th Anniversary Edition, 2nd Edition_](https://learning.oreilly.com/library/view/the-pragmatic-programmer/9780135956977/)
 - Scott Millett: [_Patterns, principles, and practices of domain-driven
-design_](https://learning.oreilly.com/library/view/patterns-principles-and/9781118714706/?ar)
+design_](https://www.oreilly.com/library/view/patterns-principles-and/9781118714706/)
 - Michael Feathers: [_Working Effectively with Legacy Code_](https://learning.oreilly.com/library/view/working-effectively-with/0131177052/)
 - Martin Fowler: [_Refactoring_](https://learning.oreilly.com/library/view/refactoring-improving-the/9780134757681/)
 - Robert C. Martin: [_Clean Code_](https://learning.oreilly.com/library/view/clean-code/9780136083238/)
