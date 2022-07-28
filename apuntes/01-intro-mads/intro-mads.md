@@ -181,17 +181,18 @@ teoría y un 60% a prácticas.
 
 ### Teoría (40%) ###
 
-Los contenidos de la asignatura se dividen en 4 grandes bloques:
+Los contenidos de la asignatura se dividen en 4 grandes bloques (el
+número de sesión corresponde al orden en el que se van a ver en la asignatura):
 
 1. Valores y principios ágiles para el desarrollo del software
-   (sesiones 1, 2, 3 y 4)
-2. XP (eXtreme Programming) (sesiones 5, 6, 7 y 9)
-3. Integración y entrega continua (sesiones 8 y 10)
-4. Metodologías lean y Kanban (sesiones 11 y 12)
+   (3 semanas, sesiones 1, 2, 3 y 4)
+2. XP (eXtreme Programming) (4 semanas, sesiones 5, 6, 7 y 8)
+3. Metodologías lean y Kanban (2 semanas, sesiones 11 y 12)
+4. Integración y entrega continua (3 semanas, sesiones 10, 13 y 14)
 
 La evaluación de los contenidos de teoría se hará de forma continua,
-mediante **3 exámenes de tipo test** que ponderarán un 10% cada uno y un
-**trabajo individual** de redacción sobre alguno de los temas de la
+mediante **2 exámenes de tipo test** que ponderarán un 15% cada uno y
+un **trabajo individual** de redacción sobre alguno de los temas de la
 asignatura que ponderará otro 10%.
 
 Para el trabajo individual deberás realizar escoger un tema
@@ -238,13 +239,11 @@ metodologías utilizadas en las prácticas. Tendrá una ponderación de un
 
 Las fechas de los exámenes serán las siguientes:
 
-- Examen 1 de teoría (10%): miércoles 13 de octubre a las 11:00 sobre las sesiones 1 a 4.
-- Examen 2 de teoría (10%): miércoles 17 de noviembre a las 11:00
-  sobre las sesiones 5 a 8.
-- Examen 3 de teoría (10%): En enero, en la fecha y hora en la que se realice
-  el examen final de la asignatura, sobre las sesiones 9 a 12.
-- Examen de prácticas (20%): miércoles 17 de noviembre, en las horas
-  de prácticas.
+- Examen 1 de teoría (15%): miércoles 16 de noviembre a las 11:00 sobre las sesiones 1 a 8.
+- Examen 2 de teoría (15%): En enero, en la fecha y hora en la que se
+  realice el examen final de la asignatura, sobre las sesiones 9 a 14.
+- Examen de prácticas (20%): miércoles 2 de noviembre, en las horas de
+  prácticas.
 
 Los exámenes de teoría serán de preguntas de tipo test. En el examen
 de prácticas se deberá trabajar con un repositorio GitHub con una
@@ -281,7 +280,7 @@ estándar (el _daily scrum_, el _sprint planning_, etc.) sin entender
 los valores y principios subyacentes nos convertiremos en _scrum
 zombies_.
 
-El bloque tendrá una **duración de 4 sesiones** y veremos en él temas
+El bloque tendrá una **duración de 3 semanas** y veremos en él temas
 relacionados con los valores y principios ágiles 
 
 - Desarrollo del software, características y modelos, aceptación del cambio.
@@ -325,12 +324,13 @@ diseñar el software de forma que se facilite el cambio y para aislar
 las funcionalidades existentes de forma que las nuevas funcionalidades
 no entren en conflicto con las ya existentes.
 
-El bloque tendrá una **duración de 4 sesiones** y veremos en él los
+El bloque tendrá una **duración de 4 semanas** y veremos en él los
 aspectos fundamentales de XP. Veremos en profundidad TDD, haciendo
 una demostración de este tipo de metodología de desarrollo. Hablaremos
 también de diseño SOLID y de refactorización.
 
 - Valores y prácticas XP.
+- Historias de usuario.
 - TDD, Desarrollo Dirigido por los Tests.
 - Cambio, código y comunicación: diseño SOLID y refactorización.
 
@@ -361,37 +361,7 @@ popularizadas por él.
 
 </td></tr></table>
 
-## Bloque 3: Integración y entrega continua ##
-
-<img src="imagenes/gitflow.png" width="200px" align="right"/>
-
-Uno de los elementos importantes de las metodologías ágiles es la
-entrega continua al cliente de software que funciona. Para poder
-realizar esta entrega es fundamental poder añadir funcionalidades
-continuamente al software que estamos desarrollando y poder
-desplegarlo y ponerlo en manos del cliente en cuestión de minutos.
-
-Los sistemas como Git y las herramientas de integración continua
-permiten trabajar con múltiples versiones del producto de forma segura
-y automatizar la ejecución de los tests y la construcción y despliegue
-de los ejecutables.
-
-Este bloque tendrá una **duración de 2 sesiones** y en él estudiaremos en
-profundidad Git y la plataforma GitHub con todas las funcionalidades
-que proporciona para realizar una integración continua de nuestro
-proyecto software: pull requests, revisión de código, scripts de
-compilación y despliegue. También estudiaremos la herramienta Docker
-que nos permitirá empaquetar nuestra aplicación en un contenedor que
-podrá ser desplegado y ejecutado en cualquier lugar.
-
-- Git como sistema de control de versiones, flujos de trabajo con
-  Git.
-- Principios de la entrega continua de software.
-- Herramientas y tecnologías para la integración continua, scripts
-  de construcción y despliegue, infraestructura y entornos de
-  integración, cloud.
-
-## Bloque 4: Metodologías lean y Kanban ##
+## Bloque 3: Metodologías lean y Kanban ##
 
 <img src="imagenes/kanban.png" width="200px" align="right"/>
 
@@ -412,12 +382,43 @@ fundamental de la metodología es el uso de tableros en los que
 visualizar el estado de todas las tareas que está realizando el
 equipo.
 
-El bloque tendrá una **duración de 2 sesiones** y veremos los siguientes apartados:
+El bloque tendrá una **duración de 2 semanas** y veremos los siguientes apartados:
 
 - Fabricación lean, empresa lean, desarrollo de software lean.
 - Fundamentos de Kanban: visualización, ítems de trabajo, trabajo
   en progreso, flujo, mejora continua, límite en el WIP.
 - Kanban vs. Scrum.
+
+## Bloque 3: Integración y entrega continua ##
+
+<img src="imagenes/gitflow.png" width="200px" align="right"/>
+
+Uno de los elementos importantes de las metodologías ágiles es la
+entrega continua al cliente de software que funciona. Para poder
+realizar esta entrega es fundamental poder añadir funcionalidades
+continuamente al software que estamos desarrollando y poder
+desplegarlo y ponerlo en manos del cliente en cuestión de minutos.
+
+Los sistemas como Git y las herramientas de integración continua
+permiten trabajar con múltiples versiones del producto de forma segura
+y automatizar la ejecución de los tests y la construcción y despliegue
+de los ejecutables.
+
+Este bloque tendrá una **duración de 3 semanas** y en él estudiaremos
+en profundidad Git y la plataforma GitHub con todas las
+funcionalidades que proporciona para realizar una integración continua
+de nuestro proyecto software: pull requests, revisión de código,
+scripts de compilación y despliegue. También estudiaremos principios
+generales que guían la entrega continua de software. Y herramientas
+como Docker que nos permitirá empaquetar nuestra aplicación en un
+contenedor que podrá ser desplegado y ejecutado en cualquier lugar.
+
+- Git como sistema de control de versiones, flujos de trabajo con
+  Git.
+- Principios de la entrega continua de software.
+- Herramientas y tecnologías para la integración continua, scripts
+  de construcción y despliegue, infraestructura y entornos de
+  integración, cloud.
 
 ## Prácticas ##
 
