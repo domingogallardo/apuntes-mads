@@ -192,25 +192,26 @@ número de sesión corresponde al orden en el que se van a ver en la asignatura)
 
 La evaluación de los contenidos de teoría se hará de forma continua,
 mediante **2 exámenes de tipo test** que ponderarán un 15% cada uno y
-un **trabajo individual** de redacción sobre alguno de los temas de la
-asignatura que ponderará otro 10%.
+un **vídeo de divulgación** sobre algún tema de la asignatura que
+ponderará otro 10%.
 
-Para el trabajo individual deberás realizar escoger un tema
-relacionado con la asignatura de una lista que el profesor pondrá a
-vuestra disposición o proponer tú un tema que con el visto bueno del
-profesor. En el trabajo deberás realizar una pequeña investigación
-bibliográfica en artículos, blogs, libros, etc. sobre el tema
-propuesto y escribir un ensayo con una extensión de alrededor de 3.000
-palabras. En el trabajo deberás incluir:
+El vídeo de divulgación deberás subirlo a YouTube y deberá tener una
+duración de entre 5 y 7 minutos. Deberás escoger un tema relacionado
+con la asignatura y presentarlo en un vídeo con un formato
+atractivo. Puede contener explicaciones con diapositivas, demostraciones
+de código, animaciones, etc.. Puedes aparecer o no en el vídeo, pero
+obligatoriamente debe estar **narrado por ti**.
 
-- Introducción
-- Desarrollo
-- Conclusiones
-- Bibliografía (al menos 3 fuentes bibliográficas)
+Además del enlace a YouTube donde esté el vídeo publicado deberás
+entregar:
 
-El trabajo deberá ser original. Se utilizará una herramienta de
-detección de plagio para detectar la copia de párrafos sin atribuir la
-cita.
+- Diapositivas, imágenes, código, etc. que aparezca en el vídeo.
+- Guión o transcripción de la narración.
+- Bibliografía y referencias que has usado.
+
+Compartiremos una página en la que iréis apuntando los títulos de los
+vídeos y al final de la asignatura compartiremos todos los enlaces a
+YouTube.
 
 ### Prácticas (40%) ###
 
