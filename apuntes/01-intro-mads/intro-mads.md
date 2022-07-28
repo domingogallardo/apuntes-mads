@@ -466,7 +466,7 @@ de la UA. Puedes consultar su ubicación y disponibilidad en el
 UA](https://cat.biblioteca.ua.es/discovery/search?vid=34CVA_UA:VU1&amp;lang=es)
 
 Para acceder a la cuenta de O'Reilly debes darte de alta con el correo
-electrónico de la UA. Puedes encontrar más información en [este enlace](https://biblioteca.ua.es/es/documentos/libros-electronicos/pdf/acceso-o-reilly-safari.pdf)
+electrónico de la UA. Puedes encontrar más información en [este enlace](https://biblioteca.ua.es/es/documentos/libros-electronicos/pdf/acceso-o-reilly-safari.pdf).
 
 ### Agile en general y Scrum ###
 
