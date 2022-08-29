@@ -186,7 +186,7 @@ número de sesión corresponde al orden en el que se van a ver en la asignatura)
 
 1. Valores y principios ágiles para el desarrollo del software
    (3 semanas, sesiones 1, 2, 3 y 4)
-2. XP (eXtreme Programming) (4 semanas, sesiones 5, 6, 7 y 8)
+2. XP (eXtreme Programming) (4 semanas, sesiones 5, 6, 7, 8 y 9)
 3. Metodologías lean y Kanban (2 semanas, sesiones 11 y 12)
 4. Integración y entrega continua (3 semanas, sesiones 10, 13 y 14)
 
@@ -333,7 +333,7 @@ también de diseño SOLID y de refactorización.
 - Valores y prácticas XP.
 - Historias de usuario.
 - TDD, Desarrollo Dirigido por los Tests.
-- Cambio, código y comunicación: diseño SOLID y refactorización.
+- Diseño para el cambio: refactorización y SOLID.
 
 <table markdown="1">
 <tr><td style="background-color: #e0e0e0">
