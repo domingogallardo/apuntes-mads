@@ -62,10 +62,25 @@ evolución. Algunos ejemplos:
 
 ## Metáforas ##
 
-Cuando queremos explicar algo complejo, muy a menudo usamos
-metáforas. Las metáforas permiten relacionar conceptos desconocidos
-con situaciones usuales ya vistas y nos permiten arrojar nueva luz
-sobre estos conceptos desconocidos (¡esto ha sido una metáfora!).
+Todos conocemos el concepto de metáfora en la literatura, una figura
+del lenguaje en la que se utiliza un objeto o acción en otro contexto,
+aprovechando una comparación tácita. Por ejemplo, cuando se dice "el
+otoño de la vida" o "tener los nervios de acero" se están utilizando
+metáforas.
+
+Sin embargo, las metáforas son mucho más que esto. No solo se utilizan
+en literatura, sino que también tienen aplicación en una gran variedad
+de campos: economía, empresa, publicidad, política, ciencia o
+psicología.
+
+Utilizamos las metáforas para explicar algo desconocido en términos de
+lo que ya conocemos. Por ejemplo, cuando se dice:
+
+> "El proceso de lanzar un nuevo producto es una maratón"
+
+Al relacionar conceptos desconocidos con situaciones usuales ya vistas
+estamos arrojando nueva luz sobre estos conceptos desconocidos
+(¡esto ha sido una metáfora!).
 
 En la metáfora anterior lo desconocido lo comparamos con una
 habitación a oscuras que podemos explorar con la luz con una
@@ -84,6 +99,7 @@ proceso de investigar) basada en algo conocido (explorar una
 habitación oscura con una linterna). Y esa representación es muy
 importante, porque nos lleva a tomar acciones y decisiones reales que
 podrían haber sido distintas si hubiéramos usado otra metáfora.
+
 
 ### Metáforas en la cultura de las organizaciones ###
 
