@@ -585,6 +585,8 @@ La mayoría de las veces los requisitos no cambian porque el cliente
 cambie de opinión, sino porque se trabaja con muchísimas
 incertidumbres que producen problemas y asuntos no esperados.
 
+<img src="imagenes/buscaminas.png" width="300px" align="right"/>
+
 "Espera, no lo sabíamos, pero resulta que ..."
 
 "Espera, esto hace X? Esperábamos que hiciera Y ..."
@@ -596,8 +598,6 @@ una nueva tecnología a la que haya que adaptar el software. Es que,
 sencillamente, vamos descubriendo (cliente y equipo de desarrollo) el
 problema conforme se desarrolla el software. Es como jugar al
 buscaminas.
-
-<img src="imagenes/buscaminas.png" width="300px" align="right"/>
 
 Debido a la intangibilidad del software y a la incertidumbre en el
 conocimiento del dominio los clientes sólo pueden comprender su
