@@ -637,8 +637,9 @@ predecible ni planificable.
   formas de interactuar del negocio con los clientes.
 
 Por ello, debemos asumir que no podremos predecir fielmente todo el
-desarrollo, que el cambio es una característica fundamental del
-desarrollo y que debemos aprender a vivir con esta
+desarrollo, debemos **matar toda esperanza de que todo va a ir bien a
+la primera**, debemos aprender que el cambio es una característica
+fundamental del desarrollo y que debemos aprender a vivir con esta
 característica. Debemos aprender a hacer desarrollos que sean
 fácilmente modificables y robustos, que no se rompan cuando se cambien
 los requisitos.
