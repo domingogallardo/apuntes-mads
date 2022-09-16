@@ -581,11 +581,11 @@ los requisitos del proyecto siempre están cambiando". Sin embargo,
 esto es lo normal de los proyectos software. Lo que hay que hacer es
 aprender a gestionar estos cambios.
 
+<img src="imagenes/buscaminas.png" width="350px" align="right"/>
+
 La mayoría de las veces los requisitos no cambian porque el cliente
 cambie de opinión, sino porque se trabaja con muchísimas
 incertidumbres que producen problemas y asuntos no esperados.
-
-<img src="imagenes/buscaminas.png" width="300px" align="right"/>
 
 "Espera, no lo sabíamos, pero resulta que ..."
 
