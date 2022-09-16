@@ -597,7 +597,7 @@ sencillamente, vamos descubriendo (cliente y equipo de desarrollo) el
 problema conforme se desarrolla el software. Es como jugar al
 buscaminas.
 
-<img src="imagenes/buscaminas.png" width="300px"/>
+<img src="imagenes/buscaminas.png" width="300px" align="right"/>
 
 Debido a la intangibilidad del software y a la incertidumbre en el
 conocimiento del dominio los clientes sólo pueden comprender su
