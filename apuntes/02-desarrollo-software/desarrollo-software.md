@@ -587,11 +587,11 @@ La mayoría de las veces los requisitos no cambian porque el cliente
 cambie de opinión, sino porque se trabaja con muchísimas
 incertidumbres que producen problemas y asuntos no esperados.
 
-"Espera, no lo sabíamos, pero resulta que ..."
+> "Espera, no lo sabíamos, pero resulta que ..."
 
-"Espera, esto hace X? Esperábamos que hiciera Y ..."
+> "Espera, esto hace X? Esperábamos que hiciera Y ..."
 
-"Espera, resulta que para conseguir X necesitamos antes hacer Y ..."
+> "Espera, resulta que para conseguir X necesitamos antes hacer Y ..."
 
 No es que haya cambiado la legislación, ni que haya aparecido
 una nueva tecnología a la que haya que adaptar el software. Es que,
