@@ -581,11 +581,30 @@ los requisitos del proyecto siempre están cambiando". Sin embargo,
 esto es lo normal de los proyectos software. Lo que hay que hacer es
 aprender a gestionar estos cambios.
 
-Debido a la intangibilidad del software los clientes sólo pueden
-comprender su funcionamiento cuando lo ponen en ejecución. Por eso el
-valor de una característica nueva sólo se puede conocer cuando se usa
-de verdad. Sólo en ese momento se puede saber qué características
-proporcionan valor y cuáles no. 
+La mayoría de las veces los requisitos no cambian porque el cliente
+cambie de opinión, sino porque se trabaja con muchísimas
+incertidumbres que producen problemas y asuntos no esperados.
+
+"Espera, no lo sabíamos, pero resulta que ..."
+
+"Espera, esto hace X? Esperábamos que hiciera Y ..."
+
+"Espera, resulta que para conseguir X necesitamos antes hacer Y ..."
+
+No es que haya cambiado la legislación, ni que haya aparecido
+una nueva tecnología a la que haya que adaptar el software. Es que,
+sencillamente, vamos descubriendo (cliente y equipo de desarrollo) el
+problema conforme se desarrolla el software. Es como jugar al
+buscaminas.
+
+<img src="imagenes/buscaminas.png" width="300px"/>
+
+Debido a la intangibilidad del software y a la incertidumbre en el
+conocimiento del dominio los clientes sólo pueden comprender su
+funcionamiento cuando lo ponen en ejecución. Por eso el valor de una
+característica nueva sólo se puede conocer cuando se usa de
+verdad. Sólo en ese momento se puede saber qué características
+proporcionan valor y cuáles no.
 
 Por ello los clientes esperan poder cambiar ideas que resulta que no
 funcionan y poder cambiarlas por otras que se les ocurren y que pueden
