@@ -507,7 +507,7 @@ positivo.
 Cuando los equipos no esconden el conflicto, sino que se enfrentan a
 él de forma positiva se obtienen muchos beneficios:
   
-- La mejora de los procesos depende en que los equipos generen una
+- La mejora de los procesos depende de que los equipos generen una
   lista de impedimentos o problemas en la organización, enfrentarse a
   ellos de forma clara priorizándolos y eliminándolos
   sistemáticamente.
@@ -537,7 +537,7 @@ técnica que se va a consultar. Sin embargo, hay que eliminar la
 documentación que no se va a usar y que no aporta nada a lo que ya
 sabemos.
 
-Por otro lado, un buen código es la mejor documentación. En desarrollo
+Por otro lado, un buen código es la mejor documentación. Cuando se usa
 TDD, primero se hacen las pruebas y éstas sirven para validar el
 sistema y para documentar. Los ejemplos de validación hechos por el
 _product owner_ y los clientes son otro ejemplo de documentación
