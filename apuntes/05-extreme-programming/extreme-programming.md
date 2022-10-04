@@ -13,7 +13,7 @@ responsabilidades de las clases en un diseño orientado a objetos.
 
 En 1996 Kent Beck comenzó a trabajar en el Chrysler Comprehensive
 Compensation System ([proyecto C3](https://www.martinfowler.com/bliki/C3.html), en el que conoció a
-Ron Jeffries. Se trató de un proyecto de gestión Chrysler que se
+Ron Jeffries. Se trató de un proyecto de gestión en Chrysler que se
 hizo famoso no por terminarse con éxito (fue cancelado en 1999) sino
 por considerarse el proyecto en el que nació XP.
 
@@ -152,12 +152,12 @@ _historias_) las nuevas funcionalidades a implementar usando un
 lenguaje de negocio común. El equipo construye la aplicación usando un
 enfoque iterativo y evolutivo, basado en un diseño incremental.
 
-- Semanalmente los clientes definen las historias y se añaden a la
-aplicación, definiendo primero los tests que deben cumplir y
-trabajando en parejas para escribir el código que hace pasar esos
-tests. Continuamente se compila la aplicación, se integra y se pasan
-todos los tests, en un proceso que debería ser muy rápido (menos de 10
-minutos). 
+- Semanalmente los clientes definen las historias y el equipo de
+desarrollo las añaden a la aplicación, definiendo primero los tests
+que deben cumplir y trabajando en parejas para escribir el código que
+hace pasar esos tests. Continuamente se compila la aplicación, se
+integra y se pasan todos los tests, en un proceso que debería ser muy
+rápido (menos de 10 minutos).
 
 - Cada tres meses se reflexiona sobre la dirección global del proyecto,
 estableciendo nuevas prioridades y analizando posibles mejoras en el
@@ -187,11 +187,9 @@ lección:
 
 Lo peor que le puede pasar a un equipo de software es que el proyecto
 en el que está trabajando se cancele y no se entregue después de haber
-estado trabajando en él durante semanas. 
-
-Las técnicas de XP persiguen dar confianza y seguridad y permitir que
-nos sintamos satisfechos de nosotros mismos porque hemos dado lo mejor
-para evitar que eso pase.
+estado trabajando en él durante semanas. Las técnicas de XP persiguen
+dar confianza y seguridad y permitir que nos sintamos satisfechos de
+nosotros mismos porque hemos dado lo mejor para evitar que eso pase.
 
 
 ## Valores ##
@@ -240,9 +238,13 @@ Los valores que define son los siguientes:
     programming, diariamente en las reuniones diarias o en cada
     iteración con la retroalimentación de los clientes.
   
-- **Valentía**: Valentía es la acción efectiva frente al miedo. El
-  miedo es algo que se sufre en el desarrollo de software. ¿Qué
-  miedos pueden existir en el equipo de desarrollo?: 
+- **Valentía**: Una persona valiente tiene iniciativa y se anticipa a
+  los problemas, es proactiva. No se queda mirando de forma pasiva,
+  esperando que algún otro se mueva y solucione los problemas.
+  
+  Valentía es la acción efectiva frente al miedo. El miedo es algo que
+  se sufre en el desarrollo de software. ¿Qué miedos pueden existir en
+  el equipo de desarrollo?:
   
     - Miedo a hacer algo mal, crear bugs. Sobre todo si estás
       escribiendo software que afecta a personas.  
@@ -251,15 +253,12 @@ Los valores que define son los siguientes:
       mucho trabajo (por ejemplo, un año) debido a que se cancele o a
       que nadie lo use. 
 
-    La valentía se debe manifestar a veces en forma de acción,
-	cuando conoces la solución a un problema. Otras veces en forma de
-	paciencia. Si sabes que hay un problema pero no sabes cuál es, es
-	necesario valentía para esperar a que el verdadero problema
-	termine apareciendo. La valentía para decir la verdad, sea o no
-	placentera, promueve la comunicación y la confianza. La valentía
-	para descartar soluciones parciales y buscar otras nuevas promueve
-	la simplicidad. La valentía por buscar respuestas reales y
-	concretas crea retroalimentación. 
+    La valentía se debe manifestar a veces en forma de acción, cuando
+	conoces la solución a un problema. La valentía para decir la
+	verdad, sea o no placentera, promueve la comunicación y la
+	confianza. La valentía para descartar soluciones parciales y
+	buscar otras nuevas promueve la simplicidad. La valentía por
+	buscar respuestas reales y concretas crea retroalimentación.
 
 - **Respeto**: Los anteriores cuatro valores apuntan a uno subyacente:
   respeto. Si los miembros de un equipo no se preocupan de los otros,
@@ -432,7 +431,7 @@ sería,  sin lugar a dudas, el énfasis en las pruebas, y en concreto,
 en la práctica de  TDD (Test Driven Development, desarrollo dirigido
 por las pruebas). TDD consiste básicamente en invertir el desarrollo
 habitual de los tests. No hacerlos después de escribir el código para
-comprobar que no hay errores. Sino hacer el test antes de escribir el
+comprobar que no hay errores, sino hacer el test antes de escribir el
 código. Y escribir únicamente el código necesario para que el test
 pase. Esta idea tan simple en apariencia cambia radicalmente la forma de
 enfrentarse al desarrollo. Lo veremos más adelante.
@@ -496,7 +495,7 @@ personas.
 
 En algunas empresas se asignan los desarrolladores a proyectos:
 "trabajarás el 40% en este proyecto y el 60% en este otro". Es mucho
-mejor hacer un equipo único que gestione todos los
+mejor hacer un equipo único que gestione ambos
 proyectos. Tener que identificarse con un programa los lunes y jueves
 y con otro los martes, miércoles y viernes, sin tener otros
 desarrolladores con los que identificarte, destroza la idea de
@@ -633,77 +632,8 @@ compatibles con “abrazar el cambio”).
 Una vez escritas las historias, las podremos colocar en la pared,
 agrupar, seleccionar, hablar sobre ellas, moverlas, etc.
 
-##### Conversation, Card, Confirmation #####
-
-<img src="imagenes/tres-cs.png" width="400px"/>
-
-Jon Jeffries amplía las características de las historias para
-responder a las críticas relacionadas con la falta de
-concreción, definiendo lo que se conoce como las tres Cs:
-
-- Conversation
-- Card
-- Confirmation
-
-Las historias son un texto corto escrito en una tarjeta que se
-refiere a una conversación con los clientes sobre la funcionalidad
-que se quiere incluir y que debe tener una lista larga de criterios de
-aceptación en los que se especifican de forma más concreta sus
-detalles. Estos criterios de aceptación estarán documentados aparte,
-no en la misma tarjeta.
-
-##### Lenguaje del dominio #####
-
-Es muy importante usar en las tarjetas un lenguaje y un vocabulario
-propio de los clientes y del negocio o dominio que estamos
-programando. Es parte de nuestro trabajo conseguir que ese vocabulario
-sea preciso y corregir las posibles ambigüedades que pudiera
-contener. Cuando escribimos código y tests debemos usar el mismo
-vocabulario que el usado por los clientes, de forma que sea posible
-entender el programa en términos lo más cercanos posibles al modelo de
-negocio.
-
-Por ejemplo, para realizar la asignación de presencialidad a los
-estudiantes de una universidad (debido a restricciones de ocupación en
-las aulas por, por ejemplo, estar la universidad en una zona en la que
-se sufre una pandemia), hay que distinguir entre "grupos", "turnos" y
-"actividades". Una asignatura tiene varias actividades: por ejemplo,
-teoría y práctica. Cada actividad se divide en grupos de estudiantes
-que comparten aula y horario. Y cada grupo se divide en turnos:
-presencial y on-line. Estos términos ("grupos", "turnos" y
-"actividad") son precisos y es posible utilizarlos para definir reglas
-y especificaciones. Pero lo habitual es que no haya sido sencillo
-llegar a ellos y que sólo se hayan obtenido después de muchas
-confusiones y malentendidos (por ejemplo, hablar de "grupos" cuando
-queremos decir "actividad" o "turno").
-
-Es muy importante hacer este esfuerzo de precisión con el lenguaje,
-porque ayuda mucho a la hora de especificar las funcionalidades y
-también de desarrollar y entender el código de la aplicación.
-
-Existe toda una metodología de diseño que se basa en esta idea. Se
-denomina [_Domain Driven
-Design_](https://martinfowler.com/bliki/DomainDrivenDesign.html) y
-hablaremos de ella más adelante.
-
-##### INVEST #####
-
-El acrónimo INVEST fue creado por [Bill
-Wake](https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/)
-para definir seis atributos que debe tener una buena historia de usuario:
-
-- **I**ndependiente: las dependencias entre las historias crean
-  problemas de priorización y estimación. 
-- **N**egociable: las historias no son contratos, son recordatorios de conversaciones.
-- **V**aliosa: las historias deben ser valiosas para los que pagan el software.
-- **E**stimable: el tamaño de la historia debe poder ser estimado,
-  aunque sea de forma gruesa.
-- **S**mall: para poder estimarse correctamente es recomendable que
-  la historia sea pequeña. Si la historia es demasiado grande (lo que
-  se denomina una épica) hay que refinarla y dividirla en historias
-  más pequeñas.
-- **T**estable: las historias deben ser probadas y los tests deben poder ser
-automatizados.
+En la siguiente sesión hablaremos algo más de historias de usario,
+presentando algún ejemplo real.
 
 #### Práctica: Incremental Design ####
 
