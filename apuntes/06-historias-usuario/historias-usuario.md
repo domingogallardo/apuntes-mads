@@ -1,14 +1,38 @@
 # Historias de usuario #
 
+La práctica de historias de usuario (_Stories_, en la segunda edición
+del libro de Beck) tiene que ver con dividir y planificar el trabajo a
+realizar utilizando pequeños "trozos" de funcionalidad visibles por el
+cliente. Beck denomina estos pequeños trozos "historias"
+(_stories_). Después se utilizará el término "historias de usuario"
+(_user stories_). 
 
-#### Práctica: Stories ####
+Por ejemplo, "Proporcionar una forma rápida (dos clicks como máximo)
+para que los usuarios puedan llamar a los números usados
+frecuentemente". O "Permitir que el usuario pueda visualizar en una
+única pantalla todas las asignaturas de las que está matriculado,
+incluyendo detalles relevantes de cada una de ellas".
 
-Los elementos que debemos usar para planificar el trabajo son pequeños
-"trozos" de funcionalidad visible por el cliente. Beck denomina estos
-pequeños trozos "historias". Después se utilizará el término "historias
-de usuario" (_user stories_). Una vez que se escribe la historia, se
-debe intentar estimar el esfuerzo necesario para implementarla, que se
-anota en un esquina:
+Inicialmente las historias de usuario son frases cortas, descriptivas,
+que proporcionan una visión de alto nivel de las funcionalidades a
+implementar en el sistema. Están destinadas, más que a definir una
+especificación completa, a ser la base de una comunicación efectiva
+entre el cliente final y el equipo de desarrollo.
+
+## Características de las historias de usuario ##
+
+El nombre de **historia** se utiliza frente al nombre tradicional de
+**requisito**. Un requisito tiene la connotación de algo obligatorio e
+inmmutable, cosas incompatibles con abrazar el cambio y con la
+realización de un diseño evolutivo. Cuando vemos que implementando el
+20% de los requisitos originales obtenemos el 80% del valor nos damos
+cuenta que los requisitos no implementados no son tan obligatorios.
+
+Al utilizar el nombre **historia** nos deshacemos de esas
+connotaciones dañinas que tenía el nombre de **requisito**.
+
+Una vez que se escribe la historia, se debe intentar estimar el
+esfuerzo necesario para implementarla, que se anota en un esquina:
 
 <img src="imagenes/story.png" width="250px"/>
 
@@ -29,16 +53,23 @@ ella se especifique alguna funcionalidad visible por el
 cliente. También debe tener un título y una estimación del tiempo que
 se va a usar para terminarla.
 
-Es más adecuado hablar de “historias” que de “requisitos” (palabra
-con connotaciones de “inmutabilidad” y “permanencia” que no son
-compatibles con “abrazar el cambio”).
-
 Una vez escritas las historias, las podremos colocar en la pared,
 agrupar, seleccionar, hablar sobre ellas, moverlas, etc.
 
-##### Conversation, Card, Confirmation #####
+¿Cuándo se especifican las historias con más detalle? Esta es una
+diferencia fundamental entre el enfoque tradicional de requisitos y el
+enfoque de XP. En XP se usa el principio del "último momento
+responsable" y el equipo retrasa la especificación completa de la
+historia hasta justo antes de su implementación.
 
-<img src="imagenes/tres-cs.png" width="400px"/>
+Al comienzo de cada ciclo semanal se definen tests y criterios de
+aceptación para las historias de usuario. Las historias se descomponen
+en ítems más pequeños. Cada desarrollador escoge un ítem y comienza a
+programarlo. Cuando termina, selecciona otro. Así hasta que todos los
+tests pasan y la historia tiene un nivel de calidad suficiente para
+ponerla en producción y ser usada por los clientes.
+
+## Conversation, Card, Confirmation ##
 
 Jon Jeffries amplía las características de las historias para
 responder a las críticas relacionadas con la falta de
@@ -48,6 +79,8 @@ concreción, definiendo lo que se conoce como las tres Cs:
 - Card
 - Confirmation
 
+<img src="imagenes/tres-cs.png" width="400px"/>
+
 Las historias son un texto corto escrito en una tarjeta que se
 refiere a una conversación con los clientes sobre la funcionalidad
 que se quiere incluir y que debe tener una lista larga de criterios de
@@ -55,7 +88,7 @@ aceptación en los que se especifican de forma más concreta sus
 detalles. Estos criterios de aceptación estarán documentados aparte,
 no en la misma tarjeta.
 
-##### Lenguaje del dominio #####
+## Lenguaje del dominio ##
 
 Es muy importante usar en las tarjetas un lenguaje y un vocabulario
 propio de los clientes y del negocio o dominio que estamos
@@ -89,7 +122,7 @@ denomina [_Domain Driven
 Design_](https://martinfowler.com/bliki/DomainDrivenDesign.html) y
 hablaremos de ella más adelante.
 
-##### INVEST #####
+## INVEST ##
 
 El acrónimo INVEST fue creado por [Bill
 Wake](https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/)
@@ -107,4 +140,120 @@ para definir seis atributos que debe tener una buena historia de usuario:
   más pequeñas.
 - **T**estable: las historias deben ser probadas y los tests deben poder ser
 automatizados.
+
+## Un ejemplo práctico ##
+
+
+Supongamos que estamos desarrollando el proyecto de software de
+control de una flota de vehículos que comentamos al principio de la
+asignatura. 
+
+Se trata de una aplicación en la que se quiere proporcionar distintas
+funcionalidades de control de la flota:
+
+- Enviar servicios a los vehículos
+- Realizar un seguimiento de los recorridos
+- Gestionar los conductores que llevan los vehículos
+
+Se quiere hacer un primer _release_ con 20 vehículos de una ciudad y
+con un conjunto de funcionalidades básicas. Después se desplegará de
+forma sucesiva en distintas ciudades, haciendo un release nuevo por
+cada ciudad. La versión final deberá controlar alrededor de 200 vehículos.
+
+A continuación presentamos algunas imágenes reales de la gestión de
+las historias de usuarios en el equipo que desarrolla este software.
+
+<img src="imagenes/tablero.png" width="700px"/>
+
+<img src="imagenes/tarjeta.png" width="500px"/>
+
+<img src="imagenes/confluence-1.png" width="700px"/>
+
+<img src="imagenes/confluence-2.png" width="700px"/>
+
+<img src="imagenes/confluence-3.png" width="700px"/>
+
+
+## Mapa de historias de usuario ##
+
+Jeff Patton propuso en 2015 una técnica muy interesante denominada
+**Mapa de Historias de Usuario** (_User Story Mapping_) para diseñar
+historias de usuario conjuntamente con los usuarios finales.
+
+Cuando elaboramos todas las historias de usuario deseadas para una
+aplicación es habitual terminar con una gran cantidad de historias
+apiladas, difíciles de manejar y organizar.
+
+La idea de Patton es realizar un _workshop_ de una mañana o un día, en
+el que los usuarios definan todas las posibles historias que desean
+para el producto y, lo más importante, las organicen de una forma
+específica, formando el denominado mapa de historias de usuario. El
+proceso de ordenar las historias de una forma específica mejora la
+comunicación con los clientes y genera una dinámica que hace más
+efectiva la generación y especificación de estas historias.
+
+<img src="imagenes/map-stories-floor.png" width="600px"/>
+
+### Mapa de historias de usuario ###
+
+En primer lugar Patton propone diferenciar entre lo que denomina
+_actividades_ y _tareas_. Las actividades son acciones genéricas que
+debe realizar el usuario para satisfacer una necesidad u objetivo
+concreto. Son historias de usuario especificadas con un alto nivel de
+generalidad (tarjetas azules en la siguiente imagen).
+
+Cada actividad se descompone en historias más concretas que se deben
+implementar para conseguir la actividad y que se colocan debajo según
+su importancia (las más importantes arriba y las menos abajo).
+
+<img src="imagenes/linea-temporal.png" width="600px"/>
+
+En segundo lugar tenemos el eje horizontal del mapa, el denominado
+_time_ en la figura. Las distintas tarjetas se colocan de izquierda a
+derecha representando secuencias temporales que el usuario debe ir
+realizando cuando usa la aplicación.
+
+Esto permite contar una línea argumental cuando se
+describen las historias: el usuario primero debe hacer _esto_ (lo que
+hay más a la izquierda)m, después _lo siguiente_ (lo que hay a su
+derecha) y, por último, termina haciendo _esto otro_ (lo que hay más a
+la derecha).
+
+<img src="imagenes/backbone.png" width="600px"/>
+
+Las historias de la parte superior forman la columna vertebral de la
+aplicación. Y el siguiente nivel es lo que Patton denomina el
+_esqueleto andante_ (_walking skeleton_).
+
+<img src="imagenes/releases.png" width="600px"/>
+
+La disposición por nivel de importancia en el eje vertical permite
+usar el mapa de historias de usuario para planificar los distintos
+releases de la aplicación.
+
+### Un ejemplo práctico ###
+
+<img src="imagenes/quiosco.png" width="200px" align="right"/>
+
+Supongamos que estamos realizando el mapa de historias de usuario de
+la aplicación del punto de información de una tienda tipo Fnac. El
+punto de información es una pantalla táctil que estará en algún lugar
+de la tienda y que el usuario podrá usar para obtener distintas
+informaciones relacionadas con los productos de la tienda y otros
+elementos.
+
+Un objetivo del usuario que usa el punto de información podría ser
+encontrar la localización en la tienda de un libro que está
+buscando. La actividad que resuelve ese objetivo podría ser entonces
+"Buscar la localización de un libro", o "Buscar información de un
+libro". O podríamos generalizar más todavía y hablar de "Buscar la
+localización de un ítem (libro, película, videojuego, etc.)".
+
+## Referencias ##
+
+- Mike Cohn (2004) [User Stories Applied](https://learning.oreilly.com/library/view/user-stories-applied/0321205685/)
+- Jeff Patton (2014) [User Story Mapping](https://learning.oreilly.com/library/view/user-story-mapping/9781491904893/)
+- Jeff Patton (2015) [It's all in how you slice](http://www.jpattonassociates.com/wp-content/uploads/2015/01/how_you_slice_it.pdf)
+
+
 
