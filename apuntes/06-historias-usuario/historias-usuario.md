@@ -118,9 +118,7 @@ porque ayuda mucho a la hora de especificar las funcionalidades y
 también de desarrollar y entender el código de la aplicación.
 
 Existe toda una metodología de diseño que se basa en esta idea. Se
-denomina [_Domain Driven
-Design_](https://martinfowler.com/bliki/DomainDrivenDesign.html) y
-hablaremos de ella más adelante.
+denomina [_Domain Driven Design_](https://martinfowler.com/bliki/DomainDrivenDesign.html).
 
 ## INVEST ##
 
@@ -163,16 +161,28 @@ cada ciudad. La versión final deberá controlar alrededor de 200 vehículos.
 A continuación presentamos algunas imágenes reales de la gestión de
 las historias de usuarios en el equipo que desarrolla este software.
 
+Las historias son tarjetas y se colocan en un tablero Kanban dividido
+en cuatro columnas: _To Do_, _In Progress_, _To Test_ y _Done_.
+
 <img src="imagenes/tablero.png" width="700px"/>
 
+Una historia tiene un identificador y una descripción. El
+identificador sirve para referenciar la historia en el software de
+gestión de historias de usuario (Confluence, en este caso).
+
 <img src="imagenes/tarjeta.png" width="500px"/>
+
+En Confluence tenemos una descripción completa de la
+historia. Contiene una descripción, un detalle, unos criterios de
+aceptación y un enlace a unos casos de test.
 
 <img src="imagenes/confluence-1.png" width="700px"/>
 
 <img src="imagenes/confluence-2.png" width="700px"/>
 
-<img src="imagenes/confluence-3.png" width="700px"/>
+Y, por último, tenemos el issue en Jira asociado con la implementación.
 
+<img src="imagenes/confluence-3.png" width="700px"/>
 
 ## Mapa de historias de usuario ##
 
