@@ -190,17 +190,19 @@ Jeff Patton propuso en 2015 una técnica muy interesante denominada
 **Mapa de Historias de Usuario** (_User Story Mapping_) para diseñar
 historias de usuario conjuntamente con los usuarios finales.
 
-Cuando elaboramos todas las historias de usuario deseadas para una
-aplicación es habitual terminar con una gran cantidad de historias
-apiladas, difíciles de manejar y organizar.
+Cuando elaboramos todas las historias de usuario de una aplicación es
+habitual terminar con una gran cantidad de historias apiladas,
+difíciles de manejar y organizar. La técnica del mapa de historias de
+usuario proporciona una solución al problema de cómo organizar un gran
+número de historias. La idea de Patton es realizar un _workshop_ de
+una mañana o un día, en el que los usuarios definan todas las posibles
+historias que desean para el producto y, lo más importante, las
+organicen de una forma específica, distribuyendo todas las fichas de
+historia en un orden concreto.
 
-La idea de Patton es realizar un _workshop_ de una mañana o un día, en
-el que los usuarios definan todas las posibles historias que desean
-para el producto y, lo más importante, las organicen de una forma
-específica, formando el denominado mapa de historias de usuario. El
-proceso de ordenar las historias de una forma específica mejora la
-comunicación con los clientes y genera una dinámica que hace más
-efectiva la generación y especificación de estas historias.
+El proceso de ordenar las historias mejora la comunicación con los
+clientes y genera una dinámica que hace más efectiva su generación y
+especificación.
 
 <img src="imagenes/map-stories-floor.png" width="600px"/>
 
@@ -223,11 +225,10 @@ _time_ en la figura. Las distintas tarjetas se colocan de izquierda a
 derecha representando secuencias temporales que el usuario debe ir
 realizando cuando usa la aplicación.
 
-Esto permite contar una línea argumental cuando se
-describen las historias: el usuario primero debe hacer _esto_ (lo que
-hay más a la izquierda)m, después _lo siguiente_ (lo que hay a su
-derecha) y, por último, termina haciendo _esto otro_ (lo que hay más a
-la derecha).
+Esto permite contar una línea argumental cuando se describen las
+historias: el usuario primero debe hacer _esto_ (lo que hay más a la
+izquierda), después _lo siguiente_ (lo que hay a su derecha) y, por
+último, termina haciendo _esto otro_ (lo que hay más a la derecha).
 
 <img src="imagenes/backbone.png" width="600px"/>
 
@@ -258,6 +259,36 @@ buscando. La actividad que resuelve ese objetivo podría ser entonces
 "Buscar la localización de un libro", o "Buscar información de un
 libro". O podríamos generalizar más todavía y hablar de "Buscar la
 localización de un ítem (libro, película, videojuego, etc.)".
+
+Definiríamos entonces una tarjeta azul que pondríamos en la parte
+superior de la línea. Debajo de ella especificaríamos más las tareas
+que debe hacer el usuario para buscar el libro:
+
+- "La pantalla mostrará varias opciones de ítems de búsqueda
+  (libros, videojuegos, películas, etc.) y el usuario pulsará los
+  libros"
+- "El usuario podrá introducir un título y aparecerán los libros que
+  contengan ese título"
+- "El usuario pulsará en el libro elegido y se mostrará su
+  información"
+- "El usuario pulsará la opción de localización y se mostrará dónde
+  está situado el libro en la tienda"
+  
+Estas tarjetas se pondrían debajo de la tarjeta azul de "Buscar
+información de un libro" en una misma fila ordenadas de izquierda a
+derecha.
+
+Debajo de ellas podríamos poner historias menos necesarias, que
+podrían ir en próximas releases de la aplicación:
+
+- "Se mostrarán los libros más vendidos"
+- "Se podrá buscar por autor y se mostrarán todos los libros de un
+  autor"
+- "Se dará la opción de comprar el libro y el cliente no tendrá que
+  pasar por caja"
+- "Se presentará la información de la localización en forma de
+  recorrido que se tiene que hacer desde el punto de información.
+
 
 ## Referencias ##
 
