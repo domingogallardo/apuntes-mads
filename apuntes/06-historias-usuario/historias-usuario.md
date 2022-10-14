@@ -242,7 +242,7 @@ La disposición por nivel de importancia en el eje vertical permite
 usar el mapa de historias de usuario para planificar los distintos
 releases de la aplicación.
 
-### Un ejemplo práctico ###
+### Un ejemplo: punto de información ###
 
 <img src="imagenes/quiosco.png" width="200px" align="right"/>
 
