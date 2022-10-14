@@ -266,13 +266,13 @@ que debe hacer el usuario para buscar el libro:
 
 - "La pantalla mostrará varias opciones de ítems de búsqueda
   (libros, videojuegos, películas, etc.) y el usuario pulsará los
-  libros"
+  libros".
 - "El usuario podrá introducir un título y aparecerán los libros que
-  contengan ese título"
+  contengan ese título".
 - "El usuario pulsará en el libro elegido y se mostrará su
-  información"
+  información".
 - "El usuario pulsará la opción de localización y se mostrará dónde
-  está situado el libro en la tienda"
+  está situado el libro en la tienda".
   
 Estas tarjetas se pondrían debajo de la tarjeta azul de "Buscar
 información de un libro" en una misma fila ordenadas de izquierda a
@@ -281,13 +281,13 @@ derecha.
 Debajo de ellas podríamos poner historias menos necesarias, que
 podrían ir en próximas releases de la aplicación:
 
-- "Se mostrarán los libros más vendidos"
+- "Se mostrarán los libros más vendidos".
 - "Se podrá buscar por autor y se mostrarán todos los libros de un
-  autor"
+  autor".
 - "Se dará la opción de comprar el libro y el cliente no tendrá que
-  pasar por caja"
+  pasar por caja".
 - "Se presentará la información de la localización en forma de
-  recorrido que se tiene que hacer desde el punto de información.
+  recorrido que se tiene que hacer desde el punto de información".
 
 
 ## Referencias ##
