@@ -897,7 +897,7 @@ breves interrupciones que sirvan para poder descansar y recuperar
 energía (parar para beber agua, levantarse y caminar un poco, etc.).
 
 Es aconsejable también cambiar de pareja de forma regular. Por
-ejemplo, cada hora. Esto facilita la diseminación del conocimiento y
+ejemplo, cada dos horas. Esto facilita la diseminación del conocimiento y
 de los estándares entre todos los miembros del equipo.
 
 Desde la formulación original de Beck se ha escrito mucho sobre la
