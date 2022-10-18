@@ -126,10 +126,9 @@ El acrónimo INVEST fue creado por [Bill
 Wake](https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/)
 para definir seis atributos que debe tener una buena historia de usuario:
 
-- **I**ndependiente: las dependencias entre las historias crean
-  problemas de priorización y estimación. 
-- **N**egociable: las historias no son contratos, son recordatorios de conversaciones.
-- **V**aliosa: las historias deben ser valiosas para los que pagan el software.
+- **I**ndependiente: las dependencias entre las historias crean problemas de priorización y estimación. 
+- **N**egociable: las historias no son contratos, son recordatorios de conversaciones.
+- **V**aliosa: las historias deben ser valiosas para los que pagan el software.
 - **E**stimable: el tamaño de la historia debe poder ser estimado,
   aunque sea de forma gruesa.
 - **S**mall: para poder estimarse correctamente es recomendable que
@@ -215,10 +214,17 @@ concreto. Son historias de usuario especificadas con un alto nivel de
 generalidad (tarjetas azules en la siguiente imagen).
 
 Cada actividad se descompone en historias más concretas que se deben
-implementar para conseguir la actividad y que se colocan debajo según
-su importancia (las más importantes arriba y las menos abajo).
+implementar para conseguir la actividad y que se colocan
+debajo. Patton las denomina tareas (_tasks_). Son las tarjetas de
+color rosa en la imagen.
 
 <img src="imagenes/linea-temporal.png" width="600px"/>
+
+A la hora de distribuir las tarjetas debemos de seguir dos criteros.
+
+En primer lugar, el eje vertical define su importancia o
+necesidad. Debemos colocar las más importantes arriba, cerca de
+las actividades. Y las menos necesarias abajo ellas.
 
 En segundo lugar tenemos el eje horizontal del mapa, el denominado
 _time_ en la figura. Las distintas tarjetas se colocan de izquierda a
