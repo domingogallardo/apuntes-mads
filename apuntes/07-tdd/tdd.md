@@ -716,11 +716,22 @@ obliga a crear la clase `Euro`.
 | Equal object |
 | **5 EUR * 2 = 10 EUR** |
 
-### Test multiplicación en euros ###
+### Tests igualdad y  multiplicación en euros ###
 
-Copiamos y modificamos el test de la multiplicación en Dolares.
+Añadimos dos tests de igualdad para euros. Y copiamos y modificamos el
+test de la multiplicación en dólares.
 
-Test:
+Tests:
+
+```diff
+    @Test
+    public void testIgualdad() {
+        assertTrue(new Dolar(5).equals(new Dolar(5)));
+        assertFalse(new Dolar(5).equals(new Dolar(6)));
++       assertTrue(new Euro(5).equals(new Euro(5)));
++       assertFalse(new Euro(5).equals(new Euro(6)));
+    }
+```
 
 ```java
     @Test
@@ -731,7 +742,7 @@ Test:
     }
 ```
 
-Para pasar el test copiamos y modificamos el código de `Dolar`.
+Para pasar los tests copiamos y modificamos el código de `Dolar`.
 
 El código es el siguiente:
 
@@ -785,7 +796,7 @@ el código duplicado. Comenzaremos por `equals`.
 Vamos a ir haciendo poco a poco pequeños cambios en el código,
 comprobando en cada momento que pasan los tests.
 
-Creamos la clase `Moneda` y hacemos que `Dolar` la extienda:
+Creamos la clase `Moneda` y hacemos que `Dolar` y `Euro` la extiendan:
 
 ```diff
 + public class Moneda {
@@ -793,6 +804,9 @@ Creamos la clase `Moneda` y hacemos que `Dolar` la extienda:
 
 - public class Dolar {
 + public class Dolar extends Moneda {
+
+- public class Euro {
++ public class Euro extends Moneda {
 ```
 
 Los tests siguen pasando.
@@ -806,11 +820,15 @@ public class Moneda {
 
 public class Dolar extends Moneda {
 -    private int cantidad;
+
+public class Euro extends Moneda {
+-    private int cantidad;
 ```
 
 Los tests siguen pasando.
 
-Cambiamos el método `equals`, generalizándolo para que trabaje con monedas:
+Cambiamos en ambas clases los métodos `equals`, generalizándolo para que
+trabaje con monedas:
 
 ```java
     public boolean equals(Object object) {
@@ -821,7 +839,8 @@ Cambiamos el método `equals`, generalizándolo para que trabaje con monedas:
 
 Los tests siguen pasando.
 
-Por último, movemos `equals` a `Moneda`:
+Por último, ya tenemos el mismo código de `equals` en ambas
+clases `Dolar` y `Euro`. Podemos moverlo a la clase padre `Moneda`:
 
 ```java
 public class Moneda {
@@ -843,62 +862,22 @@ public class Dolar extends Moneda {
         return new Dolar(cantidad * multiplicador);
     }
 }
+
+public class Euro extends Moneda {
+
+    public Euro(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public Euro multiplicadoPor(int multiplicador) {
+        return new Euro(cantidad * multiplicador);
+    }
+}
+
 ```
 
 Y los tests siguen pasando.
 
-Tenemos que hacer ahora lo mismo con `Euro`, pero nos faltan
-tests que hagan de red de seguridad de la refactorización. Añadimos
-tests en el test de igualdad de `Dolar`:
-
-```java
-    @Test
-    public void testIgualdad() {
-        assertTrue(new Dolar(5).equals(new Dolar(5)));
-        assertFalse(new Dolar(5).equals(new Dolar(6)));
-        assertTrue(new Euro(5).equals(new Euro(5)));
-        assertFalse(new Euro(5).equals(new Euro(6)));
-    }
-```
-
-Y con los tests ya definidos podemos proceder a la refactorización,
-haciendo lo mismo que con `Dolar`.
-
-Primero eliminamos hacemos que `Euro` herede de `Moneda` y eliminamos  `cantidad`:
-
-```diff
-- public class Euro {
-+ public class Euro extends Moneda {
--    private int cantidad;
-```
-
-Ahora tenemos que hacer que `equals` en `Euro` sea exactamente igual
-que `equals` en `Moneda` para poder eliminarlo sin miedo a que estemos
-cambiando su comportamiento:
-
-
-```java
-public class Euro extends Moneda {
-    ...
-    public boolean equals(Object object) {
-        Moneda moneda = (Moneda) object;
-        return cantidad == moneda.cantidad;
-    }
-}
-```
-
-Por último, ya podemos eliminar el método de `Euro` (es igual que el
-de la superclase) y comprobar que los tests siguen pasando:
-
-```diff
-public class Euro extends Moneda {
-    ...
--    public boolean equals(Object object) {
--        Moneda moneda = (Moneda) object;
--        return cantidad == moneda.cantidad;
--    }
-}
-```
 
 ### Pensamos ###
 
@@ -976,29 +955,23 @@ concretas `Dolar` y `Euro` y usar la clase más abstracta
 `Moneda`. Convertiremos la clase `Moneda` en una factoría con métodos
 que devuelvan euros y dólares.
 
-### Refactorización para usar monedas en lugar de clases concretas ###
+Empezamos por refactorizar para añadir los métodos factoría.
 
-Empezamos por el código de `multiplicaPor` de ambas clases, haciendo
-que devuelvan una `Moneda`:
+| Cosas por hacer  |
+|------------------|
+| 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
+| Usar punto flotante - redondeo? |
+| hashCode() |
+| Equal null |
+| Equal object |
+| **Duplicación Dolar Euro** |
+| **multiplicadoPor duplicado** |
+| Denominación moneda? |
+| Eliminar uso de las clases concretas |
+| **Métodos factoría en Moneda** |
 
 
-```java
-public class Dolar extends Moneda {
-   ...
-    public Moneda multiplicadoPor(int multiplicador) {
-        return new Dolar(cantidad * multiplicador);
-    }
-}
-
-public class Euro extends Moneda {
-    ...
-    public Moneda multiplicadoPor(int multiplicador) {
-        return new Euro(cantidad * multiplicador);
-    }
-}
-```
-
-Los tests siguen pasando.
+### Refactorización: Métodos factoría en Moneda ###
 
 Vamos ahora a intentar eliminar del código el uso de las clases
 `Dolar` y `Euro`, de forma que no tengamos que hacer explícitamente un
@@ -1006,7 +979,7 @@ Vamos ahora a intentar eliminar del código el uso de las clases
 
 Para ello vamos a convertir `Moneda` en una factoría, con un método
 `dolar` que devuelva un dolar. Empezamos refactorizando el test de
-multiplicación para que use la factoría. 
+multiplicación para obligar a construir el método de factoría.
 
 
 ```java
@@ -1035,8 +1008,103 @@ public class Moneda {
 }
 ```
 
-Pasan los tests. Pero queremos eliminar el uso de la clase `Dolar`,
-por lo que modificamos declarando el objeto `cinco` de tipo `Moneda`:
+Pasan los tests. 
+
+Cambiamos en los tests todas las llamadas a `new Dolar()` por llamadas
+al método factoría `Moneda.dolar()`.
+
+Probamos los tests y comprobamos que pasan.
+
+Y hacemos lo mismo para crear el método factoría que construye
+euros. 
+
+Primero cambiamos `testMultiplicacionEuro` para obligar a implementar
+el método factoría:
+
+```java
+    @Test
+    public void testMultiplicacionEuro() {
+        Euro cinco = Moneda.euro(5);
+        assertEquals(Moneda.euro(10), cinco.multiplicadoPor(2));
+        assertEquals(Moneda.euro(15), cinco.multiplicadoPor(3));
+    }
+```
+
+El test falla. Implementamos el método factoría en la clase `Moneda`
+para arreglarlo:
+
+```java
+    public static Euro euro(int cantidad) {
+        return new Euro(cantidad);
+    }
+```
+
+Probamos que el test pasa. Y cambiamos en los tests todas las llamadas
+a `new Euro()` por llamadas al método factoría `Moneda.euro()`. Y
+volvemos a lanzar los tests y probar que funcionan.
+
+Por último, cambiamos en los métodos `multiplicadoPor` las llamadas a
+los constructores por llamadas a los métodos factoría:
+
+```java
+    public Dolar multiplicadoPor(int multiplicador) {
+        return Moneda.dolar(cantidad * multiplicador);
+    }
+
+    ...
+    
+    public Euro multiplicadoPor(int multiplicador) {
+        return Moneda.euro(cantidad * multiplicador);
+    }
+```
+
+
+### Pensamos  ###
+
+Una vez añadidos los métodos factoría, ya podemos pasar a refactorizar
+para eliminar el uso de las clases concretas `Dolar` y `Euro`.
+
+| Cosas por hacer  |
+|------------------|
+| 5 USD + 10 EUR = 10 USD si el cambio es 2:1 |
+| Usar punto flotante - redondeo? |
+| hashCode() |
+| Equal null |
+| Equal object |
+| **Duplicación Dolar Euro** |
+| **multiplicadoPor duplicado** |
+| Denominación moneda? |
+| **Eliminar uso de las clases concretas** |
+
+### Refactorización para usar monedas en lugar de clases concretas ###
+
+Empezamos por el código de `multiplicaPor` de ambas clases, haciendo
+que devuelvan una `Moneda`:
+
+
+```java
+public class Dolar extends Moneda {
+   ...
+    public Moneda multiplicadoPor(int multiplicador) {
+        return Moneda.dolar(cantidad * multiplicador);
+    }
+}
+
+public class Euro extends Moneda {
+    ...
+    public Moneda multiplicadoPor(int multiplicador) {
+        return Moneda.euro(cantidad * multiplicador);
+    }
+}
+```
+
+Los tests siguen pasando.
+
+Pero queremos eliminar el uso de las clase `Dolar` y `Euro` en los
+tests `testsMultiplicacionEuro` y `testsMultiplicacion`. 
+
+Empezamos por el `testsMultiplicacion`, cambiando el objeto `cinco`
+para que sea de tipo `Moneda`:
 
 ```java
     @Test
@@ -1070,8 +1138,8 @@ abstract public class Moneda {
 
 Los tests pasan, por lo que no hemos roto nada.
 
-Refactorizamos ahora el test `testMultiplicacionEuro` para que trabaje
-con la factoría, ahora con un método que devuelve euros:
+Hacemos lo mismo en el test `testMultiplicacionEuro`, para que la
+variable `cinco` sea también de tipo Moneda:
 
 ```java
     @Test
@@ -1082,43 +1150,23 @@ con la factoría, ahora con un método que devuelve euros:
     }
 ```
 
-Y añadimos el método estático en el código de `Moneda` para devolver euros:
+Los tests pasan.
+
+Y cambiamos el método factoría `euro()` para que devuelva una
+`Moneda`:
 
 ```java
-abstract public class Moneda {
-    ...
-    static Moneda euro(int cantidad) {
+    public static Moneda euro(int cantidad) {
         return new Euro(cantidad);
     }
-    ...
 ```
-
-Y, por último, refactorizamos el resto de tests para que usen también la factoría:
-
-```java
-
-    @Test
-    public void testCrearMoneda() {
-        assertEquals(Moneda.dolar(5), Moneda.dolar(5));
-    }
-
-    @Test
-    public void testIgualdad() {
-        assertTrue(Moneda.dolar(5).equals(Moneda.dolar(5)));
-        assertFalse(Moneda.dolar(5).equals(Moneda.dolar(6)));
-        assertTrue(Moneda.euro(5).equals(Moneda.euro(5)));
-        assertFalse(Moneda.euro(5).equals(Moneda.euro(6)));
-        assertFalse(Moneda.euro(5).equals(Moneda.dolar(5)));
-    }
-```
-
 
 ### Pensamos ###
 
 Seguimos intentando eliminar la duplicación de los dos
-multiplicadores. Pero por ahora no es posible hacerlo con un paso
-sencillo. Nos decidimos entonces atacar el objetivo de la denominación
-de la moneda.
+multiplicadores. El código es ya muy parecido, pero por ahora no es
+posible hacerlo con un paso sencillo. Nos decidimos entonces atacar el
+objetivo de la denominación de la moneda.
 
 
 | Cosas por hacer  |
@@ -1229,9 +1277,7 @@ podemos refactorizarlos y hacerlos idénticos, haciendo que la
 denominación se pase como parámetro del constructor. 
 
 Tenemos que refactorizar también la creación en los métodos de
-factoría para que se pasen los identificadores correctos y
-refactorizar en el método `multiplicadoPor` la construcción del objeto
-valor resultante para que llame al método de factoría:
+factoría para que se pasen los identificadores correctos.
 
 
 ```java
@@ -1241,10 +1287,6 @@ public class Euro extends Moneda {
         this.cantidad = cantidad;
         this.denominacion = denominacion;
     }
-
-    public Moneda multiplicadoPor(int multiplicador) {
-        return Moneda.euro(cantidad * multiplicador);
-    }
 }
 
 
@@ -1253,10 +1295,6 @@ public class Dolar extends Moneda {
     public Dolar(int cantidad, String denominacion) {
         this.cantidad = cantidad;
         this.denominacion = denominacion;
-    }
-
-    public Moneda multiplicadoPor(int multiplicador) {
-        return Moneda.dolar(cantidad * multiplicador);
     }
 }
 
@@ -1425,20 +1463,6 @@ usa. Cambiamos también las variables de instancia de `Moneda` a
 
 Las borramos, lanzamos los tests y vemos que todos pasan.
 
-Por último, hay que cambiar el test de igualdad. Podemos simplificar
-los tests de igualdad y dejarlos sólo en esto:
-
-
-```java
-   @Test
-    public void testIgualdad() {
-        assertTrue(Moneda.dolar(5).equals(Moneda.dolar(5)));
-        assertFalse(Moneda.dolar(5).equals(Moneda.dolar(6)));
-        assertFalse(Moneda.euro(5).equals(Moneda.dolar(5)));
-    }
-```
-
-
 Y con esto hemos terminado la unificación de `Dolar` y `Euro`.
 
 | Cosas por hacer  |
@@ -1519,6 +1543,8 @@ public class TestMonedas {
     public void testIgualdad() {
         assertTrue(Moneda.dolar(5).equals(Moneda.dolar(5)));
         assertFalse(Moneda.dolar(5).equals(Moneda.dolar(6)));
+        assertTrue(Moneda.euro(5).equals(Moneda.euro(5)));
+        assertFalse(Moneda.euro(5).equals(Moneda.euro(6)));
         assertFalse(Moneda.euro(5).equals(Moneda.dolar(5)));
     }
 
