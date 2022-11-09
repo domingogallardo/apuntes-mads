@@ -908,9 +908,9 @@ rama que están desarrollando se llama `vista-equipos`.
    a ella:
    
     ```text
-    (Alberto) $ git fetch
+    (Alberto) $ git pull
     (Alberto) $ git checkout vista-equipos
-    (Ana) $ git fetch
+    (Ana) $ git pull
     (Ana) $ git checkout vista-equipos
     ```
 
