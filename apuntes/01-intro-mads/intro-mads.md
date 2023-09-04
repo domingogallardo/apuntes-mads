@@ -16,7 +16,7 @@ Software**.
 - **Créditos ECTS**: 6 créditos ECTS, que se corresponden con 15
   semanas de trabajo y 10 horas por semana, incluyendo clases y
   trabajo en casa (150 horas de dedicación en total).
-- [**Ficha UA** de la asignatura](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wcodest=C203&wcodasi=34037&wlengua=es&scaca=2022-23).
+- [**Ficha UA** de la asignatura](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wcodest=C203&wcodasi=34037&wlengua=es&scaca=2023-24).
 
 El profesor de la asignatura es [Domingo
 Gallardo](https://cvnet.cpd.ua.es/curriculum-breve/es/gallardo-lopez-domingo/9075). Puedes consultarle
@@ -39,7 +39,7 @@ navegar por secciones.
 
 Utilizaremos Moodle como plataforma docente. Puedes encontrar la
 página de la asignatura en [este
-enlace](https://moodle2022-23.ua.es/moodle/course/view.php?id=66). Publicaremos
+enlace](https://moodle2023-24.ua.es/moodle/course/view.php?id=1982)
 semana a semana los enlaces a los materiales en GitHub. También se
 realizarán en la plataforma las entregas finales de las prácticas (que
 se deberán ir subiendo también a GitHub). Y utilizaremos el foro para
@@ -61,28 +61,6 @@ introducido en los últimos años:
 - Mayor importancia a las metodología XP y Kanban y menos tiempo dedicado a
   Scrum, debido a que ya lo habéis visto en otras asignaturas de la
   titulación.
-
-Al final del curso se pasa una encuesta y vuestras observaciones
-sirven para mejorar la asignatura.
-
-Por ejemplo:
-
-> "Es confuso usar 3 tableros distintos (GitHub, Trello, Wiki)"
-
-Como respuesta hemos pasado a usar dos únicos tableros, el de
-GitHub y el de Trello, y a diferenciar claramente su uso.
-
-> "Algunos temas de teoría se han hecho algo pesados"
-
-Este curso vamos a intentar reducir la duración de las explicaciones
-de teoría, intercalando explicaciones y actividades más prácticas.
-
-> "La gestión de configuraciones es demasiado complicada"
-
-Este curso vamos a simplificar las pruebas y el despliegue de la
-aplicación desarrollada en prácticas usando las **Actions** de GitHub,
-en lugar de Travis. De esta forma se podrá realizar todo el proceso en
-una única plataforma.
 
 ### Mejora continua y _Kaizen_ ###
 
@@ -188,7 +166,7 @@ número de sesión corresponde al orden en el que se van a ver en la asignatura)
    (3 semanas, sesiones 1, 2, 3 y 4)
 2. XP (eXtreme Programming) (4 semanas, sesiones 5, 6, 7, 8 y 9)
 3. Metodologías lean y Kanban (2 semanas, sesiones 11 y 12)
-4. Integración y entrega continua (3 semanas, sesiones 10, 13 y 14)
+4. Integración y entrega continua (2 semanas, sesiones 10 y 13)
 
 La evaluación de los contenidos de teoría se hará de forma continua,
 mediante **2 exámenes de tipo test** que ponderarán un 15% cada uno y
@@ -221,13 +199,14 @@ Se realizarán cinco prácticas a lo largo de la asignatura. Las tres
 primeras serán **individuales** y las otras dos serán en **equipo de 3
 personas**. 
 
-Las 5 prácticas y su ponderación en la nota final de prácticas son las siguientes:
+Las 5 prácticas y su ponderación en la nota final de prácticas (4 puntos) son
+las siguientes: 
 
-1. (10%) (Individual) Introducción a Spring Boot.
-2. (25%) (Individual) Versión inicial de la aplicación ToDoList.
-3. (25%) (Individual) Integración continua y TDD en Spring Boot.
-4. (15%) (Equipo) Integración continua con GitFlow y despliegue. 
-5. (25%) (Equipo) Desarrollo de una iteración usando integración
+1. (10%, 0,4 puntos en la nota final de la asignatura) (Individual) Introducción a Spring Boot.
+2. (25%, 1 punto) (Individual) Versión inicial de la aplicación ToDoList.
+3. (25%, 1 punto) (Individual) Integración continua y TDD en Spring Boot.
+4. (15%, 0,6 puntos) (Equipo) Integración continua con GitFlow y despliegue. 
+5. (25%, 1 punto) (Equipo) Desarrollo de una iteración usando integración
    continua, Kanban y prácticas ágiles. 
 
 ### Examen de prácticas (20%) ###
@@ -238,12 +217,14 @@ metodologías utilizadas en las prácticas. Tendrá una ponderación de un
 
 ### Exámenes ###
 
-Las fechas de los exámenes serán las siguientes:
+Las fechas de los exámenes y su ponderación en la nota final de la asignatura
+serán las siguientes: 
 
-- Examen 1 de teoría (15%): miércoles 16 de noviembre a las 11:00 sobre las sesiones 1 a 8.
-- Examen 2 de teoría (15%): En enero, en la fecha y hora en la que se
-  realice el examen final de la asignatura, sobre las sesiones 9 a 14.
-- Examen de prácticas (20%): miércoles 2 de noviembre, en las horas de
+- Examen 1 de teoría (15%, 1,5 puntos en la nota final de la asignatura):
+  miércoles 8 de noviembre a las 11:00 sobre las sesiones 1 a 8. 
+- Examen 2 de teoría (15%, 1,5 puntos): En enero, en la fecha y hora en la que
+  se realice el examen final de la asignatura, sobre las sesiones 9 a 13. 
+- Examen de prácticas (20%, 2 puntos): miércoles 25 de octubre, en las horas de
   prácticas.
 
 Los exámenes de teoría serán de preguntas de tipo test. En el examen
@@ -452,6 +433,14 @@ contenedor que podrá ser desplegado y ejecutado en cualquier lugar.
   practicando las metodologías vistas en la asignatura. Mejoraremos
   también el tablero de GitHub para acercarlo más a un tablero de
   Kanban.
+
+## Uso de herramientas y asistentes de IA ##
+
+Os animamos a que uséis herramientas y asistentes de IA como Copilot o ChatGPT en
+el desarrollo de las prácticas, pero siempre con el objetivo de entender mejor y
+aprender los conceptos necesarios.
+
+En el examen de prácticas no se permitirá su uso.
 
 ## Bibliografía ##
 
