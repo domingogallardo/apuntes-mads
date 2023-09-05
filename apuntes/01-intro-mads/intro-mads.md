@@ -434,13 +434,53 @@ contenedor que podrá ser desplegado y ejecutado en cualquier lugar.
   también el tablero de GitHub para acercarlo más a un tablero de
   Kanban.
 
-## Uso de herramientas y asistentes de IA ##
+## El desarrollo de software y la IA ##
 
-Os animamos a que uséis herramientas y asistentes de IA como Copilot o ChatGPT en
-el desarrollo de las prácticas, pero siempre con el objetivo de entender mejor y
-aprender los conceptos necesarios.
+El trabajo del desarrollador/a está siendo uno de los más impactados por la
+aparición de las nuevas herramientas y asistentes de IA, como Copilot o
+ChatGPT. Su uso se ha popularizado entre los profesionales como una forma de
+mejorar la productividad y minimizar las tareas aburridas y repetitivas,
+llevando a un descenso pronunciado de las consultas a sitios como
+_Stackoverflow_ o el mismo Google.
 
-En el examen de prácticas no se permitirá su uso.
+Los modelos más avanzados como GPT-4 son incluso capaces de interpretar
+descripciones en lenguaje natural y generar el código necesario en el lenguaje
+de programación requerido.
+
+Es previsible que con la aparición de modelos más potentes el impacto sea mucho
+mayor que en la actualidad, cambiando radicalmente el trabajo del desarrollo de
+software. Esto ya ha pasado alguna vez en la historia de la programación, por
+ejemplo cuando en los años 50 la introducción de lenguajes como Fortran, Lisp o
+Algol permitió expresar los programas usando un nivel de abstracción mucho mayor
+que el existente entonces del código ensamblador. Pero nunca hasta ahora ninguna
+tecnología había permitido generar, modificar y razonar sobre estos programas
+usando un agente que recibe instrucciones en lenguaje natural.
+
+Estamos en un momento crucial de la historia de la programación y en una
+asignatura como la nuestra, en la que se habla de cómo mejorar el desarrollo de
+software, estamos obligados a reflexionar sobre ello. Por ello, en cada tema
+plantearemos un debate en el que discutiremos sobre el impacto de la IA en los
+aspectos concretos mencionados en el mismo.
+
+Para comenzar, durante esta semana debéis leer el provocativo artículo de Henrik
+Kniberg: [Are Developers Needed in the Age of
+AI?](https://hups.com/blog/are-developers-needed-in-the-age-of-ai). Lo
+debatiremos en clase la semana que viene.
+
+### Uso de herramientas y asistentes de IA en las prácticas de la asignatura ###
+
+De la misma forma que es importan conocer todas las opciones y ayudas que nos
+proporcionan los IDEs modernos como IntelliJ o Studio Code, es también
+fundamental conocer las herramientas y asistentes de IA. 
+
+Os animo a que uséis estas herramientas como Copilot o ChatGPT en el desarrollo
+de las prácticas. La mejor forma de conocer su utilidad y sus limitaciones es
+usándolas. Y también pueden ser de mucha utilidad para aprender y resolver dudas
+sobre los conceptos, lenguajes y frameworks usados en la asignatura.
+
+Eso sí, no debéis olvidar que el objetivo final de la asignatura es aprender
+estos conceptos y que deberéis demostrarlo en unos exámenes en los que no se
+permitirá el uso de estas herramientas.
 
 ## Bibliografía ##
 
