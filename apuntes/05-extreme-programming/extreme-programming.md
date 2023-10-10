@@ -777,7 +777,7 @@ codificarlos utilizando el siguiente ciclo:
    que se nos ocurran como pequeños pasos que hay que implementar. Se
    escoge el paso más básico, el inicial que sirve de base para todo
    lo demás.
-2. Se escribe un único en el que se especifica lo que debe
+2. Se escribe un único test en el que se especifica lo que debe
    realizar el código para implementar el pequeño incremento de
    funcionalidad. Qué se le pasa cómo parámetro y qué debe devolver,
    un ejemplo de lo que el código debe hacer en forma de test. Se
@@ -976,12 +976,13 @@ deberíamos lanzar los correspondientes al módulo que se ha
 modificado.
 
 Se debe automatizar todo el proceso de compilación y construcción. Es
-fundamental basar todo el proceso en herramientas como Maven, Gradle,
-etc. que permiten automatizarlo y configurarlo mediante
-scripts. Aunque podemos usar IDEs para el desarrollo y la compilación
-en el entorno del desarrollador, es básico configurar correctamente la
-automatización de la construcción de forma que podamos lanzarla
-también en el propio entorno de desarrollo.
+fundamental basar todo el proceso en herramientas como Maven, Gradle, etc., que
+permiten automatizarlo y configurarlo mediante scripts. Además de usar IDEs para
+el desarrollo y la compilación en el entorno del desarrollador, es esencial
+configurar la automatización de la construcción de forma que pueda ser ejecutada
+de manera coherente tanto en entornos de integración continua como en el entorno
+local del desarrollador, asegurando así una mayor fiabilidad y consistencia en
+todo el ciclo de desarrollo. 
 
 Cuando hablemos de _continuous delivery_ comentaremos también la
 necesidad de basar en scripts también el proceso de despliegue de la
@@ -993,11 +994,20 @@ continua.
 
 #### Práctica: Continuos Integration ####
 
-No se debe dejar pasar más de dos horas sin integrar los cambios que hemos
-programado en el sistema completo.
+La integración continua es una práctica que implica la combinación regular de
+las piezas de trabajo individual de los miembros del equipo en un sistema
+común. Este sistema común pasa luego por una serie de pruebas automatizadas para
+descubrir errores y discrepancias lo antes posible. La integración abarca la
+compilación del código, la ejecución de pruebas unitarias y de integración, y
+puede incluso incluir etapas como la generación de documentación y la
+preparación para el despliegue. El objetivo es asegurar que el código nuevo
+funcione bien con el código existente y que el sistema en su conjunto esté en un
+estado saludable.
 
-Es necesario realizar esta integración continuamente, porque en muchas
-ocasiones el proceso de integración puede costar más que el propio
+En la práctica de **integración contínua** no se debe dejar pasar más de dos
+horas sin integrar los cambios que hemos programado en el sistema completo. Es
+necesario realizar esta integración continuamente para evitar lo que sucede en
+muchas ocasiones de que el proceso de integración puede costar más que el propio
 proceso de desarrollo.
 
 Existe dos posibles formas de realizar una integración continua:
