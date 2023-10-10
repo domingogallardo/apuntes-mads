@@ -289,14 +289,21 @@ monedas:
 | Acciones | Cantidad | Precio     | Total       |
 |----------|----------|------------|-------------|
 | IBM      |  1000    |  25 USD    |  25.000 USD |
-| Acerinox |   400    |  150 EUR   |  60.000 EUR |
-|          |          |  **Total** |  65.000 USD |
+| Acerinox |   400    |  120 EUR   |  48.000 EUR |
 
-Necesitamos definir los cambios:
 
-|  De |   A   | Cambio |
-|-----|-------|--------|
-| EUR | USD   |  1,5   |
+Necesitamos definir el cambio entre dólares y euros
+
+|-----------------|
+| 1 USD = 1,5 EUR |
+
+Y podremos hacer la conversión en una determinada moneda:
+
+| Acciones | Cantidad | Precio     | Total       |  Total en USD |
+|----------|----------|------------|-------------|---------------
+| IBM      |  1000    |  25 USD    |  25.000 USD | 25.000 USD
+| Acerinox |   400    |  120 EUR   |  48.000 EUR | 32.000 USD
+|          |          |            |  **Total**  | 56.000 USD
 
 Queremos diseñar un conjunto de clases que permitan gestionar
 una cartera de valores con múltiples monedas usando TDD.
