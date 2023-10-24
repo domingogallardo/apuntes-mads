@@ -12,40 +12,60 @@ porque todo el mundo querrá más cosas. El cambio es inevitable,
 omnipresente, constante. El único momento en el que una aplicación no
 cambia es cuando ha sido un fracaso y nadie la utiliza. 
 
-### Dependencias ###
+### Reducir el acoplamiento###
 
 Si nuestra aplicación está mal diseñada será muy difícil de
-modificar. La razón principal son las dependencias. Muchas de las
+modificar. La razón principal es el excesivo acoplamiento. Muchas de las
 técnicas, patrones, etc. de diseño de software tiene por objeto
 reducir las dependencias en nuestro diseño, minimizando el
 acoplamiento en nuestra aplicación.
 
-Cuando un objeto `Foo` necesita de otro objeto `Bar` para realizar su
-trabajo, decimos que `Bar` es una dependencia de `Foo` o que `Foo`
-depende de `Bar`. Por ejemplo, en el siguiente listado `Foo` depende
-de `Logger`:
+Un ejemplo de un acoplamiento que implica un mal diseño es el siguiente código:
 
 ```java
-import java.util.logging.Level;
-import java.util.logging.Logger;
+// Clase Database que maneja operaciones de base de datos
+public class Database {
+    public void connect() {
+        System.out.println("Conectado a la base de datos");
+    }
 
-public class Foo {
-    public void method() {
-        Logger logger = new Logger();
-        logger.log(Level.WARNING, "Log message");
+    public void executeQuery(String query) {
+        System.out.println("Ejecutando consulta: " + query);
+    }
+}
+
+// Clase User que está altamente acoplada con Database
+public class User {
+    Database db;
+
+    public User() {
+        db = new Database();  // Alto acoplamiento aquí
+        db.connect();
+    }
+
+    public void saveUser(String username) {
+        db.executeQuery("INSERT INTO users VALUES ('" + username + "')");
+    }
+}
+
+// Clase principal para probar el código
+public class Main {
+    public static void main(String[] args) {
+        User user = new User();
+        user.saveUser("JohnDoe");
     }
 }
 ```
 
-Las dependencias también crean problemas a la hora de testear el
-código. Por ejemplo, en el caso anterior para testear el método de
-`Foo` necesitaremos que `Logger` también esté funcionando. En este
-caso no hay problema (`Logger` es una clase Java que se incluye en la
-librería `java.util.logging.Logger` y siempre está disponible), pero
-podría ser que la dependencia fuera con un servicio externo al que
-hubiera que conectarse en un puerto específico y para una tarea
-específica (un servidor de mail, por ejemplo). En este caso no sería
-posible probar `Foo`.
+Aquí, User está altamente acoplado con Database. Este acoplamiento se evidencia en varios puntos:
+
+- La clase `User` crea una nueva instancia de `Database`, lo que hace que esté
+acoplada directamente con esa implementación específica de `Database`. 
+- La clase `User` llama directamente a los métodos de `Database`, lo que
+significa que cualquier cambio en la API de `Database` requerirá cambios en `User`. 
+
+Este diseño hace que sea difícil probar la clase `User` de manera aislada o
+reemplazar `Database` con otra implementación sin modificar `User`. 
 
 Cuando tenemos elementos demasiado acoplados, los cambios nunca se
 pueden hacer sólo en una parte del código. El cambio en un objeto
