@@ -12,7 +12,7 @@ porque todo el mundo querrá más cosas. El cambio es inevitable,
 omnipresente, constante. El único momento en el que una aplicación no
 cambia es cuando ha sido un fracaso y nadie la utiliza. 
 
-### Reducir el acoplamiento###
+### Reducir el acoplamiento ###
 
 Si nuestra aplicación está mal diseñada será muy difícil de
 modificar. La razón principal es el excesivo acoplamiento. Muchas de las
