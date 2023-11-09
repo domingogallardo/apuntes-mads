@@ -1,6 +1,4 @@
 
-
-
 # Flujos de trabajo Git #
 
 En este tema vamos a hacer un breve repaso de los conceptos fundamentales de
@@ -1135,7 +1133,7 @@ Se definen distintas ramas de corta duración:
   versión. 
 - Ramas de _hotfix_, en las que se corrigen bugs de versiones ya lanzadas.
 
-**Ramas de feature**
+#### Ramas de feature ####
 
 <img src="imagenes/git-flow2.png" width="300px" align="right"/>
 
@@ -1157,7 +1155,7 @@ todavía la idea de los pull requests, por lo que él sólo habla de
 hacer merges. Nosotros en la práctica utilizaremos el pull request
 como forma de añadir la funcionalidad a la rama principal de desarrollo.
 
-**Ramas de release**
+#### Ramas de release ####
 
 <img src="imagenes/git-flow3.png" width="400px" align="right"/>
 
@@ -1222,7 +1220,7 @@ $ git branch -d release-1.2
 Todos los merges anteriores (o los que contengan código importante que
 deba ser revisado) pueden hacerse mediante pull requests.
 
-**Ramas de hotfix**
+#### Ramas de hotfix ####
 
 <img src="imagenes/git-flow4.png" width="300px" align="right"/>
 
@@ -1266,18 +1264,32 @@ opciones y ramas que hemos explicado:
 
 <img src="imagenes/git-flow5.png" width="600px"/>
 
-Hay que hacer notar que GitFlow sólo permite corregir los bugs de la
-release más reciente. En la figura, por ejemplo, no podríamos corregir
-algún bug que encontráramos en la versión `0.2` siguiendo
-estrictamente las indicaciones del flujo. En el flujo se dice que para
-corregir un bug debemos ir a `master` y corregirlo allí. Entonces
-estaríamos corrigiendo un bug detectado en la `0.2`en la versión más
-reciente `1.1`. Si alguien quiere arreglar ese bug debería descargarse
-la versión más reciente y no podría continuar con la versión `0.2`.
+#### Solución de bugs en versiones antiguas ####
 
-Para solucionar este problema podríamos arreglar el bug en una rama
-nueva que abrimos a partir del commit `0.2`, pero entonces ya
-estaríamos utilizando otro flujo de trabajo (el de ramas de versiones).
+El flujo de trabajo Git-flow no aborda de forma explícita la gestión de bugs en
+versiones antiguas, pero el proceso generalmente aceptado es el siguiente:
+
+1. **Crear una rama de mantenimiento a partir de la etiqueta de la versión
+afectada**: Si encuentras un bug en la versión 1.0, deberías buscar la etiqueta
+que corresponde a la versión 1.0 en la rama `main`. Desde esa etiqueta, creas
+una nueva rama de mantenimiento, por ejemplo, `maintenance/1.0.x` o `hotfix/1.0.x`. 
+
+2. **Corregir el bug en esa rama de mantenimiento.**
+
+3. **Fusionar la corrección en la rama de mantenimiento y etiquetar una nueva
+sub-versión**: Una vez que la corrección está probada y confirmada, puedes hacer
+merge de esos cambios en la rama de mantenimiento y crear una nueva etiqueta,
+por ejemplo, 1.0.1. Esto sirve para liberar una versión menor que incluye el
+arreglo para el bug. 
+
+4. **Propagar la corrección a versiones más recientes**: Necesitas asegurarte de que
+ese bug no afecte también a versiones más recientes del software. Por lo tanto,
+deberías fusionar la corrección hacia adelante en las ramas donde el bug también
+exista. Esto puede implicar fusionar la rama de mantenimiento en develop y luego
+en la rama de la versión actual si es necesario, o directamente en las ramas de
+mantenimiento de otras versiones afectadas. 
+
+#### Recomendación final ####
 
 Tal y como dice Driessen, lo que tenemos que hacer es conocer bien las
 distintas técnicas y posibilidades y configurar un flujo de trabajo
